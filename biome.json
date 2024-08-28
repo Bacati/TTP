@@ -1,0 +1,81 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "master"
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noBannedTypes": "warn",
+				"noExcessiveCognitiveComplexity": {
+					"level": "warn",
+					"options": {
+						"maxAllowedComplexity": 20
+					}
+				},
+				"noStaticOnlyClass": "warn",
+				"noUselessTypeConstraint": "warn",
+				"noVoid": "error",
+				"useSimplifiedLogicExpression": "warn"
+			},
+			"performance": {
+				"noBarrelFile": "error",
+				"noReExportAll": "warn"
+			},
+			"style": {
+				"noNonNullAssertion": "warn",
+				"noParameterAssign": "warn",
+				"useCollapsedElseIf": "warn",
+				"useConsistentArrayType": {
+					"level": "error",
+					"options": {
+						"syntax": "generic"
+					}
+				},
+				"useEnumInitializers": "off",
+				"useFilenamingConvention": {
+					"level": "error",
+					"options": {
+						"strictCase": true,
+						"requireAscii": true,
+						"filenameCases": ["camelCase", "export"]
+					}
+				},
+				"useForOf": "error",
+				"useNamingConvention": {
+					"level": "error",
+					"options": {
+						"enumMemberCase": "CONSTANT_CASE",
+						"strictCase": false,
+						"requireAscii": true
+					}
+				},
+				"useNodeAssertStrict": "warn",
+				"useNumberNamespace": "warn",
+				"useSingleCaseStatement": "warn"
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"javascript": {
+		"globals": ["Astro"],
+		"formatter": {
+			"semicolons": "asNeeded",
+			"quoteStyle": "single",
+			"trailingComma": "none",
+			"lineWidth": 200,
+			"bracketSameLine": true
+		}
+	}
+}
