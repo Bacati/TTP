@@ -16,15 +16,7 @@ export interface Props extends BaseProps {
 <Base {...Astro.props}>
 	<slot slot="head" name="head" />
 	<Header />
-	<div class:list={{'pt-24': !Astro.props.hasHero}}>
 		<slot />
 	</div>
-	<Footer links={[
-		{href: 'https://www.avior.me', display: 'About'}
-	]} socials={[
-		{href: 'https://linkedin.com', icon: Linkedin},
-		{href: 'mailto:contact@example.com', target: '', icon: Mail},
-		{href: 'tel:+33601020304', target: '', icon: Phone},
-		{href: 'https://github.com/dzeiocom', icon: Github},
-	]} />
-</Base>
+	<Footer />
+	</Base>

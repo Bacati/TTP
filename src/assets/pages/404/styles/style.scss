@@ -1,0 +1,20 @@
+.text{
+    height: 820px;
+}
+.imagetete{
+    background: linear-gradient(90deg,rgba(0, 0, 0, 1) -15%, rgba(92, 92, 91, 0) 100%), /* Dégradé */
+    url('/src/assets/images/bg.svg') center/cover no-repeat; /* Image de fond */
+}
+body{
+    background: #f5f5f5;
+}
+.cards{
+    background: linear-gradient(90deg, rgba(255,219,102,1) 0%, rgba(204,112,19,1) 100%);
+}
+.card:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+nav a:hover {
+    color: gray;
+}

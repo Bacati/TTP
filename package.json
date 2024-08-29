@@ -23,6 +23,7 @@
 		"@dzeio/url-manager": "^1",
 		"astro": "^4",
 		"lucide-astro": "^0",
+		"sass": "^1.77.8",
 		"sharp": "^0",
 		"simple-icons-astro": "^13.0.0",
 		"tailwindcss": "^3"
