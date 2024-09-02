@@ -1,4 +1,6 @@
 ---
+import { Facebook, House } from 'lucide-astro'
+
 const year = new Date().getFullYear()
 
 export interface Props {
@@ -7,20 +9,13 @@ export interface Props {
 }
 ---
 
-<footer class="w-full flex flex-col bg-white dark:bg-gray-900 mt-32 py-16 px-1 gap-8">
-	{Astro.props.links && (
-		<div class="w-full flex justify-center gap-6">
-			{Astro.props.links.map((it) => (
-				<a href={it.href} target={it.target ?? "_blank noreferrer nofollow"}>{it.display}</a>
-			))}
-		</div>
-	)}
-	{Astro.props.socials && (
-		<div class="flex flex-row w-full justify-center gap-6">
-			{Astro.props.socials.map((it) => (
-				<a href={it.href} target={it.target ?? "_blank noreferrer nofollow"}><it.icon /></a>
-			))}
-		</div>
-	)}
-	<p class="font-light text-center">© {year}&nbsp;<a href="https://www.dzeio.com">TTP</a>. Tout droits réservé.</p>
+<footer class="w-full flex flex-col justify-center items-center py-16">
+	<div class="bg-white w-10/12 h-1 rounded-3xl"></div>
+	<div class="w-11/12 flex justify-between gap-8 text-white items-center py-8 pr-0">
+		<img src="/src/assets/images/logo.svg">
+		<p class="flex gap-3"><House />3 Rue fellaunneau,<br> 44000 Nantes</p>
+		<p>Mentiens légales</p>
+		<div class="gap-3 flex"><Facebook /><Facebook /><Facebook /></div>
+	</div>
+	<p class="font-light text-center text-white mt-4">© {year}&nbsp;<a href="https://www.dzeio.com">TTP</a>. Tout droits réservé.</p>
 </footer>
