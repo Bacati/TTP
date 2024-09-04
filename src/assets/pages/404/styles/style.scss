@@ -32,7 +32,6 @@ footer{
     url('/src/assets/images/bg.svg') bottom/cover no-repeat;
 }
 
-
 $animationSpeed: 40s;
 
 @keyframes scroll {
@@ -70,71 +69,3 @@ $animationSpeed: 40s;
 	}
 
 }
-
-
-@keyframes bugfix { from {padding:0;} to {padding:0;}}
-@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;}}
-
-#overlay-button {
-  span {
-      transition: all .2s ease-in-out;
-      &:before {
-        top: -10px;
-        visibility: visible;
-      }
-      &:after {
-        top: 10px;
-      }
-      &:before, &:after {
-          height: 4px;
-          width: 35px;
-          border-radius: 2px;
-          background-color: black;
-          position: absolute;
-          content: "";
-          transition: all .2s ease-in-out;
-      }
-    }
-    &:hover span, &:hover span:before, &:hover span:after {
-      background: #333332;
-    }
-}
-
-input[type=checkbox] {
-  display: none;
-
-  &:checked ~ #overlay {
-    visibility: visible;
-  }
-
-  &:checked ~ #overlay-button {
-    &:hover span, span{
-      background: transparent;
-    }
-    span {
-      &:before {
-        transform: rotate(45deg) translate(7px, 7px);
-        opacity: 1;
-      }
-      &:after {
-        transform: rotate(-45deg) translate(7px, -7px);
-      }
-    }
-  }
-}
-
-#overlay {
-  height: 200vh;
-  z-index: 2;
-  &.active {
-    visibility: visible;
-  }
-  ul {
-    height: 250vh;
-    li {
-		a:hover {
-          color: #333332;
-        }
-      }
-    }
-  }
