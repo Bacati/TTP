@@ -44,14 +44,14 @@ $animationSpeed: 40s;
 	overflow:hidden;
 	position: relative;
     height: 29rem;
-	
+
 	&::before,
 	&::after {
 		position: absolute;
 		width: 200px;
 		z-index: 2;
 	}
-	
+
 	&::after {
 		right: 0;
 		top: 0;
@@ -62,11 +62,42 @@ $animationSpeed: 40s;
 		left: 0;
 		top: 0;
 	}
-	
+
 	.slide-track {
 		animation: scroll $animationSpeed linear infinite;
 		display: flex;
 		width: calc(250px * 14);
 	}
-	
+
+}
+.panneau{
+	animation: fadein 1s;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+	opacity: 1;
+	}
+}
+input.team-switch {
+	~ div .pouet-open {
+		display: initial;
+	}
+	~ div .pouet-closed {
+		display: none;
+	}
+	&:checked {
+		~ div .panneau {
+			display: flex;
+		}
+		~ div .pouet-open {
+			display: none;
+		}
+		~ div .pouet-closed {
+			display: block;
+		}
+	}
 }
