@@ -1,5 +1,5 @@
 ---
-import { House } from 'lucide-astro'
+import { House, Menu, X } from 'lucide-astro'
 
 
 export interface Props {
@@ -22,5 +22,16 @@ export interface Props {
 			<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600" href="/">Produit / Outillage</a>
 			<a class="rounded-full bg-amber-600 flex py-3 px-6 gap-3 text-white shadow-2xl acc" href="/">Accueil <House /></a>
 		</div>
+		<input type="checkbox" id="overlay-input"/>
+			<label for="overlay-input" id="overlay-button" class="absolute right-8 mt-12 z-10 cursor-pointer p-6">
+				<span class="h-1 w-9 rounded-sm bg-black relative block"></span>
+			</label>
+			<div id="overlay" class="fixed w-screen bg-white invisible">
+				<ul class="flex justify-center flex-col items-center text-center">
+				<li class="p-4"><a href="#">Home</a></li>
+				<li class="p-4"><a href="#">About</a></li>
+				<li class="p-4"><a href="#">Contact</a></li>
+				</ul>
+			</div>
 	</nav>
 </header>
