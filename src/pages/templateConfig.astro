@@ -4,20 +4,20 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro'
 ---
 
 <MainLayout title="Dzeio - Website Template">
-    <main class="config flex justify-center items-center">
-        <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6">
+    <main class="flex justify-center items-center">
+        <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6 flex-col mt-96 mb-28 lg:flex-row">
             <div class="flex items-center w-6/12 justify-between">
             <ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/>
                 <div class="w-3/5 flex items-center justify-center">
                     <div class="cards rounded-full flex items-center justify-center fondCyl">
-                        <div class="w-full">
-                            <img class="-ml-16" src="/src/assets/images/cylindre2fast.png">
+                        <div class="lg:w-full">
+                            <img class="lg:-ml-16" src="/src/assets/images/cylindre2fast.png">
                         </div>
                     </div>
                 </div>
             <ChevronRight class="w-20 h-20 z-10 cursor-pointer"/>
             </div>
-            <div class="ml-10 w-1/3">
+            <div class="p-4 lg:ml-10 lg:w-1/3">
                 <p class="font-bold text-4xl">Kit cylindre</p>
                 <p class="text-gray-400">Compétition</p>
                 <p>Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le
@@ -28,7 +28,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro'
                 </div>
                 <div class="w-full flex justify-center">
                     <details class="mt-4">
-                        <summary class="rounded-full bg-amber-600 w-fit p-2 px-8 text-white flex gap-4 text-xl hover:bg-slate-900 items-center">Voir le détail de la configuration<ChevronDown class="cheSum"/></summary>
+                        <summary class="rounded-full bg-amber-600 w-fit p-2 px-8 text-white flex gap-4 text-xl lg:hover:bg-slate-900 items-center">Voir le détail de la configuration<ChevronDown class="cheSum"/></summary>
                         <div class="contents">
                             <div class="bg-slate-200 mt-2 w-full h-1 rounded-3xl"></div>
                             <p>dsdsgd</p>
