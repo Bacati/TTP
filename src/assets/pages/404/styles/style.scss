@@ -79,5 +79,8 @@ $animationSpeed: 40s;
 }
 details[open] .cheSum{
 	transition: transform 0.3s ease;
-    transform: rotate(180deg); /* Rotation de la flèche lorsqu'elle est ouverte */
+    transform: rotate(180deg);
+}
+.config{
+	height: 85vh;
 }
