@@ -1,5 +1,6 @@
 ---
 import MainLayout from 'layouts/MainLayout.astro'
+import { ChevronDown } from 'lucide-astro'
 ---
 
 <MainLayout title="Dzeio - Website Template">
@@ -14,8 +15,25 @@ import MainLayout from 'layouts/MainLayout.astro'
             </div>
             <div class="ml-10 w-1/3">
                 <p class="font-bold text-4xl">Kit cylindre</p>
-                <p class="text-sm text-gray-400">Compétition</p>
+                <p class="text-gray-400">Compétition</p>
                 <p>Très bonne configurations, peu de couple mais enormément de régime très performant dans ca catégorie.</p>
+                <div class="flex items-center gap-4 mt-4">
+                    <p class="text-gray-400">Coût total :</p>
+                    <p class="font-bold text-4xl">2000€</p>
+                </div>
+                <div class="w-full flex justify-center">
+                    <details class="mt-4">
+                        <summary class="rounded-full bg-amber-600 w-fit p-2 px-8 text-white flex gap-4 text-xl hover:bg-slate-900 items-center">Voir le détail de la configuration<ChevronDown class="cheSum"/></summary>
+                        <div>
+                            <div class="bg-slate-200 mt-2 w-full h-1 rounded-3xl"></div>
+                            <p>dsdsgd</p>
+                            <p>dsdsgd</p>
+                            <p>dsdsgd</p>
+                            <p>dsdsgd</p>
+                            <p>dsdsgd</p>
+                        </div>
+                    </details>
+                </div>
             </div>
         </div>
     </main>

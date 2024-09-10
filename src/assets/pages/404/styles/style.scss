@@ -77,3 +77,7 @@ $animationSpeed: 40s;
 		max-width: 33rem;
 	}
 }
+details[open] .cheSum{
+	transition: transform 0.3s ease;
+    transform: rotate(180deg); /* Rotation de la flèche lorsqu'elle est ouverte */
+}
