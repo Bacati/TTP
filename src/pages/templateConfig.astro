@@ -5,13 +5,13 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro'
 
 <MainLayout title="Dzeio - Website Template">
     <main class="flex justify-center items-center">
-        <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6 flex-col mt-96 mb-28 lg:flex-row">
-            <div class="flex items-center w-6/12 justify-between">
+        <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6 flex-col mt-96 lg:mt-80 mb-28 items-center lg:flex-row">
+            <div class="flex items-center w-full lg:w-6/12 justify-between">
             <ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/>
-                <div class="w-3/5 flex items-center justify-center">
+                <div class="lg:w-3/5 flex items-center justify-center">
                     <div class="cards rounded-full flex items-center justify-center fondCyl">
-                        <div class="lg:w-full">
-                            <img class="lg:-ml-16" src="/src/assets/images/cylindre2fast.png">
+                        <div class="lg:w-screen">
+                            <img class="-ml-8 lg:-ml-16" src="/src/assets/images/cylindre2fast.png">
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro'
                 </div>
                 <div class="w-full flex justify-center">
                     <details class="mt-4">
-                        <summary class="rounded-full bg-amber-600 w-fit p-2 px-8 text-white flex gap-4 text-xl lg:hover:bg-slate-900 items-center">Voir le détail de la configuration<ChevronDown class="cheSum"/></summary>
+                        <summary class="rounded-full bg-amber-600 w-fit p-2 px-8 text-white flex gap-4 text-xl lg:hover:bg-slate-900 items-center">Voir le détail de la configuration<ChevronDown class="cheSum w-8"/></summary>
                         <div class="contents">
                             <div class="bg-slate-200 mt-2 w-full h-1 rounded-3xl"></div>
                             <p>dsdsgd</p>
