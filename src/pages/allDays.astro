@@ -1,9 +1,11 @@
 ---
 import MainLayout from 'layouts/MainLayout.astro'
+import { Coins, CreditCard, TrendingUp } from 'lucide-astro'
+import ProductCard from 'components/global/Cards.astro';
 ---
 
 <MainLayout title="Dzeio - Website Template" class="overflow-x-hidden">
-	<main class="h-screen pt-44">
+	<main class="pt-44">
         <div class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col">
             <div class="flex items-center gap-4 p-8">
                 <img src="/src/assets/images/bg.svg" class="w-2/5">
@@ -14,9 +16,32 @@ import MainLayout from 'layouts/MainLayout.astro'
             <div class="gradient w-full h-2 rounded-b-3xl -mt-0"></div>
         </div>
         <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 w-fit mx-auto">
-            <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex" href="/allDays">500€ à 700€</a>
-            <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="/">700€ à 1000€</a>
-            <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="/">1000€ à 1500€</a>
+            <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex" href="/allDays"><Coins /> 500€ à 700€</a>
+            <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="/"><TrendingUp /> 700€ à 1000€</a>
+            <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="/"><CreditCard /> 1000€ à 1500€</a>
+        </div>
+        <div class="flex justify-center my-8 gap-4">
+          <ProductCard
+            title="Kit cylindre 2Fast"
+            description="Grosse config"
+            price="200"
+            imageSrc="/src/assets/images/cylindre2fast.png"
+            lien="/"
+          />
+          <ProductCard
+            title="Kit cylindre 2Fast"
+            description="Grosse config"
+            price="400"
+            imageSrc="/src/assets/images/cylindre2fast.png"
+            lien="/"
+          />
+          <ProductCard
+            title="Kit cylindre 2Fast"
+            description="Grosse config"
+            price="2000"
+            imageSrc="/src/assets/images/cylindre2fast.png"
+            lien="/"
+          />
         </div>
 	</main>
 </MainLayout>

@@ -1,6 +1,7 @@
 ---
 import MainLayout from 'layouts/MainLayout.astro'
-import { Bike, Eye, Quote } from 'lucide-astro'
+import {Quote} from 'lucide-astro'
+import ProductCard from 'components/global/Cards.astro';
 ---
 
 <MainLayout title="Dzeio - Website Template" class="overflow-x-hidden">
@@ -22,150 +23,70 @@ import { Bike, Eye, Quote } from 'lucide-astro'
 		<div class="flex justify-center gap-3 mt-16 w-4/5 mx-auto">
 			<div class="slider flex items-center">
 				<div class="slide-track gap-4">
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
-					<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-2xl card slide">
-						<div class="flex justify-between items-center w-full">
-							<p class="font-bold text-3xl">Kit cylindre 2Fast</p>
-							<Bike />
-						</div>
-						<div class="w-full">
-							<p class="text-gray-400">Grosse config</p>
-						</div>
-						<div class="cards rounded-full w-60 h-60 flex items-center justify-center mt-6">
-							<img class="max-w-96" src="/src/assets/images/cylindre2fast.png" alt="">
-						</div>
-						<div class="flex justify-between items-center w-full mt-4">
-							<p class="font-bold text-3xl">2000€</p>
-							<Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white"/>
-						</div>
-					</div>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/src/assets/images/cylindre2fast.png"
+						lien="/"
+					/>
 				</div>
 			</div>
 		</div>
