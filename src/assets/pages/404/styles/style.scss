@@ -29,42 +29,27 @@ footer{
     url('/src/assets/images/bg.svg') bottom/cover no-repeat;
 }
 
-$animationSpeed: 40s;
+$animationSpeed: 30s;
 
 @keyframes scroll {
 	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
+	100% { transform: translateX(calc(-384px * 9)); } 
 }
 
 .slider {
-	overflow:hidden;
 	position: relative;
-    height: 29rem;
+    height: 30rem;
+	overflow: hidden;
+}
 
-	&::before,
-	&::after {
-		position: absolute;
-		width: 200px;
-		z-index: 2;
-	}
+.slide-track {
+	animation: scroll $animationSpeed linear infinite;
+	display: flex;
+	width: calc(384px * 18);
+}
 
-	&::after {
-		right: 0;
-		top: 0;
-		transform: rotateZ(180deg);
-	}
-
-	&::before {
-		left: 0;
-		top: 0;
-	}
-
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		display: flex;
-		width: calc(250px * 14);
-	}
-
+.slide-track .slide {
+	flex: 0 0 auto;
 }
 @media (min-width: 1024px) {
 	.fondCyl{
