@@ -1,27 +1,27 @@
 ---
 import MainLayout from 'layouts/MainLayout.astro'
-import { Coins, CreditCard, TrendingUp } from 'lucide-astro'
+import { Coins, CreditCard, MoveUp, TrendingUp } from 'lucide-astro'
 import ProductCard from 'components/global/Cards.astro';
 ---
 
 <MainLayout title="Dzeio - Website Template" class="overflow-x-hidden">
 	<main class="pt-44">
-        <div class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col">
-            <div class="flex items-center gap-4 p-8">
-                <img src="/src/assets/images/bg.svg" class="w-2/5">
+        <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
+            <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
+                <img src="/src/assets/images/bg.svg" class="w-full lg:w-2/5">
                 <p><strong>Optimisez votre conduite quotidienne avec nos configurations moteur alldays</strong><br>
                     Découvrez nos configurations moteur conçues pour améliorer les performances de votre véhicule, sans sacrifier la fiabilité. Nous offrons une gamme de prix pour répondre à divers budgets. Transformez votre conduite quotidienne dès aujourd'hui.
                 </p>
             </div>
             <div class="gradient w-full h-2 rounded-b-3xl -mt-0"></div>
         </div>
-        <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 w-fit mx-auto">
+        <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 w-fit mx-4 lg:mx-auto">
             <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex" href="#500"><Coins /> 500€ à 700€</a>
             <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#700"><TrendingUp /> 700€ à 1000€</a>
             <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#1000"><CreditCard /> 1000€ à 1500€</a>
         </div>
         <div id="500" class="pt-14">
-          <div class="flex justify-center my-8 gap-4">
+          <div class="flex justify-center my-8 gap-4 flex-col lg:flex-row">
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
@@ -44,55 +44,9 @@ import ProductCard from 'components/global/Cards.astro';
               lien="/"
             />
           </div>
-          <div class="flex justify-center my-8 gap-4">
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="200"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="400"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="2000"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-          </div>
         </div>
         <div id="700" class="pt-14">
-          <div class="flex justify-center my-8 gap-4">
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="200"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="400"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="2000"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-          </div>
-          <div class="flex justify-center my-8 gap-4">
+          <div class="flex justify-center my-8 gap-4 flex-col lg:flex-row">
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
@@ -117,30 +71,7 @@ import ProductCard from 'components/global/Cards.astro';
           </div>
         </div>
         <div id="1000" class="pt-14">
-          <div class="flex justify-center my-8 gap-4">
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="200"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="400"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="2000"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-          </div>
-          <div class="flex justify-center my-8 gap-4">
+          <div class="flex justify-center my-8 gap-4 flex-col lg:flex-row">
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
@@ -164,5 +95,6 @@ import ProductCard from 'components/global/Cards.astro';
             />
           </div>
         </div>
+		<a class="bg-amber-400 z-30 fixed right-14 h-12 p-4 -bottom-1 w-16 m-0 flex items-center" href="#top"><MoveUp class="h-10 w-10"/></a>
 	</main>
 </MainLayout>
