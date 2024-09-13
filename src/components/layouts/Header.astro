@@ -1,5 +1,7 @@
 ---
+import Picture from 'astro/components/Picture.astro'
 import {Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench} from 'lucide-astro'
+import logo from 'assets/images/logo.svg'
 
 
 export interface Props {
@@ -12,7 +14,7 @@ export interface Props {
 	<nav class="items-center">
 		<div class="hidden justify-between w-11/12 fixed lg:flex">
 			<a href="/">
-				<img src="src/assets/images/logo.svg">
+				<Picture src={logo} alt=""></Picture>
 			</a>
 			<div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex">
 				<a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex" href="/allDays"><Gauge />ALLDAYS</a>
@@ -26,7 +28,7 @@ export interface Props {
 		</div>
 		<div class="flex justify-between lg:hidden gap-6">
 			<a href="/">
-				<img src="src/assets/images/logo.svg">
+				<Picture src={logo} alt=""></Picture>
 			</a>
 			<div class="flex flex-col items-center bg-white rounded-full justify-center mobile">
 				<a class="mx-4 py-3 bg-amber-600 text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/"  title="Accueil"><House /></a>
