@@ -14,6 +14,40 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro'
                     </div>
                 </div>
             <ChevronRight class="w-20 h-20 z-10 cursor-pointer"/>
+            <div class="carousel-wrapper">
+                <span id="item-1"></span>
+                <span id="item-2"></span>
+                <span id="item-3"></span>
+                <span id="item-4"></span>
+                <span id="item-5"></span>
+                <div class="carousel-item item-1">
+                  <img src="https://www.publicdomainpictures.net/pictures/170000/velka/landschaft-1463581037RbE.jpg">
+                        <a href="#item-5"><ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                        <a href="#item-2"><ChevronRight class="w-20 h-20 z-10 cursor-pointer"/></a>
+                </div>
+            
+                <div class="carousel-item item-2">
+                    <img src="https://images7.alphacoders.com/312/thumb-1920-312751.jpg">
+                        <a href="#item-1"><ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                        <a href="#item-3"><ChevronRight  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                </div>
+            
+                <div class="carousel-item item-3">
+                    <img src="../images/potvoca.png">
+                        <a href="#item-2"><ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                        <a href="#item-4"><ChevronRight  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                </div>
+                <div class="carousel-item item-4">
+                    <img src="../images/pipecr.jpg">
+                        <a href="#item-3"><ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                        <a href="#item-5"><ChevronRight  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                </div>
+                <div class="carousel-item item-5">
+                    <img id="carbu" src="../images/carbu.jpg">
+                        <a href="#item-4"><ChevronLeft  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                        <a href="#item-1"><ChevronRight  class="w-20 h-20 z-10 cursor-pointer"/></a>
+                </div>
+              </div>
             </div>
             <div class="p-4 lg:ml-10 lg:w-1/3">
                 <p class="font-bold text-4xl">{title}</p>
