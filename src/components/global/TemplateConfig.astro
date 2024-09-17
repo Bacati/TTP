@@ -18,7 +18,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
             {imageSrcs.map((src: string, index: number) => (
                 <div
                     id={`item-${index + 1}`}
-                    class={`carousel-item item-${index + 1}`}
+                    class={`carousel-item item-${index + 1} flex justify-center items-center h-fit top-0 bottom-0 right-0 left-0 absolute`}
                     key={index}
                 >
                     <a href={`#item-${index === 0 ? imageSrcs.length : index}`} class="z-30">
