@@ -1,43 +1,51 @@
 ---
-interface TemplateConfigProps {
-  title: string;
-  enderTitle: string;
-  description: string;
-  price: string;
-  imageSrcs: string[];
-  pieces: string[];
-}
-
-const { title, enderTitle, description, price, imageSrcs, pieces } = Astro.props as TemplateConfigProps;
+const { title, enderTitle, description, price, imageSrc, imageSrc1, imageSrc2, pieces} = Astro.props;
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
 ---
 
 <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6 flex-col mt-96 lg:mt-60 lg:mb-60 mb-28 items-center lg:flex-row">
-    <div class="flex items-center w-full lg:w-5/12 justify-center">
-        <div class="relative h-96 w-5/6">
-            {imageSrcs.map((src: string, index: number) => (
-                <div
-                    id={`item-${index + 1}`}
-                    class={`carousel-item item-${index + 1} flex justify-center items-center h-fit top-0 bottom-0 right-0 left-0 absolute`}
-                    key={index}
-                >
-                    <a href={`#item-${index === 0 ? imageSrcs.length : index}`} class="z-30">
-                        <ChevronLeft class="w-20 h-20" />
-                    </a>
-                    <div class="lg:w-3/5 flex items-center justify-center">
-                        <div class="cards rounded-full flex items-center justify-center fondCyl">
-                            <div class="lg:w-screen">
-                                <img class="-ml-8 lg:-ml-16" src={src} alt={`image-${index + 1}`} />
-                            </div>
+    <div class="flex items-center w-full lg:w-6/12 justify-between">
+        <div class="carousel-wrapper">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1">
+                <a href="#item-5" class="z-30"><ChevronLeft class="w-20 h-20 cursor-pointer"/></a>
+                <div class="lg:w-3/5 flex items-center justify-center">
+                    <div class="cards rounded-full flex items-center justify-center fondCyl">
+                        <div class="lg:w-screen">
+                            <img class="-ml-8 lg:-ml-16" src={imageSrc}>
                         </div>
                     </div>
-                    <a href={`#item-${index === imageSrcs.length - 1 ? 1 : index + 2}`} class="z-30">
-                        <ChevronRight class="w-20 h-20" />
-                    </a>
                 </div>
-            ))}
+                <a href="#item-2" class="z-30"><ChevronRight class="w-20 h-20 cursor-pointer"/></a>
+            </div>
+        
+            <div class="carousel-item item-2">
+                <a href="#item-1" class="z-30"><ChevronLeft class="w-20 h-20 cursor-pointer"/></a>
+                <div class="lg:w-3/5 flex items-center justify-center">
+                    <div class="cards rounded-full flex items-center justify-center fondCyl">
+                        <div class="lg:w-screen">
+                            <img class="-ml-8 lg:-ml-16" src={imageSrc1}>
+                        </div>
+                    </div>
+                </div>
+                <a href="#item-3" class="z-30"><ChevronRight class="w-20 h-20 cursor-pointer"/></a>
+            </div>
+        
+            <div class="carousel-item item-3">
+                <a href="#item-2" class="z-30"><ChevronLeft class="w-20 h-20 cursor-pointer"/></a>
+                <div class="lg:w-3/5 flex items-center justify-center">
+                    <div class="cards rounded-full flex items-center justify-center fondCyl">
+                        <div class="lg:w-screen">
+                            <img class="-ml-8 lg:-ml-16" src={imageSrc2}>
+                        </div>
+                    </div>
+                </div>
+                <a href="#item-4" class="z-30"><ChevronRight class="w-20 h-20 cursor-pointer"/></a>
+            </div>
+          </div>
         </div>
-    </div>
     <div class="p-4 lg:ml-10 lg:w-1/3">
         <p class="font-bold text-4xl">{title}</p>
         <p class="text-gray-400">{enderTitle}</p>
