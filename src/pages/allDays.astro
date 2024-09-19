@@ -2,6 +2,9 @@
 import MainLayout from 'layouts/MainLayout.astro'
 import { Coins, CreditCard, MoveUp, TrendingUp } from 'lucide-astro'
 import ProductCard from 'components/global/Cards.astro';
+import {config} from 'libs/donner';
+
+const data = config;
 ---
 
 <MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
@@ -22,13 +25,15 @@ import ProductCard from 'components/global/Cards.astro';
         </div>
         <div id="500" class="pt-14">
           <div class="flex justify-center my-8 gap-4 flex-wrap">
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="200"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/product/cAll500#item-1"
-            />
+            {data.map(config => (
+              <ProductCard
+                title="50 Metrakit Alu"
+                description="Configuration AllDays"
+                price={config.allMk}
+                imageSrc="/src/assets/images/50mk.png"
+                lien="/product/cAll500#item-1"
+              />
+            ))}
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"

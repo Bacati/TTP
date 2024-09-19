@@ -1,10 +1,13 @@
-export const vilo = [
+export const config = [
 	{
-		jasil: "136",
-		number: "+33 6 06 06 06 06",
-		boat: "Nom du bateau",
-		other: "Autre information",
+		allMk: "560",
 	}
 ];
-
+export const all50Mk =[
+	{
+		cylindre:"230",
+		carbu:"118",
+		pot:"212",
+	}
+]
  

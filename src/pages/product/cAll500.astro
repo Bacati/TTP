@@ -1,27 +1,30 @@
 ---
-import MainLayout from 'layouts/MainLayout.astro'
+import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
+import { config, all50Mk } from 'libs/donner';
 ---
 
 <MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
     <main class="flex justify-center items-center">
-        <TemplateConfig 
-            images={[
-                "/src/assets/images/cylindre2fast.png",
-                "/src/assets/images/moi.jpg",
-                "",
-                "/src/assets/images/logo.svg"
-            ]}
-            title="Kit cylindre 2Fast"
-            enderTitle="Configuration compétition"
-            description="Très bonne configuration, peu de couple mais énormément de régime très performant dans sa catégorie. Un entretien très régulier et minutieux est nécessaire. Le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing."
-            price="2000"
-            pieces={[
-                "Cylindre 100 2Fast",
-                "Vilebrequin 2Fast",
-                "Allumage PVL Bidalot",
-                "Vilebrequin",
-            ]}
-        />
+        {config.map((configItem) => (
+            all50Mk.map((mkItem) => (
+                <TemplateConfig 
+                    images={[
+                        "/src/assets/images/50mk.png",
+                        "/src/assets/images/carbupolini.png",
+                        "/src/assets/images/potmost50.png",
+                    ]}
+                    title="50 Metrakit Alu"
+                    enderTitle="Configuration AllDays"
+                    description="Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans avoir de problème, plutôt sympa pour commencer à s'amuser."
+                    price={configItem.allMk}
+                    pieces={[
+                        "Kit 50cc METRAKIT ALU : " + mkItem.cylindre,
+                        "Carburateur 17,5MM POLINI : " + mkItem.carbu,
+                        "Pot MOST 50-70 : " + mkItem.pot,
+                    ]}
+                />
+            ))
+        ))}
     </main>
 </MainLayout>

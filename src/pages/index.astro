@@ -4,18 +4,9 @@ import {Quote} from 'lucide-astro'
 import moi from 'assets/images/moi.jpg'
 import ProductCard from 'components/global/Cards.astro';
 import Picture from 'components/global/Picture.astro';
-import {vilo} from 'libs/donner'
+import {config} from 'libs/donner';
 
-const data = vilo;
-/*
-{data.map(vilo => (
-				<div>
-					<p>{vilo.name}</p>s
-					<p>{vilo.number}</p>
-					<p>{vilo.boat}</p>
-					<p>{vilo.other}</p>
-				</div>
-			))}*/
+const data = config;
 ---
 
 <MainLayout title="Trouve ta pièce" class="overflow-x-hidden">
@@ -37,13 +28,13 @@ const data = vilo;
 		<div class="flex justify-center gap-3 mt-16 w-4/5 mx-auto">
 			<div class="slider flex items-center">
 				<div class="slide-track gap-4">
-					{data.map(vilo => (
+					{data.map(config => (
 						<ProductCard
-							title="Kit cylindre 2Fast"
-							description="Grosse config"
-							price={vilo.jasil}
-							imageSrc="/src/assets/images/cylindre2fast.png"
-							lien="/"
+							title="50 Metrakit Alu"
+							description="Configuration AllDays"
+							price={config.allMk}
+							imageSrc="/src/assets/images/50mk.png"
+							lien="/product/cAll500#item-1"
 						/>
 					))}
 					<ProductCard
@@ -103,15 +94,13 @@ const data = vilo;
 						imageSrc="/src/assets/images/cylindre2fast.png"
 						lien="/"
 					/>
-					{data.map(vilo => (
 						<ProductCard
 							title="Kit cylindre 2Fast"
 							description="Grosse config"
-							price={vilo.jasil}
+							price="200"
 							imageSrc="/src/assets/images/cylindre2fast.png"
 							lien="/"
 						/>
-					))}
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
