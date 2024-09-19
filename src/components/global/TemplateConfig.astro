@@ -5,13 +5,13 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
 
 <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6 flex-col mt-96 lg:mt-60 lg:mb-60 mb-28 items-center lg:flex-row">
     <div class="flex items-center w-full lg:w-6/12 justify-between">
-        <div class="carousel-wrapper">
+        <div class="relative h-40 w-full lg:h-96 lg:w-4/5">
             {images.map((imageSrc, index) => (
                 <span id={`item-${index + 1}`}></span>
             ))}
 
             {images.map((imageSrc, index) => (
-                <div class={`carousel-item item-${index + 1}`}>
+                <div class={`carousel-item item-${index + 1} flex justify-center items-center absolute top-0 bottom-0 left-0 right-0 opacity-0`}>
                     <a href={`#item-${(index === 0 ? images.length : index)}`} class="z-30">
                         <ChevronLeft class="w-20 h-20 cursor-pointer" />
                     </a>
