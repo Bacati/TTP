@@ -35,7 +35,23 @@ const data = config;
 							description="Configuration AllDays"
 							price={config.allMk}
 							imageSrc="/src/assets/images/50mk.png"
-							lien="/product/cAll500#item-1"
+							lien="/product/config?config=50mk#item-1"
+						/>
+						<ProductCard
+							title="70 Top Performance noir"
+							logo="/src/assets/images/topPerf.png"
+							description="Configuration AllDays"
+							price={config.allTop}
+							imageSrc="/src/assets/images/topnoir.png"
+							lien="/product/config?config=70top#item-1"
+						/>
+						<ProductCard
+							title="70 Airsal fonte"
+							logo="/src/assets/images/airsal.png"
+							description="Configuration AllDays"
+							price={config.allAirsal}
+							imageSrc="/src/assets/images/70airsalfonte.png"
+							lien="/product/config?config=70airsal#item-1"
 						/>
 					))}
 					<ProductCard
@@ -49,13 +65,6 @@ const data = config;
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
 						price="200"
 						imageSrc="/src/assets/images/cylindre2fast.png"
 						lien="/"
@@ -95,27 +104,32 @@ const data = config;
 						imageSrc="/src/assets/images/cylindre2fast.png"
 						lien="/"
 					/>
+					{data.map(config => (
 						<ProductCard
-							title="Kit cylindre 2Fast"
-							description="Grosse config"
-							price="200"
-							imageSrc="/src/assets/images/cylindre2fast.png"
-							lien="/"
+							title="50 Metrakit Alu"
+							logo="/src/assets/images/mk.svg"
+							description="Configuration AllDays"
+							price={config.allMk}
+							imageSrc="/src/assets/images/50mk.png"
+							lien="/product/config?config=50mk#item-1"
 						/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
-						lien="/"
-					/>
+						<ProductCard
+							title="70 Top Performance noir"
+							logo="/src/assets/images/topPerf.png"
+							description="Configuration AllDays"
+							price={config.allTop}
+							imageSrc="/src/assets/images/topnoir.png"
+							lien="/product/config?config=70top#item-1"
+						/>
+						<ProductCard
+							title="70 Airsal fonte"
+							logo="/src/assets/images/airsal.png"
+							description="Configuration AllDays"
+							price={config.allAirsal}
+							imageSrc="/src/assets/images/70airsalfonte.png"
+							lien="/product/config?config=70airsal#item-1"
+						/>
+					))}
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"

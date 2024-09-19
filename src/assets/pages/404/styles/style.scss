@@ -81,6 +81,17 @@ $animationSpeed: 30s;
 		}
 	}	
 }
+details summary {
+	list-style: none;
+  }
+  
+  details summary::-webkit-details-marker {
+	display: none;
+  }
+  
+  details summary::-moz-list-bullet {
+	display: none;
+  }
 details[open] .cheSum{
 	transition: transform 0.3s ease;
     transform: rotate(180deg);
