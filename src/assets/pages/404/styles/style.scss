@@ -51,10 +51,20 @@ $animationSpeed: 30s;
 .slide-track .slide {
 	flex: 0 0 auto;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
 	.fondCyl{
 		width: 25rem !important;
 		height: 25rem !important;
+		img{
+			width: 135% !important;
+			max-width: 50vw !important;
+		}
+	}	
+}
+@media (min-width: 1024px) {
+	.fondCyl{
+		width: 22rem !important;
+		height: 22rem !important;
 		img{
 			width: 135% !important;
 			max-width: 50vw !important;
