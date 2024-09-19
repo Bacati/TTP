@@ -15,26 +15,26 @@ import ProductCard from 'components/global/Cards.astro';
             </div>
             <div class="gradient w-full h-2 rounded-b-3xl -mt-0"></div>
         </div>
-        <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 w-fit mx-4 lg:mx-auto">
-            <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex" href="#500"><Coins /> 500€ à 700€</a>
-            <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#700"><TrendingUp /> 700€ à 1000€</a>
-            <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#1000"><CreditCard /> 1000€ à 1500€</a>
+        <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 py-2 lg:py-0 w-64 lg:w-fit mx-auto flex-col lg:flex-row">
+            <a class="border-b-2 lg:border-b-0 pl-4 pr-0 mx-2 border-orange-300 text-orange-600 gap-3 flex" href="#500"><Coins /> 500€ à 700€</a>
+            <a class="border-b-2 lg:border-b-0 lg:border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#700"><TrendingUp /> 700€ à 1000€</a>
+            <a class="lg:border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#1000"><CreditCard /> 1000€ à 1500€</a>
         </div>
         <div id="500" class="pt-14">
-          <div class="flex justify-center my-8 gap-4 flex-col lg:flex-row">
+          <div class="flex justify-center my-8 gap-4 flex-wrap">
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
               price="200"
               imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/product/cAll500"
+              lien="/product/cAll500#item-1"
             />
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
               price="400"
               imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
+              lien="/product/cAll500Top#item-1"
             />
             <ProductCard
               title="Kit cylindre 2Fast"
@@ -46,7 +46,7 @@ import ProductCard from 'components/global/Cards.astro';
           </div>
         </div>
         <div id="700" class="pt-14">
-          <div class="flex justify-center my-8 gap-4 flex-col lg:flex-row">
+          <div class="flex justify-center my-8 gap-4 flex-wrap">
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
@@ -71,7 +71,7 @@ import ProductCard from 'components/global/Cards.astro';
           </div>
         </div>
         <div id="1000" class="pt-14">
-          <div class="flex justify-center my-8 gap-4 flex-col lg:flex-row">
+          <div class="flex justify-center my-8 gap-4 flex-wrap">
             <ProductCard
               title="Kit cylindre 2Fast"
               description="Grosse config"
