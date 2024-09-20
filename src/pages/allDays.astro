@@ -1,113 +1,72 @@
 ---
-import MainLayout from 'layouts/MainLayout.astro'
-import { Coins, CreditCard, MoveUp, TrendingUp } from 'lucide-astro'
+import MainLayout from 'layouts/MainLayout.astro';
+import { Coins, CreditCard, MoveUp, TrendingUp } from 'lucide-astro';
 import ProductCard from 'components/global/Cards.astro';
-import {config} from 'libs/donner';
+import { config } from 'libs/donner';
 
 const imagePrefix = "/src/assets/images";
 const linkPrefix = "/product/config?config=";
-const data = config;
+
+const pricing = config[0];
+
+const categories = [
+    { id: "500", label: "500€ à 700€", icon: Coins, products: [
+        { title: "50 Metrakit Alu", logo: "mk.svg", description: "Configuration AllDays", price: pricing.allMk || 'N/A', image: "50mk.png", configKey: "50mk" },
+        { title: "70 Top Performance noir", logo: "topPerf.png", description: "Configuration AllDays", price: pricing.allTop || 'N/A', image: "topnoir.png", configKey: "70top" },
+        { title: "70 Airsal fonte", logo: "airsal.png", description: "Configuration AllDays", price: pricing.allAirsal || 'N/A', image: "70airsalfonte.png", configKey: "70airsal" },
+    ]},
+    { id: "700", label: "700€ à 1000€", icon: TrendingUp, products: [
+        { title: "70 Airsal Alu", logo: "airsal.png", description: "Configuration AllDays", price: pricing.allAirsalAlu || 'N/A', image: "70airsal.png", configKey: "70airsalAlu" },
+        { title: "75cc Top performance rose", logo: "topPerf.png", description: "Configuration AllDays", price: pricing.allTopRose || 'N/A', image: "toprose.png", configKey: "75topRose" },
+        { title: "Kit cylindre 2Fast", description: "Grosse config", price: "2000", image: "cylindre2fast.png", configKey: "2fast" },
+    ]},
+    { id: "1000", label: "1000€ à 1500€", icon: CreditCard, products: [
+        { title: "Kit cylindre 2Fast", description: "Grosse config", price: "200", image: "cylindre2fast.png", configKey: "2fast1" },
+        { title: "Kit cylindre 2Fast", description: "Grosse config", price: "400", image: "cylindre2fast.png", configKey: "2fast2" },
+        { title: "Kit cylindre 2Fast", description: "Grosse config", price: "2000", image: "cylindre2fast.png", configKey: "2fast3" },
+    ]}
+];
 ---
 
 <MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
 	<main class="pt-44">
         <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
             <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
-                <img src="/src/assets/images/bg.svg" class="w-full lg:w-2/5">
+                <img src={`${imagePrefix}/bg.svg`} class="w-full lg:w-2/5">
                 <p><strong>Optimisez votre conduite quotidienne avec nos configurations moteur alldays</strong><br>
                     Découvrez nos configurations moteur conçues pour améliorer les performances de votre véhicule, sans sacrifier la fiabilité. Nous offrons une gamme de prix pour répondre à divers budgets. Transformez votre conduite quotidienne dès aujourd'hui.
                 </p>
             </div>
             <div class="gradient w-full h-2 rounded-b-3xl -mt-0"></div>
         </div>
+
         <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 py-2 lg:py-0 w-64 lg:w-fit mx-auto flex-col lg:flex-row">
-            <a class="border-b-2 lg:border-b-0 pl-4 pr-0 mx-2 border-orange-300 text-orange-600 gap-3 flex" href="#500"><Coins /> 500€ à 700€</a>
-            <a class="border-b-2 lg:border-b-0 lg:border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#700"><TrendingUp /> 700€ à 1000€</a>
-            <a class="lg:border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#1000"><CreditCard /> 1000€ à 1500€</a>
+            {categories.map(category => (
+                <a class="pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href={`#${category.id}`}>
+                    <category.icon /> {category.label}
+                </a>
+            ))}
         </div>
-		{data.map(config => (
-			<div id="500" class="pt-14">
-			<div class="flex justify-center my-8 gap-4 flex-wrap">
-					<ProductCard
-						title="50 Metrakit Alu"
-						logo={`${imagePrefix}/mk.svg`}
-						description="Configuration AllDays"
-						price={config.allMk}
-						imageSrc={`${imagePrefix}/50mk.png`}
-						lien={`${linkPrefix}50mk#item-1`}
-					/>
-					<ProductCard
-						title="70 Top Performance noir"
-						logo={`${imagePrefix}/topPerf.png`}
-						description="Configuration AllDays"
-						price={config.allTop}
-						imageSrc={`${imagePrefix}/topnoir.png`}
-						lien={`${linkPrefix}70top#item-1`}
-					/>
-					<ProductCard
-						title="70 Airsal fonte"
-						logo={`${imagePrefix}/airsal.png`}
-						description="Configuration AllDays"
-						price={config.allAirsal}
-						imageSrc={`${imagePrefix}/70airsalfonte.png`}
-						lien={`${linkPrefix}70airsal#item-1`}
-					/>
-					
-				</div>
-			</div>
-			<div id="700" class="pt-14">
-			<div class="flex justify-center my-8 gap-4 flex-wrap">
-				<ProductCard
-					title="70 Airsal Alu"
-					logo={`${imagePrefix}/airsal.png`}
-					description="Configuration AllDays"
-					price={config.allAirsalAlu}
-					imageSrc={`${imagePrefix}/70airsal.png`}
-					lien={`${linkPrefix}70airsalAlu#item-1`}
-				/>
-				<ProductCard
-					title="75cc Top performance rose"
-					logo={`${imagePrefix}/topPerf.png`}
-					description="Configuration AllDays"
-					price={config.allAirsalAlu}
-					imageSrc={`${imagePrefix}/toprose.png`}
-					lien={`${linkPrefix}75topRose#item-1`}
-				/>
-				<ProductCard
-				title="Kit cylindre 2Fast"
-				description="Grosse config"
-				price="2000"
-				imageSrc="/src/assets/images/cylindre2fast.png"
-				lien="/"
-				/>
-			</div>
-			</div>
-			<div id="1000" class="pt-14">
-			<div class="flex justify-center my-8 gap-4 flex-wrap">
-				<ProductCard
-				title="Kit cylindre 2Fast"
-				description="Grosse config"
-				price="200"
-				imageSrc="/src/assets/images/cylindre2fast.png"
-				lien="/"
-				/>
-				<ProductCard
-				title="Kit cylindre 2Fast"
-				description="Grosse config"
-				price="400"
-				imageSrc="/src/assets/images/cylindre2fast.png"
-				lien="/"
-				/>
-				<ProductCard
-				title="Kit cylindre 2Fast"
-				description="Grosse config"
-				price="2000"
-				imageSrc="/src/assets/images/cylindre2fast.png"
-				lien="/"
-				/>
-			</div>
-		</div>
-		))}
-		<a class="bg-amber-400 z-30 fixed right-14 h-12 p-4 -bottom-1 w-16 m-0 flex items-center" href="#top"><MoveUp class="h-10 w-10"/></a>
-	</main>
+
+        {categories.map(category => (
+            <div id={category.id} class="pt-14">
+                <div class="flex justify-center my-8 gap-4 flex-wrap">
+                    {category.products.map(product => (
+                        <ProductCard
+                            title={product.title}
+                            logo={`${imagePrefix}/${product.logo}`}
+                            description={product.description}
+                            price={product.price}
+                            imageSrc={`${imagePrefix}/${product.image}`}
+                            lien={`${linkPrefix}${product.configKey}#item-1`}
+                        />
+                    ))}
+                </div>
+            </div>
+        ))}
+
+        <a class="bg-amber-400 z-30 fixed right-14 h-12 p-4 -bottom-1 w-16 m-0 flex items-center" href="#top">
+            <MoveUp class="h-10 w-10" />
+        </a>
+    </main>
 </MainLayout>
