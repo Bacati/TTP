@@ -4,6 +4,8 @@ import { Coins, CreditCard, MoveUp, TrendingUp } from 'lucide-astro'
 import ProductCard from 'components/global/Cards.astro';
 import {config} from 'libs/donner';
 
+const imagePrefix = "/src/assets/images";
+const linkPrefix = "/product/config?config=";
 const data = config;
 ---
 
@@ -27,29 +29,29 @@ const data = config;
           <div class="flex justify-center my-8 gap-4 flex-wrap">
             {data.map(config => (
             	<ProductCard
-                	title="50 Metrakit Alu"
-                	logo="/src/assets/images/mk.svg"
-                  description="Configuration AllDays"
-                  price={config.allMk}
-                  imageSrc="/src/assets/images/50mk.png"
-                  lien="/product/config?config=50mk#item-1"
+					title="50 Metrakit Alu"
+					logo={`${imagePrefix}/mk.svg`}
+					description="Configuration AllDays"
+					price={config.allMk}
+					imageSrc={`${imagePrefix}/50mk.png`}
+					lien={`${linkPrefix}50mk#item-1`}
                 />
                 <ProductCard
-                  title="70 Top Performance noir"
-                  logo="/src/assets/images/topPerf.png"
-                  description="Configuration AllDays"
-                  price={config.allTop}
-                  imageSrc="/src/assets/images/topnoir.png"
-                  lien="/product/config?config=70top#item-1"
+					title="70 Top Performance noir"
+					logo={`${imagePrefix}/topPerf.png`}
+					description="Configuration AllDays"
+					price={config.allTop}
+					imageSrc={`${imagePrefix}/topnoir.png`}
+					lien={`${linkPrefix}70top#item-1`}
                 />
                 <ProductCard
-                  title="70 Airsal fonte"
-                  logo="/src/assets/images/airsal.png"
-                  description="Configuration AllDays"
-                  price={config.allAirsal}
-                  imageSrc="/src/assets/images/70airsalfonte.png"
-                  lien="/product/config?config=70airsal#item-1"
-                />
+                  	title="70 Airsal fonte"
+                  	logo={`${imagePrefix}/airsal.png`}
+					description="Configuration AllDays"
+					price={config.allAirsal}
+					imageSrc={`${imagePrefix}/70airsalfonte.png`}
+					lien={`${linkPrefix}70airsal#item-1`}
+				/>
             ))}
           </div>
         </div>

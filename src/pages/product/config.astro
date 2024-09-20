@@ -3,6 +3,7 @@ import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { config, all50Mk, all70top, general500, all70airsal } from 'libs/donner';
 
+const imagePrefix = "/src/assets/images";
 const configType = Astro.url.searchParams.get("config") || "500";
 const configurations = {
   "50mk": {
@@ -11,9 +12,9 @@ const configurations = {
     description: "Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans avoir de problème, plutôt sympa pour commencer à s'amuser.",
     price: config[0].allMk,
     images: [
-      "/src/assets/images/50mk.png",
-      "/src/assets/images/carbupolini.png",
-      "/src/assets/images/potmost50.png",
+      `${imagePrefix}/50mk.png`,
+      `${imagePrefix}/carbupolini.png`,
+      `${imagePrefix}/potmost50.png`,
     ],
     pieces: [
       "Kit 50cc METRAKIT ALU : " + all50Mk[0].cylindre,
@@ -27,10 +28,10 @@ const configurations = {
     description: "Configuration très commune et très solide. Peu performant mais permet de faire de nombreux kilomètres sans avoir de problème, plutôt sympa pour commencer à s'amuser.",
     price: config[0].allTop,
     images: [
-      "/src/assets/images/topnoir.png",
-      "/src/assets/images/vilojasilv.png",
-      "/src/assets/images/carbu.png",
-      "/src/assets/images/potmost50.png",
+      `${imagePrefix}/topnoir.png`,
+      `${imagePrefix}/vilojasilv.png`,
+      `${imagePrefix}/carbu.png`,
+      `${imagePrefix}/potmost50.png`,
     ],
     pieces: [
       "Kit TOP Performance noir 70cc : " + all70top[0].cylindre,
@@ -48,10 +49,10 @@ const configurations = {
     description: "Configuration très commune et très solide. Peu performant mais permet de faire de nombreux kilomètre sans avoir de problème, plutot sympa pour commencer à s'amuser.",
     price: config[0].allAirsal,
     images: [
-      "/src/assets/images/70airsalfonte.png",
-      "/src/assets/images/vilowatts.png",
-      "/src/assets/images/carbu.png",
-      "/src/assets/images/potmost50.png",
+      `${imagePrefix}/70airsalfonte.png`,
+      `${imagePrefix}/vilowatts.png`,
+      `${imagePrefix}/carbu.png`,
+      `${imagePrefix}/potmost50.png`,
     ],
     pieces: [
       "Kit 70cc AIRSAL fonte : " + all70airsal[0].cylindre,
