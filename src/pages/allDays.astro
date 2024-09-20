@@ -25,86 +25,89 @@ const data = config;
             <a class="border-b-2 lg:border-b-0 lg:border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#700"><TrendingUp /> 700€ à 1000€</a>
             <a class="lg:border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href="#1000"><CreditCard /> 1000€ à 1500€</a>
         </div>
-        <div id="500" class="pt-14">
-          <div class="flex justify-center my-8 gap-4 flex-wrap">
-            {data.map(config => (
-            	<ProductCard
-					title="50 Metrakit Alu"
-					logo={`${imagePrefix}/mk.svg`}
+		{data.map(config => (
+			<div id="500" class="pt-14">
+			<div class="flex justify-center my-8 gap-4 flex-wrap">
+					<ProductCard
+						title="50 Metrakit Alu"
+						logo={`${imagePrefix}/mk.svg`}
+						description="Configuration AllDays"
+						price={config.allMk}
+						imageSrc={`${imagePrefix}/50mk.png`}
+						lien={`${linkPrefix}50mk#item-1`}
+					/>
+					<ProductCard
+						title="70 Top Performance noir"
+						logo={`${imagePrefix}/topPerf.png`}
+						description="Configuration AllDays"
+						price={config.allTop}
+						imageSrc={`${imagePrefix}/topnoir.png`}
+						lien={`${linkPrefix}70top#item-1`}
+					/>
+					<ProductCard
+						title="70 Airsal fonte"
+						logo={`${imagePrefix}/airsal.png`}
+						description="Configuration AllDays"
+						price={config.allAirsal}
+						imageSrc={`${imagePrefix}/70airsalfonte.png`}
+						lien={`${linkPrefix}70airsal#item-1`}
+					/>
+					
+				</div>
+			</div>
+			<div id="700" class="pt-14">
+			<div class="flex justify-center my-8 gap-4 flex-wrap">
+				<ProductCard
+					title="70 Airsal Alu"
+					logo={`${imagePrefix}/airsal.png`}
 					description="Configuration AllDays"
-					price={config.allMk}
-					imageSrc={`${imagePrefix}/50mk.png`}
-					lien={`${linkPrefix}50mk#item-1`}
-                />
-                <ProductCard
-					title="70 Top Performance noir"
+					price={config.allAirsalAlu}
+					imageSrc={`${imagePrefix}/70airsal.png`}
+					lien={`${linkPrefix}70airsalAlu#item-1`}
+				/>
+				<ProductCard
+					title="75cc Top performance rose"
 					logo={`${imagePrefix}/topPerf.png`}
 					description="Configuration AllDays"
-					price={config.allTop}
-					imageSrc={`${imagePrefix}/topnoir.png`}
-					lien={`${linkPrefix}70top#item-1`}
-                />
-                <ProductCard
-                  	title="70 Airsal fonte"
-                  	logo={`${imagePrefix}/airsal.png`}
-					description="Configuration AllDays"
-					price={config.allAirsal}
-					imageSrc={`${imagePrefix}/70airsalfonte.png`}
-					lien={`${linkPrefix}70airsal#item-1`}
+					price={config.allAirsalAlu}
+					imageSrc={`${imagePrefix}/toprose.png`}
+					lien={`${linkPrefix}75topRose#item-1`}
 				/>
-            ))}
-          </div>
-        </div>
-        <div id="700" class="pt-14">
-          <div class="flex justify-center my-8 gap-4 flex-wrap">
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="200"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="400"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="2000"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-          </div>
-        </div>
-        <div id="1000" class="pt-14">
-          <div class="flex justify-center my-8 gap-4 flex-wrap">
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="200"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="400"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-            <ProductCard
-              title="Kit cylindre 2Fast"
-              description="Grosse config"
-              price="2000"
-              imageSrc="/src/assets/images/cylindre2fast.png"
-              lien="/"
-            />
-          </div>
-        </div>
+				<ProductCard
+				title="Kit cylindre 2Fast"
+				description="Grosse config"
+				price="2000"
+				imageSrc="/src/assets/images/cylindre2fast.png"
+				lien="/"
+				/>
+			</div>
+			</div>
+			<div id="1000" class="pt-14">
+			<div class="flex justify-center my-8 gap-4 flex-wrap">
+				<ProductCard
+				title="Kit cylindre 2Fast"
+				description="Grosse config"
+				price="200"
+				imageSrc="/src/assets/images/cylindre2fast.png"
+				lien="/"
+				/>
+				<ProductCard
+				title="Kit cylindre 2Fast"
+				description="Grosse config"
+				price="400"
+				imageSrc="/src/assets/images/cylindre2fast.png"
+				lien="/"
+				/>
+				<ProductCard
+				title="Kit cylindre 2Fast"
+				description="Grosse config"
+				price="2000"
+				imageSrc="/src/assets/images/cylindre2fast.png"
+				lien="/"
+				/>
+			</div>
+		</div>
+		))}
 		<a class="bg-amber-400 z-30 fixed right-14 h-12 p-4 -bottom-1 w-16 m-0 flex items-center" href="#top"><MoveUp class="h-10 w-10"/></a>
 	</main>
 </MainLayout>
