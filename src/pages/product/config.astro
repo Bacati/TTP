@@ -3,7 +3,7 @@ import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { config, all50Mk, all70top, general500, all70airsal, all70airsalAlu, all75TopRose } from 'libs/donner';
 
-const imagePrefix = "/src/assets/images";
+const imagePrefix = "/images";
 
 // Pièces communes aux configurations
 const commonGeneralPieces = {
@@ -113,9 +113,9 @@ const currentConfig = configurations[configType];
 
 <MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
     <main class="flex justify-center items-center">
-        <TemplateConfig 
+        <TemplateConfig
             title={currentConfig.title}
-            enderTitle={currentConfig.enderTitle} 
+            enderTitle={currentConfig.enderTitle}
             description={currentConfig.description}
             price={currentConfig.price}
             images={currentConfig.images}

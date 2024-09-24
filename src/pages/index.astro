@@ -1,12 +1,13 @@
 ---
 import MainLayout from 'layouts/MainLayout.astro'
 import {Quote} from 'lucide-astro'
-import moi from 'assets/images/moi.jpg'
+import moi from '/public/images/moi.jpg'
 import ProductCard from 'components/global/Cards.astro';
 import Picture from 'components/global/Picture.astro';
 import {config} from 'libs/donner';
 
-const imagePrefix = "/src/assets/images";
+
+const imagePrefix = "/images";
 const linkPrefix = "/product/config?config=";
 const data = config;
 ---
@@ -76,35 +77,35 @@ const data = config;
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+							title="Kit cylindre 2Fast"
+							description="Grosse config"
+							price="200"
+							imageSrc="/images/cylindre2fast.png"
+							lien="/"
+						/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 					{data.map(config => (
@@ -153,28 +154,35 @@ const data = config;
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 					<ProductCard
 						title="Kit cylindre 2Fast"
 						description="Grosse config"
 						price="200"
-						imageSrc="/src/assets/images/cylindre2fast.png"
+						imageSrc="/images/cylindre2fast.png"
+						lien="/"
+					/>
+					<ProductCard
+						title="Kit cylindre 2Fast"
+						description="Grosse config"
+						price="200"
+						imageSrc="/images/cylindre2fast.png"
 						lien="/"
 					/>
 				</div>
