@@ -1,199 +1,80 @@
 ---
-import MainLayout from 'layouts/MainLayout.astro'
-import {Quote} from 'lucide-astro'
-import moi from '/public/images/moi.jpg'
+import MainLayout from 'layouts/MainLayout.astro';
+import { generateProductData, fastProducts } from 'libs/configurations';
+import { config } from 'libs/donner';
+import { Quote } from 'lucide-astro';
+import moi from '/public/images/moi.jpg';
 import ProductCard from 'components/global/Cards.astro';
 import Picture from 'components/global/Picture.astro';
-import {config} from 'libs/donner';
-
-
-const imagePrefix = "/images";
-const linkPrefix = "/product/config?config=";
-const data = config;
 ---
 
 <MainLayout title="Trouve ta pièce" class="overflow-x-hidden">
-	<main class="w-screen">
-		<div class="w-screen absolute imagetete h-screen"></div>
-		<div class="z-10 relative lg:w-3/6 text flex flex-col justify-end pl-8 text-white">
-			<p class="font-semibold text-2xl w-2/3 lg:w-full lg:text-4xl">
-				Bienvenue sur le site dédié aux passionnés de moto !
-			</p>
-			<p class="lg:text-lg pl-2 w-full pr-4 lg:w-2/3 lg:pr-0">
-				Découvrez une vaste collection de pièces, allant des classiques aux plus rares, soigneusement répertoriées pour répondre à tous vos besoins.<br/><br/>
-				Notre plateforme vous propose une gamme variée de tarifs, garantissant des options pour chaque budget. <br/><br/>
-				En plus de vous offrir un accès facile à ces trésors mécaniques, je partage également mes conseils d'expert pour vous guider dans vos choix.<br/><br/>
-				Plongez dans l'univers de la moto et parcourez notre sélection pour transformer votre expérience de conduite.
-			</p>
-		</div>
-		<div class="gradient w-full h-2"></div>
-		<div>
-		<div class="flex justify-center gap-3 mt-16 w-4/5 mx-auto">
-			<div class="slider flex items-center">
-				<div class="slide-track gap-4">
-					{data.map(config => (
-						<ProductCard
-							title="50 Metrakit Alu"
-							logo={`${imagePrefix}/mk.svg`}
-							description="Configuration AllDays"
-							price={config.allMk}
-							imageSrc={`${imagePrefix}/50mk.png`}
-							lien={`${linkPrefix}50mk#item-1`}
-						/>
-						<ProductCard
-							title="70 Top Performance noir"
-							logo={`${imagePrefix}/topPerf.png`}
-							description="Configuration AllDays"
-							price={config.allTop}
-							imageSrc={`${imagePrefix}/topnoir.png`}
-							lien={`${linkPrefix}70top#item-1`}
-						/>
-						<ProductCard
-							title="70 Airsal fonte"
-							logo={`${imagePrefix}/airsal.png`}
-							description="Configuration AllDays"
-							price={config.allAirsal}
-							imageSrc={`${imagePrefix}/70airsalfonte.png`}
-							lien={`${linkPrefix}70airsal#item-1`}
-						/>
-						<ProductCard
-							title="70 Airsal Alu"
-							logo={`${imagePrefix}/airsal.png`}
-							description="Configuration AllDays"
-							price={config.allAirsalAlu}
-							imageSrc={`${imagePrefix}/70airsal.png`}
-							lien={`${linkPrefix}70airsalAlu#item-1`}
-						/>
-						<ProductCard
-							title="75cc Top performance rose"
-							logo={`${imagePrefix}/topPerf.png`}
-							description="Configuration AllDays"
-							price={config.allAirsalAlu}
-							imageSrc={`${imagePrefix}/toprose.png`}
-							lien={`${linkPrefix}75topRose#item-1`}
-						/>
-					))}
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-							title="Kit cylindre 2Fast"
-							description="Grosse config"
-							price="200"
-							imageSrc="/images/cylindre2fast.png"
-							lien="/"
-						/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					{data.map(config => (
-						<ProductCard
-							title="50 Metrakit Alu"
-							logo={`${imagePrefix}/mk.svg`}
-							description="Configuration AllDays"
-							price={config.allMk}
-							imageSrc={`${imagePrefix}/50mk.png`}
-							lien={`${linkPrefix}50mk#item-1`}
-						/>
-						<ProductCard
-							title="70 Top Performance noir"
-							logo={`${imagePrefix}/topPerf.png`}
-							description="Configuration AllDays"
-							price={config.allTop}
-							imageSrc={`${imagePrefix}/topnoir.png`}
-							lien={`${linkPrefix}70top#item-1`}
-						/>
-						<ProductCard
-							title="70 Airsal fonte"
-							logo={`${imagePrefix}/airsal.png`}
-							description="Configuration AllDays"
-							price={config.allAirsal}
-							imageSrc={`${imagePrefix}/70airsalfonte.png`}
-							lien={`${linkPrefix}70airsal#item-1`}
-						/>
-						<ProductCard
-							title="70 Airsal Alu"
-							logo={`${imagePrefix}/airsal.png`}
-							description="Configuration AllDays"
-							price={config.allAirsalAlu}
-							imageSrc={`${imagePrefix}/70airsal.png`}
-							lien={`${linkPrefix}70airsalAlu#item-1`}
-						/>
-						<ProductCard
-							title="75cc Top performance rose"
-							logo={`${imagePrefix}/topPerf.png`}
-							description="Configuration AllDays"
-							price={config.allAirsalAlu}
-							imageSrc={`${imagePrefix}/toprose.png`}
-							lien={`${linkPrefix}75topRose#item-1`}
-						/>
-					))}
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-					<ProductCard
-						title="Kit cylindre 2Fast"
-						description="Grosse config"
-						price="200"
-						imageSrc="/images/cylindre2fast.png"
-						lien="/"
-					/>
-				</div>
-			</div>
-		</div>
-		<div class="w-full flex justify-center py-8">
-			<div class="w-11/12 lg:w-4/5 rounded-2xl bg flex gap-2 items-center py-4 justify-center lg:p-20 flex-col lg:flex-row">
-				<Picture class="w-3/6" src={moi}></Picture>
-				<p class="w-9/12 lg:w-2/3 flex text-white gap-3 mx-4"><Quote class="w-96"/>Moi c’est Lucas, motard de 22 ans, passionné de moto depuis tout petit. Cette passion s'est rapidement étendue à la mécanique. J'ai commencé par construire mes propres moteurs de 50cc, participant à des rassemblements informels qui se sont rapidement transformés en compétitions. J'ai eu l'opportunité de courir pour l'équipe WRP Racing dans plusieurs compétitions, notamment à Salbris et Bordeaux, où j'ai toujours obtenu d'excellents résultats. Au fil des ans, j'ai construit et préparé un grand nombre de moteurs, que ce soit pour moi-même ou pour des clients. J'ai réalisé de nombreuses préparations de configurations, certaines plus extravagantes que d'autres. Grâce à cela, j'ai acquis une solide connaissance et expérience dans le domaine.
-					C'est cette expertise que j'ai décidé de partager en créant ce site. Mon objectif est d'aider les novices à comprendre plus facilement le monde de la moto, mais aussi de référencer des pièces parfois rares.</p>
-			</div>
-		</div>
-	</main>
+  <main class="w-screen">
+    <div class="w-screen absolute imagetete h-screen"></div>
+    <div class="z-10 relative lg:w-3/6 text flex flex-col justify-end pl-8 text-white">
+      <p class="font-semibold text-2xl w-2/3 lg:w-full lg:text-4xl">
+        Bienvenue sur le site dédié aux passionnés de moto !
+      </p>
+      <p class="lg:text-lg pl-2 w-full pr-4 lg:w-2/3 lg:pr-0">
+        Découvrez une vaste collection de pièces, allant des classiques aux plus rares, soigneusement répertoriées pour répondre à tous vos besoins.<br/><br/>
+        Notre plateforme vous propose une gamme variée de tarifs, garantissant des options pour chaque budget. <br/><br/>
+        En plus de vous offrir un accès facile à ces trésors mécaniques, je partage également mes conseils d'expert pour vous guider dans vos choix.<br/><br/>
+        Plongez dans l'univers de la moto et parcourez notre sélection pour transformer votre expérience de conduite.
+      </p>
+    </div>
+    <div class="gradient w-full h-2"></div>
+    <div class="flex justify-center gap-3 mt-16 w-4/5 mx-auto">
+      <div class="slider flex items-center">
+        <div class="slide-track gap-4">
+          {generateProductData(config).map(product => (
+            <ProductCard
+              title={product.title}
+              logo={`/images/${product.logo}`}
+              description={product.description}
+              price={product.price}
+              imageSrc={product.imageSrc}
+              lien={product.link}
+            />
+          ))}
+          {fastProducts.map(product => (
+            <ProductCard
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              imageSrc={product.imageSrc}
+              lien={product.link}
+            />
+          ))}
+          {generateProductData(config).map(product => (
+            <ProductCard
+              title={product.title}
+              logo={`/images/${product.logo}`}
+              description={product.description}
+              price={product.price}
+              imageSrc={product.imageSrc}
+              lien={product.link}
+            />
+          ))}
+		  {fastProducts.map(product => (
+            <ProductCard
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              imageSrc={product.imageSrc}
+              lien={product.link}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex justify-center py-8">
+      <div class="w-11/12 lg:w-4/5 rounded-2xl bg flex gap-2 items-center py-4 justify-center lg:p-20 flex-col lg:flex-row">
+        <Picture class="w-3/6" src={moi}></Picture>
+        <p class="w-9/12 lg:w-2/3 flex text-white gap-3 mx-4">
+          <Quote class="w-96"/>Moi c’est Lucas, motard de 22 ans, passionné de moto depuis tout petit. Cette passion s'est rapidement étendue à la mécanique. J'ai commencé par construire mes propres moteurs de 50cc, participant à des rassemblements informels qui se sont rapidement transformés en compétitions. J'ai eu l'opportunité de courir pour l'équipe WRP Racing dans plusieurs compétitions, notamment à Salbris et Bordeaux, où j'ai toujours obtenu d'excellents résultats. Au fil des ans, j'ai construit et préparé un grand nombre de moteurs, que ce soit pour moi-même ou pour des clients. J'ai réalisé de nombreuses préparations de configurations, certaines plus extravagantes que d'autres. Grâce à cela, j'ai acquis une solide connaissance et expérience dans le domaine.
+          C'est cette expertise que j'ai décidé de partager en créant ce site. Mon objectif est d'aider les novices à comprendre plus facilement le monde de la moto, mais aussi de référencer des pièces parfois rares.
+        </p>
+      </div>
+    </div>
+  </main>
 </MainLayout>
