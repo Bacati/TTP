@@ -3,7 +3,6 @@ import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { getCurrentConfig } from 'libs/configurations';
 
-// Récupération de la configuration courante en fonction du paramètre 'config'
 const configType = Astro.url.searchParams.get("config") || "500";
 const currentConfig = getCurrentConfig(configType);
 
