@@ -7,7 +7,7 @@ export const config = [
 		allTopRose:"926",
 	}
 ];
-export const general500 =[
+export const general =[
 	{
 		roulement:"14",
 		embrayage:"44",
@@ -24,7 +24,6 @@ export const all50Mk =[
 	{
 		cylindre:"230",
 		carbu:"118",
-		pot:"212",
 	}
 ]
 export const all70top =[
