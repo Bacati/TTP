@@ -17,30 +17,30 @@ import { categories } from 'libs/configurations';
       <div class="gradientConfig w-full h-2 rounded-b-3xl"></div>
     </div>
 
-    <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex mt-4 py-2 lg:py-0 w-64 lg:w-fit mx-auto flex-col lg:flex-row">
-      {categories.map(category => (
-        <a class="pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href={`#${category.id}`}>
-          <category.icon /> {category.label}
-        </a>
-      ))}
-    </div>
+    <div class="bg-white rounded-full relative z-30 items-center h-fit justify-center shadow-lg flex mt-4 py-2 lg:py-0 w-64 lg:w-fit mx-auto flex-col lg:flex-row">
+		{categories.map(category => (
+		  <a class="pl-4 mx-2 pr-0 text-orange-600 gap-3 flex" href={`#${category.id}`}>
+			<category.icon /> {category.label}
+		  </a>
+		))}
+	</div>
 
     {categories.map(category => (
-      <div id={category.id} class="pt-14">
-        <div class="flex justify-center my-8 gap-4 flex-wrap">
-          {category.products.map(product => (
-            <ProductCard
-              title={product.title}
-              logo={`/images/${product.logo}`}
-              description={product.description}
-              price={product.price}
-              imageSrc={`/images/${product.image}`}
-              lien={`/product/config?config=${product.configKey}#item-1`}
-            />
-          ))}
-        </div>
-      </div>
-    ))}
+		<div id={category.id} class="pt-14">
+		   <div class="flex justify-center my-8 gap-4 flex-wrap">
+			 {category.products.map(product => (
+				<ProductCard
+				   title={product.title}
+				   logo={`/images/${product.logo}`}
+				   description={product.description}
+				   price={product.price}
+				   imageSrc={`/images/${product.image}`}
+				   lien={`/product/config?config=${product.configKey}#item-1`}
+				/>
+			 ))}
+		   </div>
+		</div>
+	 ))}
 
     <a class="bg-amber-400 z-30 fixed right-14 h-12 p-4 -bottom-1 w-16 m-0 flex items-center" href="#top">
       <MoveUp class="h-10 w-10" />

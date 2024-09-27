@@ -15,6 +15,7 @@ const commonGeneralPieces = {
   potMost: `Pot MOST 50-70 : ${general[0].pot}`,
   potVoca: `Pot VOCA 70-80 : ${general[0].potVoca}`,
   lamelleFibre: `Lamelle fibre DOPPLER ER2 : ${general[0].lamelleFibre}`,
+  clapetVl6: `Boite à clapets MALOSSI VL6 : ${general[0]?.clapetVl6}`
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
@@ -87,7 +88,7 @@ const configurations = {
     createSpecificPieces(
       [`Kit cylindre 75cc Top performance rose : ${all75TopRose[0].cylindre}`,
 	  `Vilebrequin Jasil high tech : ${all75TopRose[0].vilo}`],
-      ['roulement', 'embrayageMost', 'lamelleFibre', 'pipe', 'carbu26', 'potVoca']
+      ['roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu26', 'potVoca']
     )
   ),
 };
