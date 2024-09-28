@@ -31,33 +31,6 @@ footer{
     background: linear-gradient(90deg,rgba(0, 0, 0, 1) -50%, rgba(92, 92, 91, 0) 300%),
     url('/images/bg.svg') bottom/cover no-repeat;
 }
-
-$animationSpeed: 30s;
-
-@keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-384px * 9)); }
-}
-
-.slider {
-	position: relative;
-	height: 34rem;
-	overflow: hidden;
-}
-
-.slide-track {
-	animation: scroll $animationSpeed linear infinite;
-	display: flex;
-	width: calc(384px * 18);
-	animation-play-state: running;
-}
-.slide-track:hover {
-	animation-play-state: paused;
-}
-
-.slide-track .slide {
-	flex: 0 0 auto;
-}
 @media (min-width: 1440px) {
 	.fondCyl{
 		width: 25rem !important;
@@ -102,6 +75,41 @@ details summary {
 details[open] .cheSum{
 	transition: transform 0.3s ease;
     transform: rotate(180deg);
+}
+@media (min-width: 768px) {
+	$animationSpeed: 30s;
+
+	@keyframes scroll {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(calc(-384px * 9)); }
+	}
+
+	.slider {
+		position: relative;
+		height: 34rem;
+	}
+
+	.slide-track {
+		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+		width: calc(384px * 18);
+		animation-play-state: running;
+		overflow-y: unset !important;
+	}
+	.slide-track:hover {
+		animation-play-state: paused;
+	}
+
+	.slide-track .slide {
+		flex: 0 0 auto;
+	}
+}
+@media (min-width: 320px) {
+	.slide-track {
+		overflow-y: auto;
+		display: flex;
+	}
+
 }
 	.carousel-item{
 	transition: all 0.5s ease-in-out;
