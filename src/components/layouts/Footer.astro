@@ -1,5 +1,5 @@
 ---
-import { Facebook, House } from 'lucide-astro'
+import { BadgeEuro, Contact, Instagram } from 'lucide-astro'
 
 const year = new Date().getFullYear()
 
@@ -12,10 +12,13 @@ export interface Props {
 <footer class="w-full flex flex-col justify-center items-center py-16">
 	<div class="bg-white w-10/12 h-1 rounded-3xl"></div>
 	<div class="w-11/12 flex justify-between gap-8 text-white items-center py-8 pr-0 flex-col lg:flex-row">
-		<img src="/images/logo.svg">
-		<p class="flex gap-3"><House />3 Rue fellonneau,<br> 44000 Nantes</p>
-		<p>Mentiens légales</p>
-		<div class="gap-3 flex"><Facebook /><Facebook /><Facebook /></div>
+		<a href="/"><img src="/images/logo.svg"></a>
+		<a href="mailto:contact@trouve-ta-piece.com"><p class="flex gap-3"><Contact />contact@trouve-ta-piece.com</p></a>
+		<a href="/mentions-legales">Mentions légales</a>
+		<a href="" target="_blank" title="paypal" class="flex gap-2"><BadgeEuro />Faire une donnation</a>
+		<div class="gap-3 flex">
+			<a href=""><Instagram /></a>
+		</div>
 	</div>
-	<p class="font-light text-center text-white mt-4">© {year}&nbsp;<a href="https://www.dzeio.com">TTP</a>. Tout droits réservé.</p>
+	<p class="font-light text-center text-white mt-4">© {year}&nbsp;TTP. Tout droits réservé.</p>
 </footer>
