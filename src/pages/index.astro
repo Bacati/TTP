@@ -2,7 +2,7 @@
 import MainLayout from 'layouts/MainLayout.astro';
 import { generateProductData, fastProducts } from 'libs/configurations';
 import { config } from 'libs/donner';
-import { Quote } from 'lucide-astro';
+import { ChevronDown, Quote } from 'lucide-astro';
 import moi from '/public/images/moi.jpg';
 import ProductCard from 'components/global/Cards.astro';
 import Picture from 'components/global/Picture.astro';
@@ -69,10 +69,21 @@ import Picture from 'components/global/Picture.astro';
     </div>
     <div class="w-full flex justify-center py-8">
       <div class="w-11/12 lg:w-4/5 rounded-2xl bg flex gap-2 items-center py-4 justify-center lg:p-20 flex-col lg:flex-row">
-        <Picture class="w-3/6" src={moi} loading="lazy"></Picture>
-        <p class="w-9/12 lg:w-2/3 flex text-white gap-3 mx-4">
+        <Picture class="w-5/6 md:w-3/6" src={moi} loading="lazy"></Picture>
+        <p class="w-2/3 text-white gap-3 mx-4 hidden md:flex">
           <Quote class="w-96"/>Moi c’est Lucas, motard de 22 ans, passionné de moto depuis tout petit. Cette passion s'est rapidement étendue à la mécanique. J'ai commencé par construire mes propres moteurs de 50cc, participant à des rassemblements informels qui se sont rapidement transformés en compétitions. J'ai eu l'opportunité de courir pour l'équipe WRP Racing dans plusieurs compétitions, notamment à Salbris et Bordeaux, où j'ai toujours obtenu d'excellents résultats. Au fil des ans, j'ai construit et préparé un grand nombre de moteurs, que ce soit pour moi-même ou pour des clients. J'ai réalisé de nombreuses préparations de configurations, certaines plus extravagantes que d'autres. Grâce à cela, j'ai acquis une solide connaissance et expérience dans le domaine.
           C'est cette expertise que j'ai décidé de partager en créant ce site. Mon objectif est d'aider les novices à comprendre plus facilement le monde de la moto, mais aussi de référencer des pièces parfois rares.
+          <p class="flex md:hidden w-11/12 text-white"><Quote class="w-20"/>Moi c’est Lucas, motard de 22 ans, passionné de moto depuis tout petit. Cette passion s'est rapidement étendue à la mécanique.</p>
+          <details class="flex items-center md:hidden">
+            <summary class="justify-center text-white flex items-center">
+                Voir plus
+                <ChevronDown class="cheSum w-8" />
+            </summary>
+            <div class="contents">
+               <p class="text-white gap-3 mx-4 w-11/12">J'ai commencé par construire mes propres moteurs de 50cc, participant à des rassemblements informels qui se sont rapidement transformés en compétitions. J'ai eu l'opportunité de courir pour l'équipe WRP Racing dans plusieurs compétitions, notamment à Salbris et Bordeaux, où j'ai toujours obtenu d'excellents résultats. Au fil des ans, j'ai construit et préparé un grand nombre de moteurs, que ce soit pour moi-même ou pour des clients. J'ai réalisé de nombreuses préparations de configurations, certaines plus extravagantes que d'autres. Grâce à cela, j'ai acquis une solide connaissance et expérience dans le domaine.
+                C'est cette expertise que j'ai décidé de partager en créant ce site. Mon objectif est d'aider les novices à comprendre plus facilement le monde de la moto, mais aussi de référencer des pièces parfois rares.</p>
+            </div>
+        </details>
         </p>
       </div>
     </div>
