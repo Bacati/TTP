@@ -14,15 +14,12 @@ body{
 .card {
     transition: transform 0.3s;
 }
-.card:hover {
-    transform: scale(1.1);
-}
 nav a:hover {
     color: gray;
 }
 .gradient{
     background: linear-gradient(90deg,#000000 0%, #fdd763 40%, #000000 100%);
-margin-top: 9.9vh;
+	margin-top: 9.9vh;
 }
 .gradientConfig{
 	background: linear-gradient(90deg,#000000 0%, #fdd763 40%, #000000 100%);
@@ -32,6 +29,9 @@ footer{
     url('/images/bg.svg') bottom/cover no-repeat;
 }
 @media (min-width: 1440px) {
+	.card:hover {
+		transform: scale(1.1);
+	}
 	.fondCyl{
 		width: 25rem !important;
 		height: 25rem !important;
@@ -42,6 +42,9 @@ footer{
 	}
 }
 @media (min-width: 1024px) {
+	.card:hover {
+		transform: scale(1.1);
+	}
 	.fondCyl{
 		width: 22rem !important;
 		height: 22rem !important;
@@ -72,6 +75,9 @@ details summary {
   details summary::-moz-list-bullet {
 	display: none;
   }
+details .cheSum{
+	transition: transform 0.3s;
+}
 details[open] .cheSum{
 	transition: transform 0.3s ease;
     transform: rotate(180deg);
