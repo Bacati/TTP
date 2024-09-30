@@ -3,7 +3,7 @@ const { title, description, price, imageSrc, lien, logo } = Astro.props;
 import { Eye } from 'lucide-astro';
 ---
 
-<div class="bg-white flex flex-col justify-center items-center w-96 p-6 rounded-3xl shadow-lg card slide">
+<div class="bg-white flex flex-col justify-center items-center w-80 lg:w-96 p-6 rounded-3xl shadow-lg card slide">
   <div class="flex justify-between items-center w-full">
     <p class="font-bold text-3xl">{title}</p>
     <img class="w-1/4" src={logo}>
