@@ -32,7 +32,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
     <div class="p-4 lg:ml-10 lg:w-1/3">
         <p class="font-bold text-4xl">{title}</p>
         <p class="text-gray-400">{enderTitle}</p>
-        <p>{description}</p>
+        <p class="mt-2">{description}</p>
         <div class="flex items-center gap-4 mt-4">
             <p class="text-gray-400">Coût total :</p>
             <p class="font-bold text-4xl">{price}€</p>
@@ -46,7 +46,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
                 <div class="contents">
                     <div class="bg-slate-200 mt-2 w-full h-1 rounded-3xl"></div>
                     {pieces.map((piece: string, index: number) => (
-                        <p key={index}>{piece}€</p>
+                        <p key={index} class="mt-1">{piece}€</p>
                     ))}
                 </div>
             </details>
