@@ -2,6 +2,7 @@
 import Footer from 'components/layouts/Footer.astro'
 import Base, { type Props as BaseProps } from './Base.astro'
 import Header from 'components/layouts/Header.astro'
+import { fade } from 'astro:transitions'
 
 export interface Props extends BaseProps {
 	/**
@@ -14,6 +15,7 @@ export interface Props extends BaseProps {
 <Base {...Astro.props}>
 	<slot slot="head" name="head" />
 	<Header />
+	<div transition:animate={fade({ duration: '0.2s' })}>
 		<slot />
 	</div>
 	<Footer />

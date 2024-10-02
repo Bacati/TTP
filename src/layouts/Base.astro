@@ -1,6 +1,7 @@
 ---
 import Head, { type Props as HeadProps } from './Head.astro'
 import 'assets/pages/404/styles/style.scss'
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props extends HeadProps {
 	class?: string
@@ -12,6 +13,7 @@ export interface Props extends HeadProps {
 	<head>
 		<Head {...Astro.props} />
 		<slot name="head" />
+		<ViewTransitions />
 	</head>
 	<body class:list={["", Astro.props.class]}>
 		<slot />
