@@ -8,7 +8,7 @@ import ProductCard from 'components/global/Cards.astro';
 import Picture from 'components/global/Picture.astro';
 ---
 
-<MainLayout title="Trouve ta pièce" class="overflow-x-hidden">
+<MainLayout title="Trouve ta pièce">
   <main class="w-screen">
     <div class="w-screen absolute imagetete h-screen"></div>
     <div class="z-10 relative lg:w-3/6 text flex flex-col justify-end pl-8 text-white">
@@ -23,7 +23,7 @@ import Picture from 'components/global/Picture.astro';
       </p>
     </div>
     <div class="gradient w-full h-2"></div>
-    <div class="flex justify-center gap-1 lg:gap-3 mt-16 w-full mx-2 lg:w-4/5 lg:mx-auto">
+    <div class="flex justify-center gap-1 lg:gap-3 mt-16 mx-2 lg:w-4/5 lg:mx-auto">
       <div class="slider flex items-center overflow-hidden">
         <div id="slide" class="slide-track gap-4">
           {generateProductData(config).map(product => (
