@@ -72,16 +72,16 @@ import Picture from 'components/global/Picture.astro';
 				/>
             </div>
           ))}
+		  <div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">
+			<!-- <MoveLeft />
+			<Hand />
+			<MoveRight />-->
+			<img src="/images/slide.png" class="w-10 h-10" alt="">
+		</div>
         </div>
       </div>
     </div>
-	<div id="move" class="flex justify-center -mt-16 opacity-75 md:hidden">
-		<!-- <MoveLeft />
-		<Hand />
-		<MoveRight />-->
-		<img src="/images/slide.png" class="w-10" alt="">
-	</div>
-    <div class="w-full flex justify-center py-8 mt-16 lg:mt-0">
+    <div class="w-full flex justify-center py-8 mt-14 lg:mt-0">
       <div class="w-11/12 lg:w-4/5 rounded-2xl bg flex gap-2 items-center py-4 justify-center lg:p-20 flex-col lg:flex-row">
         <Picture class="w-5/6 md:w-3/6" src={moi} loading="lazy"></Picture>
         <p class="w-2/3 text-white gap-3 mx-4 hidden md:flex">
