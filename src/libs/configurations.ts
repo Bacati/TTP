@@ -107,7 +107,7 @@ export const generateProductData = (config) => [
     link: `${linkPrefix}50mk`
   },
   {
-    title: "70 Top Performance noir",
+    title: "70 Top Performance",
     logo: "topPerf.png",
     description: "Configuration AllDays",
     price: config[0].allTop || 'N/A',
@@ -131,7 +131,7 @@ export const generateProductData = (config) => [
     link: `${linkPrefix}70airsalAlu`
   },
   {
-    title: "75cc Top performance rose",
+    title: "75cc Top performance",
     logo: "topPerf.png",
     description: "Configuration AllDays",
     price: config[0].allTopRose || 'N/A',
@@ -172,7 +172,7 @@ export const categories = [
 		price: config[0].allMk || 'N/A',
 		image: "50mk.png",
 		configKey: "50mk" },
-      { title: "70 Top Performance noir",
+      { title: "70 Top Performance",
 		logo: "topPerf.png",
 		description: "Configuration AllDays",
 		price: config[0].allTop || 'N/A',
@@ -197,7 +197,7 @@ export const categories = [
 		price: config[0].allAirsalAlu || 'N/A',
 		image: "70airsal.png",
 		configKey: "70airsalAlu" },
-      { title: "75cc Top performance rose",
+      { title: "75cc Top performance",
 		logo: "topPerf.png",
 		description: "Configuration AllDays",
 		price: config[0].allTopRose || 'N/A',
