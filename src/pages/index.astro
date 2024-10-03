@@ -23,11 +23,11 @@ import Picture from 'components/global/Picture.astro';
       </p>
     </div>
     <div class="gradient w-full h-2"></div>
-    <div class="flex justify-center gap-1 lg:gap-3 mt-16 mx-2 lg:w-4/5 lg:mx-auto">
+    <div class="flex justify-center gap-1 lg:gap-3 mt-16 lg:w-4/5 lg:mx-auto">
       <div class="slider flex items-center overflow-hidden">
         <div id="slide" class="slide-track gap-4">
           {generateProductData(config).map(product => (
-              <div>
+              <div class="mx-4">
                   <ProductCard
                     title={product.title}
                     logo={`/images/${product.logo}`}
@@ -39,7 +39,7 @@ import Picture from 'components/global/Picture.astro';
               </div>
           ))}
           {fastProducts.map(product => (
-            <div>
+            <div class="mx-4">
 				<ProductCard
 				title={product.title}
 				description={product.description}
@@ -81,7 +81,7 @@ import Picture from 'components/global/Picture.astro';
         </div>
       </div>
     </div>
-    <div class="w-full flex justify-center py-8 mt-14 lg:mt-0">
+    <div class="w-full flex justify-center py-8 mt-16 lg:mt-0">
       <div class="w-11/12 lg:w-4/5 rounded-2xl bg flex gap-2 items-center py-4 justify-center lg:p-20 flex-col lg:flex-row">
         <Picture class="w-5/6 md:w-3/6" src={moi} loading="lazy"></Picture>
         <p class="w-2/3 text-white gap-3 mx-4 hidden md:flex">
@@ -110,21 +110,17 @@ import Picture from 'components/global/Picture.astro';
 
 		let isSliding = false;
 
-		// Détecter le début du glissement (touchstart et mousedown)
 		slider.addEventListener('touchstart', handleUserInteraction);
 		slider.addEventListener('mousedown', handleUserInteraction);
-
-		// Détecter le scroll si vous avez un scroll horizontal dans le slider
 		slider.addEventListener('scroll', handleUserInteraction);
 
 		function handleUserInteraction() {
 			if (!isSliding) {
 			isSliding = true;
 
-			// Ajouter un délai de 1 seconde avant de masquer l'indicateur
 			setTimeout(function() {
 				moveIndicator.classList.add('hidden');
-			}, 1000); // 1000 millisecondes = 1 seconde
+			}, 1000);
 			}
 		}
 	});
