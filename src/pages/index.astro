@@ -2,13 +2,13 @@
 import MainLayout from 'layouts/MainLayout.astro';
 import { generateProductData, fastProducts } from 'libs/configurations';
 import { config } from 'libs/donner';
-import { ChevronDown, Hand, MoveLeft, MoveRight, Quote } from 'lucide-astro';
+import { ChevronDown, Quote } from 'lucide-astro';
 import moi from '/public/images/moi.jpg';
 import ProductCard from 'components/global/Cards.astro';
 import Picture from 'components/global/Picture.astro';
 ---
 
-<MainLayout title="Trouve ta pièce">
+<MainLayout title="Trouve ta pièce" class="overflow-x-hidden">
   <main class="w-screen">
     <div class="w-screen absolute imagetete h-screen"></div>
     <div class="z-10 relative lg:w-3/6 text flex flex-col justify-end pl-8 text-white">
@@ -50,7 +50,7 @@ import Picture from 'components/global/Picture.astro';
             </div>
           ))}
           {generateProductData(config).map(product => (
-            <div class="hidden lg:block">
+            <div class="hidden lg:block mx-4">
 				<ProductCard
 				title={product.title}
 				logo={`/images/${product.logo}`}
@@ -62,7 +62,7 @@ import Picture from 'components/global/Picture.astro';
             </div>
           ))}
 		  {fastProducts.map(product => (
-            <div class="hidden lg:block">
+            <div class="hidden lg:block mx-4">
 				<ProductCard
 				title={product.title}
 				description={product.description}
@@ -73,9 +73,6 @@ import Picture from 'components/global/Picture.astro';
             </div>
           ))}
 		  <div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">
-			<!-- <MoveLeft />
-			<Hand />
-			<MoveRight />-->
 			<img src="/images/slide.png" class="w-10 h-10" alt="">
 		</div>
         </div>
