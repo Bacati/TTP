@@ -10,6 +10,7 @@ export const general = [
 	  carbu24: 110,
 	  potVoca: 279,
 	  clapetVl6: 33,
+	  lamelleCarbonne:23,
 	},
   ];
 
@@ -44,6 +45,12 @@ export const general = [
   export const all75TopRose = [
 	{
 	  cylindre: 289,
+	  vilo: 129,
+	},
+  ];
+  export const all78Airsal = [
+	{
+	  cylindre: 219,
 	  vilo: 129,
 	},
   ];
@@ -95,6 +102,12 @@ export const general = [
 
 	return calculateTotalPrice(specific, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu24']);
   };
+  const PrixAll78Airsal = () => {
+	const specific = all78Airsal[0];
+	const generalParts = general[0];
+
+	return calculateTotalPrice(specific, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu24']);
+  };
   export const config = [
 	{
 	  allMk: PrixAllMk(),
@@ -102,5 +115,6 @@ export const general = [
 	  allAirsal: PrixAllAirsal(),
 	  allAirsalAlu: PrixAllAirsalAlu(),
 	  allTopRose: PrixAllTopRose(),
+	  all78Airsal: PrixAll78Airsal(),
 	},
   ];

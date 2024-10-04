@@ -1,4 +1,4 @@
-import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, config, general } from 'libs/donner'
+import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, config, general } from 'libs/donner'
 import { Coins, CreditCard, TrendingUp } from 'lucide-astro'
 
 const imagePrefix = "/images";
@@ -12,10 +12,12 @@ const commonGeneralPieces = {
   carbu21: `Carburateur 21MM SUNWORLD : ${general[0].carbu}`,
   carbu24: `Carburateur 24MM SUNWORLD : ${general[0].carbu24}`,
   carbu26: `Carburateur 26MM SUNWORLD : ${general[0].carbu24}`,
+  carbu28: `Carburateur 28MM SUNWORLD : ${general[0].carbu24}`,
   potMost: `Pot MOST 50-70 : ${general[0].pot}`,
   potVoca: `Pot VOCA 70-80 : ${general[0].potVoca}`,
   lamelleFibre: `Lamelle fibre DOPPLER ER2 : ${general[0].lamelleFibre}`,
-  clapetVl6: `Boite à clapets MALOSSI VL6 : ${general[0]?.clapetVl6}`
+  clapetVl6: `Boite à clapets MALOSSI VL6 : ${general[0]?.clapetVl6}`,
+  lamelleCarbonne: `Lamelle carbon DOPPLER ER3 derbi : ${general[0]?.lamelleCarbonne}` 
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
@@ -84,11 +86,22 @@ const configurations = {
     "75cc Top performance rose",
     "Configuration solide pour de nombreux kilomètres avec performance.",
     config[0].allTopRose,
-    ["toprose.png", "vilojasil.png", "carbu.png", "potvoca.png"],
+    ["toprose.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
     createSpecificPieces(
       [`Kit cylindre 75cc Top performance rose : ${all75TopRose[0].cylindre}`,
 	  `Vilebrequin Jasil high tech : ${all75TopRose[0].vilo}`],
       ['roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu26', 'potVoca']
+    )
+  ),
+  "78airsal": createConfig(
+    "78cc Airsal alu tech",
+    "Configuration très simple avec un cylindre très solide. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux, parfait pour rouler tout les jours et se faire plaisir.",
+    config[0]?.all78Airsal,
+    ["70airsal.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
+    createSpecificPieces(
+      [`Kit cylindre 78cc Airsal alu tech : ${all78Airsal[0].cylindre}`,
+	  `Vilebrequin Jasil high tech : ${all78Airsal[0].vilo}`],
+      ['roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu28', 'potVoca']
     )
   ),
 };
@@ -137,6 +150,14 @@ export const generateProductData = (config) => [
     price: config[0].allTopRose || 'N/A',
     imageSrc: `${imagePrefix}/toprose.png`,
     link: `${linkPrefix}75topRose`
+  },
+  {
+    title: "78cc Airsal alu",
+    logo: "airsal.png",
+    description: "Configuration AllDays",
+    price: config[0].all78Airsal || 'N/A',
+    imageSrc: `${imagePrefix}/70airsal.png`,
+    link: `${linkPrefix}78airsal`
   },
 ];
 
@@ -203,11 +224,12 @@ export const categories = [
 		price: config[0].allTopRose || 'N/A',
 		image: "toprose.png",
 		configKey: "75topRose" },
-      { title: "Kit cylindre 2Fast",
-		description: "Grosse config",
-		price: "996",
-		image: "cylindre2fast.png",
-		configKey: "2fast" },
+      { title: "78cc Airsal alu",
+    logo: "airsal.png",
+		description: "Configuration AllDays",
+		price: config[0]?.all78Airsal || 'N/A',
+		image: "70airsal.png",
+		configKey: "78airsal" },
     ]
   },
   {
