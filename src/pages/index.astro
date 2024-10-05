@@ -38,33 +38,11 @@ import Picture from 'components/global/Picture.astro';
                   />
               </div>
           ))}
-          {fastProducts.map(product => (
-            <div class="mx-4">
-				<ProductCard
-				title={product.title}
-				description={product.description}
-				price={product.price}
-				imageSrc={product.imageSrc}
-				lien={product.link}
-				/>
-            </div>
-          ))}
           {generateProductData(config).map(product => (
             <div class="hidden lg:block mx-4">
 				<ProductCard
 				title={product.title}
 				logo={`/images/${product.logo}`}
-				description={product.description}
-				price={product.price}
-				imageSrc={product.imageSrc}
-				lien={product.link}
-				/>
-            </div>
-          ))}
-		  {fastProducts.map(product => (
-            <div class="hidden lg:block mx-4">
-				<ProductCard
-				title={product.title}
 				description={product.description}
 				price={product.price}
 				imageSrc={product.imageSrc}

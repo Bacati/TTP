@@ -11,6 +11,10 @@ export const general = [
 	  potVoca: 279,
 	  clapetVl6: 33,
 	  lamelleCarbonne:23,
+	  mvtdd:289,
+	  potMost80:246,
+	  roulementMost:28,
+	  admiItalkit: 88,
 	},
   ];
 
@@ -52,6 +56,27 @@ export const general = [
 	{
 	  cylindre: 219,
 	  vilo: 129,
+	},
+  ];
+  export const all78brk = [
+	{
+	  cylindre: 257,
+	  vilo: 162,
+	},
+  ];
+  export const allTopalu = [
+	{
+	  pack: 426,
+	  embrayage:65,
+	  bacTop: 97,
+	  pipeMost: 47,
+	  pot2win: 329,
+	},
+  ];
+  export const all78Most = [
+	{
+		cylindre: 249,
+	  	vilo:199,
 	},
   ];
 
@@ -108,6 +133,24 @@ export const general = [
 
 	return calculateTotalPrice(specific, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu24']);
   };
+  const PrixAll78Brk = () => {
+	const specific = all78brk[0];
+	const generalParts = general[0];
+
+	return calculateTotalPrice(specific, generalParts, ['potMost80', 'embrayageMost', 'carbu24', 'mvtdd', 'roulementMost', 'admiItalkit']);
+  };
+  const PrixAllTopAlu = () => {
+	const specific = allTopalu[0];
+	const generalParts = general[0];
+
+	return calculateTotalPrice(specific, generalParts, ['carbu24']);
+  };
+  const PrixAll78Most = () => {
+	const specific = all78Most[0];
+	const generalParts = general[0];
+
+	return calculateTotalPrice(specific, generalParts, ['carbu24', 'potMost80', 'embrayageMost', 'mvtdd', 'roulementMost', 'admiItalkit']);
+  };
   export const config = [
 	{
 	  allMk: PrixAllMk(),
@@ -116,5 +159,8 @@ export const general = [
 	  allAirsalAlu: PrixAllAirsalAlu(),
 	  allTopRose: PrixAllTopRose(),
 	  all78Airsal: PrixAll78Airsal(),
+	  all78brk : PrixAll78Brk(),
+	  allTopalu : PrixAllTopAlu(),
+	  all78Most : PrixAll78Most(),
 	},
   ];

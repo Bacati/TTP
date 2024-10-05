@@ -1,4 +1,4 @@
-import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, config, general } from 'libs/donner'
+import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, config, general } from 'libs/donner'
 import { Coins, CreditCard, TrendingUp } from 'lucide-astro'
 
 const imagePrefix = "/images";
@@ -17,7 +17,11 @@ const commonGeneralPieces = {
   potVoca: `Pot VOCA 70-80 : ${general[0].potVoca}`,
   lamelleFibre: `Lamelle fibre DOPPLER ER2 : ${general[0].lamelleFibre}`,
   clapetVl6: `Boite à clapets MALOSSI VL6 : ${general[0]?.clapetVl6}`,
-  lamelleCarbonne: `Lamelle carbon DOPPLER ER3 derbi : ${general[0]?.lamelleCarbonne}` 
+  lamelleCarbonne: `Lamelle carbon DOPPLER ER3 derbi : ${general[0]?.lamelleCarbonne}`,
+  potMost80: `Pot MOST 80-90 : ${general[0]?.potMost80}`,
+  mvtdd: `Allumage MVT Digital Direct : ${general[0].mvtdd}`,
+  roulementMost: `Roulement et spy MOST : ${general[0].roulement}`,
+  admiItal: `Admission ITALKIT : ${general[0]?.admiItalkit}`,
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
@@ -104,6 +108,45 @@ const configurations = {
       ['roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu28', 'potVoca']
     )
   ),
+  "78brk": createConfig(
+    "78cc BRK 4RACE",
+    "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
+    config[0]?.all78brk,
+    ["80brk.png", "vilomost.png", "admiita.png","carbu.png", "potmost.png"],
+    createSpecificPieces(
+      [`Kit cylindre 78cc BRK 4RACE : ${all78brk[0].cylindre}`,
+	  `Vilebrequin MOST evo 2h : ${all78brk[0].vilo}`,
+      ],
+      ['embrayageMost', 'carbu28', 'potMost80', 'mvtdd', 'roulementMost', 'admiItal']
+    )
+  ),
+  "86top": createConfig(
+    "86cc Top performance",
+    "Configuration très simple avec un cylindre très solide, il est important de bien respecter les temps de chauffe. Important lors du montage toujours mettre un léger filer de pate à joint au niveau du joint, pour éviter de percer son piston. Moteur extrêment coupleux, très agréable à conduire tout les jours et très joeur.",
+    config[0]?.allTopalu,
+    ["topalu.png", "baatop.png","carbu.png", "ardv2.png"],
+    createSpecificPieces(
+      [`Pack moteur 86cc TOP performance alu : ${allTopalu[0]?.pack}`,
+	  `Embrayage NEWFREN : ${allTopalu[0]?.embrayage}`,
+    `Boite à clapet TOP performance : ${allTopalu[0]?.bacTop}`,
+    `Pipe d'admission MOST : ${allTopalu[0]?.pipeMost}`,
+    `Pot 2WIN ARD V2 : ${allTopalu[0]?.pot2win}`,
+      ],
+      ['carbu28']
+    )
+  ),
+  "78most": createConfig(
+    "78cc MOST 4STREET",
+    "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
+    config[0]?.all78Most,
+    ["80most.png", "viloairsal.png", "admiita.png","carbu.png", "potmost.png"],
+    createSpecificPieces(
+      [`Kit cylindre 78cc MOST 4street : ${all78Most[0].cylindre}`,
+	  `Vilebrequin AIRSAL : ${all78Most[0].vilo}`,
+      ],
+      ['embrayageMost', 'carbu28', 'potMost80', 'mvtdd', 'roulementMost', 'admiItal']
+    )
+  ),
 };
 
 // Fonction pour récupérer la configuration courante
@@ -159,27 +202,31 @@ export const generateProductData = (config) => [
     imageSrc: `${imagePrefix}/70airsal.png`,
     link: `${linkPrefix}78airsal`
   },
+  {
+    title: "78cc BRK 4RACE",
+    logo: "brk.png",
+    description: "Configuration AllDays",
+    price: config[0].all78brk || 'N/A',
+    imageSrc: `${imagePrefix}/80brk.png`,
+    link: `${linkPrefix}78brk`
+  },
+  {
+    title: "86cc Top performance",
+    logo: "topPerf.png",
+    description: "Configuration AllDays",
+    price: config[0].allTopalu || 'N/A',
+    imageSrc: `${imagePrefix}/topalu.png`,
+    link: `${linkPrefix}86top`
+  },
+  {
+    title: "78cc MOST 4STREET",
+    logo: "most.png",
+    description: "Configuration AllDays",
+    price: config[0].all78Most || 'N/A',
+    imageSrc: `${imagePrefix}/80most.png`,
+    link: `${linkPrefix}78most`
+  },
 ];
-
-// Produits rapides spécifiques (par exemple, pour un slider)
-export const fastProducts = [
-  { title: "Kit cylindre 2Fast",
-	description: "Grosse config",
-	price: "996",
-	imageSrc: `${imagePrefix}/cylindre2fast.png`,
-	link: `${linkPrefix}2fast` },
-  { title: "Kit cylindre 2Fast",
-	description: "Grosse config",
-	price: "1200",
-	imageSrc: `${imagePrefix}/cylindre2fast.png`,
-	link: `${linkPrefix}2fast1` },
-  { title: "Kit cylindre 2Fast",
-	description: "Grosse config",
-	price: "1500",
-	imageSrc: `${imagePrefix}/cylindre2fast.png`,
-  	link: `${linkPrefix}2fast2` },
-];
-
 // Catégories de produits
 export const categories = [
   {
@@ -224,7 +271,8 @@ export const categories = [
 		price: config[0].allTopRose || 'N/A',
 		image: "toprose.png",
 		configKey: "75topRose" },
-      { title: "78cc Airsal alu",
+      { 
+    title: "78cc Airsal alu",
     logo: "airsal.png",
 		description: "Configuration AllDays",
 		price: config[0]?.all78Airsal || 'N/A',
@@ -237,9 +285,30 @@ export const categories = [
     label: "1000€ à 1500€",
     icon: CreditCard,
     products: [
-      { title: "Kit cylindre 2Fast", description: "Grosse config", price: "1000", image: "cylindre2fast.png", configKey: "2fast1" },
-      { title: "Kit cylindre 2Fast", description: "Grosse config", price: "1200", image: "cylindre2fast.png", configKey: "2fast2" },
-      { title: "Kit cylindre 2Fast", description: "Grosse config", price: "1500", image: "cylindre2fast.png", configKey: "2fast3" },
+      { 
+        title: "78 BRK 4RACE",
+        logo: "brk.png",
+        description: "Configuration AllDays",
+        price: config[0]?.all78brk || 'N/A',
+        image: "80brk.png",
+        configKey: "78brk" 
+      },
+      { 
+        title: "86cc Top performance",
+        logo: "topPerf.png",
+        description: "Configuration AllDays",
+        price: config[0]?.allTopalu || 'N/A',
+        image: "topalu.png",
+        configKey: "86top" 
+      },
+      {
+        title: "78cc MOST 4STREET",
+        logo: "most.png",
+        description: "Configuration AllDays",
+        price: config[0].all78Most || 'N/A',
+        image: "80most.png",
+        configKey: "78most" 
+      },
     ]
   }
 ];
