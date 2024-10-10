@@ -43,7 +43,7 @@ const createConfig = (title, description, price, images, specificPieces) => ({
 // Configurations détaillées
 const configurations = {
   "50mk": createConfig(
-    "50 Metrakit Alu",
+    "50cc Metrakit Alu",
     "Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans problème.",
     config[0].allMk,
     ["50mk.png", "carbupolini.png", "potmost50.png"],
@@ -54,7 +54,7 @@ const configurations = {
     )
   ),
   "70top": createConfig(
-    "70 Top Performance noir",
+    "70cc Top Performance noir",
     "Configuration commune, solide et adaptée pour de longues distances.",
     config[0].allTop,
     ["topnoir.png", "vilojasilv.png", "carbu.png", "potmost50.png"],
@@ -65,7 +65,7 @@ const configurations = {
     )
   ),
   "70airsal": createConfig(
-    "70 Airsal fonte",
+    "70cc Airsal fonte",
     "Configuration très robuste avec de bonnes performances pour débuter.",
     config[0].allAirsal,
     ["70airsalfonte.png", "vilowatts.png", "carbu.png", "potmost50.png"],
@@ -76,7 +76,7 @@ const configurations = {
     )
   ),
   "70airsalAlu": createConfig(
-    "70 Airsal Alu",
+    "70cc Airsal Alu",
     "Cylindre très solide, bien respecter les temps de chauffe.",
     config[0].allAirsalAlu,
     ["70airsal.png", "artekk2.png", "carbu.png", "potvoca.png"],
@@ -152,81 +152,6 @@ const configurations = {
 // Fonction pour récupérer la configuration courante
 export const getCurrentConfig = (configType) => configurations[configType] || configurations["50mk"];
 
-// Fonction pour générer des données produits à partir de `config`
-export const generateProductData = (config) => [
-  {
-    title: "50 Metrakit Alu",
-    logo: "mk.svg",
-    description: "Configuration AllDays",
-    price: config[0].allMk || 'N/A',
-    imageSrc: `${imagePrefix}/50mk.png`,
-    link: `${linkPrefix}50mk`
-  },
-  {
-    title: "70 Top Performance",
-    logo: "topPerf.png",
-    description: "Configuration AllDays",
-    price: config[0].allTop || 'N/A',
-    imageSrc: `${imagePrefix}/topnoir.png`,
-    link: `${linkPrefix}70top`
-  },
-  {
-    title: "70 Airsal fonte",
-    logo: "airsal.png",
-    description: "Configuration AllDays",
-    price: config[0].allAirsal || 'N/A',
-    imageSrc: `${imagePrefix}/70airsalfonte.png`,
-    link: `${linkPrefix}70airsal`
-  },
-  {
-    title: "70 Airsal Alu",
-    logo: "airsal.png",
-    description: "Configuration AllDays",
-    price: config[0].allAirsalAlu || 'N/A',
-    imageSrc: `${imagePrefix}/70airsal.png`,
-    link: `${linkPrefix}70airsalAlu`
-  },
-  {
-    title: "75cc Top performance",
-    logo: "topPerf.png",
-    description: "Configuration AllDays",
-    price: config[0].allTopRose || 'N/A',
-    imageSrc: `${imagePrefix}/toprose.png`,
-    link: `${linkPrefix}75topRose`
-  },
-  {
-    title: "78cc Airsal alu",
-    logo: "airsal.png",
-    description: "Configuration AllDays",
-    price: config[0].all78Airsal || 'N/A',
-    imageSrc: `${imagePrefix}/70airsal.png`,
-    link: `${linkPrefix}78airsal`
-  },
-  {
-    title: "78cc BRK 4RACE",
-    logo: "brk.png",
-    description: "Configuration AllDays",
-    price: config[0].all78brk || 'N/A',
-    imageSrc: `${imagePrefix}/80brk.png`,
-    link: `${linkPrefix}78brk`
-  },
-  {
-    title: "86cc Top performance",
-    logo: "topPerf.png",
-    description: "Configuration AllDays",
-    price: config[0].allTopalu || 'N/A',
-    imageSrc: `${imagePrefix}/topalu.png`,
-    link: `${linkPrefix}86top`
-  },
-  {
-    title: "78cc MOST 4STREET",
-    logo: "most.png",
-    description: "Configuration AllDays",
-    price: config[0].all78Most || 'N/A',
-    imageSrc: `${imagePrefix}/80most.png`,
-    link: `${linkPrefix}78most`
-  },
-];
 // Catégories de produits
 export const categories = [
   {
@@ -234,19 +159,19 @@ export const categories = [
     label: "50cc",
     icon: Coins,
     products: [
-      { title: "50 Metrakit Alu",
+      { title: "50cc Metrakit Alu",
 		logo: "mk.svg",
 		description: "Configuration AllDays",
 		price: config[0].allMk || 'N/A',
 		image: "50mk.png",
 		configKey: "50mk" },
-      { title: "70 Top Performance",
+      { title: "70cc Top Performance",
 		logo: "topPerf.png",
 		description: "Configuration AllDays",
 		price: config[0].allTop || 'N/A',
 		image: "topnoir.png",
 		configKey: "70top" },
-      { title: "70 Airsal fonte",
+      { title: "70cc Airsal fonte",
 		logo: "airsal.png",
 		description: "Configuration AllDays",
 		price: config[0].allAirsal || 'N/A',
@@ -259,7 +184,7 @@ export const categories = [
     label: "70cc à 79cc",
     icon: TrendingUp,
     products: [
-      { title: "70 Airsal Alu",
+      { title: "70cc Airsal Alu",
 		logo: "airsal.png",
 		description: "Configuration AllDays",
 		price: config[0].allAirsalAlu || 'N/A',
@@ -286,7 +211,7 @@ export const categories = [
     icon: CreditCard,
     products: [
       { 
-        title: "78 BRK 4RACE",
+        title: "78cc BRK 4RACE",
         logo: "brk.png",
         description: "Configuration AllDays",
         price: config[0]?.all78brk || 'N/A',
@@ -317,7 +242,7 @@ export const categories = [
     icon: CreditCard,
     products: [
       { 
-        title: "78 BRK 4RACE",
+        title: "78cc BRK 4RACE",
         logo: "brk.png",
         description: "Configuration AllDays",
         price: config[0]?.all78brk || 'N/A',
@@ -348,7 +273,7 @@ export const categories = [
     icon: CreditCard,
     products: [
       { 
-        title: "78 BRK 4RACE",
+        title: "78cc BRK 4RACE",
         logo: "brk.png",
         description: "Configuration AllDays",
         price: config[0]?.all78brk || 'N/A',
