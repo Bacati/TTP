@@ -32,6 +32,7 @@ import Picture from 'components/global/Picture.astro';
                     title={product.title}
                     logo={`/images/${product.logo}`}
                     description={product.description}
+                    type={product.type}
                     price={product.price}
                     imageSrc={product.imageSrc}
                     lien={product.link}
@@ -40,14 +41,15 @@ import Picture from 'components/global/Picture.astro';
           ))}
           {generateProductData(config).map(product => (
             <div class="hidden lg:block mx-4">
-				<ProductCard
-				title={product.title}
-				logo={`/images/${product.logo}`}
-				description={product.description}
-				price={product.price}
-				imageSrc={product.imageSrc}
-				lien={product.link}
-				/>
+                <ProductCard
+                title={product.title}
+                logo={`/images/${product.logo}`}
+                description={product.description}
+                type={product.type}
+                price={product.price}
+                imageSrc={product.imageSrc}
+                lien={product.link}
+                />
             </div>
           ))}
 		  <div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">

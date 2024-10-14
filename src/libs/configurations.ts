@@ -31,9 +31,10 @@ const createSpecificPieces = (basePieces, specificPieces) => [
 ];
 
 // Fonction de création de configuration
-const createConfig = (title, description, price, images, specificPieces) => ({
+const createConfig = (title, type, description, price, images, specificPieces) => ({
   title,
   enderTitle: "Configuration AllDays",
+  type,
   description,
   price,
   images: images.map(image => `${imagePrefix}/${image}`),
@@ -44,6 +45,7 @@ const createConfig = (title, description, price, images, specificPieces) => ({
 const configurations = {
   "50mk": createConfig(
     "50cc Metrakit Alu",
+    "AM6",
     "Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans problème.",
     config[0].allMk,
     ["50mk.png", "carbupolini.png", "potmost50.png"],
@@ -55,6 +57,7 @@ const configurations = {
   ),
   "70top": createConfig(
     "70cc Top Performance noir",
+    "AM6",
     "Configuration commune, solide et adaptée pour de longues distances.",
     config[0].allTop,
     ["topnoir.png", "vilojasilv.png", "carbu.png", "potmost50.png"],
@@ -66,6 +69,7 @@ const configurations = {
   ),
   "70airsal": createConfig(
     "70cc Airsal fonte",
+    "AM6",
     "Configuration très robuste avec de bonnes performances pour débuter.",
     config[0].allAirsal,
     ["70airsalfonte.png", "vilowatts.png", "carbu.png", "potmost50.png"],
@@ -77,6 +81,7 @@ const configurations = {
   ),
   "70airsalAlu": createConfig(
     "70cc Airsal Alu",
+    "AM6",
     "Cylindre très solide, bien respecter les temps de chauffe.",
     config[0].allAirsalAlu,
     ["70airsal.png", "artekk2.png", "carbu.png", "potvoca.png"],
@@ -88,6 +93,7 @@ const configurations = {
   ),
   "75topRose": createConfig(
     "75cc Top performance rose",
+    "AM6",
     "Configuration solide pour de nombreux kilomètres avec performance.",
     config[0].allTopRose,
     ["toprose.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
@@ -99,6 +105,7 @@ const configurations = {
   ),
   "78airsal": createConfig(
     "78cc Airsal alu tech",
+    "AM6",
     "Configuration très simple avec un cylindre très solide. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux, parfait pour rouler tout les jours et se faire plaisir.",
     config[0]?.all78Airsal,
     ["70airsal.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
@@ -110,6 +117,7 @@ const configurations = {
   ),
   "78brk": createConfig(
     "78cc BRK 4RACE",
+    "AM6",
     "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
     config[0]?.all78brk,
     ["80brk.png", "vilomost.png", "admiita.png","carbu.png", "potmost.png"],
@@ -122,6 +130,7 @@ const configurations = {
   ),
   "86top": createConfig(
     "86cc Top performance",
+    "AM6",
     "Configuration très simple avec un cylindre très solide, il est important de bien respecter les temps de chauffe. Important lors du montage toujours mettre un léger filer de pate à joint au niveau du joint, pour éviter de percer son piston. Moteur extrêment coupleux, très agréable à conduire tout les jours et très joeur.",
     config[0]?.allTopalu,
     ["topalu.png", "baatop.png","carbu.png", "ardv2.png"],
@@ -137,6 +146,7 @@ const configurations = {
   ),
   "78most": createConfig(
     "78cc MOST 4STREET",
+    "AM6",
     "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
     config[0]?.all78Most,
     ["80most.png", "viloairsal.png", "admiita.png","carbu.png", "potmost.png"],
@@ -158,6 +168,7 @@ export const generateProductData = (config) => [
     title: "50cc Metrakit Alu",
     logo: "mk.svg",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].allMk || 'N/A',
     imageSrc: `${imagePrefix}/50mk.png`,
     link: `${linkPrefix}50mk`
@@ -166,6 +177,7 @@ export const generateProductData = (config) => [
     title: "70cc Top Performance",
     logo: "topPerf.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].allTop || 'N/A',
     imageSrc: `${imagePrefix}/topnoir.png`,
     link: `${linkPrefix}70top`
@@ -174,6 +186,7 @@ export const generateProductData = (config) => [
     title: "70cc Airsal fonte",
     logo: "airsal.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].allAirsal || 'N/A',
     imageSrc: `${imagePrefix}/70airsalfonte.png`,
     link: `${linkPrefix}70airsal`
@@ -182,6 +195,7 @@ export const generateProductData = (config) => [
     title: "70cc Airsal Alu",
     logo: "airsal.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].allAirsalAlu || 'N/A',
     imageSrc: `${imagePrefix}/70airsal.png`,
     link: `${linkPrefix}70airsalAlu`
@@ -190,6 +204,7 @@ export const generateProductData = (config) => [
     title: "75cc Top performance",
     logo: "topPerf.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].allTopRose || 'N/A',
     imageSrc: `${imagePrefix}/toprose.png`,
     link: `${linkPrefix}75topRose`
@@ -198,6 +213,7 @@ export const generateProductData = (config) => [
     title: "78cc Airsal alu",
     logo: "airsal.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].all78Airsal || 'N/A',
     imageSrc: `${imagePrefix}/70airsal.png`,
     link: `${linkPrefix}78airsal`
@@ -206,6 +222,7 @@ export const generateProductData = (config) => [
     title: "78cc BRK 4RACE",
     logo: "brk.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].all78brk || 'N/A',
     imageSrc: `${imagePrefix}/80brk.png`,
     link: `${linkPrefix}78brk`
@@ -214,6 +231,7 @@ export const generateProductData = (config) => [
     title: "86cc Top performance",
     logo: "topPerf.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].allTopalu || 'N/A',
     imageSrc: `${imagePrefix}/topalu.png`,
     link: `${linkPrefix}86top`
@@ -222,6 +240,7 @@ export const generateProductData = (config) => [
     title: "78cc MOST 4STREET",
     logo: "most.png",
     description: "Configuration AllDays",
+    type: "AM6",
     price: config[0].all78Most || 'N/A',
     imageSrc: `${imagePrefix}/80most.png`,
     link: `${linkPrefix}78most`
@@ -237,18 +256,21 @@ export const categories = [
       { title: "50cc Metrakit Alu",
 		logo: "mk.svg",
 		description: "Configuration AllDays",
+    type: "AM6",
 		price: config[0].allMk || 'N/A',
 		image: "50mk.png",
 		configKey: "50mk" },
       { title: "70cc Top Performance",
 		logo: "topPerf.png",
 		description: "Configuration AllDays",
+    type: "AM6",
 		price: config[0].allTop || 'N/A',
 		image: "topnoir.png",
 		configKey: "70top" },
       { title: "70cc Airsal fonte",
 		logo: "airsal.png",
 		description: "Configuration AllDays",
+    type: "AM6",
 		price: config[0].allAirsal || 'N/A',
 		image: "70airsalfonte.png",
 		configKey: "70airsal" },
@@ -262,12 +284,14 @@ export const categories = [
       { title: "70cc Airsal Alu",
 		logo: "airsal.png",
 		description: "Configuration AllDays",
+    type: "AM6",
 		price: config[0].allAirsalAlu || 'N/A',
 		image: "70airsal.png",
 		configKey: "70airsalAlu" },
       { title: "75cc Top performance",
 		logo: "topPerf.png",
 		description: "Configuration AllDays",
+    type: "AM6",
 		price: config[0].allTopRose || 'N/A',
 		image: "toprose.png",
 		configKey: "75topRose" },
@@ -275,6 +299,7 @@ export const categories = [
     title: "78cc Airsal alu",
     logo: "airsal.png",
 		description: "Configuration AllDays",
+    type: "AM6",
 		price: config[0]?.all78Airsal || 'N/A',
 		image: "70airsal.png",
 		configKey: "78airsal" },
@@ -289,6 +314,7 @@ export const categories = [
         title: "78cc BRK 4RACE",
         logo: "brk.png",
         description: "Configuration AllDays",
+        type: "AM6",
         price: config[0]?.all78brk || 'N/A',
         image: "80brk.png",
         configKey: "78brk" 
@@ -297,6 +323,7 @@ export const categories = [
         title: "86cc Top performance",
         logo: "topPerf.png",
         description: "Configuration AllDays",
+        type: "AM6",
         price: config[0]?.allTopalu || 'N/A',
         image: "topalu.png",
         configKey: "86top" 
@@ -305,6 +332,7 @@ export const categories = [
         title: "78cc MOST 4STREET",
         logo: "most.png",
         description: "Configuration AllDays",
+        type: "AM6",
         price: config[0].all78Most || 'N/A',
         image: "80most.png",
         configKey: "78most" 
