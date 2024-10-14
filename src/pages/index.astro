@@ -1,6 +1,6 @@
 ---
 import MainLayout from 'layouts/MainLayout.astro';
-import { generateProductData, fastProducts } from 'libs/configurations';
+import { generateProductData } from 'libs/configurations';
 import { config } from 'libs/donner';
 import { ChevronDown, Quote } from 'lucide-astro';
 import moi from '/public/images/moi.jpg';
@@ -32,7 +32,8 @@ import Picture from 'components/global/Picture.astro';
                     title={product.title}
                     logo={`/images/${product.logo}`}
                     description={product.description}
-                    type={product.type}
+                    typeMotor={product.typeMotor}
+					typeMotor1={product.typeMotor1}
                     price={product.price}
                     imageSrc={product.imageSrc}
                     lien={product.link}
@@ -45,7 +46,7 @@ import Picture from 'components/global/Picture.astro';
                 title={product.title}
                 logo={`/images/${product.logo}`}
                 description={product.description}
-                type={product.type}
+                typeMotor1={product.typeMotor1}
                 price={product.price}
                 imageSrc={product.imageSrc}
                 lien={product.link}
