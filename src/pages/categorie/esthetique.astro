@@ -1,8 +1,7 @@
 ---
-import Cards from 'components/global/Cards.astro';
+import CardsProduct from 'components/global/CardsProduct.astro';
 import MainLayout from 'layouts/MainLayout.astro';
 import { MoveUp } from 'lucide-astro';
-
 ---
 
 <MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
@@ -16,15 +15,52 @@ import { MoveUp } from 'lucide-astro';
       </div>
       <div class="gradient-config w-full h-2 rounded-b-3xl"></div>
     </div>
-    <div class="pt-14">
+    <div>
         <div class="flex justify-center my-8 gap-4 flex-wrap">
-            <Cards 
-            title="fhdhfd"
-            logo=""
-            description="gfdgdf"
-            imageSrc="{`/images/${product.image}`}"
-            lien="{`/product/config?config=${product.configKey}#item-1`}"
-        />
+            <CardsProduct 
+                title="Thermolaquage"
+                logo="/public/images/logo.svg"
+                description="nom de l'entreprise"
+                imageSrc="/public/images/moteur.png"
+                lien=""
+            />
+            <CardsProduct 
+                title="Kit déco"
+                logo="/public/images/logo.svg"
+                description="nom de l'entreprise"
+                imageSrc="/public/images/moteur.png"
+                lien=""
+            />
+            <CardsProduct 
+                title="Thermolaquage"
+                logo="/public/images/logo.svg"
+                description="nom de l'entreprise"
+                imageSrc="/public/images/moteur.png"
+                lien=""
+            />
+        </div>
+        <div class="flex justify-center my-8 gap-4 flex-wrap">
+            <CardsProduct 
+                title="Thermolaquage"
+                logo="/public/images/logo.svg"
+                description="nom de l'entreprise"
+                imageSrc="/public/images/moteur.png"
+                lien=""
+            />
+            <CardsProduct 
+                title="Kit déco"
+                logo="/public/images/logo.svg"
+                description="nom de l'entreprise"
+                imageSrc="/public/images/moteur.png"
+                lien=""
+            />
+            <CardsProduct 
+                title="Thermolaquage"
+                logo="/public/images/logo.svg"
+                description="nom de l'entreprise"
+                imageSrc="/public/images/moteur.png"
+                lien=""
+            />
         </div>
       </div>
 
