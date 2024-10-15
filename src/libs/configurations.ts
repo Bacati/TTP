@@ -262,7 +262,7 @@ export const categories = [
   {
     id: "500",
     label: "500€ à 700€",
-    icon: Coins,
+    source: `${imagePrefix}/simple.svg`,
     products: [
       { title: "50cc Metrakit Alu",
 		logo: "mk.svg",
@@ -291,7 +291,7 @@ export const categories = [
   {
     id: "700",
     label: "700€ à 1000€",
-    icon: TrendingUp,
+    source: `${imagePrefix}/double.svg`,
     products: [
       { title: "70cc Airsal Alu",
 		logo: "airsal.png",
@@ -320,7 +320,7 @@ export const categories = [
   {
     id: "1000",
     label: "1000€ à 1500€",
-    icon: CreditCard,
+    source: `${imagePrefix}/triple.svg`,
     products: [
       { 
         title: "78cc BRK 4RACE",

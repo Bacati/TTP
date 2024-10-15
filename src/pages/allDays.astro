@@ -17,35 +17,68 @@ import { categories } from 'libs/configurations';
       <div class="gradient-config w-full h-2 rounded-b-3xl"></div>
     </div>
 
-    <div class="bg-white rounded-full relative z-30 items-center h-fit justify-center shadow-lg flex mt-4 py-2 lg:py-0 w-56 lg:w-fit mx-auto flex-col lg:flex-row">
+    <div class="relative z-30 items-center h-fit justify-center border-b-2 border-orange-600 flex mt-4 py-2 lg:py-0 w-56 md:w-11/12 lg:w-2/3 mx-auto flex-col md:flex-row">
 		{categories.map(category => (
-		  <a class="pl-4 mx-2 pr-0 text-orange-500 gap-3 flex text-lg items-center" href={`#${category.id}`}>
-			<category.icon /> {category.label}
+		  <a 
+			class="mx-2 my-6 text-lg gap-3 flex items-center rounded-3xl py-2 px-6 justify-center categorie text-orange-600" 
+			href={`#${category.id}`} 
+			data-category={category.id} 
+		  >
+			<img src={category.source} /> {category.label}
 		  </a>
 		))}
 	</div>
 
-    {categories.map(category => (
+	  {categories.map(category => (
 		<div id={category.id} class="pt-14">
-		   <div class="flex justify-center my-8 gap-4 flex-wrap">
-			 {category.products.map(product => (
-				<ProductCard
-				   title={product.title}
-				   logo={`/images/${product.logo}`}
-				   description={product.description}
-				   typeMotor={product.typeMotor}
-				   typeMotor1={product.typeMotor1}
-				   price={product.price}
-				   imageSrc={`/images/${product.image}`}
-				   lien={`/product/config?config=${product.configKey}#item-1`}
-				/>
-			 ))}
-		   </div>
+		  <div class="flex justify-center my-8 gap-4 flex-wrap">
+			{category.products.map(product => (
+			  <ProductCard
+				title={product.title}
+				logo={`/images/${product.logo}`}
+				description={product.description}
+				typeMotor={product.typeMotor}
+				typeMotor1={product.typeMotor1}
+				price={product.price}
+				imageSrc={`/images/${product.image}`}
+				lien={`/product/config?config=${product.configKey}#item-1`}
+			  />
+			))}
+		  </div>
 		</div>
-	 ))}
+	  ))}
 
     <a class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 flex items-center" href="#top">
       <MoveUp class="h-10 w-10 text-white" />
     </a>
   </main>
 </MainLayout>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+	  const categoryLinks = document.querySelectorAll('.categorie');
+  
+	  categoryLinks.forEach(link => {
+		link.addEventListener('click', (event) => {
+		  event.preventDefault();
+  
+		  categoryLinks.forEach(link => {
+			link.classList.remove('bg-white', 'border-2', 'border-orange-300');
+			link.classList.add('categorie');
+		  });
+  
+		  link.classList.add('bg-white', 'border-2', 'border-orange-300');
+		  link.classList.remove('categorie');
+
+		  const targetId = link.getAttribute('href').substring(1);
+		  const target = document.getElementById(targetId);
+  
+		  if (target) {
+			window.scrollTo({
+			  top: target.offsetTop,
+			  behavior: 'smooth'
+			});
+		  }
+		});
+	  });
+	});
+</script>

@@ -156,7 +156,7 @@ export const getCurrentConfig = (configType) => configurations[configType] || co
 export const categories = [
   {
     id: "50",
-    label: "50cc",
+    label: "50",
     icon: Coins,
     products: [
       { title: "50cc Metrakit Alu",
@@ -181,7 +181,7 @@ export const categories = [
   },
   {
     id: "70",
-    label: "70cc à 79cc",
+    label: "70 à 79",
     icon: TrendingUp,
     products: [
       { title: "70cc Airsal Alu",
@@ -207,7 +207,7 @@ export const categories = [
   },
   {
     id: "80",
-    label: "80cc à 89cc",
+    label: "80 à 89",
     icon: CreditCard,
     products: [
       { 
@@ -238,7 +238,7 @@ export const categories = [
   },
   {
     id: "90",
-    label: "90cc à 99cc",
+    label: "90 à 99",
     icon: CreditCard,
     products: [
       { 
@@ -269,7 +269,7 @@ export const categories = [
   },
   {
     id: "100",
-    label: "100cc",
+    label: "100",
     icon: CreditCard,
     products: [
       { 
