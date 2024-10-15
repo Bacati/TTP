@@ -13,7 +13,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
             {images.map((imageSrc, index) => (
                 <div class={`carousel-item item-${index + 1} flex justify-center items-center absolute top-0 bottom-0 left-0 right-0 opacity-0`}>
                     <a href={`#item-${(index === 0 ? images.length : index)}`} class="z-30">
-                        <ChevronLeft class="w-20 h-20 cursor-pointer" />
+                        <ChevronLeft class="w-10 h-10 cursor-pointer" />
                     </a>
                     <div class="lg:w-3/5 flex items-center justify-center">
                         <div class="cards rounded-full flex items-center justify-center fond-cyl">
@@ -23,7 +23,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
                         </div>
                     </div>
                     <a href={`#item-${(index + 1 === images.length ? 1 : index + 2)}`} class="z-30">
-                        <ChevronRight class="w-20 h-20 cursor-pointer" />
+                        <ChevronRight class="w-10 h-10 cursor-pointer" />
                     </a>
                 </div>
             ))}
