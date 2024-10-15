@@ -1,0 +1,36 @@
+---
+import Cards from 'components/global/Cards.astro';
+import MainLayout from 'layouts/MainLayout.astro';
+import { MoveUp } from 'lucide-astro';
+
+---
+
+<MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
+  <main class="pt-44">
+    <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
+      <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
+        <img src="/images/bg.svg" class="w-full lg:w-2/5">
+        <p>
+            Découvrez l'art de la personnalisation moto sur notre page dédiée à l'esthétique. Explorez un monde de créativité où chaque virage devient une toile vierge pour l'expression de votre style unique. Des peintures personnalisées aux modifications de carrosserie, plongez dans l'univers de la moto customisée et trouvez l'inspiration pour transformer votre moto en une œuvre d'art roulante. Explorez nos galeries, astuces et idées pour donner à votre deux-roues une allure distinctive qui reflète votre passion pour la liberté et l'aventure.
+        </p>
+      </div>
+      <div class="gradient-config w-full h-2 rounded-b-3xl"></div>
+    </div>
+    <div class="pt-14">
+        <div class="flex justify-center my-8 gap-4 flex-wrap">
+            <Cards 
+            title="fhdhfd"
+            logo=""
+            description="gfdgdf"
+            imageSrc="{`/images/${product.image}`}"
+            lien="{`/product/config?config=${product.configKey}#item-1`}"
+        />
+        </div>
+      </div>
+
+    <a class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 flex items-center" href="#top">
+      <MoveUp class="h-10 w-10 text-white" />
+    </a>
+  </main>
+</MainLayout>
+<script src="/src/pages/js/category.js"></script>
