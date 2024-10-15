@@ -10,11 +10,13 @@ import { Eye } from 'lucide-astro';
   </div>
   <div class="w-full flex justify-between mt-2 items-center">
     <p class="text-gray-400">{description}</p>
-    <div class=" flex gap-2">
+    <div class=" flex gap-1">
       <img src="/images/motor.svg">
-		<div class="flex flex-col lg:flex-row gap-2">
-			<p class="px-3 bg-orange-500 rounded-3xl items-center flex justify-center">{typeMotor}</p>
-      		<p class="px-3 border-orange-500 rounded-3xl border-2 items-center flex justify-center">{typeMotor1}</p>
+		<div class="flex flex-col lg:flex-row gap-1">
+			<p class="px-3 bg-orange-500 rounded-3xl items-center flex justify-center text-white">{typeMotor}</p>
+			{typeMotor1 && (
+				<p class="px-3 border-orange-500 rounded-3xl border-2 items-center flex justify-center text-orange-500">{typeMotor1}</p>
+			)}
 		</div>
     </div>
   </div>

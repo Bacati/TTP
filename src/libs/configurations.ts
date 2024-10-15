@@ -31,7 +31,7 @@ const createSpecificPieces = (basePieces, specificPieces) => [
 ];
 
 // Fonction de création de configuration
-const createConfig = (title, typeMotor, typeMotor1, description, price, images, specificPieces) => ({
+const createConfig = (title, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
   title,
   enderTitle: "Configuration AllDays",
   typeMotor,
@@ -47,7 +47,7 @@ const configurations = {
   "50mk": createConfig(
     "50cc Metrakit Alu",
     "AM6",
-    "Derbi",
+    null,
     "Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans problème.",
     config[0].allMk,
     ["50mk.png", "carbupolini.png", "potmost50.png"],
@@ -60,6 +60,7 @@ const configurations = {
   "70top": createConfig(
     "70cc Top Performance noir",
     "AM6",
+    null,
     "Configuration commune, solide et adaptée pour de longues distances.",
     config[0].allTop,
     ["topnoir.png", "vilojasilv.png", "carbu.png", "potmost50.png"],
@@ -72,6 +73,7 @@ const configurations = {
   "70airsal": createConfig(
     "70cc Airsal fonte",
     "AM6",
+    "Derbi",
     "Configuration très robuste avec de bonnes performances pour débuter.",
     config[0].allAirsal,
     ["70airsalfonte.png", "vilowatts.png", "carbu.png", "potmost50.png"],
@@ -84,6 +86,7 @@ const configurations = {
   "70airsalAlu": createConfig(
     "70cc Airsal Alu",
     "AM6",
+    null,
     "Cylindre très solide, bien respecter les temps de chauffe.",
     config[0].allAirsalAlu,
     ["70airsal.png", "artekk2.png", "carbu.png", "potvoca.png"],
@@ -96,6 +99,7 @@ const configurations = {
   "75topRose": createConfig(
     "75cc Top performance rose",
     "AM6",
+    null,
     "Configuration solide pour de nombreux kilomètres avec performance.",
     config[0].allTopRose,
     ["toprose.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
@@ -108,6 +112,7 @@ const configurations = {
   "78airsal": createConfig(
     "78cc Airsal alu tech",
     "AM6",
+    null,
     "Configuration très simple avec un cylindre très solide. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux, parfait pour rouler tout les jours et se faire plaisir.",
     config[0]?.all78Airsal,
     ["70airsal.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
@@ -120,6 +125,7 @@ const configurations = {
   "78brk": createConfig(
     "78cc BRK 4RACE",
     "AM6",
+    null,
     "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
     config[0]?.all78brk,
     ["80brk.png", "vilomost.png", "admiita.png","carbu.png", "potmost.png"],
@@ -133,6 +139,7 @@ const configurations = {
   "86top": createConfig(
     "86cc Top performance",
     "AM6",
+    null,
     "Configuration très simple avec un cylindre très solide, il est important de bien respecter les temps de chauffe. Important lors du montage toujours mettre un léger filer de pate à joint au niveau du joint, pour éviter de percer son piston. Moteur extrêment coupleux, très agréable à conduire tout les jours et très joeur.",
     config[0]?.allTopalu,
     ["topalu.png", "baatop.png","carbu.png", "ardv2.png"],
@@ -149,6 +156,7 @@ const configurations = {
   "78most": createConfig(
     "78cc MOST 4STREET",
     "AM6",
+    null,
     "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
     config[0]?.all78Most,
     ["80most.png", "viloairsal.png", "admiita.png","carbu.png", "potmost.png"],
@@ -170,8 +178,7 @@ export const generateProductData = (config) => [
     title: "50cc Metrakit Alu",
     logo: "mk.svg",
     description: "Configuration AllDays",
-    typeMotor: "AM6",
-    typeMotor1: "Derbi",
+    typeMotor: "Derbi",
     price: config[0].allMk || 'N/A',
     imageSrc: `${imagePrefix}/50mk.png`,
     link: `${linkPrefix}50mk`
@@ -190,6 +197,7 @@ export const generateProductData = (config) => [
     logo: "airsal.png",
     description: "Configuration AllDays",
     typeMotor: "AM6",
+    typeMotor1: "DERBI",
     price: config[0].allAirsal || 'N/A',
     imageSrc: `${imagePrefix}/70airsalfonte.png`,
     link: `${linkPrefix}70airsal`
@@ -259,8 +267,7 @@ export const categories = [
       { title: "50cc Metrakit Alu",
 		logo: "mk.svg",
 		description: "Configuration AllDays",
-    typeMotor: "AM6",
-    typeMotor1: "Derbi",
+    typeMotor: "Derbi",
 		price: config[0].allMk || 'N/A',
 		image: "50mk.png",
 		configKey: "50mk" },
@@ -275,6 +282,7 @@ export const categories = [
 		logo: "airsal.png",
 		description: "Configuration AllDays",
     typeMotor: "AM6",
+    typeMotor1: "Derbi",
 		price: config[0].allAirsal || 'N/A',
 		image: "70airsalfonte.png",
 		configKey: "70airsal" },
