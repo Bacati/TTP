@@ -31,8 +31,9 @@ const createSpecificPieces = (basePieces, specificPieces) => [
 ];
 
 // Fonction de création de configuration
-const createConfig = (title, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
+const createConfig = (title, logo, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
   title,
+  logo,
   enderTitle: "Configuration AllDays",
   typeMotor,
   typeMotor1,
@@ -46,6 +47,7 @@ const createConfig = (title, typeMotor, typeMotor1 = null, description, price, i
 const configurations = {
   "50mk": createConfig(
     "50cc Metrakit Alu",
+    `${imagePrefix}/mk.svg`,
     "AM6",
     null,
     "Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans problème.",
@@ -59,6 +61,7 @@ const configurations = {
   ),
   "70top": createConfig(
     "70cc Top Performance noir",
+    `${imagePrefix}/topPerf.png`,
     "AM6",
     null,
     "Configuration commune, solide et adaptée pour de longues distances.",
@@ -72,6 +75,7 @@ const configurations = {
   ),
   "70airsal": createConfig(
     "70cc Airsal fonte",
+    `${imagePrefix}/airsal.png`,
     "AM6",
     "Derbi",
     "Configuration très robuste avec de bonnes performances pour débuter.",
@@ -85,6 +89,7 @@ const configurations = {
   ),
   "70airsalAlu": createConfig(
     "70cc Airsal Alu",
+    `${imagePrefix}/airsal.png`,
     "AM6",
     null,
     "Cylindre très solide, bien respecter les temps de chauffe.",
@@ -98,6 +103,7 @@ const configurations = {
   ),
   "75topRose": createConfig(
     "75cc Top performance rose",
+    `${imagePrefix}/topPerf.png`,
     "AM6",
     null,
     "Configuration solide pour de nombreux kilomètres avec performance.",
@@ -111,6 +117,7 @@ const configurations = {
   ),
   "78airsal": createConfig(
     "78cc Airsal alu tech",
+    `${imagePrefix}/airsal.png`,
     "AM6",
     null,
     "Configuration très simple avec un cylindre très solide. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux, parfait pour rouler tout les jours et se faire plaisir.",
@@ -124,6 +131,7 @@ const configurations = {
   ),
   "78brk": createConfig(
     "78cc BRK 4RACE",
+    `${imagePrefix}/brk.png`,
     "AM6",
     null,
     "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
@@ -138,6 +146,7 @@ const configurations = {
   ),
   "86top": createConfig(
     "86cc Top performance",
+    `${imagePrefix}/topPerf.png`,
     "AM6",
     null,
     "Configuration très simple avec un cylindre très solide, il est important de bien respecter les temps de chauffe. Important lors du montage toujours mettre un léger filer de pate à joint au niveau du joint, pour éviter de percer son piston. Moteur extrêment coupleux, très agréable à conduire tout les jours et très joeur.",
@@ -155,6 +164,7 @@ const configurations = {
   ),
   "78most": createConfig(
     "78cc MOST 4STREET",
+    `${imagePrefix}/most.png`,
     "AM6",
     null,
     "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
