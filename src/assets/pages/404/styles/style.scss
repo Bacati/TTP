@@ -158,34 +158,34 @@ details[open] .cheSum{
 }
 @keyframes fadein {
 	from {
-		opacity: 0;
+		transform: translateX(100%);
 	}
 	to {
-		opacity: 1;
+		transform: translateX(0);
 	}
 }
 
 @keyframes fadeout {
 	from {
-		opacity: 1;
+		transform: translateX(0);
 	}
 	to {
-		opacity: 0;
+		transform: translateX(100%);
 	}
 }
 
 .panneau {
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+	transition: opacity 0.6s ease-in-out, visibility 1s ease-in-out;
 }
 .menu-switch:checked ~ div #panneauUn-panneau {
 	opacity: 1;
 	visibility: visible;
-	animation: fadein 0.5s forwards;
+	animation: fadein 0.6s forwards;
 }
 .menu-switch:not(:checked) ~ div #panneauUn-panneau {
 	opacity: 0;
 	visibility: hidden;
-	animation: fadeout 0.5s forwards;
+	animation: fadeout 0.6s forwards;
 }
