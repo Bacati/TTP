@@ -1,0 +1,63 @@
+---
+import CardsCate from 'components/global/CardsCate.astro';
+import MainLayout from 'layouts/MainLayout.astro';
+import { MoveUp } from 'lucide-astro';
+---
+
+<MainLayout title="Trouve ta pièce Cycle" class="overflow-x-hidden">
+  <main class="pt-44">
+    <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
+      <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
+        <img src="/images/bg.svg" class="w-full lg:w-2/5">
+        <p>
+            Découvrez notre sélection soigneusement choisie de pièces de qualité pour optimiser et personnaliser le châssis de votre moto. Que vous recherchiez des pièces de freinage, ou d'autres éléments essentiels pour améliorer la maniabilité et les performances de votre moto, vous les trouverez ici. Notre gamme de produits est conçue pour répondre aux besoins de tous les passionnés de deux-roues, qu'ils soient novices ou experts. Explorez notre collection et trouvez les pièces idéales pour renforcer, personnaliser et affiner votre expérience de conduite.
+        </p>
+      </div>
+      <div class="gradient-config w-full h-2 rounded-b-3xl"></div>
+    </div>
+    <div class="flex justify-center my-8 gap-4 flex-wrap">
+        <CardsCate
+            imageSrc = "/images/cnc.jpg"
+            title = "Pièce tailler masse"
+            entreprise = "Nom de l'entreprise"
+            lien = "" 
+        />
+        <CardsCate
+            imageSrc = "/images/slick.jpg"
+            title = "Slick"
+            entreprise = "Nom de l'entreprise"
+            lien = "" 
+        />
+        <CardsCate
+            imageSrc = "/images/etrier.webp"
+            title = "Frein"
+            entreprise = "Nom de l'entreprise"
+            lien = "" 
+        />
+    </div> 
+    <div class="flex justify-center my-8 gap-4 flex-wrap">
+        <CardsCate
+            imageSrc = "/images/radia.jpg"
+            title = "Double radiateur"
+            entreprise = "Nom de l'entreprise"
+            lien = "" 
+        />
+        <CardsCate
+            imageSrc = "/images/cligno.jpg"
+            title = "Clignotant"
+            entreprise = "Nom de l'entreprise"
+            lien = "" 
+        />
+        <CardsCate
+            imageSrc = "/images/protege.jpg"
+            title = "Protege main"
+            entreprise = "Nom de l'entreprise"
+            lien = "" 
+        />
+    </div>  
+            
+    <a class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 flex items-center" href="#top">
+      <MoveUp class="h-10 w-10 text-white" />
+    </a>
+  </main>
+</MainLayout>
