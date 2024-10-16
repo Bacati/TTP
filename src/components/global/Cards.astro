@@ -9,22 +9,26 @@ import { Eye } from 'lucide-astro';
     <img class="w-1/4" src={logo}>
   </div>
   <div class="w-full flex justify-between mt-2 items-center">
-    <p class="text-gray-400">{description}</p>
+    <p class="text-gray-400 z-20">{description}</p>
+    {typeMotor && (
     <div class=" flex gap-1">
       <img src="/images/motor.svg">
 		<div class="flex flex-col lg:flex-row gap-1">
-			<p class="px-3 bg-orange-500 rounded-3xl items-center flex justify-center text-white">{typeMotor}</p>
+			  <p class="px-3 bg-orange-500 rounded-3xl items-center flex justify-center text-white">{typeMotor}</p>
 			{typeMotor1 && (
 				<p class="px-3 border-orange-500 rounded-3xl border-2 items-center flex justify-center text-orange-500">{typeMotor1}</p>
 			)}
 		</div>
     </div>
+    )}
   </div>
   <div class="cards rounded-full w-52 h-52 flex items-center justify-center mt-6">
 	<img class="max-w-72 lg:max-w-80" alt="" src={imageSrc} />
   </div>
   <div class="flex justify-between items-center w-full mt-4">
-    <p class="font-bold text-3xl">{price}€</p>
+    {price && (
+      <p class="font-bold text-3xl">{price}€</p>
+    )}
     <Eye class="bg-amber-600 p-2 w-10 h-10 rounded-2xl text-white" />
   </div>
 </div>
