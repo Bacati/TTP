@@ -24,7 +24,7 @@ export const generateProductData = (config) => [
     link: `${linkPrefix}70top`
   },
   {
-    title: "Nettoyant pot d'échappement",
+    title: "Nettoyant pot",
     logo: "logo.svg",
     description: "Trouve ta pièce",
     price: config[0].clearPot || 'N/A',
