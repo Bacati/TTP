@@ -24,10 +24,11 @@ export const generateProductData = (config) => [
     link: `${linkPrefix}70top`
   },
   {
-    title: "Slick",
+    title: "Nettoyant pot d'échappement",
     logo: "logo.svg",
-    description: "Nom de l'entreprise",
-    imageSrc: `${imagePrefix}/slick.png`,
+    description: "Trouve ta pièce",
+    price: config[0].clearPot || 'N/A',
+    imageSrc: `${imagePrefix}/flacon.png`,
     link: `${linkPrefix}`
   },
   {

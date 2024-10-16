@@ -17,7 +17,11 @@ export const general = [
 	  admiItalkit: 88,
 	},
   ];
-
+  export const clearPot = [
+	{
+		nettoyant: 10
+	}
+  ]
   export const all50Mk = [
 	{
 	  cylindre: 230,
@@ -151,6 +155,11 @@ export const general = [
 
 	return calculateTotalPrice(specific, generalParts, ['carbu24', 'potMost80', 'embrayageMost', 'mvtdd', 'roulementMost', 'admiItalkit']);
   };
+  const PrixClear = () => {
+	const specific = clearPot[0];
+
+	return calculateTotalPrice(specific, ['nettoyant'])
+  }
   export const config = [
 	{
 	  allMk: PrixAllMk(),
@@ -162,5 +171,6 @@ export const general = [
 	  all78brk : PrixAll78Brk(),
 	  allTopalu : PrixAllTopAlu(),
 	  all78Most : PrixAll78Most(),
+	  clearPot : PrixClear(),
 	},
   ];
