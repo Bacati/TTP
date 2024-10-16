@@ -156,3 +156,36 @@ details[open] .cheSum{
 .categorie{
 	background: rgba(249,115,22 , 0.08);
 }
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.panneau {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+.menu-switch:checked ~ div #panneauUn-panneau {
+	opacity: 1;
+	visibility: visible;
+	animation: fadein 0.5s forwards;
+}
+.menu-switch:not(:checked) ~ div #panneauUn-panneau {
+	opacity: 0;
+	visibility: hidden;
+	animation: fadeout 0.5s forwards;
+}

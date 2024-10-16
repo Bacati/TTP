@@ -1,44 +1,80 @@
 ---
-import Picture from 'astro/components/Picture.astro'
-import {Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench} from 'lucide-astro'
-import logo from '/public/images/logo.svg'
-
+import Picture from 'astro/components/Picture.astro';
+import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft } from 'lucide-astro';
+import logo from '/public/images/logo.svg';
 
 export interface Props {
-	right?: Record<string, string>
-	left?: Record<string, string>
+    right?: Record<string, string>
+    left?: Record<string, string>
 }
 ---
 
 <header class="p-8 z-20 absolute w-full">
-	<nav class="items-center">
-		<div class="hidden justify-between items-center w-11/12 fixed lg:flex">
-			<a href="/">
-				<Picture src={logo} alt=""></Picture>
-			</a>
-			<div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex">
-				<a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays"><Gauge />ALLDAYS</a>
-				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition"><Trophy />Compétitions</a>
-				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique"><Paintbrush />Esthetique</a>
-				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/"><Bike />Cycle</a>
-				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/"><HardHat />Equipement</a>
-				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/"><Wrench />Produit / Outillage</a>
-				<a class="rounded-full bg-amber-600 flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/">Accueil <House /></a>
-			</div>
-		</div>
-		<div class="flex justify-between lg:hidden gap-6">
-			<a href="/">
-				<Picture src={logo} alt=""></Picture>
-			</a>
-			<div class="flex flex-col items-center bg-white rounded-full justify-center mobile">
-				<a class="mx-4 py-4 bg-amber-600 text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/"  title="Accueil"><House /></a>
-				<a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays" title="ALLDAYS"><Gauge /></a>
-				<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition" title="Compétitions"><Trophy /></a>
-				<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/" title="Esthetique"><Paintbrush /></a>
-				<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/" title="Cycle"><Bike /></a>
-				<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/" title="Equipement"><HardHat /></a>
-				<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer pb-4" href="/" title="Produit / Outillage"><Wrench /></a>
-			</div>
-		</div>
-	</nav>
+    <nav class="items-center">
+        <div class="hidden justify-between items-center w-11/12 fixed lg:flex">
+            <a href="/">
+                <Picture src={logo} alt=""></Picture>
+            </a>
+            <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex">
+                <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays"><Gauge />ALLDAYS</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition"><Trophy />Compétitions</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique"><Paintbrush />Esthetique</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/"><Bike />Cycle</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/"><HardHat />Equipement</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/"><Wrench />Produit / Outillage</a>
+                <a class="rounded-full bg-amber-600 flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/">Accueil <House /></a>
+            </div>
+        </div>
+        <div class="flex justify-between lg:hidden gap-6">
+            <a href="/">
+                <Picture src={logo} alt=""></Picture>
+            </a>
+            <div class="bg-white rounded-full mobile">
+                <div class="relative flex flex-col items-center justify-center">
+                    <a class="mx-4 py-4 bg-amber-600 text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/" title="Accueil"><House /></a>
+                    <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays" title="ALLDAYS"><Gauge /></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition" title="Compétitions"><Trophy /></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique" title="Esthetique"><Paintbrush /></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/" title="Cycle"><Bike /></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/" title="Equipement"><HardHat /></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/" title="Produit / Outillage"><Wrench /></a>
+                </div>
+                <input class="hidden" id="panneauDeux" name="equipe" type="radio" checked>
+                <div id="panneauDeux-panneau" class="flex justify-center z-20 py-4 items-center">
+                    <input id="panneauUn" class="hidden menu-switch" name="equipe" type="radio">
+                    <div>
+                        <label for="panneauUn" class="menu-open">
+                            <ChevronsLeft class="text-orange-600"/>
+                        </label>
+                        <div class="bg-white panneau absolute w-fit h-screen top-0 right-0 justify-center z-50" id="panneauUn-panneau">
+                            <label for="panneauDeux" class="menu-closed">
+                                <div class="flex flex-col justify-center">
+                                    <a class="py-4 bg-amber-600 text-white flex rounded-b-full w-full justify-center gap-2 text-xl items-center" href="/" title="Accueil"><House /> Accueil</a>
+                                    <a class="mx-2 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/allDays" title="ALLDAYS"><Gauge />ALLDAYS</a>
+                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/competition" title="Compétitions"><Trophy />Compétition</a>
+                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/esthetique" title="Esthetique"><Paintbrush />Esthétique</a>
+                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/" title="Cycle"><Bike />Cycle</a>
+                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/" title="Equipement"><HardHat />Equipement</a>
+                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/" title="Produit / Outillage"><Wrench />Produit / Outillage</a>
+                                    <ChevronsRight class="text-orange-600 my-4 mx-2"/>
+                                </div>		
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 </header>
+<script>
+    const menuSwitch = document.querySelector('.menu-switch');
+    const panneau = document.querySelector('#panneauUn-panneau');
+
+    menuSwitch.addEventListener('change', function () {
+        if (menuSwitch.checked) {
+            // L'animation d'ouverture est gérée par CSS
+        } else {
+            // L'animation de fermeture est gérée par CSS
+        }
+    });
+</script>
