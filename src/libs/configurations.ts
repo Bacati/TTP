@@ -1,4 +1,6 @@
 import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, config, general } from 'libs/donner'
+// Fonction pour récupérer la configuration courante
+export const getCurrentConfig = (configType) => configurations[configType] || configurations["50mk"];
 
 const imagePrefix = "/images";
 

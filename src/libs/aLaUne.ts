@@ -1,7 +1,5 @@
 const linkPrefix = "/product/config?config=";
 const imagePrefix = "/images";
-// Fonction pour récupérer la configuration courante
-export const getCurrentConfig = (configType) => configurations[configType] || configurations["50mk"];
 
 // Fonction pour générer des données produits à partir de `config`
 export const generateProductData = (config) => [
