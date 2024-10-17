@@ -31,9 +31,10 @@ const createSpecificPieces = (basePieces, specificPieces) => [
 ];
 
 // Fonction de création de configuration
-const createConfig = (title, logo, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
+const createConfig = (title, logo, alt, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
   title,
   logo,
+  alt,
   enderTitle: "Configuration AllDays",
   typeMotor,
   typeMotor1,
@@ -48,6 +49,7 @@ const configurations = {
   "50mk": createConfig(
     "50cc Metrakit Alu",
     `${imagePrefix}/mk.svg`,
+    "Metrakit",
     "Derbi",
     "AM6",
     "Une configuration robuste. Pas très performante, mais capable de parcourir de nombreux kilomètres sans souci.",
@@ -62,6 +64,7 @@ const configurations = {
   "70top": createConfig(
     "70cc Top Performance noir",
     `${imagePrefix}/top.webp`,
+    "70 top noir",
     "AM6",
     null,
     "Configuration commune, solide et adaptée pour de longues distances.",
@@ -76,6 +79,7 @@ const configurations = {
   "70airsal": createConfig(
     "70cc Airsal fonte",
     `${imagePrefix}/airsal.png`,
+    "70 airsal",
     "AM6",
     "Derbi",
     "Configuration très robuste avec de bonnes performances pour débuter.",
@@ -90,6 +94,7 @@ const configurations = {
   "70airsalAlu": createConfig(
     "70cc Airsal Alu",
     `${imagePrefix}/airsal.png`,
+    "70 airsal",
     "AM6",
     "Derbi",
     "Cylindre très solide, bien respecter les temps de chauffe.",
@@ -104,6 +109,7 @@ const configurations = {
   "75topRose": createConfig(
     "75cc Top performance rose",
     `${imagePrefix}/top.webp`,
+    "75 top rose",
     "AM6",
     null,
     "Configuration solide pour de nombreux kilomètres avec performance.",
@@ -118,6 +124,7 @@ const configurations = {
   "78airsal": createConfig(
     "78cc Airsal alu tech",
     `${imagePrefix}/airsal.png`,
+    "80 airsal",
     "Derbi",
     null,
     "Configuration très basique avec un cylindre robuste. Il est essentiel de respecter le temps de chauffe. Le cylindre offre un bon couple, idéal pour une utilisation quotidienne tout en procurant du plaisir de conduite.",
@@ -132,6 +139,7 @@ const configurations = {
   "78brk": createConfig(
     "78cc BRK 4RACE",
     `${imagePrefix}/brk.png`,
+    "78 brk",
     "AM6",
     "Derbi",
     "Configuration légèrement plus avancée, avec un cylindre à la fois solide et performant. Il est crucial de bien respecter le temps de chauffe. Le cylindre offre un bon couple et un bon regime, ce qui le rend idéal pour une utilisation quotidienne tout en offrant un réel plaisir de conduite.",
@@ -147,6 +155,7 @@ const configurations = {
   "86top": createConfig(
     "86cc Top performance",
     `${imagePrefix}/top.webp`,
+    "86 top alu",
     "AM6",
     null,
     "Configuration basique avec un cylindre particulièrement solide. Il est essentiel de bien respecter les temps de chauffe. Lors du montage, il est important d'appliquer une fine couche de pâte à joint au niveau du joint d'embase pour éviter d'endommager le piston. Le moteur, très coupleux, est non seulement agréable à conduire au quotidien, mais aussi très réactif et ludique.",
@@ -165,6 +174,7 @@ const configurations = {
   "78most": createConfig(
     "78cc MOST 4STREET",
     `${imagePrefix}/most.png`,
+    "80 most",
     "AM6",
     "Derbi",
     "Configuration légèrement plus avancée, avec un cylindre à la fois solide et performant. Il est crucial de bien respecter le temps de chauffe. Le cylindre offre un bon couple et monte bien dans les tours, ce qui le rend idéal pour une utilisation quotidienne tout en offrant un réel plaisir de conduite.",
@@ -186,29 +196,38 @@ export const categories = [
     label: "500€ à 700€",
     source: `${imagePrefix}/simple.svg`,
     products: [
-      { title: "50cc Metrakit Alu",
+      { 
+		title: "50cc Metrakit Alu",
 		logo: "mk.svg",
+		alt: "50 mk",
 		description: "Configuration AllDays",
-    typeMotor1: "Derbi",
-    typeMotor: "AM6",
+		typeMotor1: "Derbi",
+		typeMotor: "AM6",
 		price: config[0].allMk || 'N/A',
 		image: "50mk.png",
-		configKey: "50mk" },
-      { title: "70cc Top Performance",
+		configKey: "50mk" 
+      },
+      { 
+		title: "70cc Top Performance",
 		logo: "top.webp",
+		alt: "70 top",
 		description: "Configuration AllDays",
-    typeMotor: "AM6",
+    	typeMotor: "AM6",
 		price: config[0].allTop || 'N/A',
 		image: "topnoir.png",
-		configKey: "70top" },
-      { title: "70cc Airsal fonte",
+		configKey: "70top" 
+	},
+      { 
+		title: "70cc Airsal fonte",
 		logo: "airsal.png",
+		alt: "70 airsal",
 		description: "Configuration AllDays",
-    typeMotor: "AM6",
-    typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		typeMotor1: "Derbi",
 		price: config[0].allAirsal || 'N/A',
 		image: "70airsalfonte.png",
-		configKey: "70airsal" },
+		configKey: "70airsal" 
+	},
     ]
   },
   {
@@ -216,29 +235,37 @@ export const categories = [
     label: "700€ à 1000€",
     source: `${imagePrefix}/double.svg`,
     products: [
-      { title: "70cc Airsal Alu",
+    { 
+		title: "70cc Airsal Alu",
 		logo: "airsal.png",
+		alt: "70 airsal",
 		description: "Configuration AllDays",
-    typeMotor: "AM6",
-    typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		typeMotor1: "Derbi",
 		price: config[0].allAirsalAlu || 'N/A',
 		image: "70airsal.png",
-		configKey: "70airsalAlu" },
-      { title: "75cc Top performance",
+		configKey: "70airsalAlu" 
+	},
+    {
+		title: "75cc Top performance",
 		logo: "top.webp",
+		alt: "75 top rose",
 		description: "Configuration AllDays",
-    typeMotor: "AM6",
+    	typeMotor: "AM6",
 		price: config[0].allTopRose || 'N/A',
 		image: "toprose.png",
-		configKey: "75topRose" },
-      { 
-    title: "78cc Airsal alu",
-    logo: "airsal.png",
+		configKey: "75topRose" 
+	},
+    { 
+		title: "78cc Airsal alu",
+		logo: "airsal.png",
+		alt: "80 airsal",
 		description: "Configuration AllDays",
-    typeMotor: "Derbi",
+		typeMotor: "Derbi",
 		price: config[0]?.all78Airsal || 'N/A',
 		image: "70airsal.png",
-		configKey: "78airsal" },
+		configKey: "78airsal" 
+	},
     ]
   },
   {
@@ -249,6 +276,7 @@ export const categories = [
       { 
         title: "78cc BRK 4RACE",
         logo: "brk.png",
+		alt: "80 barikit",
         description: "Configuration AllDays",
         typeMotor: "AM6",
         typeMotor1: "Derbi",
@@ -259,6 +287,7 @@ export const categories = [
       { 
         title: "86cc Top performance",
         logo: "top.webp",
+		alt: "top alu",
         description: "Configuration AllDays",
         typeMotor: "AM6",
         price: config[0]?.allTopalu || 'N/A',
@@ -268,6 +297,7 @@ export const categories = [
       {
         title: "78cc MOST 4STREET",
         logo: "most.png",
+		alt: "80 most",
         description: "Configuration AllDays",
         typeMotor: "AM6",
         typeMotor1: "Derbi",

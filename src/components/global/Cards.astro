@@ -1,5 +1,5 @@
 ---
-const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1 } = Astro.props;
+const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1, alt } = Astro.props;
 import { Eye } from 'lucide-astro';
 ---
 <a href={lien} rel="noopener noreferrer">
@@ -23,7 +23,7 @@ import { Eye } from 'lucide-astro';
     )}
   </div>
   <div class="cards rounded-full w-52 h-52 flex items-center justify-center mt-6">
-	<img class="max-w-72 lg:max-w-80" alt="" src={imageSrc} />
+	<img class="max-w-72 lg:max-w-80" alt={alt} src={imageSrc} />
   </div>
   <div class="flex justify-between items-center w-full mt-4">
     {price && (

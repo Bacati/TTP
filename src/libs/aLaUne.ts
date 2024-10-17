@@ -6,6 +6,7 @@ export const generateProductData = (config) => [
   {
     title: "50cc Metrakit Alu",
     logo: "mk.svg",
+    alt: "50 Metrakit",
     description: "Configuration AllDays",
     typeMotor1: "Derbi",
     typeMotor: "AM6",
@@ -16,6 +17,7 @@ export const generateProductData = (config) => [
   {
     title: "70cc Top Performance",
     logo: "top.webp",
+    alt: "70 top noir",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     price: config[0].allTop || 'N/A',
@@ -25,6 +27,7 @@ export const generateProductData = (config) => [
   {
     title: "Nettoyant pot",
     logo: "logo.svg",
+    alt: "Nettoyant ttp",
     description: "Trouve ta pièce",
     price: config[0].clearPot || 'N/A',
     imageSrc: `${imagePrefix}/flacon.png`,
@@ -33,6 +36,7 @@ export const generateProductData = (config) => [
   {
     title: "70cc Airsal Alu",
     logo: "airsal.png",
+    alt: "70 airsal",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     typeMotor1: "Derbi",
@@ -43,6 +47,7 @@ export const generateProductData = (config) => [
   {
     title: "75cc Top performance",
     logo: "top.webp",
+    alt: "75 top rose",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     price: config[0].allTopRose || 'N/A',
@@ -52,6 +57,7 @@ export const generateProductData = (config) => [
   {
     title: "78cc Airsal alu",
     logo: "airsal.png",
+    alt: "80 airsal",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     price: config[0].all78Airsal || 'N/A',
@@ -61,6 +67,7 @@ export const generateProductData = (config) => [
   {
     title: "78cc BRK 4RACE",
     logo: "brk.png",
+    alt: "80 brk",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     typeMotor1: "Derbi",
@@ -71,6 +78,7 @@ export const generateProductData = (config) => [
   {
     title: "86cc Top performance",
     logo: "top.webp",
+    alt: "86 top alu",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     price: config[0].allTopalu || 'N/A',
@@ -80,6 +88,7 @@ export const generateProductData = (config) => [
   {
     title: "78cc MOST 4STREET",
     logo: "most.png",
+    alt: "80 most",
     description: "Configuration AllDays",
     typeMotor: "AM6",
     typeMotor1: "Derbi",
