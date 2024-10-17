@@ -45,17 +45,18 @@ import Picture from 'components/global/Picture.astro';
           {generateProductData(config).map(product => (
             <div class="hidden lg:block mx-4">
                 <ProductCard
-                title={product.title}
-                logo={`/images/${product.logo}`}
-                alt={product.alt}
-                description={product.description}
-                typeMotor1={product.typeMotor1}
-                price={product.price}
-                imageSrc={product.imageSrc}
-                lien={product.link}
+                  title={product.title}
+                  logo={`/images/${product.logo}`}
+                  alt={product.alt}
+                  description={product.description}
+                  typeMotor={product.typeMotor}
+                  typeMotor1={product.typeMotor1}
+                  price={product.price}
+                  imageSrc={product.imageSrc}
+                  lien={product.link}
                 />
             </div>
-          ))}
+        ))}
 		  <div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">
 			<img src="/images/slide.png" class="w-10 h-10" alt="">
 		</div>
