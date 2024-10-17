@@ -2,11 +2,11 @@
 const { title, imageSrc, lien, entreprise } = Astro.props;
 ---
 <a href={lien}>
-	<div class="flex flex-col justify-center items-center w-80 lg:w-96 shadow-lg card-prod my-16">
+	<div class="flex flex-col justify-center items-center w-80 lg:w-96 shadow-lg card-prod my-16 rounded-3xl">
         <img src={imageSrc} alt="" class="object-cover w-80 lg:w-96 z-0 card-prod rounded-3xl absolute">
-        <div class="relative h-96 w-full flex justify-end ml-4 flex-col">
-            <p class="font-bold text-3xl text-white">{title}</p>
-            <p class="text-gray-300">{entreprise}</p>
+        <div class="relative w-full flex justify-end flex-col z-10 rounded-3xl card-prod-text">
+            <p class="font-bold text-3xl text-white ml-4">{title}</p>
+            <p class="text-gray-300 ml-4 mb-8">{entreprise}</p>
         </div>
     </div>
 </a>
