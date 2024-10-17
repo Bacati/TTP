@@ -46,9 +46,9 @@ export interface Props {
                         <label for="panneauUn" class="menu-open">
                             <ChevronsLeft class="text-orange-600"/>
                         </label>
-                        <div class="bg-white panneau absolute h-screen top-0 right-0 z-50" id="panneauUn-panneau">
-                            <label for="panneauDeux" class="menu-closed">
-                                <div class="flex flex-col justify-center">
+                        <div class="bg-white h-screen z-50 panneau fixed top-0 right-0 hidden opacity-0" id="panneauUn-panneau">
+                             <label for="panneauDeux" class="menu-closed">
+                                 <div class="flex flex-col justify-center">
                                     <a class="py-4 bg-amber-600 text-white flex rounded-b-full w-full justify-center gap-2 text-xl items-center" href="/" title="Accueil"><House /> Accueil</a>
                                     <a class="mx-2 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/allDays" title="ALLDAYS"><Gauge />ALLDAYS</a>
                                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/competition" title="Compétitions"><Trophy />Compétition</a>
@@ -56,8 +56,8 @@ export interface Props {
                                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/cycle" title="Cycle"><Bike />Cycle</a>
                                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/" title="Equipement"><HardHat />Equipement</a>
                                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/" title="Produit / Outillage"><Wrench />Produit / Outillage</a>
-                                    <ChevronsRight class="text-orange-600 my-4 mx-2"/>
-                                </div>		
+                                     <ChevronsRight class="text-orange-600 my-4 mx-2"/>
+                                 </div>		
                             </label>
                         </div>
                     </div>
