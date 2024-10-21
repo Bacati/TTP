@@ -26,7 +26,7 @@ import Picture from 'components/global/Picture.astro';
     <div class="gradient w-full h-2"></div>
     <div class="flex justify-center gap-1 lg:gap-3 mt-16 lg:w-4/5 lg:mx-auto">
       <div class="slider flex items-center overflow-hidden">
-        <div id="slide" class="slide-track">
+        <div id="slide" class="slide-track md:flex">
           {generateProductData(config).map(product => (
               <div class="mx-4">
                   <ProductCard
@@ -72,7 +72,7 @@ import Picture from 'components/global/Picture.astro';
           C'est cette expertise que j'ai décidé de partager en créant ce site. Mon objectif est d'aider les novices à comprendre plus facilement le monde de la moto, mais aussi de référencer des pièces parfois rares.
           <p class="flex md:hidden w-11/12 text-white"><Quote class="w-20"/>Moi c’est Lucas, motard de 22 ans, passionné de moto depuis tout petit. Cette passion s'est rapidement étendue à la mécanique.</p>
           <details class="flex items-center md:hidden">
-            <summary class="justify-center text-white flex items-center">
+            <summary class="justify-center text-white flex items-center list-none">
                 Voir plus
                 <ChevronDown class="cheSum w-8" />
             </summary>

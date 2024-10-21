@@ -18,10 +18,6 @@ body{
 }
 .card {
 	height: 29rem;
-    transition: transform 0.3s;
-}
-.card .cylindre{
-	transition: transform 0.3s;
 }
 .gradient{
     background: linear-gradient(90deg,#000000 0%, #fdd763 40%, #000000 100%);
@@ -83,19 +79,12 @@ footer{
 		border-top-right-radius: 1rem /* 16px */;
 	}
 }
-details summary {
-	list-style: none;
-  }
-
-  details summary::-webkit-details-marker {
+details summary::-webkit-details-marker {
 	display: none;
-  }
+}
 
-  details summary::-moz-list-bullet {
+details summary::-moz-list-bullet {
 	display: none;
-  }
-details .cheSum{
-	transition: transform 0.3s;
 }
 details[open] .cheSum{
 	transition: transform 0.3s ease;
@@ -116,7 +105,6 @@ details[open] .cheSum{
 
 	.slide-track {
 		animation: scroll $animationSpeed linear infinite;
-		display: flex;
 		width: calc(384px * 18);
 		animation-play-state: running;
 		overflow-y: unset !important;
