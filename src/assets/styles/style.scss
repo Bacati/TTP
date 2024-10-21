@@ -41,12 +41,6 @@ footer{
 	}
 }
 @media (min-width: 1024px) {
-	.card:hover .cylindre{
-		transform: scale(1.2);
-	}
-	.card:hover {
-		transform: scale(1.1);
-	}
 	.fond-cyl{
 		width: 22rem !important;
 		height: 22rem !important;
@@ -56,8 +50,8 @@ footer{
 		}
 	}
 	.moi img{
-		border-top-left-radius: 1rem /* 16px */;
-		border-bottom-left-radius: 1rem /* 16px */;
+		border-top-left-radius: 1rem;
+		border-bottom-left-radius: 1rem;
 	}
 }
 @media (min-width: 320px) {

@@ -3,7 +3,7 @@ const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1, 
 import { Eye } from 'lucide-astro';
 ---
 <a href={lien} rel="noopener noreferrer">
-<div class="bg-white flex flex-col justify-center items-center w-80 lg:w-96 p-6 rounded-3xl shadow-lg card slide transition-transform duration-300">
+<div class="bg-white flex flex-col justify-center items-center w-80 lg:w-96 p-6 rounded-3xl shadow-lg card slide transition-transform duration-300 transform hover:scale-110 group">
   <div class="flex justify-between items-center w-full">
     <p class="font-bold text-3xl w-3/4 lg:w-3/5">{title}</p>
     <img class="w-1/4" src={logo}>
@@ -23,7 +23,7 @@ import { Eye } from 'lucide-astro';
     )}
   </div>
   <div class="cards rounded-full w-52 h-52 flex items-center justify-center mt-6">
-	<img class="max-w-72 lg:max-w-80 cylindre transition-transform duration-300" alt={alt} src={imageSrc} />
+	<img class="max-w-72 lg:max-w-80 cylindre transition-transform duration-300 group transform group-hover:scale-110" alt={alt} src={imageSrc} />
   </div>
   <div class="flex justify-between items-center w-full mt-4">
     {price && (
