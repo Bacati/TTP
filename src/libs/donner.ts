@@ -15,6 +15,10 @@ export const general = [
 	  potMost80:246,
 	  roulementMost:28,
 	  admiItalkit: 88,
+	  pvl: 399,
+	  vforce: 199,
+	  admiMost: 51,
+	  potMost70: 289,
 	},
   ];
   export const clearPot = [
@@ -83,6 +87,12 @@ export const general = [
 	  	vilo:199,
 	},
   ];
+  export const compet50Doppler = [
+	{
+		cylindre: 249,
+		vilo: 129,
+	}
+  ]
 
   const calculateTotalPrice = (specificParts: any, generalParts: any, additionalParts: string[] = []) => {
 	let total = 0;
@@ -160,6 +170,11 @@ export const general = [
 
 	return calculateTotalPrice(specific, ['nettoyant'])
   }
+  const PrixCompetDoppler = () => {
+	const specific = compet50Doppler[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70' ])
+  }
   export const config = [
 	{
 	  allMk: PrixAllMk(),
@@ -172,5 +187,6 @@ export const general = [
 	  allTopalu : PrixAllTopAlu(),
 	  all78Most : PrixAll78Most(),
 	  clearPot : PrixClear(),
+	  compet50Doppler : PrixCompetDoppler(),
 	},
   ];

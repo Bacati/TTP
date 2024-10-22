@@ -1,8 +1,8 @@
-import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, config, general } from 'libs/donner'
+import { all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, compet50Doppler, config, general } from 'libs/donner'
 import { Coins, CreditCard, TrendingUp } from 'lucide-astro'
 
+export const getCurrentConfig = (configType) => configurations[configType] || configurations["50doppler"];
 const imagePrefix = "/images";
-const linkPrefix = "/product/config?config=";
 
 const commonGeneralPieces = {
   roulement: `Roulement et spy WATTS : ${general[0].roulement}`,
@@ -22,6 +22,10 @@ const commonGeneralPieces = {
   mvtdd: `Allumage MVT Digital Direct : ${general[0].mvtdd}`,
   roulementMost: `Roulement et spy MOST : ${general[0].roulement}`,
   admiItal: `Admission ITALKIT : ${general[0]?.admiItalkit}`,
+  pvl: `Allumage pvl BIDALOT : ${general[0]?.pvl}`,
+  vforce: `Boite à clapet vforce 3i 85cr : ${general[0]?.vforce}`,
+  admiMost: `Pipe d'admission MOST : ${general[0]?.admiMost}`,
+  potMost70: `Pot MOST 70-80 :  ${general[0]?.potMost70}`,
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
@@ -31,30 +35,42 @@ const createSpecificPieces = (basePieces, specificPieces) => [
 ];
 
 // Fonction de création de configuration
-const createConfig = (title, description, price, images, specificPieces) => ({
-  title,
-  enderTitle: "Configuration AllDays",
-  description,
-  price,
-  images: images.map(image => `${imagePrefix}/${image}`),
-  pieces: specificPieces,
-});
+const createConfig = (title, logo, alt, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
+	title,
+	logo,
+	alt,
+	enderTitle: "Configuration AllDays",
+	typeMotor,
+	typeMotor1,
+	description,
+	price,
+	images: images.map(image => `${imagePrefix}/${image}`),
+	pieces: specificPieces,
+  });  
 
-// Configurations détaillées
+
 const configurations = {
-  "50mk": createConfig(
-    "50cc Metrakit Alu",
-    "Configuration très solide. Peu performant mais permet de faire de nombreux kilomètres sans problème.",
-    config[0].allMk,
-    ["50mk.png", "carbupolini.png", "potmost50.png"],
+  "50doppler": createConfig(
+    "50cc Doppler vortex",
+	`${imagePrefix}/mk.svg`,
+    "Doppler vortex",
+    "Derbi",
+    "AM6",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet50Doppler,
+    ["vortex.png", "vilojasilH.png","vforce.png", "carbu.png", "potmost70.png"],
     createSpecificPieces(
-      [`Kit 50cc METRAKIT ALU : ${all50Mk[0].cylindre}`,
-	  `Carburateur 17,5MM POLINI : ${all50Mk[0].carbu}`,],
-      ['potMost']
+      [`Kit 50cc DOPPLER vortex : ${compet50Doppler[0].cylindre}`,
+	  `Vilebrequin JASIL high tech : ${compet50Doppler[0].vilo}`,],
+      ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu28', 'potMost70']
     )
   ),
-  "70top": createConfig(
+  "70topnoir": createConfig(
     "70cc Top Performance noir",
+    `${imagePrefix}/top.webp`,
+    "70 top noir",
+    "AM6",
+    null,
     "Configuration commune, solide et adaptée pour de longues distances.",
     config[0].allTop,
     ["topnoir.png", "vilojasilv.png", "carbu.png", "potmost50.png"],
@@ -66,6 +82,10 @@ const configurations = {
   ),
   "70airsal": createConfig(
     "70cc Airsal fonte",
+    `${imagePrefix}/airsal.png`,
+    "70 airsal",
+    "AM6",
+    "Derbi",
     "Configuration très robuste avec de bonnes performances pour débuter.",
     config[0].allAirsal,
     ["70airsalfonte.png", "vilowatts.png", "carbu.png", "potmost50.png"],
@@ -77,6 +97,10 @@ const configurations = {
   ),
   "70airsalAlu": createConfig(
     "70cc Airsal Alu",
+    `${imagePrefix}/airsal.png`,
+    "70 airsal",
+    "AM6",
+    "Derbi",
     "Cylindre très solide, bien respecter les temps de chauffe.",
     config[0].allAirsalAlu,
     ["70airsal.png", "artekk2.png", "carbu.png", "potvoca.png"],
@@ -88,6 +112,10 @@ const configurations = {
   ),
   "75topRose": createConfig(
     "75cc Top performance rose",
+    `${imagePrefix}/top.webp`,
+    "75 top rose",
+    "AM6",
+    null,
     "Configuration solide pour de nombreux kilomètres avec performance.",
     config[0].allTopRose,
     ["toprose.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
@@ -99,7 +127,11 @@ const configurations = {
   ),
   "78airsal": createConfig(
     "78cc Airsal alu tech",
-    "Configuration très simple avec un cylindre très solide. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux, parfait pour rouler tout les jours et se faire plaisir.",
+    `${imagePrefix}/airsal.png`,
+    "80 airsal",
+    "Derbi",
+    null,
+    "Configuration très basique avec un cylindre robuste. Il est essentiel de respecter le temps de chauffe. Le cylindre offre un bon couple, idéal pour une utilisation quotidienne tout en procurant du plaisir de conduite.",
     config[0]?.all78Airsal,
     ["70airsal.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
     createSpecificPieces(
@@ -110,7 +142,11 @@ const configurations = {
   ),
   "78brk": createConfig(
     "78cc BRK 4RACE",
-    "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
+    `${imagePrefix}/brk.png`,
+    "78 brk",
+    "AM6",
+    "Derbi",
+    "Configuration légèrement plus avancée, avec un cylindre à la fois solide et performant. Il est crucial de bien respecter le temps de chauffe. Le cylindre offre un bon couple et un bon regime, ce qui le rend idéal pour une utilisation quotidienne tout en offrant un réel plaisir de conduite.",
     config[0]?.all78brk,
     ["80brk.png", "vilomost.png", "admiita.png","carbu.png", "potmost.png"],
     createSpecificPieces(
@@ -122,7 +158,11 @@ const configurations = {
   ),
   "86top": createConfig(
     "86cc Top performance",
-    "Configuration très simple avec un cylindre très solide, il est important de bien respecter les temps de chauffe. Important lors du montage toujours mettre un léger filer de pate à joint au niveau du joint, pour éviter de percer son piston. Moteur extrêment coupleux, très agréable à conduire tout les jours et très joeur.",
+    `${imagePrefix}/top.webp`,
+    "86 top alu",
+    "AM6",
+    null,
+    "Configuration basique avec un cylindre particulièrement solide. Il est essentiel de bien respecter les temps de chauffe. Lors du montage, il est important d'appliquer une fine couche de pâte à joint au niveau du joint d'embase pour éviter d'endommager le piston. Le moteur, très coupleux, est non seulement agréable à conduire au quotidien, mais aussi très réactif et ludique.",
     config[0]?.allTopalu,
     ["topalu.png", "baatop.png","carbu.png", "ardv2.png"],
     createSpecificPieces(
@@ -137,7 +177,11 @@ const configurations = {
   ),
   "78most": createConfig(
     "78cc MOST 4STREET",
-    "Configuration un peu plus poussé avec un cylindre solide et performant. Toujours bien respecter le temps de chauffe. Cylindre assez coupleux prend pas mal de régime, parfait pour rouler tout les jours et se faire plaisir.",
+    `${imagePrefix}/most.png`,
+    "80 most",
+    "AM6",
+    "Derbi",
+    "Configuration légèrement plus avancée, avec un cylindre à la fois solide et performant. Il est crucial de bien respecter le temps de chauffe. Le cylindre offre un bon couple et monte bien dans les tours, ce qui le rend idéal pour une utilisation quotidienne tout en offrant un réel plaisir de conduite.",
     config[0]?.all78Most,
     ["80most.png", "viloairsal.png", "admiita.png","carbu.png", "potmost.png"],
     createSpecificPieces(
@@ -149,8 +193,7 @@ const configurations = {
   ),
 };
 
-// Fonction pour récupérer la configuration courante
-export const getCurrentConfig = (configType) => configurations[configType] || configurations["50mk"];
+
 
 // Catégories de produits
 export const categories = [
@@ -159,24 +202,33 @@ export const categories = [
     label: "50",
     icon: Coins,
     products: [
-      { title: "50cc Metrakit Alu",
+    {
+        title: "50cc Doppler vortex",
 		logo: "mk.svg",
-		description: "Configuration AllDays",
-		price: config[0].allMk || 'N/A',
-		image: "50mk.png",
-		configKey: "50mk" },
-      { title: "70cc Top Performance",
+		alt: "50 doppler",
+		description: "Compétition",
+		typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		price: config[0]?.compet50Doppler || 'N/A',
+		image: "vortex.png",
+		configKey: "50doppler" 
+    },
+    { 
+		title: "70cc Top Performance",
 		logo: "topPerf.png",
 		description: "Configuration AllDays",
 		price: config[0].allTop || 'N/A',
 		image: "topnoir.png",
-		configKey: "70top" },
-      { title: "70cc Airsal fonte",
+		configKey: "70topnoir" 
+	},
+    { 
+		title: "70cc Airsal fonte",
 		logo: "airsal.png",
 		description: "Configuration AllDays",
 		price: config[0].allAirsal || 'N/A',
 		image: "70airsalfonte.png",
-		configKey: "70airsal" },
+		configKey: "70airsal" 
+	},
     ]
   },
   {

@@ -1,0 +1,26 @@
+---
+import MainLayout from 'layouts/MainLayout.astro';
+import TemplateConfig from 'components/global/TemplateConfig.astro';
+import { getCurrentConfig } from 'libs/configCompetition';
+
+const configType = Astro.url.searchParams.get("config") || "50";
+const currentConfig = getCurrentConfig(configType);
+
+---
+
+<MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
+    <main class="flex justify-center items-center">
+        <TemplateConfig
+            title={currentConfig.title}
+            logo={currentConfig.logo}
+            alt={currentConfig.alt}
+            enderTitle={currentConfig.enderTitle}
+            typeMotor={currentConfig.typeMotor}
+            typeMotor1={currentConfig.typeMotor1}
+            description={currentConfig.description}
+            price={currentConfig.price}
+            images={currentConfig.images}
+            pieces={currentConfig.pieces}
+        />
+    </main>
+</MainLayout>
