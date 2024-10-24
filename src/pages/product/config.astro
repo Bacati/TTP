@@ -6,6 +6,15 @@ import { getCurrentConfigCompet } from 'libs/configCompetition';
 
 const configType = Astro.url.searchParams.get("config");
 const configTypeCompet = Astro.url.searchParams.get("configCompetition");
+const allday =  Astro.url.searchParams.get("config");
+let title
+
+if (allday) {
+    title = "ALLDAYS"
+} else {
+    title = "Compétition"
+}
+
 let currentConfig;
 
 if (configType !== null) {
@@ -17,7 +26,7 @@ if (configType !== null) {
 }
 ---
 
-<MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
+<MainLayout title=`Trouve ta pièce | ${title}` class="overflow-x-hidden">
     <main class="flex justify-center items-center">
         <TemplateConfig
             title={currentConfig.title}
