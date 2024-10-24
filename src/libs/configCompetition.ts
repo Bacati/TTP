@@ -1,7 +1,6 @@
-import { all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, compet50Doppler, compet50Mhr, compet50Wr, config, general } from 'libs/donner'
-import { Coins, CreditCard, TrendingUp } from 'lucide-astro'
+import { all70airsalAlu, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, compet50Doppler, compet50Mhr, compet50Wr, config, general } from 'libs/donner'
 
-export const getCurrentConfig = (configType) => configurations[configType] || configurations["50doppler"];
+export const getCurrentConfigCompet = (configTypeCompet) => configurations[configTypeCompet] || configurations["50doppler"];
 const imagePrefix = "/images";
 
 const commonGeneralPieces = {
@@ -58,7 +57,7 @@ const configurations = {
     "AM6",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet50Doppler,
-    ["vortex.png", "vilojasilH.png","vforce.png", "carbu.png", "potmost70.png"],
+    ["vortex.png", "vilojasilH.png", "pvl.png", "vforce.png", "carbu.png", "potmost70.png"],
     createSpecificPieces(
       [`Kit 50cc DOPPLER vortex : ${compet50Doppler[0]?.cylindre}`,
 	  `Vilebrequin JASIL high tech : ${compet50Doppler[0]?.vilo}`,],
@@ -73,7 +72,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet50Mhr,
-    ["50mhr.png", "vilojasilH.png","vforce.png", "carbu.png", "potmost70.png"],
+    ["50mhr.png", "vilojasilH.png", "pvl.png", "vforce.png", "carbu.png", "potmost70.png"],
     createSpecificPieces(
       [`Kit 50cc MALOSSI MHR team : ${compet50Mhr[0]?.cylindre}`,
 	   `Vilebrequin JASIL EVO : ${compet50Mhr[0]?.vilo}`],
@@ -88,7 +87,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet50Wr,
-    ["70bida.png", "vilobida.png", "vforce.png", "carbu.png", "potbida.png"],
+    ["70bida.png", "vilobida.png", "pvl.png", "vforce.png", "carbu.png", "potbida.png"],
     createSpecificPieces(
       [`Kit 50cc Bidalot WR : ${compet50Wr[0]?.cylindre}`,
 	   `Vilebrequin BIDALOT course 39.7mm : ${compet50Wr[0]?.vilo}`,
@@ -202,7 +201,6 @@ export const categories = [
   {
     id: "50",
     label: "50",
-    icon: Coins,
     products: [
     {
         title: "50cc Doppler vortex",
@@ -242,7 +240,6 @@ export const categories = [
   {
     id: "70",
     label: "70 à 79",
-    icon: TrendingUp,
     products: [
       { title: "70cc Airsal Alu",
 		logo: "airsal.png",
@@ -268,7 +265,6 @@ export const categories = [
   {
     id: "80",
     label: "80 à 89",
-    icon: CreditCard,
     products: [
       { 
         title: "78cc BRK 4RACE",
@@ -299,7 +295,6 @@ export const categories = [
   {
     id: "90",
     label: "90 à 99",
-    icon: CreditCard,
     products: [
       { 
         title: "78cc BRK 4RACE",
@@ -330,7 +325,6 @@ export const categories = [
   {
     id: "100",
     label: "100",
-    icon: CreditCard,
     products: [
       { 
         title: "78cc BRK 4RACE",

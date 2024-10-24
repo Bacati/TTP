@@ -5,7 +5,7 @@ import ProductCard from 'components/global/Cards.astro';
 import { categories } from 'libs/configCompetition';
 ---
 
-<MainLayout title="Trouve ta pièce Compétition" class="overflow-x-hidden">
+<MainLayout title="Trouve ta pièce | Compétition" class="overflow-x-hidden">
   <main class="pt-44">
     <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
       <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
@@ -42,7 +42,7 @@ import { categories } from 'libs/configCompetition';
 				   typeMotor1={product.typeMotor1}
 				   price={product.price}
 				   imageSrc={`/images/${product.image}`}
-				   lien={`/product/configCompet?config=${product.configKey}#item-1`}
+				   lien={`/product/config?configCompetition=${product.configKey}#item-1`}
 				/>
 			 ))}
 		   </div>

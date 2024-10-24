@@ -2,10 +2,19 @@
 import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { getCurrentConfig } from 'libs/configurations';
+import { getCurrentConfigCompet } from 'libs/configCompetition';
 
-const configType = Astro.url.searchParams.get("config") || "500";
-const currentConfig = getCurrentConfig(configType);
+const configType = Astro.url.searchParams.get("config");
+const configTypeCompet = Astro.url.searchParams.get("configCompetition");
+let currentConfig;
 
+if (configType !== null) {
+    currentConfig = getCurrentConfig(configType);
+} else if (configTypeCompet !== null) {
+    currentConfig = getCurrentConfigCompet(configTypeCompet);
+} else {
+    currentConfig = {}; 
+}
 ---
 
 <MainLayout title="Trouve ta pièce ALLDAYS" class="overflow-x-hidden">
