@@ -1,4 +1,4 @@
-import { all70airsalAlu, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, compet50Doppler, compet50Mhr, compet50Wr, config, general } from 'libs/donner'
+import { all78Airsal, all78brk, all78Most, allTopalu, compet50Doppler, compet50Mhr, compet50Wr, compet70Fast, compet70Wr, config, general } from 'libs/donner'
 
 export const getCurrentConfigCompet = (configTypeCompet) => configurations[configTypeCompet] || configurations["50doppler"];
 const imagePrefix = "/images";
@@ -25,6 +25,8 @@ const commonGeneralPieces = {
   vforce: `Boite à clapet vforce 3i 85cr : ${general[0]?.vforce}`,
   admiMost: `Pipe d'admission MOST : ${general[0]?.admiMost}`,
   potMost70: `Pot MOST 70-80 :  ${general[0]?.potMost70}`,
+  carbu32: `Carburateur 32MM SUNWORLD : ${general[0]?.carbu32}`,
+  potTxtV8: `Pot TXT :  ${general[0]?.potTxtV8}`,
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
@@ -51,7 +53,7 @@ const createConfig = (title, logo, alt, typeMotor, typeMotor1 = null, descriptio
 const configurations = {
   "50doppler": createConfig(
     "50cc Doppler vortex",
-	`${imagePrefix}/mk.svg`,
+	`${imagePrefix}/doppler.png`,
     "Doppler vortex",
     "Derbi",
     "AM6",
@@ -82,7 +84,7 @@ const configurations = {
   "50bidalot": createConfig(
     "50cc Bidalot WR",
     `${imagePrefix}/bida.png`,
-    "70 bidalot wr",
+    "50 bidalot wr",
     "AM6",
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
@@ -96,34 +98,34 @@ const configurations = {
 	   ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu28']
     )
   ),
-  "70airsalAlu": createConfig(
-    "70cc Airsal Alu",
-    `${imagePrefix}/airsal.png`,
-    "70 airsal",
+  "70fast": createConfig(
+    "70cc 2Fast",
+    `${imagePrefix}/fast.png`,
+    "70 fast",
     "AM6",
     "Derbi",
-    "Cylindre très solide, bien respecter les temps de chauffe.",
-    config[0]?.allAirsalAlu,
-    ["70airsal.png", "artekk2.png", "carbu.png", "potvoca.png"],
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet70Fast,
+    ["fastCyl.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
     createSpecificPieces(
-      [`70cc AIRSAL ALU : ${all70airsalAlu[0]?.cylindre}`,
-	  `Vilebrequin ARTEK K2 : ${all70airsalAlu[0]?.vilo}`],
-      ['roulement', 'embrayageMost', 'lamelleFibre', 'pipe', 'carbu24', 'potVoca']
+      [`70cc 2Fast : ${compet70Fast[0]?.cylindre}`,
+	  `Vilebrequin ITALKIT compétion : ${compet70Fast[0]?.vilo}`],
+      ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu32', 'potTxtV8']
     )
   ),
-  "75topRose": createConfig(
-    "75cc Top performance rose",
-    `${imagePrefix}/top.webp`,
-    "75 top rose",
+  "70wr": createConfig(
+    "70cc Bidalot WR",
+    `${imagePrefix}/bida.png`,
+    "70 wr",
     "AM6",
-    null,
-    "Configuration solide pour de nombreux kilomètres avec performance.",
-    config[0]?.allTopRose,
-    ["toprose.png", "vilojasilH.png", "carbu.png", "potvoca.png"],
+    "Derbi",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet70Fast,
+    ["70bida.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
     createSpecificPieces(
-      [`Kit cylindre 75cc Top performance rose : ${all75TopRose[0]?.cylindre}`,
-	  `Vilebrequin Jasil high tech : ${all75TopRose[0]?.vilo}`],
-      ['roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu26', 'potVoca']
+      [`70cc Bidalot WR : ${compet70Wr[0]?.cylindre}`,
+	  `Vilebrequin ITALKIT compétion : ${compet70Wr[0]?.vilo}`],
+      ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu32', 'potTxtV8']
     )
   ),
   "78airsal": createConfig(
@@ -204,7 +206,7 @@ export const categories = [
     products: [
     {
         title: "50cc Doppler vortex",
-		logo: "mk.svg",
+		logo: "doppler.png",
 		alt: "50 doppler",
 		description: "Compétition",
 		typeMotor1: "Derbi",
@@ -225,7 +227,7 @@ export const categories = [
 		configKey: "50mhr" 
 	},
     { 
-		title: "70cc Bidalot WR",
+		title: "50cc Bidalot WR",
 		logo: "bida.png",
 		alt: "50 bidalot wr",
 		description: "Compétition",
@@ -241,25 +243,36 @@ export const categories = [
     id: "70",
     label: "70 à 79",
     products: [
-      { title: "70cc Airsal Alu",
+      {
+		title: "70cc 2Fast",
+		logo: "fast.png",
+		alt: "70 2Fast",
+		description: "Compétition",
+		typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		price: config[0]?.compet70Fast || 'N/A',
+		image: "fastCyl.png",
+		configKey: "70fast" 
+	},
+    { 
+		title: "70cc Bidalot WR",
+		logo: "bida.png",
+		alt: "70 2Fast",
+		description: "Compétition",
+		typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		price: config[0]?.compet70Wr || 'N/A',
+		image: "70bida.png",
+		configKey: "70wr"
+	},
+    { 
+		title: "78cc Airsal alu",
 		logo: "airsal.png",
-		description: "Configuration AllDays",
-		price: config[0]?.allAirsalAlu || 'N/A',
-		image: "70airsal.png",
-		configKey: "70airsalAlu" },
-      { title: "75cc Top performance",
-		logo: "topPerf.png",
-		description: "Configuration AllDays",
-		price: config[0]?.allTopRose || 'N/A',
-		image: "toprose.png",
-		configKey: "75topRose" },
-      { 
-    title: "78cc Airsal alu",
-    logo: "airsal.png",
 		description: "Configuration AllDays",
 		price: config[0]?.all78Airsal || 'N/A',
 		image: "70airsal.png",
-		configKey: "78airsal" },
+		configKey: "78airsal" 
+	},
     ]
   },
   {

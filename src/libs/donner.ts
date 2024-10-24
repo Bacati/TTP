@@ -19,6 +19,8 @@ export const general = [
 	  vforce: 199,
 	  admiMost: 51,
 	  potMost70: 289,
+	  potTxtV8: 401,
+	  carbu32: 129,
 	},
   ];
   export const clearPot = [
@@ -105,7 +107,19 @@ export const general = [
 		vilo: 280,
 		pot: 440,
 	},
-  ];
+  ]
+  export const compet70Fast = [
+	{
+		cylindre: 492,
+		vilo: 229,
+	},
+  ]
+  export const compet70Wr = [
+	{
+		cylindre: 384,
+		vilo: 229,
+	},
+  ]
 
   const calculateTotalPrice = (specificParts: any, generalParts: any, additionalParts: string[] = []) => {
 	let total = 0;
@@ -198,6 +212,16 @@ export const general = [
 	const generalParts = general[0];
 	return calculateTotalPrice(specific, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost' ])
   }
+  const PrixCompet70Fast = () => {
+	const specific = compet70Fast[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+  }
+  const PrixCompet70Wr = () => {
+	const specific = compet70Wr[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+  }
 
   export const config = [
 	{
@@ -214,5 +238,7 @@ export const general = [
 	  compet50Doppler : PrixCompetDoppler(),
 	  compet50Mhr : PrixCompet50Mhr(),
 	  compet50Wr : PrixCompet50Wr(),
+	  compet70Fast : PrixCompet70Fast(),
+	  compet70Wr : PrixCompet70Wr(),
 	},
   ];
