@@ -21,6 +21,7 @@ export const general = [
 	  potMost70: 289,
 	  potTxtV8: 401,
 	  carbu32: 129,
+	  viloItal: 229,
 	},
   ];
   export const clearPot = [
@@ -111,13 +112,31 @@ export const general = [
   export const compet70Fast = [
 	{
 		cylindre: 492,
-		vilo: 229,
 	},
   ]
   export const compet70Wr = [
 	{
 		cylindre: 384,
-		vilo: 229,
+	},
+  ]
+  export const compet70ProRace = [
+	{
+		cylindre: 302,
+	},
+  ]
+  export const compet78xtrem = [
+	{
+		cylindre: 265,
+	},
+  ]
+  export const compet78mhr = [
+	{
+		cylindre: 398,
+	},
+  ]
+  export const compet78most = [
+	{
+		cylindre: 249,
 	},
   ]
 
@@ -215,12 +234,32 @@ export const general = [
   const PrixCompet70Fast = () => {
 	const specific = compet70Fast[0];
 	const generalParts = general[0];
-	return calculateTotalPrice(specific, generalParts, ['carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+	return calculateTotalPrice(specific, generalParts, ['viloItal', 'carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
   }
   const PrixCompet70Wr = () => {
 	const specific = compet70Wr[0];
 	const generalParts = general[0];
-	return calculateTotalPrice(specific, generalParts, ['carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+	return calculateTotalPrice(specific, generalParts, ['viloItal', 'carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+  }
+  const PrixCompet70ProRace = () => {
+	const specific = compet70ProRace[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['viloItal', 'carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+  }
+  const PrixCompet78xtrem = () => {
+	const specific = compet78xtrem[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['viloItal', 'carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+  }
+  const PrixCompet78mhr = () => {
+	const specific = compet78mhr[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['viloItal', 'carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
+  }
+  const PrixCompet78most = () => {
+	const specific = compet78most[0];
+	const generalParts = general[0];
+	return calculateTotalPrice(specific, generalParts, ['viloItal', 'carbu32', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potTxtV8' ])
   }
 
   export const config = [
@@ -240,5 +279,9 @@ export const general = [
 	  compet50Wr : PrixCompet50Wr(),
 	  compet70Fast : PrixCompet70Fast(),
 	  compet70Wr : PrixCompet70Wr(),
+	  compet70ProRace : PrixCompet70ProRace(),
+	  compet78xtrem : PrixCompet78xtrem(),
+	  compet78mhr : PrixCompet78mhr(),
+	  compet78most : PrixCompet78most(),
 	},
   ];
