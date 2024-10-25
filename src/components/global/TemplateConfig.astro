@@ -11,11 +11,11 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
             ))}
 
             {images.map((imageSrc, index) => (
-                <div class={`carousel-item item-${index + 1} flex justify-center items-center absolute top-0 bottom-0 left-0 right-0 opacity-0`}>
+                <div class={`carousel-item item-${index + 1} flex justify-center items-center absolute top-0 bottom-0 left-0 right-0 opacity-0 mx-auto`}>
                     <a href={`#item-${(index === 0 ? images.length : index)}`} class="z-30" rel="noopener noreferrer">
                         <ChevronLeft class="w-10 h-10 cursor-pointer" />
                     </a>
-                    <div class="lg:w-3/5 flex items-center justify-center">
+                    <div class="flex items-center justify-center w-8/12">
                         <div class="cards rounded-full flex items-center justify-center fond-cyl">
                             <div class="lg:w-screen">
                                 <img class="-ml-8 lg:-ml-16" src={imageSrc} alt={alt}/>
