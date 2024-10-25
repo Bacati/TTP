@@ -1,4 +1,4 @@
-import { compet50Doppler, compet50Mhr, compet50Wr, compet70Fast, compet70ProRace, compet70Wr, compet78mhr, compet78most, compet78xtrem, config, general } from 'libs/donner'
+import { compet50Doppler, compet50Mhr, compet50Wr, compet70Fast, compet70ProRace, compet70Wr, compet78mhr, compet78most, compet78xtrem, compet80fast, compet80wr, compet90fast, compet90wr, config, general } from 'libs/donner'
 
 export const getCurrentConfigCompet = (configTypeCompet) => configurations[configTypeCompet] || configurations["50doppler"];
 const imagePrefix = "/images";
@@ -21,7 +21,7 @@ const commonGeneralPieces = {
   lamelleCarbonne: `Lamelle carbon DOPPLER ER3 derbi : ${general[0]?.lamelleCarbonne}`,
   potMost80: `Pot MOST 80-90 : ${general[0]?.potMost80}`,
   mvtdd: `Allumage MVT Digital Direct : ${general[0]?.mvtdd}`,
-  roulementMost: `Roulement et spy MOST : ${general[0]?.roulement}`,
+  roulementMost: `Roulement et spy MOST : ${general[0]?.roulementMost}`,
   admiItal: `Admission ITALKIT : ${general[0]?.admiItalkit}`,
   pvl: `Allumage pvl BIDALOT : ${general[0]?.pvl}`,
   vforce: `Boite à clapet vforce 3i 85cr : ${general[0]?.vforce}`,
@@ -29,7 +29,9 @@ const commonGeneralPieces = {
   potMost70: `Pot MOST 70-80 :  ${general[0]?.potMost70}`,
   potTxt80: `Pot TXT :  ${general[0]?.potTxtV8}`,
   potTxtV8: `Pot TXT V8 :  ${general[0]?.potTxtV8}`,
+  potTxtV21: `Pot TXT V21 : ${general[0]?.potTxtV21}`,
   viloItal: `Vilebrequin ITALKIT compétion : ${general[0]?.viloItal}`,
+  viloItal44: `Vilebrequin ITALKIT course 44,9 : ${general[0]?.viloItal44}`,
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
@@ -55,9 +57,29 @@ const grosseConfig80 = [
   'embrayageMost', 
   'vforce', 
   'admiMost', 
-  'carbu32', 
+  'carbu34', 
   'potTxtV8'
 ];
+const grosseConfig80Course = [
+  'viloItal44',
+  'roulementMost', 
+  'pvl', 
+  'embrayageMost', 
+  'vforce', 
+  'admiMost', 
+  'carbu34', 
+  'potTxtV8'
+];
+const grosseConfig90Course = [
+	'viloItal44',
+	'roulementMost', 
+	'pvl', 
+	'embrayageMost', 
+	'vforce', 
+	'admiMost', 
+	'carbu34', 
+	'potTxtV21'
+  ];
 
 // Fonction de création de configuration
 const createConfig = (title, logo, alt, typeMotor, typeMotor1 = null, description, price, images, specificPieces) => ({
@@ -200,10 +222,66 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet78most,
-    ["80most.png", "viloairsal.png", "admiita.png","carbu.png", "potmost.png"],
+    ["80most.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
     createSpecificPieces(
       [`Kit cylindre 78cc MOST 4street : ${compet78most[0]?.cylindre}`],
       grosseConfig80
+    )
+  ),
+  "80fast": createConfig(
+    "80cc 2Fast",
+    `${imagePrefix}/fast.png`,
+    "80 fast",
+    "AM6",
+    "Derbi",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet80fast,
+    ["fastCyl.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    createSpecificPieces(
+      [`Kit cylindre 80cc 2Fast : ${compet80fast[0]?.cylindre}`],
+      grosseConfig80Course
+    )
+  ),
+  "80wr": createConfig(
+    "80cc Bidalot WR",
+    `${imagePrefix}/bida.png`,
+    "80 wr",
+    "AM6",
+    "Derbi",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet80wr,
+    ["70bida.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    createSpecificPieces(
+      [`Kit cylindre 80cc Bidalot WR : ${compet80wr[0]?.cylindre}`],
+      grosseConfig80Course
+    )
+  ),
+  "90wr": createConfig(
+    "90cc Bidalot WR",
+    `${imagePrefix}/bida.png`,
+    "90 wr",
+    "AM6",
+    "Derbi",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet90wr,
+    ["70bida.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "v21.png"],
+    createSpecificPieces(
+      [`Kit cylindre 90cc Bidalot WR : ${compet90wr[0]?.cylindre}`],
+      grosseConfig90Course
+    )
+  ),
+  "90fast": createConfig(
+    "90cc 2Fast",
+    `${imagePrefix}/fast.png`,
+    "90 fast",
+    "AM6",
+    "Derbi",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    config[0]?.compet90fast,
+    ["fastCyl.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "v21.png"],
+    createSpecificPieces(
+      [`Kit cylindre 90cc Bidalot WR : ${compet90fast[0]?.cylindre}`],
+      grosseConfig90Course
     )
   ),
 };
@@ -253,7 +331,7 @@ export const categories = [
   },
   {
     id: "70",
-    label: "70 à 79",
+    label: "70",
     products: [
       {
 		title: "70cc 2Fast",
@@ -292,7 +370,7 @@ export const categories = [
   },
   {
     id: "80",
-    label: "80 à 89",
+    label: "80",
     products: [
       { 
         title: "78cc Airsal xtrem",
@@ -327,36 +405,56 @@ export const categories = [
         image: "80most.png",
         configKey: "78most" 
       },
+	  {
+      	title: "80cc 2Fast",
+		logo: "fast.png",
+		alt: "80 2Fast",
+		description: "Compétition",
+		typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		price: config[0]?.compet80fast || 'N/A',
+		image: "fastCyl.png",
+		configKey: "80fast" 
+	  },
+	{
+		title: "80cc Bidalot WR",
+		logo: "bida.png",
+		alt: "80 wr",
+		description: "Compétition",
+		typeMotor1: "Derbi",
+		typeMotor: "AM6",
+		price: config[0]?.compet80wr || 'N/A',
+		image: "70bida.png",
+		configKey: "80wr" 
+	},
     ]
   },
   {
     id: "90",
-    label: "90 à 99",
+    label: "90",
     products: [
-      { 
-        title: "78cc BRK 4RACE",
-        logo: "brk.png",
-        description: "Configuration AllDays",
-        price: config[0]?.all78brk || 'N/A',
-        image: "80brk.png",
-        configKey: "78brk" 
-      },
-      { 
-        title: "86cc Top performance",
-        logo: "topPerf.png",
-        description: "Configuration AllDays",
-        price: config[0]?.allTopalu || 'N/A',
-        image: "topalu.png",
-        configKey: "86top" 
-      },
-      {
-        title: "78cc MOST 4STREET",
-        logo: "most.png",
-        description: "Configuration AllDays",
-        price: config[0]?.all78Most || 'N/A',
-        image: "80most.png",
-        configKey: "78most" 
-      },
+		{
+			title: "90cc Bidalot WR",
+			logo: "bida.png",
+			alt: "90 wr",
+			description: "Compétition",
+			typeMotor1: "Derbi",
+			typeMotor: "AM6",
+			price: config[0]?.compet90wr || 'N/A',
+			image: "90bida.png",
+			configKey: "90wr" 
+		},
+		{
+			title: "90cc 2Fast",
+			logo: "fast.png",
+			alt: "90 fast",
+			description: "Compétition",
+			typeMotor1: "Derbi",
+			typeMotor: "AM6",
+			price: config[0]?.compet90fast || 'N/A',
+			image: "fastCyl.png",
+			configKey: "90fast" 
+		},
     ]
   },
   {
