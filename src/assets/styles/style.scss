@@ -13,12 +13,6 @@ body{
     -ms-user-select: none;
     user-select: none;
 }
-.cards {
-    background: linear-gradient(90deg, rgba(255, 219, 102, 1) 0%, rgba(204, 112, 19, 1) 100%);
-}
-.card {
-	height: 29rem;
-}
 .gradient{
     background: linear-gradient(90deg,#000000 0%, #fdd763 40%, #000000 100%);
 	margin-top: 9.9vh;
@@ -30,39 +24,13 @@ footer{
     background: linear-gradient(90deg,rgba(0, 0, 0, 1) -50%, rgba(92, 92, 91, 0) 300%),
     url('/images/bg.svg') bottom/cover no-repeat;
 }
-@media (min-width: 1440px) {
-	.fond-cyl{
-		width: 25rem !important;
-		height: 25rem !important;
-		img{
-			width: 135% !important;
-			max-width: 50vw !important;
-		}
-	}
-}
 @media (min-width: 1024px) {
-	.fond-cyl{
-		width: 22rem !important;
-		height: 22rem !important;
-		img{
-			width: 135% !important;
-			max-width: 50vw !important;
-		}
-	}
 	.moi img{
 		border-top-left-radius: 1rem;
 		border-bottom-left-radius: 1rem;
 	}
 }
 @media (min-width: 320px) {
-	.fond-cyl{
-		width: 10rem;
-		height: 10rem;
-		img{
-			max-width: 30rem;
-    		width: 140%;
-		}
-	}
 	.slide-track {
 		overflow-y: auto;
 		display: flex;
@@ -84,101 +52,11 @@ details[open] .cheSum{
 	transition: transform 0.3s ease;
     transform: rotate(180deg);
 }
-@media (min-width: 768px) {
-	$animationSpeed: 30s;
-
-	@keyframes scroll {
-		0% { transform: translateX(0); }
-		100% { transform: translateX(calc(-384px * 9)); }
-	}
-
-	.slider {
-		position: relative;
-		height: 34rem;
-	}
-
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		width: calc(384px * 18);
-		animation-play-state: running;
-		overflow-y: unset !important;
-	}
-	.slide-track:hover {
-		animation-play-state: paused;
-	}
-
-	.slide-track .slide {
-		flex: 0 0 auto;
-	}
-}
-	.carousel-item{
-	transition: all 0.5s ease-in-out;
-	width: 37vw;
-	}
-	[id^="item"] {
-	  display: none;
-	}
-	.item-1 {
-	  z-index: 2;
-	  opacity: 1;
-	}
-
-	*:target ~ .item-1 {
-	  opacity: 0;
-	}
-
-	#item-1:target ~ .item-1 {
-	  opacity: 1;
-	}
-
-	#item-2:target ~ .item-2, #item-3:target ~ .item-3, #item-4:target ~ .item-4,
-	#item-5:target ~ .item-5, #item-6:target ~ .item-6, #item-7:target ~ .item-7, #item-8:target ~ .item-8{
-	  z-index: 3;
-	  opacity: 1;
-	}
-  .bg{
+.bg{
 	background: linear-gradient(90deg, rgba(255,219,102,1) 0%, rgba(204,112,19,1) 100%);
-  }
+}
 .categorie{
 	background: rgba(249,115,22 , 0.08);
-}
-@keyframes fadein {
-	from {
-		transform: translateX(100%);
-	}
-	to {
-		transform: translateX(0);
-	}
-}
-
-@keyframes fadeout {
-	from {
-		transform: translateX(0);
-	}
-	to {
-		transform: translateX(100%);
-	}
-}
-
-.panneau {
-	transition: opacity 0.6s ease-in-out, visibility 1s ease-in-out;
-}
-.menu-switch:checked ~ div #panneauUn-panneau {
-	opacity: 1;
-	visibility: visible;
-	animation: fadein 0.6s forwards;
-}
-.menu-switch:not(:checked) ~ div #panneauUn-panneau {
-	opacity: 0;
-	visibility: hidden;
-	animation: fadeout 0.6s forwards;
-}
-.card-prod img{
-	height: 29rem;
-}
-.card-prod-text{
-	height: 29rem;
-	background: linear-gradient(90deg,rgba(0, 0, 0, 1) -300%, rgba(92, 92, 91, 0) 200%);
 }
 .text-pres{
 	font-size: 1.3vw;

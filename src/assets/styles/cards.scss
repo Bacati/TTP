@@ -1,0 +1,43 @@
+.card-prod img{
+	height: 29rem;
+}
+.card-prod-text{
+	height: 29rem;
+	background: linear-gradient(90deg,rgba(0, 0, 0, 1) -300%, rgba(92, 92, 91, 0) 200%);
+}
+.cards {
+    background: linear-gradient(90deg, rgba(255, 219, 102, 1) 0%, rgba(204, 112, 19, 1) 100%);
+}
+.card {
+	height: 29rem;
+}
+@media (min-width: 1440px) {
+	.fond-cyl{
+		width: 25rem !important;
+		height: 25rem !important;
+		img{
+			width: 135% !important;
+			max-width: 50vw !important;
+		}
+	}
+}
+@media (min-width: 1024px) {
+	.fond-cyl{
+		width: 22rem !important;
+		height: 22rem !important;
+		img{
+			width: 135% !important;
+			max-width: 50vw !important;
+		}
+	}
+}
+@media (min-width: 320px) {
+	.fond-cyl{
+		width: 10rem;
+		height: 10rem;
+		img{
+			max-width: 30rem;
+    		width: 140%;
+		}
+	}
+}

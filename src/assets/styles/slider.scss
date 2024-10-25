@@ -1,0 +1,27 @@
+@media (min-width: 768px) {
+	$animationSpeed: 30s;
+
+	@keyframes scroll {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(calc(-384px * 9)); }
+	}
+
+	.slider {
+		position: relative;
+		height: 34rem;
+	}
+
+	.slide-track {
+		animation: scroll $animationSpeed linear infinite;
+		width: calc(384px * 18);
+		animation-play-state: running;
+		overflow-y: unset !important;
+	}
+	.slide-track:hover {
+		animation-play-state: paused;
+	}
+
+	.slide-track .slide {
+		flex: 0 0 auto;
+	}
+}
