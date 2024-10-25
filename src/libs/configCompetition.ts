@@ -1,4 +1,4 @@
-import { all78Airsal, all78brk, all78Most, allTopalu, compet50Doppler, compet50Mhr, compet50Wr, compet70Fast, compet70ProRace, compet70Wr, compet78mhr, compet78most, compet78xtrem, config, general } from 'libs/donner'
+import { compet50Doppler, compet50Mhr, compet50Wr, compet70Fast, compet70ProRace, compet70Wr, compet78mhr, compet78most, compet78xtrem, config, general } from 'libs/donner'
 
 export const getCurrentConfigCompet = (configTypeCompet) => configurations[configTypeCompet] || configurations["50doppler"];
 const imagePrefix = "/images";
@@ -35,7 +35,28 @@ const commonGeneralPieces = {
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
 const createSpecificPieces = (basePieces, specificPieces) => [
   ...basePieces,
-  ...specificPieces.map(piece => commonGeneralPieces[piece] || piece),
+  ...specificPieces.map(piece => commonGeneralPieces[piece] || piece || grosseConfig),
+];
+
+const grosseConfig70 = [
+  'viloItal',
+  'roulementMost', 
+  'pvl', 
+  'embrayageMost', 
+  'vforce', 
+  'admiMost', 
+  'carbu32', 
+  'potTxt80'
+];
+const grosseConfig80 = [
+  'viloItal',
+  'roulementMost', 
+  'pvl', 
+  'embrayageMost', 
+  'vforce', 
+  'admiMost', 
+  'carbu32', 
+  'potTxtV8'
 ];
 
 // Fonction de création de configuration
@@ -112,7 +133,7 @@ const configurations = {
     ["fastCyl.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt80.png"],
     createSpecificPieces(
       [`70cc 2Fast : ${compet70Fast[0]?.cylindre}`],
-      ['viloItal', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu32', 'potTxt80']
+      grosseConfig70
     )
   ),
   "70wr": createConfig(
@@ -126,7 +147,7 @@ const configurations = {
     ["70bida.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt80.png"],
     createSpecificPieces(
       [`70cc Bidalot WR : ${compet70Wr[0]?.cylindre}`],
-      ['viloItal', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu32', 'potTxt80']
+      grosseConfig70
     )
   ),
   "70prorace": createConfig(
@@ -140,7 +161,7 @@ const configurations = {
     ["prorace.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt80.png"],
     createSpecificPieces(
       [`70cc Metrakit pro race : ${compet70ProRace[0]?.cylindre}`],
-      ['viloItal', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu32', 'potTxt80']
+      grosseConfig70
     )
   ),
   "78xtrem": createConfig(
@@ -154,7 +175,7 @@ const configurations = {
     ["airsalxtrem.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
     createSpecificPieces(
       [`78cc Airsal xtrem : ${compet78xtrem[0]?.cylindre}`],
-      ['viloItal', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu34', 'potTxtV8']
+      grosseConfig80
     )
   ),
   "78mhr": createConfig(
@@ -167,8 +188,8 @@ const configurations = {
     config[0]?.compet78mhr,
     ["50mhr.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
     createSpecificPieces(
-      [`78cc Airsal xtrem : ${compet78mhr[0]?.cylindre}`],
-      ['viloItal', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu34', 'potTxtV8']
+      [`78cc Malossi MHR Team : ${compet78mhr[0]?.cylindre}`],
+      grosseConfig80
     )
   ),
   "78most": createConfig(
@@ -182,7 +203,7 @@ const configurations = {
     ["80most.png", "viloairsal.png", "admiita.png","carbu.png", "potmost.png"],
     createSpecificPieces(
       [`Kit cylindre 78cc MOST 4street : ${compet78most[0]?.cylindre}`],
-      ['viloItal', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu34', 'potTxtV8']
+      grosseConfig80
     )
   ),
 };
