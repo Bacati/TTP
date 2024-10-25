@@ -25,3 +25,13 @@
 		});
 	  });
 	});
+	document.addEventListener("scroll", function () {
+		const fleche: any = document.getElementById("fleche");
+		if (window.scrollY > window.innerWidth * 0.3) {
+			fleche.classList.remove("hidden");
+			fleche.classList.add("flex");
+		} else {
+			fleche.classList.add("hidden");
+		}
+	});
+	
