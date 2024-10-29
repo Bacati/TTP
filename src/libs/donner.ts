@@ -193,6 +193,18 @@ export const general = [
 		viloItal44: 250,
 	},
   ]
+  export const compet100fast = [
+	{
+		cylindre: 520,
+		vilo: 476
+	}	
+  ]
+  export const compet96bida = [
+	{
+		cylindre: 481,
+		vilo: 350
+	}	
+  ]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0;
@@ -341,6 +353,14 @@ export const general = [
 	const specific = compet90fast[0];
 	return calculateTotalPrice(specific, {}, general90, {}, {})
   }
+  const PrixCompet100fast = () => {
+	const specific = compet100fast[0];
+	return calculateTotalPrice(specific, {}, general90, {}, {})
+  }
+  const PrixCompet96bida = () => {
+	const specific = compet96bida[0];
+	return calculateTotalPrice(specific, {}, general90, {}, {})
+  }
 
   export const config = [
 	{
@@ -367,5 +387,7 @@ export const general = [
 	  compet80wr : PrixCompet80wr(),
 	  compet90wr : PrixCompet90wr(),
 	  compet90fast : PrixCompet90fast(),
+	  compet100fast : PrixCompet100fast(),
+	  compet96bida : PrixCompet96bida(),
 	},
   ];
