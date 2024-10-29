@@ -39,7 +39,12 @@ const createSpecificPieces = (basePieces, specificPieces) => [
   ...basePieces,
   ...specificPieces.map(piece => commonGeneralPieces[piece] || piece || grosseConfig),
 ];
-
+const imageConfig = [
+  "viloita44.png", "pvl.png", "vforce.png", "carbu.png"
+]
+const imageConfig70 = [
+  "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png"
+]
 const grosseConfig70 = [
   'viloItal',
   'roulementMost', 
@@ -152,7 +157,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet70Fast,
-    ["fastCyl.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt80.png"],
+    ["fastCyl.png", ...imageConfig70, "txt80.png"],
     createSpecificPieces(
       [`70cc 2Fast : ${compet70Fast[0]?.cylindre}`],
       grosseConfig70
@@ -166,7 +171,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet70Wr,
-    ["70bida.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt80.png"],
+    ["70bida.png", ...imageConfig70, "txt80.png"],
     createSpecificPieces(
       [`70cc Bidalot WR : ${compet70Wr[0]?.cylindre}`],
       grosseConfig70
@@ -180,7 +185,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet70ProRace,
-    ["prorace.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt80.png"],
+    ["prorace.png", ...imageConfig70, "txt80.png"],
     createSpecificPieces(
       [`70cc Metrakit pro race : ${compet70ProRace[0]?.cylindre}`],
       grosseConfig70
@@ -194,7 +199,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet78xtrem,
-    ["airsalxtrem.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    ["airsalxtrem.png", ...imageConfig70, "txt.png"],
     createSpecificPieces(
       [`78cc Airsal xtrem : ${compet78xtrem[0]?.cylindre}`],
       grosseConfig80
@@ -208,7 +213,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet78mhr,
-    ["50mhr.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    ["50mhr.png", ...imageConfig70, "txt.png"],
     createSpecificPieces(
       [`78cc Malossi MHR Team : ${compet78mhr[0]?.cylindre}`],
       grosseConfig80
@@ -222,7 +227,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet78most,
-    ["80most.png", "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    ["80most.png", ...imageConfig70, "txt.png"],
     createSpecificPieces(
       [`Kit cylindre 78cc MOST 4street : ${compet78most[0]?.cylindre}`],
       grosseConfig80
@@ -236,7 +241,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet80fast,
-    ["fastCyl.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    ["fastCyl.png", ...imageConfig , "txt.png"],
     createSpecificPieces(
       [`Kit cylindre 80cc 2Fast : ${compet80fast[0]?.cylindre}`],
       grosseConfig80Course
@@ -250,7 +255,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet80wr,
-    ["70bida.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "txt.png"],
+    ["70bida.png", ...imageConfig , "txt.png"],
     createSpecificPieces(
       [`Kit cylindre 80cc Bidalot WR : ${compet80wr[0]?.cylindre}`],
       grosseConfig80Course
@@ -264,7 +269,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet90wr,
-    ["70bida.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "v21.png"],
+    ["70bida.png", ...imageConfig , "v21.png"],
     createSpecificPieces(
       [`Kit cylindre 90cc Bidalot WR : ${compet90wr[0]?.cylindre}`],
       grosseConfig90Course
@@ -278,7 +283,7 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet90fast,
-    ["fastCyl.png", "viloita44.png", "pvl.png", "vforce.png", "carbu.png", "v21.png"],
+    ["fastCyl.png", ...imageConfig , "v21.png"],
     createSpecificPieces(
       [`Kit cylindre 90cc Bidalot WR : ${compet90fast[0]?.cylindre}`],
       grosseConfig90Course
