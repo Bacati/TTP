@@ -45,6 +45,17 @@ const imageConfig = [
 const imageConfig70 = [
   "viloitalikit.png", "pvl.png", "vforce.png", "carbu.png"
 ]
+const imageConfig50 = [
+  "vilojasilH.png", "pvl.png", "vforce.png", "carbu.png"
+]
+const grosseConfig50 = [
+  'roulementMost', 
+  'pvl',
+  'embrayageMost', 
+  'vforce', 
+  'admiMost', 
+  'carbu28'
+]
 const grosseConfig70 = [
   'viloItal',
   'roulementMost', 
@@ -106,15 +117,15 @@ const configurations = {
     "50cc Doppler vortex",
 	`${imagePrefix}/doppler.png`,
     "Doppler vortex",
-    "Derbi",
     "AM6",
+    "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet50Doppler,
-    ["vortex.png", "vilojasilH.png", "pvl.png", "vforce.png", "carbu.png", "potmost70.png"],
+    ["vortex.png", ...imageConfig50, "potmost70.png"],
     createSpecificPieces(
       [`Kit 50cc DOPPLER vortex : ${compet50Doppler[0]?.cylindre}`,
 	  `Vilebrequin JASIL high tech : ${compet50Doppler[0]?.vilo}`,],
-      ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu28', 'potMost70']
+      [...grosseConfig50, 'potMost70']
     )
   ),
   "50mhr": createConfig(
@@ -125,11 +136,11 @@ const configurations = {
     "Derbi",
     "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
     config[0]?.compet50Mhr,
-    ["50mhr.png", "vilojasilH.png", "pvl.png", "vforce.png", "carbu.png", "potmost70.png"],
+    ["50mhr.png", ...imageConfig50, "potmost70.png"],
     createSpecificPieces(
       [`Kit 50cc MALOSSI MHR team : ${compet50Mhr[0]?.cylindre}`,
 	   `Vilebrequin JASIL EVO : ${compet50Mhr[0]?.vilo}`],
-     ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu28', 'potMost70']
+     [...grosseConfig50, 'potMost70']
     )
   ),
   "50bidalot": createConfig(
@@ -146,7 +157,7 @@ const configurations = {
 	   `Vilebrequin BIDALOT course 39.7mm : ${compet50Wr[0]?.vilo}`,
 		`Pot BIDALOT wr 50cc : ${compet50Wr[0]?.pot}`,
 		],
-	   ['roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'carbu28']
+	   grosseConfig50
     )
   ),
   "70fast": createConfig(
