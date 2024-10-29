@@ -3,7 +3,7 @@ const { title, imageSrc, lien, entreprise, alt } = Astro.props;
 ---
 <a href={lien} rel="noopener noreferrer">
 	<div class="flex flex-col justify-center items-center w-80 lg:w-96 shadow-lg card-prod lg:mt-16 rounded-3xl">
-        <img src={imageSrc} alt={alt} class="object-cover w-80 lg:w-96 z-0 card-prod rounded-3xl absolute">
+        <img src={imageSrc} alt={alt} class="object-cover w-80 lg:w-96 z-0 card-prod rounded-3xl absolute" loading="lazy">
         <div class="relative w-full flex justify-end flex-col z-10 rounded-3xl card-prod-text">
             <p class="font-bold text-3xl text-white ml-4">{title}</p>
             <p class="text-gray-300 ml-4 mb-8">{entreprise}</p>
