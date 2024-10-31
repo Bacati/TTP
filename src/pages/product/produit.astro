@@ -1,0 +1,28 @@
+---
+import MainLayout from 'layouts/MainLayout.astro';
+import TemplateConfig from 'components/global/TemplateConfig.astro';
+import { getCurrentProduit } from 'libs/produit-outillage';
+
+
+const configType = Astro.url.searchParams.get("produit");
+
+
+let currentConfig;
+
+if (configType !== null) {
+    currentConfig = getCurrentProduit(configType);
+} 
+---
+
+<MainLayout title=`Trouve ta pièce | Produit - outillage` class="overflow-x-hidden">
+    <main class="flex justify-center items-center">
+        <TemplateConfig
+            title={currentConfig.title}
+            logo={currentConfig.logo}
+            alt={currentConfig.alt}
+            description={currentConfig.description}
+            price={currentConfig.price}
+            images={currentConfig.images}
+        />
+    </main>
+</MainLayout>

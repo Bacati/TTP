@@ -58,7 +58,7 @@ export const general = [
 
   export const clearPot = [
 	{
-		nettoyant: 10
+		nettoyant: 7.99
 	}
   ]
   export const all50Mk = [

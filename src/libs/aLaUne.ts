@@ -1,5 +1,6 @@
 const linkPrefix = "/product/config?config=";
 const linkPrefixCompet = "/product/config?configCompetition=";
+const linkPrefixProduct = "/product/produit?produit="
 const imagePrefix = "/images";
 
 // Fonction pour générer des données produits à partir de `config`
@@ -33,7 +34,7 @@ export const generateProductData = (config) => [
     description: "Trouve ta pièce",
     price: config[0].clearPot || 'N/A',
     imageSrc: `${imagePrefix}/flacon.png`,
-    link: `${linkPrefix}`
+    link: `${linkPrefixProduct}nettoyant`
   },
   {
     title: "70cc Airsal Alu",
