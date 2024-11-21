@@ -1,7 +1,7 @@
 ---
 import Picture from 'astro/components/Picture.astro';
 import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft } from 'lucide-astro';
-import logo from '/public/images/logo.svg';
+import logo from '/public/images/logo2.png';
 
 export interface Props {
     right?: Record<string, string>
@@ -13,7 +13,7 @@ export interface Props {
     <nav class="items-center">
         <div class="hidden justify-between items-center w-11/12 fixed lg:flex">
             <a href="/" rel="noopener noreferrer">
-                <Picture src={logo} alt="TTP" class="backdrop-blur-sm p-1 rounded-2xl"></Picture>
+                <Picture src={logo} alt="TTP" class="backdrop-blur-sm p-1 rounded-2xl w-8/12"></Picture>
             </a>
             <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex">
                 <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS" />ALLDAYS</a>
