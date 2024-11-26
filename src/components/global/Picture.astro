@@ -66,22 +66,22 @@ const props = objectOmit(Astro.props, 'src', 'srcDark', 'class')
 ---
 
 {res.light.format === 'new' && (
-	<picture {...props} {...res.light.src.attributes} class:list={[res.light.src.attributes.class, Astro.props.class, {'dark:hidden': res.dark}]}>
+	<picture {...props} {...res.light.src.attributes} class:list={[res.light.src.attributes.class, {'dark:hidden': res.dark}]}>
 		{res.light.formats.map((it) => (
 			<source srcset={it.img.src} type={`image/${it.format}`} />
 		))}
-		<img src={res.light.src.src} />
+		<img src={res.light.src.src} class:list={[Astro.props.class]} />
 	</picture>
 ) || (
 	<img {...props} class:list={[Astro.props.class, {'dark:hidden': res.dark}]} src={res.light.src as string} />
 )}
 
 {res.dark && res.dark.format === 'new' && (
-	<picture {...props} {...res.dark.src.attributes} class:list={[res.dark.src.attributes.class, Astro.props.class, 'hidden', 'dark:block']}>
+	<picture {...props} {...res.dark.src.attributes} class:list={[res.dark.src.attributes.class, 'hidden', 'dark:block']}>
 		{res.dark.formats.map((it) => (
 			<source srcset={it.img.src} type={`image/${it.format}`} />
 		))}
-		<img src={res.dark.src.src} />
+		<img src={res.dark.src.src} class:list={[Astro.props.class]} />
 	</picture>
 ) || (res.dark && (
 	<img {...props} class:list={[Astro.props.class, 'hidden', 'dark:block']} src={res.dark.src as string} />
