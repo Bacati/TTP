@@ -3,13 +3,15 @@ import MainLayout from 'layouts/MainLayout.astro';
 import { MoveUp } from 'lucide-astro';
 import ProductCard from 'components/global/Cards.astro';
 import { categories } from 'libs/configurations';
+import Picture from 'components/global/Picture.astro';
+import yoni from '/public/images/yoni.jpeg'
 ---
 
 <MainLayout title="Trouve ta pièce | ALLDAYS" class="overflow-x-hidden">
   <main class="pt-44">
     <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
       <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
-        <img src="/images/yoni.jpeg" class="w-full lg:w-2/5" alt="yoniproject_">
+		<Picture src={yoni} class="w-full lg:w-11/12" alt="yoniproject_"></Picture>
         <p><strong>Optimisez votre conduite quotidienne avec nos configurations moteur alldays</strong><br>
           Découvrez nos configurations moteur conçues pour améliorer les performances de votre véhicule, sans sacrifier la fiabilité. Nous offrons une gamme de prix pour répondre à divers budgets. Transformez votre conduite quotidienne dès aujourd'hui.
         </p>
@@ -25,7 +27,7 @@ import { categories } from 'libs/configurations';
 			data-category={category.id} 
 			rel="noopener noreferrer"
 		  >
-			<img src={category.source} /> {category.label}
+			<Picture src={category.source} width="0" height="0"></Picture>{category.label}
 		  </a>
 		))}
 	</div>

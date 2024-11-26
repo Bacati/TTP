@@ -24,21 +24,11 @@ footer{
     background: linear-gradient(90deg,rgba(0, 0, 0, 1) -50%, rgba(92, 92, 91, 0) 300%),
     url('/images/bg.svg') bottom/cover no-repeat;
 }
-@media (min-width: 1024px) {
-	.moi img{
-		border-top-left-radius: 1rem;
-		border-bottom-left-radius: 1rem;
-	}
-}
 @media (min-width: 320px) {
 	.slide-track {
 		overflow-y: auto;
 		display: flex;
 		height: 32rem;
-	}
-	.moiMob img{
-		border-top-left-radius: 1rem;
-		border-top-right-radius: 1rem;
 	}
 }
 details summary::-webkit-details-marker {

@@ -1,6 +1,8 @@
 ---
 const { title, enderTitle, typeMotor, typeMotor1, description, price, images, pieces, logo, alt } = Astro.props;
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
+import motor from '/public/images/motor.png';
+import Picture from 'components/global/Picture.astro';
 ---
 
 <div class="bg-white rounded-3xl w-9/12 flex justify-center py-6 flex-col mt-96 lg:mt-60 lg:mb-60 mb-28 items-center lg:flex-row">
@@ -18,7 +20,14 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
                     <div class="flex items-center justify-center w-8/12">
                         <div class="cards rounded-full flex items-center justify-center fond-cyl">
                             <div class="lg:w-screen">
-                                <img class="-ml-8 lg:-ml-16" src={imageSrc} alt={alt}/>
+                                <Picture
+                                    class="-ml-8 lg:-ml-16" 
+                                    src={imageSrc} alt={alt}
+                                    width="0"
+                                    height="0"
+                                    loading="lazy">
+                                </Picture>
+                               
                             </div>
                         </div>
                     </div>
@@ -40,7 +49,7 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-astro';
             )}
             <div class="flex gap-2 items-center">
                 {typeMotor && (
-                    <img src="/images/motor.png" alt="moteur" class="w-12 h-12">
+                    <Picture src={motor} alt="moteur" class="w-12 h-12"></Picture>
                     <div class="flex flex-col lg:flex-row gap-2 md:mr-8 lg:mr-0">
                         <p class="px-3 bg-orange-500 rounded-3xl items-center flex justify-center text-white">{typeMotor}</p>
                         {typeMotor1 && (
