@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /private/
 Disallow: /temp/
 Allow: /public/
+Allow: /favicon.ico
