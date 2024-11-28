@@ -1,16 +1,16 @@
 import { config } from 'libs/donner';
 
-export const getCurrentProduit = (produit) => configurations[produit] || configurations["nettoyant"];
+export const getCurrentProduit = (produits: string | number) => configurations[produits] || configurations["nettoyant"];
 const imagePrefix = "/images";
 
 // Fonction de création de configuration
-const createConfig = (title, logo, alt, description, price, images) => ({
+const createConfig = (title: string, logo: string, alt: string, description: string, price: number | undefined, images: any[]) => ({
 	title,
 	logo,
 	alt,
 	description,
 	price,
-	images: images.map(image => `${imagePrefix}/${image}`),
+	images: images.map((image: any) => `${imagePrefix}/${image}`),
 });
 
 const configurations = {
