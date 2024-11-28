@@ -211,7 +211,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-
+    <url>
+        <loc>http://trouve-ta-piece.fr/product/produit?esthetique=bks#item-1</loc>
+        <lastmod>2024-11-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
         <loc>https://trouve-ta-piece.fr</loc>
         <image:image>
