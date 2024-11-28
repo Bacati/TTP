@@ -1,6 +1,6 @@
 import { all50Mk, all70airsal, all70airsalAlu, all70top, all75TopRose, all78Airsal, all78brk, all78Most, allTopalu, config, general } from 'libs/donner'
 // Fonction pour récupérer la configuration courante
-export const getCurrentConfig = (configType) => configurations[configType] || configurations["50mk"];
+export const getCurrentConfig = (configType: string | number) => configurations[configType] || configurations["50mk"];
 
 const imagePrefix = "/images";
 
@@ -25,13 +25,13 @@ const commonGeneralPieces = {
 };
 
 // Fonction pour créer les pièces spécifiques en combinant les pièces communes et spécifiques
-const createSpecificPieces = (basePieces, specificPieces) => [
+const createSpecificPieces = (basePieces: string[], specificPieces: any[]) => [
   ...basePieces,
-  ...specificPieces.map(piece => commonGeneralPieces[piece] || piece),
+  ...specificPieces.map((piece: string | number) => commonGeneralPieces[piece] || piece),
 ];
 
 // Fonction de création de configuration
-const createConfig = (title: string, logo: string, alt: string, typeMotor, typeMotor1 = null, description: string | null, price: string | number, images, specificPieces) => ({
+const createConfig = (title: string, logo: string, alt: string, typeMotor: string, typeMotor1 = null, description: string | null, price: string | number, images: any[], specificPieces: any[]) => ({
   title,
   logo,
   alt,
@@ -40,7 +40,7 @@ const createConfig = (title: string, logo: string, alt: string, typeMotor, typeM
   typeMotor1,
   description,
   price,
-  images: images.map(image => `${imagePrefix}/${image}`),
+  images: images.map((image: any) => `${imagePrefix}/${image}`),
   pieces: specificPieces,
 });
 
