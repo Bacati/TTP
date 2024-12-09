@@ -3,24 +3,30 @@ import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { getCurrentProduit } from 'libs/produit-outillage';
 import { getCurrentEsthe } from 'libs/esthetique';
+import { getCurrentFrein } from 'libs/frein';
 
 
 const produits = Astro.url.searchParams.get("produit");
 const esthetique = Astro.url.searchParams.get("esthetique");
 const produit =  Astro.url.searchParams.get("produit");
+const frein = Astro.url.searchParams.get("frein");
 let title
 
 if (produit) {
     title = "Produit - outillage"
-} else {
+} else if (esthetique) {
     title = "Esthetique"
+} else {
+    title = "Frein"
 }
 
 let currentConfig;
 
 if (produits !== null) {
     currentConfig = getCurrentProduit(produits);
-} else if (esthetique !== null) {
+} else if (frein !== null) {
+    currentConfig = getCurrentFrein(frein);
+}else if (esthetique !== null) {
     currentConfig = getCurrentEsthe(esthetique);
 } else {
     currentConfig = {}; 
