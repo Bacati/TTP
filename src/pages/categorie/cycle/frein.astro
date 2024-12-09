@@ -1,0 +1,38 @@
+---
+import { categories } from 'libs/frein';
+import MainLayout from 'layouts/MainLayout.astro';
+import { MoveUp } from 'lucide-astro';
+import ProductCard from 'components/global/Cards.astro';
+---
+
+<MainLayout title="Trouve ta pièce | Frein" class="overflow-x-hidden">
+  <main class="pt-44">
+    <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
+      <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
+        <img src="/images/bg.svg" class="w-full lg:w-2/5">
+        <p>
+          Découvrez notre gamme complète de produits de nettoyage et d'outils de qualité pour les amateurs de moto méticuleux et les mécaniciens passionnés. Que vous cherchiez à entretenir votre moto comme un professionnel ou à effectuer des réparations avec précision, notre sélection de produits répondra à vos besoins. Des nettoyants spécialement conçus pour garder votre moto étincelante aux outils essentiels pour chaque tâche mécanique, nous avons tout ce qu'il faut pour maintenir votre machine en parfait état. Explorez notre collection et faites confiance à notre expertise pour prendre soin de votre moto comme elle le mérite.
+        </p>
+      </div>
+      <div class="gradient-config w-full h-2 rounded-b-3xl"></div>
+    </div>
+        {categories.map(category => (
+                <div class="flex justify-center my-8 gap-4 flex-wrap mx-auto w-4/5">
+                    {category.products.map(product => (
+                        <ProductCard
+                            title={product.title}
+                            logo={`/images/${product.logo}`}
+                            price={product.price}
+                            imageSrc={`/images/${product.image}`}
+                            alt={product.alt}
+                            lien={`/product/produit?frein=${product.configKey}`}
+                        />
+                    ))}
+                </div>
+        ))}     
+    <a id="fleche" class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 hidden items-center" href="#top" rel="noopener noreferrer">
+      <MoveUp class="h-10 w-10 text-white" />
+    </a>
+  </main>
+</MainLayout>
+<script src="/src/pages/js/category.js.ts"></script>

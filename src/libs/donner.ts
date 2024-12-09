@@ -205,6 +205,11 @@ export const general = [
 		vilo: 350
 	}	
   ]
+  export const mcAdelin = [
+	{
+		maitre: 10
+	}
+  ]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0;
@@ -361,6 +366,11 @@ export const general = [
 	const specific = compet96bida[0];
 	return calculateTotalPrice(specific, {}, general90, {}, {})
   }
+  const PrixMcAdelin = () => {
+	const specific = mcAdelin[0];
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -389,5 +399,6 @@ export const general = [
 	  compet90fast : PrixCompet90fast(),
 	  compet100fast : PrixCompet100fast(),
 	  compet96bida : PrixCompet96bida(),
+	  mcAdelin : PrixMcAdelin(),
 	},
   ];
