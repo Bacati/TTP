@@ -46,16 +46,16 @@ export interface Props {
                         <label for="panneauUn" class="menu-open">
                             <ChevronsLeft class="text-orange-600"/>
                         </label>
-                        <div class="bg-white h-screen z-50 panneau fixed top-0 right-0 invisible opacity-0" id="panneauUn-panneau">
+                        <div class="bg-white z-50 panneau fixed top-4 right-4 invisible opacity-0 rounded-3xl" id="panneauUn-panneau">
                              <label for="panneauDeux" class="menu-closed">
                                  <div class="flex flex-col justify-center">
-                                    <a class="py-4 bg-amber-600 text-white flex rounded-b-full w-full justify-center gap-2 text-xl items-center" href="/" rel="noopener noreferrer"><House alt="Home"/> Accueil</a>
-                                    <a class="mx-2 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS"/>ALLDAYS</a>
-                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/>Compétition</a>
-                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthétique</a>
-                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/>Cycle</a>
-                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/>Equipement</a>
-                                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 gap-2 text-xl items-center" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Produit - Outillage"/>Produit / Outillage</a>
+                                    <a class="py-3 bg-amber-600 text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/" rel="noopener noreferrer"><House alt="Home" class="mx-4"/> Accueil</a>
+                                    <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS"/>ALLDAYS</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/>Compétition</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthétique</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/>Cycle</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/>Equipement</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Produit - Outillage"/>Produit / Outillage</a>
                                      <ChevronsRight class="text-orange-600 my-4 mx-2"/>
                                  </div>		
                             </label>
@@ -66,15 +66,3 @@ export interface Props {
         </div>
     </nav>
 </header>
-<script>
-    const menuSwitch = document.querySelector('.menu-switch');
-    const panneau = document.querySelector('#panneauUn-panneau');
-
-    menuSwitch.addEventListener('change', function () {
-        if (menuSwitch.checked) {
-            // L'animation d'ouverture est gérée par CSS
-        } else {
-            // L'animation de fermeture est gérée par CSS
-        }
-    });
-</script>
