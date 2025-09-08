@@ -9,7 +9,7 @@ import { categories } from 'libs/configCompetition';
   <main class="pt-44">
     <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
       <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
-        <img src="/images/bg.svg" class="w-full lg:w-2/5">
+        <img src="/images/bg.svg" class="w-full lg:w-[50rem]">
         <p><strong>Optimisez votre performance sur le Circuit avec nos configurations moteur de Haute performance</strong><br>
 			Explorez notre gamme de configuration moteur conçues spécialement pour les passionnés de course. Nous offrons une diversité de prix pour répondre à vos besoins, que vous soyez un novice ou un expert. Préparez-vous à dominer la piste comme jamais auparavant.
         </p>
@@ -19,11 +19,11 @@ import { categories } from 'libs/configCompetition';
 
     <div class="relative z-30 items-center h-fit justify-center border-b-2 border-orange-600 flex mt-4 py-2 lg:py-0 w-64 md:w-11/12 lg:w-3/4 mx-auto flex-wrap md:flex-row">
 		{categories.map(category => (
-		  <a 
-			class="mx-2 my-6 text-lg gap-3 flex items-center rounded-3xl py-2 px-6 justify-center categorie text-orange-600" 
-			href={`#${category.id}`} 
+		  <a
+			class="mx-2 my-6 text-lg gap-3 flex items-center rounded-3xl py-2 px-6 justify-center categorie text-orange-600"
+			href={`#${category.id}`}
 			data-category={category.id}
-			rel="noopener noreferrer" 
+			rel="noopener noreferrer"
 		  >
 			{category.label} <p class="font-bold">CC</p>
 		  </a>

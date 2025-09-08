@@ -7,7 +7,7 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			// add your default font below
-			'sans': ['Font Name', ...defaultTheme.fontFamily.sans]
+			sans: ['Outfit', ...defaultTheme.fontFamily.sans],
 		},
 		extend: {
 			colors: {

@@ -4,14 +4,13 @@ import { MoveUp } from 'lucide-astro';
 import ProductCard from 'components/global/Cards.astro';
 import { categories } from 'libs/configurations';
 import Picture from 'components/global/Picture.astro';
-import yoni from '/public/images/yoni.jpeg'
 ---
 
 <MainLayout title="Trouve ta pièce | ALLDAYS" class="overflow-x-hidden">
   <main class="pt-44">
     <div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
       <div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
-		<Picture src={yoni} class="w-full lg:w-11/12" alt="yoniproject_"></Picture>
+		<img src="/images/yoni.jpeg" class="w-full lg:w-[50rem]" alt="titou_run_48">
         <p><strong>Optimisez votre conduite quotidienne avec nos configurations moteur alldays</strong><br>
           Découvrez nos configurations moteur conçues pour améliorer les performances de votre véhicule, sans sacrifier la fiabilité. Nous offrons une gamme de prix pour répondre à divers budgets. Transformez votre conduite quotidienne dès aujourd'hui.
         </p>
@@ -21,10 +20,10 @@ import yoni from '/public/images/yoni.jpeg'
 
     <div class="relative z-30 items-center h-fit justify-center border-b-2 border-orange-600 flex mt-4 py-2 lg:py-0 w-60 md:w-11/12 lg:w-2/3 mx-auto flex-col md:flex-row">
 		{categories.map(category => (
-		  <a 
-			class="mx-2 my-6 text-lg gap-3 flex items-center rounded-3xl py-2 px-6 justify-center categorie text-orange-600" 
-			href={`#${category.id}`} 
-			data-category={category.id} 
+		  <a
+			class="mx-2 my-6 text-lg gap-3 flex items-center rounded-3xl py-2 px-6 justify-center categorie text-orange-600"
+			href={`#${category.id}`}
+			data-category={category.id}
 			rel="noopener noreferrer"
 		  >
 			<Picture src={category.source} width="0" height="0"></Picture>{category.label}
