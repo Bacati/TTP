@@ -1,0 +1,71 @@
+---
+import MainLayout from 'layouts/MainLayout.astro';
+import { Settings, Wrench, AlertCircle } from 'lucide-astro';
+---
+<MainLayout title="Trouve ta pièce | Astuces" class="overflow-x-hidden">
+	<main class="pt-44 w-9/12 mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-4">🛠 Astuces et Conseils Mécaniques</h1>
+
+  <!-- Montage et démontage de roulements -->
+  <div class="border-l-4 border-amber-600 pl-4 space-y-4">
+    <h2 class="text-2xl font-semibold flex items-center gap-2"><Wrench /> Montage et démontage de roulements</h2>
+
+    <!-- Vilebrequin -->
+    <div class="bg-gray-50 p-4 rounded shadow-sm space-y-2">
+      <h3 class="font-bold">1. Changement de roulements de vilebrequin</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Placez le vilebrequin et les roulements <strong>au congélateur</strong> pour réduire leur taille.</li>
+        <li>Chauffez légèrement le carter pour dilater la matière.</li>
+        <li>Insérez le roulement <strong>à plat</strong> dans le carter ; il doit rentrer <strong>tout seul</strong> sans taper.</li>
+      </ul>
+      <p class="flex items-center gap-1 text-red-600"><AlertCircle /> Pour centrer le vilebrequin, tapez doucement sur les vis du carter à l’intérieur, <strong>jamais directement sur le vilebrequin</strong>.</p>
+    </div>
+
+    <!-- Boîte Derbi -->
+    <div class="bg-gray-50 p-4 rounded shadow-sm space-y-2">
+      <h3 class="font-bold">2. Changement de roulements de boîte sur Derbi</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Certains roulements ne sont pas débouchants. Si vous n’avez pas d’arrache à inertie :</li>
+        <li>Utilisez un <strong>axe plein</strong> correspondant à la taille du roulement.</li>
+        <li>Remplissez la <strong>cage à aiguilles</strong> de mie de pain pour maintenir les billes.</li>
+        <li>Tassez doucement avec l’axe jusqu’à ce que la cage sorte.</li>
+      </ul>
+    </div>
+
+    <!-- Généralités -->
+    <div class="bg-gray-50 p-4 rounded shadow-sm space-y-2">
+      <h3 class="font-bold">3. Généralités</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Chauffer légèrement les pièces permet de dilater la matière et d’éviter d’arracher ou d’endommager les surfaces.</li>
+        <li>Cette astuce est valable pour <strong>tout type de roulement moteur</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Entretien et montage moteur -->
+  <div class="border-l-4 border-amber-600 pl-4 space-y-4">
+    <h2 class="text-2xl font-semibold flex items-center gap-2"><Settings /> Entretien et montage moteur</h2>
+
+    <!-- Cylindre -->
+    <div class="bg-gray-50 p-4 rounded shadow-sm space-y-2">
+      <h3 class="font-bold">1. Cylindre et squish pour 86 Top Performance Alu</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Appliquez un <strong>filet de pâte à joint</strong> sur le joint d’embase.</li>
+        <li>Avec le temps, le joint se tasse et le <strong>squish diminue</strong> ; cela peut percer le piston si non corrigé.</li>
+        <li>À chaque montage d’un <strong>nouveau cylindre</strong>, vérifiez au minimum le squish.</li>
+      </ul>
+    </div>
+
+    <!-- Conseils généraux -->
+    <div class="bg-gray-50 p-4 rounded shadow-sm space-y-2">
+      <h3 class="font-bold">2. Conseils généraux</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Chauffer légèrement les pièces lors du montage/démontage pour éviter d’endommager la matière.</li>
+        <li>Respectez le centrage et l’alignement des axes et roulements pour garantir un fonctionnement optimal du moteur.</li>
+        <li>Préparez un plan de montage étape par étape et notez les positions des roulements avant de refermer le moteur.</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+</MainLayout>
