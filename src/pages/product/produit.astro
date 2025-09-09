@@ -4,45 +4,53 @@ import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { getCurrentProduit } from 'libs/produit-outillage';
 import { getCurrentEsthe } from 'libs/esthetique';
 import { getCurrentFrein } from 'libs/frein';
+import { Undo2 } from 'lucide-astro';
 
+const produits = Astro.url.searchParams.get("produit")
+const esthetique = Astro.url.searchParams.get("esthetique")
+const frein = Astro.url.searchParams.get("frein")
 
-const produits = Astro.url.searchParams.get("produit");
-const esthetique = Astro.url.searchParams.get("esthetique");
-const produit =  Astro.url.searchParams.get("produit");
-const frein = Astro.url.searchParams.get("frein");
 let title
-
-if (produit) {
-    title = "Produit - outillage"
-} else if (esthetique) {
-    title = "Esthetique"
-} else {
-    title = "Frein"
-}
-
-let currentConfig;
+let currentConfig
+let backUrl = "/"
 
 if (produits !== null) {
-    currentConfig = getCurrentProduit(produits);
+	title = "Nettoyant"
+	currentConfig = getCurrentProduit(produits)
+	backUrl = "/categorie/produit-outillage/nettoyage"
 } else if (frein !== null) {
-    currentConfig = getCurrentFrein(frein);
-}else if (esthetique !== null) {
-    currentConfig = getCurrentEsthe(esthetique);
+	title = "Frein"
+	currentConfig = getCurrentFrein(frein)
+	backUrl = "/categorie/cycle/frein"
+} else if (esthetique !== null) {
+	title = "Esthetique"
+	currentConfig = getCurrentEsthe(esthetique)
+	backUrl = "/categorie/esthetique"
 } else {
-    currentConfig = {}; 
+	title = "Produit"
+	currentConfig = {}
 }
 ---
 
-<MainLayout title=`Trouve ta pièce | ${title}` class="overflow-x-hidden">
-    <main class="flex justify-center items-center">
-        <TemplateConfig
-            title={currentConfig.title}
-            logo={currentConfig.logo}
-            alt={currentConfig.alt}
-            description={currentConfig.description}
-            link={currentConfig.link}
-            price={currentConfig.price}
-            images={currentConfig.images}
-        />
-    </main>
+<MainLayout title={`Trouve ta pièce | ${title}`} class="overflow-x-hidden">
+	<main class="flex justify-center items-center">
+		<TemplateConfig
+			title={currentConfig.title}
+			logo={currentConfig.logo}
+			alt={currentConfig.alt}
+			description={currentConfig.description}
+			link={currentConfig.link}
+			price={currentConfig.price}
+			images={currentConfig.images}
+		/>
+	</main>
+
+	<div class="w-9/12 mx-auto">
+		<a
+			href={backUrl}
+			class="border border-amber-600 py-2 px-4 rounded-full flex items-center gap-3 w-fit -top-36 relative hover:text-white hover:bg-amber-600 duration-700"
+		>
+			Retour <Undo2 />
+		</a>
+	</div>
 </MainLayout>
