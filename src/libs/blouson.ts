@@ -4,7 +4,7 @@ export const categories = [
 	{
 		products: [
 			{
-				title: "Maître cylindre Adelin",
+				title: "blouson",
 				logo: "logo.svg",
 				alt: "Maître cylindre Adelin anodisé",
 				price: config[0]?.mcAdelin || 'N/A',
@@ -29,4 +29,4 @@ export const categories = [
 			},
 		]
 	}
-]
+];

@@ -25,7 +25,7 @@ export const general = [
 	  viloItal: 229,
 	  viloItal44: 250,
 	},
-  ];
+  ]
   export const general70 = {
 	viloItal: 229,
 	carbu32: 129,
@@ -35,7 +35,7 @@ export const general = [
 	vforce: 199,
 	admiMost: 51,
 	potTxtV8: 401,
-  };
+  }
   export const general80 = {
 	viloItal44: 250,
 	carbu32: 129,
@@ -45,7 +45,7 @@ export const general = [
 	vforce: 199,
 	admiMost: 51,
 	potTxtV8: 401,
-  };
+  }
   export const general90 = {
 	carbu32: 129,
 	roulementMost: 28,
@@ -54,7 +54,7 @@ export const general = [
 	vforce: 199,
 	admiMost: 51,
 	potTxtV21: 459,
-  };
+  }
 
   export const clearPot = [
 	{
@@ -66,47 +66,47 @@ export const general = [
 	  cylindre: 230,
 	  carbu: 118,
 	},
-  ];
+  ]
 
   export const all70top = [
 	{
 	  cylindre: 188,
 	  vilo: 105,
 	},
-  ];
+  ]
 
   export const all70airsal = [
 	{
 	  cylindre: 131,
 	  vilo: 77,
 	},
-  ];
+  ]
 
   export const all70airsalAlu = [
 	{
 	  cylindre: 132,
 	  vilo: 128,
 	},
-  ];
+  ]
 
   export const all75TopRose = [
 	{
 	  cylindre: 289,
 	  vilo: 129,
 	},
-  ];
+  ]
   export const all78Airsal = [
 	{
 	  cylindre: 219,
 	  vilo: 129,
 	},
-  ];
+  ]
   export const all78brk = [
 	{
 	  cylindre: 257,
 	  vilo: 162,
 	},
-  ];
+  ]
   export const allTopalu = [
 	{
 	  pack: 426,
@@ -115,19 +115,19 @@ export const general = [
 	  pipeMost: 47,
 	  pot2win: 329,
 	},
-  ];
+  ]
   export const all78Most = [
 	{
 		cylindre: 249,
 	  	vilo:199,
 	},
-  ];
+  ]
   export const compet50Doppler = [
 	{
 		cylindre: 249,
 		vilo: 129,
 	},
-  ];
+  ]
   export const compet50Mhr = [
 	{
 		cylindre: 407,
@@ -197,13 +197,13 @@ export const general = [
 	{
 		cylindre: 520,
 		vilo: 476
-	}	
+	}
   ]
   export const compet96bida = [
 	{
 		cylindre: 481,
 		vilo: 350
-	}	
+	}
   ]
   export const mcAdelin = [
 	{
@@ -212,162 +212,162 @@ export const general = [
   ]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
-    let total = 0;
+    let total = 0
     // Additionner les valeurs spécifiques
     for (const part of Object.values(specificParts)) {
-        total += part;
+        total += part
     }
     if (Object.keys(generalParts70).length > 0) {
         for (const part of Object.values(generalParts70)) {
-            total += part;
+            total += part
         }
     }
 	if (Object.keys(generalParts80).length > 0) {
         for (const part of Object.values(generalParts80)) {
-            total += part;
+            total += part
         }
     }
 	if (Object.keys(generalParts90).length > 0) {
         for (const part of Object.values(generalParts90)) {
-            total += part;
+            total += part
         }
     }
     // Additionner les valeurs supplémentaires
     for (const part of additionalParts) {
-        total += generalParts[part] || 0;
+        total += generalParts[part] || 0
     }
 
-    return total;
-};
+    return total
+}
 
   const PrixAllMk = () => {
-	const specific = all50Mk[0];
-	const generalParts = general[0];
+	const specific = all50Mk[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot'])
+  }
 
   const PrixAllTop = () => {
-	const specific = all70top[0];
-	const generalParts = general[0];
+	const specific = all70top[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot', 'roulement', 'embrayage', 'pipe', 'carbu']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot', 'roulement', 'embrayage', 'pipe', 'carbu'])
+  }
 
   const PrixAllAirsal = () => {
-	const specific = all70airsal[0];
-	const generalParts = general[0];
+	const specific = all70airsal[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot', 'roulement', 'embrayage', 'pipe', 'carbu']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot', 'roulement', 'embrayage', 'pipe', 'carbu'])
+  }
 
   const PrixAllAirsalAlu = () => {
-	const specific = all70airsalAlu[0];
-	const generalParts = general[0];
+	const specific = all70airsalAlu[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleFibre', 'pipe', 'carbu24']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleFibre', 'pipe', 'carbu24'])
+  }
 
   const PrixAllTopRose = () => {
-	const specific = all75TopRose[0];
-	const generalParts = general[0];
+	const specific = all75TopRose[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu24']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu24'])
+  }
   const PrixAll78Airsal = () => {
-	const specific = all78Airsal[0];
-	const generalParts = general[0];
+	const specific = all78Airsal[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu24']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu24'])
+  }
   const PrixAll78Brk = () => {
-	const specific = all78brk[0];
-	const generalParts = general[0];
+	const specific = all78brk[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potMost80', 'embrayageMost', 'carbu24', 'mvtdd', 'roulementMost', 'admiItalkit']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potMost80', 'embrayageMost', 'carbu24', 'mvtdd', 'roulementMost', 'admiItalkit'])
+  }
   const PrixAllTopAlu = () => {
-	const specific = allTopalu[0];
-	const generalParts = general[0];
+	const specific = allTopalu[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24'])
+  }
   const PrixAll78Most = () => {
-	const specific = all78Most[0];
-	const generalParts = general[0];
+	const specific = all78Most[0]
+	const generalParts = general[0]
 
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'potMost80', 'embrayageMost', 'mvtdd', 'roulementMost', 'admiItalkit']);
-  };
+	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'potMost80', 'embrayageMost', 'mvtdd', 'roulementMost', 'admiItalkit'])
+  }
   const PrixClear = () => {
-	const specific = clearPot[0];
+	const specific = clearPot[0]
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
   const PrixCompetDoppler = () => {
-	const specific = compet50Doppler[0];
-	const generalParts = general[0];
+	const specific = compet50Doppler[0]
+	const generalParts = general[0]
 	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70' ])
   }
   const PrixCompet50Mhr = () => {
-	const specific = compet50Mhr[0];
-	const generalParts = general[0];
+	const specific = compet50Mhr[0]
+	const generalParts = general[0]
 	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70' ])
   }
   const PrixCompet50Wr = () => {
-	const specific = compet50Wr[0];
-	const generalParts = general[0];
+	const specific = compet50Wr[0]
+	const generalParts = general[0]
 	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost' ])
   }
   const PrixCompet70Fast = () => {
-	const specific = compet70Fast[0];
+	const specific = compet70Fast[0]
 	return calculateTotalPrice(specific, general70, {}, {}, {},)
   }
   const PrixCompet70Wr = () => {
-	const specific = compet70Wr[0];
+	const specific = compet70Wr[0]
 	return calculateTotalPrice(specific, general70, {}, {}, {})
   }
   const PrixCompet70ProRace = () => {
-	const specific = compet70ProRace[0];
+	const specific = compet70ProRace[0]
 	return calculateTotalPrice(specific, general70, {}, {}, {})
   }
   const PrixCompet78xtrem = () => {
-	const specific = compet78xtrem[0];
+	const specific = compet78xtrem[0]
 	return calculateTotalPrice(specific, general70, {}, {}, {})
   }
   const PrixCompet78mhr = () => {
-	const specific = compet78mhr[0];
+	const specific = compet78mhr[0]
 	return calculateTotalPrice(specific, general70, {}, {}, {})
   }
   const PrixCompet78most = () => {
-	const specific = compet78most[0];
+	const specific = compet78most[0]
 	return calculateTotalPrice(specific, general70, {}, {}, {})
   }
   const PrixCompet80fast = () => {
-	const specific = compet80fast[0];
+	const specific = compet80fast[0]
 	return calculateTotalPrice(specific, {}, general80, {}, {})
   }
   const PrixCompet80wr = () => {
-	const specific = compet80wr[0];
+	const specific = compet80wr[0]
 	return calculateTotalPrice(specific, {}, general80, {}, {})
   }
   const PrixCompet90wr = () => {
-	const specific = compet90wr[0];
+	const specific = compet90wr[0]
 	return calculateTotalPrice(specific, {}, general90, {}, {})
   }
   const PrixCompet90fast = () => {
-	const specific = compet90fast[0];
+	const specific = compet90fast[0]
 	return calculateTotalPrice(specific, {}, general90, {}, {})
   }
   const PrixCompet100fast = () => {
-	const specific = compet100fast[0];
+	const specific = compet100fast[0]
 	return calculateTotalPrice(specific, {}, general90, {}, {})
   }
   const PrixCompet96bida = () => {
-	const specific = compet96bida[0];
+	const specific = compet96bida[0]
 	return calculateTotalPrice(specific, {}, general90, {}, {})
   }
   const PrixMcAdelin = () => {
-	const specific = mcAdelin[0];
+	const specific = mcAdelin[0]
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
@@ -401,4 +401,4 @@ export const general = [
 	  compet96bida : PrixCompet96bida(),
 	  mcAdelin : PrixMcAdelin(),
 	},
-  ];
+  ]

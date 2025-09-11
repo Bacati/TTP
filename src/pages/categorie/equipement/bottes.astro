@@ -1,0 +1,39 @@
+---
+import { categories } from 'libs/bottes';
+import MainLayout from 'layouts/MainLayout.astro';
+import { MoveUp } from 'lucide-astro';
+import ProductCard from 'components/global/Cards.astro';
+---
+
+<MainLayout title="Trouve ta pièce | Bottes" class="overflow-x-hidden">
+	<main class="pt-44">
+		<div id="top" class="bg-white rounded-t-3xl w-11/12 flex justify-center mx-auto items-center flex-col mt-20 lg:mt-0">
+			<div class="flex items-center gap-4 p-8 flex-col lg:flex-row">
+				<img src="/images/freinage.jpg" class="w-full lg:w-[50rem] h-96 rounded-2xl">
+				<p>
+					Chez <b>TTP</b>, nous ne nous contentons pas des systèmes de freinage standards. Nous sélectionnons des pièces rares, spécifiques et performantes, pensées pour les passionnés qui recherchent plus qu’un simple remplacement. Ici, tu trouveras des éléments uniques et pointus pour un freinage différent, efficace et hors du commun.
+				</p>
+			</div>
+			<div class="gradient-config w-full h-2 rounded-b-3xl"></div>
+		</div>
+			{categories.map(category => (
+				<div class="flex justify-center my-8 gap-4 flex-wrap mx-auto w-4/5">
+					{category.products.map(product => (
+						<ProductCard
+							title={product.title}
+							logo={`/images/${product.logo}`}
+							price={product.price}
+							imageSrc={`/images/${product.image}`}
+							alt={product.alt}
+							lien={`${product.configKey}`}
+							external={true}
+						/>
+					))}
+				</div>
+			))}
+		<a id="fleche" class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 hidden items-center" href="#top" rel="noopener noreferrer">
+			<MoveUp class="h-10 w-10 text-white" />
+		</a>
+	</main>
+</MainLayout>
+<script src="/src/pages/js/category.js.ts"></script>

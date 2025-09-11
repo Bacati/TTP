@@ -3,12 +3,10 @@ import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { getCurrentProduit } from 'libs/produit-outillage';
 import { getCurrentEsthe } from 'libs/esthetique';
-import { getCurrentFrein } from 'libs/frein';
 import { Undo2 } from 'lucide-astro';
 
 const produits = Astro.url.searchParams.get("produit")
 const esthetique = Astro.url.searchParams.get("esthetique")
-const frein = Astro.url.searchParams.get("frein")
 
 let title
 let currentConfig
@@ -18,10 +16,6 @@ if (produits !== null) {
 	title = "Nettoyant"
 	currentConfig = getCurrentProduit(produits)
 	backUrl = "/categorie/produit-outillage/nettoyage"
-} else if (frein !== null) {
-	title = "Frein"
-	currentConfig = getCurrentFrein(frein)
-	backUrl = "/categorie/cycle/frein"
 } else if (esthetique !== null) {
 	title = "Esthetique"
 	currentConfig = getCurrentEsthe(esthetique)

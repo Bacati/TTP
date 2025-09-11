@@ -1,10 +1,11 @@
 ---
-const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1, alt, altLogo } = Astro.props;
+const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1, alt, altLogo, external } = Astro.props;
 import Picture from 'components/global/Picture.astro';
 import { Eye } from 'lucide-astro';
 import motor from '/public/images/motor.png';
 ---
-<a href={lien} rel="noopener noreferrer">
+<a href={lien} rel={external ? "noopener noreferrer" : undefined} target={external ? "_blank" : undefined}
+>
 <div class="bg-white flex flex-col justify-between items-center w-80 lg:w-96 p-6 rounded-3xl shadow-lg h-[29rem] slide relative transition-transform duration-300 transform hover:scale-110 group hover:z-20">
   <div class="flex justify-between items-center w-full h-12">
     <p class="font-bold text-3xl w-3/4">{title}</p>

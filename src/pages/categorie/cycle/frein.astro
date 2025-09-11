@@ -25,7 +25,8 @@ import ProductCard from 'components/global/Cards.astro';
                             price={product.price}
                             imageSrc={`/images/${product.image}`}
                             alt={product.alt}
-                            lien={`/product/produit?frein=${product.configKey}`}
+                            lien={`${product.configKey}`}
+							external={true}
                         />
                     ))}
                 </div>
