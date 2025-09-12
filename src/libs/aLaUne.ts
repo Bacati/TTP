@@ -29,7 +29,7 @@ export const generateProductData = (config) => [
 	},
   {
     title: "Nettoyant pot",
-    logo: "logo.svg",
+    logo: "logo2.png",
     alt: "Nettoyant ttp",
     description: "Trouve ta pièce",
     price: config[0].clearPot || 'N/A',

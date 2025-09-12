@@ -210,6 +210,31 @@ export const general = [
 		maitre: 10
 	}
   ]
+	export const progressif = [
+		{
+			cligno: 14.59
+		}
+	]
+	export const street = [
+		{
+			cligno: 23.99
+		}
+	]
+	export const greluma = [
+		{
+			cligno: 17.99
+		}
+	]
+	export const guidon = [
+		{
+			cligno: 21.99
+		}
+	]
+	export const autocollant = [
+		{
+			cligno: 16.99
+		}
+	]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0
@@ -371,6 +396,31 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixProgressif = () => {
+	const specific = progressif[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixStreet = () => {
+	const specific = street[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixGreluma = () => {
+	const specific = greluma[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixGuidon = () => {
+	const specific = guidon[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixAutocollant = () => {
+	const specific = autocollant[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -400,5 +450,10 @@ export const general = [
 	  compet100fast : PrixCompet100fast(),
 	  compet96bida : PrixCompet96bida(),
 	  mcAdelin : PrixMcAdelin(),
+	  progressif : PrixProgressif(),
+	  street : PrixStreet(),
+	  greluma : PrixGreluma(),
+	  guidon : PrixGuidon(),
+	  autocollant : PrixAutocollant(),
 	},
   ]

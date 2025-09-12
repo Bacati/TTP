@@ -16,7 +16,7 @@ const createConfig = (title: string, logo: string, alt: string, description: str
 const configurations = {
 	"nettoyant": createConfig(
 		"Nettoyant pour Pots TTP - 120ml",
-		`${imagePrefix}/logo.svg`,
+		`${imagePrefix}/logo2.png`,
 		"Nettoyant TTP",
 		`
 		<p class="mb-2">Notre nettoyant pour pots est spécialement conçu pour éliminer efficacement le brunissement et les résidus tenaces qui s'accumulent sur vos pots. En plus de redonner de l’éclat à vos surfaces, il forme une barrière protectrice contre la rouille, prolongeant ainsi la durée de vie de vos ustensiles.</p>
@@ -47,7 +47,7 @@ export const categories = [
 		products: [
 			{
 				title: "Nettoyant pour Pots TTP - 120ml",
-				logo: "logo.svg",
+				logo: "logo2.png",
 				alt: "Nettoyant TTP",
 				price: config[0]?.clearPot || 'N/A',
 				image: "flacon.png",

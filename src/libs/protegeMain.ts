@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "protege",
-				logo: "logo.svg",
+				logo: "logo2.png",
 				alt: "Maître cylindre Adelin anodisé",
 				price: config[0]?.mcAdelin || 'N/A',
 				image: "mcAdelin.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Nettoyant pour Pots TTP - 120ml",
-				logo: "logo.svg",
+				logo: "logo2.png",
 				alt: "Nettoyant TTP",
 				price: config[0]?.clearPot || 'N/A',
 				image: "flacon.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "Nettoyant pour Pots TTP - 120ml",
-				logo: "logo.svg",
+				logo: "logo2.png",
 				alt: "Nettoyant TTP",
 				price: config[0]?.clearPot || 'N/A',
 				image: "flacon.png",
