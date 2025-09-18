@@ -235,6 +235,71 @@ export const general = [
 			cligno: 16.99
 		}
 	]
+	export const kitNettoyage = [
+		{
+			cligno: 38
+		}
+	]
+	export const vulcanet = [
+		{
+			cligno: 43.99
+		}
+	]
+	export const wd = [
+		{
+			cligno: 9.99
+		}
+	]
+	export const wdSpray = [
+		{
+			cligno: 17.73
+		}
+	]
+	export const nettoyantFrein = [
+		{
+			cligno: 19.50
+		}
+	]
+	export const motul800 = [
+		{
+			cligno: 21.30
+		}
+	]
+	export const autosol = [
+		{
+			cligno: 8
+		}
+	]
+	export const chaine = [
+		{
+			cligno: 19
+		}
+	]
+	export const graisse = [
+		{
+			cligno: 21
+		}
+	]
+	export const huileBoite = [
+		{
+			cligno: 12
+		}
+	]
+	export const cuir = [
+		{
+			cligno: 14.55
+		}
+	]
+	export const bougie = [
+		{
+			cligno: 8
+		}
+	]
+	export const brosse = [
+		{
+			cligno: 8.99
+		}
+	]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0
@@ -421,6 +486,71 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixKitNettoyage = () => {
+	const specific = kitNettoyage[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixVulcanet = () => {
+	const specific = vulcanet[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+   const PrixWd = () => {
+	const specific = wd[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixWdSpray = () => {
+	const specific = wdSpray[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixNettoyantFrein = () => {
+	const specific = nettoyantFrein[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixMotul800 = () => {
+	const specific = motul800[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixAutosol = () => {
+	const specific = autosol[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixChaine = () => {
+	const specific = chaine[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixGraisse = () => {
+	const specific = graisse[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixHuileBoite = () => {
+	const specific = huileBoite[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixCuir = () => {
+	const specific = cuir[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixBougie = () => {
+	const specific = bougie[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixBrosse = () => {
+	const specific = brosse[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -455,5 +585,18 @@ export const general = [
 	  greluma : PrixGreluma(),
 	  guidon : PrixGuidon(),
 	  autocollant : PrixAutocollant(),
+	  kitNettoyage : PrixKitNettoyage(),
+	  vulcanet : PrixVulcanet(),
+		wd : PrixWd(),
+		wdSpray : PrixWdSpray(),
+		nettoyantFrein : PrixNettoyantFrein(),
+		motul800 : PrixMotul800(),
+		autosol : PrixAutosol(),
+		chaine : PrixChaine(),
+		graisse : PrixGraisse(),
+		huileBoite : PrixHuileBoite(),
+		cuir : PrixCuir(),
+		bougie : PrixBougie(),
+		brosse : PrixBrosse(),
 	},
   ]
