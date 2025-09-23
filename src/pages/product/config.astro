@@ -3,26 +3,30 @@ import MainLayout from 'layouts/MainLayout.astro';
 import TemplateConfig from 'components/global/TemplateConfig.astro';
 import { getCurrentConfig } from 'libs/configurations';
 import { getCurrentConfigCompet } from 'libs/configCompetition';
+import { Undo2 } from 'lucide-astro';
 
 const configType = Astro.url.searchParams.get("config");
 const configTypeCompet = Astro.url.searchParams.get("configCompetition");
 const allday =  Astro.url.searchParams.get("config");
 let title
+let backUrl = "/"
 
 if (allday) {
     title = "ALLDAYS"
+	backUrl = "/categorie/allDays"
 } else {
     title = "Compétition"
+	backUrl = "/categorie/competition"
 }
 
 let currentConfig;
 
 if (configType !== null) {
-    currentConfig = getCurrentConfig(configType);
+    currentConfig = getCurrentConfig(configType)
 } else if (configTypeCompet !== null) {
-    currentConfig = getCurrentConfigCompet(configTypeCompet);
+    currentConfig = getCurrentConfigCompet(configTypeCompet)
 } else {
-    currentConfig = {}; 
+    currentConfig = {}
 }
 ---
 
@@ -41,4 +45,9 @@ if (configType !== null) {
             pieces={currentConfig.pieces}
         />
     </main>
+	<div class="w-9/12 mx-auto">
+		<a href={backUrl} class="border border-amber-600 text-amber-600 py-2 px-4 rounded-full flex items-center gap-3 w-fit -top-36 relative hover:text-white hover:bg-amber-600 duration-700">
+			Retour <Undo2 />
+		</a>
+	</div>
 </MainLayout>
