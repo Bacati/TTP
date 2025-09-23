@@ -282,7 +282,7 @@ export const general = [
 	]
 	export const huileBoite = [
 		{
-			cligno: 12
+			cligno: 19
 		}
 	]
 	export const cuir = [
@@ -298,6 +298,91 @@ export const general = [
 	export const brosse = [
 		{
 			cligno: 8.99
+		}
+	]
+	export const wd40 = [
+		{
+			cligno: 5.9
+		}
+	]
+	export const pige = [
+		{
+			cligno: 49.99
+		}
+	]
+	export const alesage = [
+		{
+			cligno: 51.23
+		}
+	]
+	export const disque = [
+		{
+			cligno: 15.23
+		}
+	]
+	export const pied = [
+		{
+			cligno: 21.99
+		}
+	]
+	export const dynamo = [
+		{
+			cligno: 28.37
+		}
+	]
+	export const burette = [
+		{
+			cligno: 18.99
+		}
+	]
+	export const peteuse = [
+		{
+			cligno: 74.99
+		}
+	]
+	export const caisse = [
+		{
+			cligno: 139.05
+		}
+	]
+	export const montageRoulement = [
+		{
+			cligno: 39.99
+		}
+	]
+	export const extracteur = [
+		{
+			cligno: 20.99
+		}
+	]
+	export const branche3 = [
+		{
+			cligno: 44.80
+		}
+	]
+	export const dayuan = [
+		{
+			cligno: 38.95
+		}
+	]
+	export const inertie = [
+		{
+			cligno: 49
+		}
+	]
+	export const dremel = [
+		{
+			cligno: 54.99
+		}
+	]
+	export const renvoie = [
+		{
+			cligno: 91
+		}
+	]
+	export const fraise = [
+		{
+			cligno: 16.87
 		}
 	]
 
@@ -551,6 +636,91 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixWd40 = () => {
+	const specific = wd40[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+   const PrixPige = () => {
+	const specific = pige[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixAlesage = () => {
+	const specific = alesage[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixDisque = () => {
+	const specific = disque[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixPied = () => {
+	const specific = pied[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixDynamo = () => {
+	const specific = dynamo[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixBurette = () => {
+	const specific = burette[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixPeteuse = () => {
+	const specific = peteuse[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixCaisse = () => {
+	const specific = caisse[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixMontageRoulement = () => {
+	const specific = montageRoulement[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixExtracteur = () => {
+	const specific = extracteur[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+   const PrixBranche3 = () => {
+	const specific = branche3[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixDayuan = () => {
+	const specific = dayuan[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixInertie = () => {
+	const specific = inertie[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixDremel = () => {
+	const specific = dremel[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixRenvoie = () => {
+	const specific = renvoie[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixFraise = () => {
+	const specific = fraise[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -598,5 +768,22 @@ export const general = [
 		cuir : PrixCuir(),
 		bougie : PrixBougie(),
 		brosse : PrixBrosse(),
+		wd40 : PrixWd40(),
+		pige : PrixPige(),
+		alesage : PrixAlesage(),
+		disque : PrixDisque(),
+		pied : PrixPied(),
+		dynamo : PrixDynamo(),
+		burette : PrixBurette(),
+		peteuse : PrixPeteuse(),
+		caisse : PrixCaisse(),
+		montageRoulement : PrixMontageRoulement(),
+		extracteur : PrixExtracteur(),
+		branche3 : PrixBranche3(),
+		dayuan : PrixDayuan(),
+		inertie : PrixInertie(),
+		dremel : PrixDremel(),
+		renvoie : PrixRenvoie(),
+		fraise : PrixFraise(),
 	},
   ]

@@ -33,7 +33,7 @@ export const categories = [
 				alt: "Huile de boîte 10w40",
 				price: config[0]?.huileBoite || 'N/A',
 				image: "boite.png",
-				configKey: ""
+				configKey: "https://www.amazon.fr/Motul-100963-Experte-Huile-Vitesses/dp/B07D6ZBSJX/ref=sr_1_3?crid=30LTB1HRJPXKF&dib=eyJ2IjoiMSJ9.AV0u_qcOuJwp59mNv14OfzgyClubi39Pirkc-thAvlJZg570DnHZdqKF1JSIxUdL41mRE5hFYaLs_R0HomKEJBu-FaU71Ehd5lAYfZMrlu8b6p7SwvtKpOC8NKvYXp9qbgdQFrlTR2qdN_QiStj6O5xKn9djNCZn_A38lP-oHiWkeRJC8nu_n_O-giAg2Sausker5K1PWjohbNmdkPpqxdW1QDFDucVcViMF571jhpqAJjlf8F6uN9KU8jztSGiWgpKg6JrlU0rLvjDJIH39ISJVKEzZCipxu9LG96l3pjQ.eYL6sH74p5OzsTXaZWA387qgUMpAsiVIvrEPlABoUTo&dib_tag=se&keywords=huile%2Bde%2Bboite%2Bmotul%2B10w40%2B2t&qid=1758549028&sprefix=huile%2Bde%2Bboite%2B10w40%2Bmo%2Caps%2C75&sr=8-3&th=1"
 			},
 			{
 				title: "Bougie d'allumage",
@@ -52,12 +52,12 @@ export const categories = [
 				configKey: "https://www.amazon.fr/MMOBIEL-Motorcycle-Chain-Brush-Cleaning/dp/B07VJHWVB6/ref=sr_1_3_sspa?crid=96QHLIJ28VUJ&dib=eyJ2IjoiMSJ9.Hw2wVt5O6dyFrpA4DrxKwgUYmSnV0YfoFz3sDtu6pGkU9s99HwMvnJy-Ja3MNvpwH_SJjLQ6j4YGr2yUV1pMmMfwI6PCWysBqJt02TyyQERwEfw5TlaxF57c63nMTX-pp2VLEcmPF4CRTAFV5zqwW2uMBTwUIx1GJcVudkz-QT1vngz8S_niPo38Ve_SfZZVwZDtdaF8_76Zl99uEz637dv65XUpelrTA65bvqObD4XFaMwbSVIUAiebt8-FOpbFIJfG0wJTa1-0y7FuhoDWT5iRqqhPwiNNvsHPkA_hX64.gm-Vggz5v6QFeuXMcKmiO5DBqZlErjkDXTeShJFdk9M&dib_tag=se&keywords=brosse+chaine+moto&qid=1750955834&sprefix=brosse+chaine+moto%2Caps%2C63&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
 			},
 			{
-				title: "Huile de boîte 10w40",
+				title: "WD-40 Produit Multifonction",
 				logo: "logo2.png",
-				alt: "Huile de boîte 10w40",
-				price: config[0]?.huileBoite || 'N/A',
-				image: "boite.png",
-				configKey: ""
+				alt: "WD-40 Produit Multifonction",
+				price: config[0]?.wd40 || 'N/A',
+				image: "wd40.png",
+				configKey: "https://www.amazon.fr/-/en/Multifunction-Position-Silicone-Non-Conductive-Compatible/dp/B08TP4YW1H/ref=sr_1_4?crid=3MEJNTKH1L5N3&dib=eyJ2IjoiMSJ9.UubqP2HIbGIAeIT8XwJNR410Lm_fjf68bg-jmntqIAxRog3yO88xYvEZi1o8YOuy5Ki9viXbct4IiEv_UgmgQQb1F7BUaFt9FzSDZ-ozu3S5XtTvQBrCxF5VU6AJ5Y83-6bwRZIBBgEqicqHwuCOvxc_D9KCFJYRwowqYfvM5gkhsg0O1GPa0OTkHPn8qvZRzUs8cn9c4Zkz7FC8vnmkZeCuNMjSc8ynav9P2V4AlfZWZyg4VUkgrrtgpXBrn7VQZVzDIbSaxIKDkCZ4OopWepeqOf2pV2d8DX04TXnDvg4.FuIPMtmDKwuAGqGsk9wFa2mavxO-zZnG9qSX5SBdsr8&dib_tag=se&keywords=wd40&qid=1750955873&sprefix=wd%2Caps%2C81&sr=8-4&th=1"
 			},
 		]
 	}

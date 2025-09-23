@@ -3,8 +3,13 @@ const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1, 
 import Picture from 'components/global/Picture.astro';
 import { Eye } from 'lucide-astro';
 import motor from '/public/images/motor.png';
+
+const isNettoyantPots = lien?.includes('/product/produit?produit=nettoyant')
+const shouldOpenInNewWindow = external && !isNettoyantPots
 ---
-<a href={lien} rel={external ? "noopener noreferrer" : undefined} target={external ? "_blank" : undefined}
+<a href={lien}
+   rel={shouldOpenInNewWindow ? "noopener noreferrer" : undefined}
+   target={shouldOpenInNewWindow ? "_blank" : undefined}
 >
 <div class="bg-white flex flex-col justify-between items-center w-80 lg:w-96 p-6 rounded-3xl shadow-lg h-[29rem] slide relative transition-transform duration-300 transform hover:scale-110 group hover:z-20">
   <div class="flex justify-between items-center w-full h-12">
