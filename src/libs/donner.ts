@@ -385,6 +385,56 @@ export const general = [
 			cligno: 16.87
 		}
 	]
+	export const k1 = [
+		{
+			cligno: 142.99
+		}
+	]
+	export const rabat = [
+		{
+			cligno: 118.99
+		}
+	]
+	export const full9 = [
+		{
+			cligno: 273.93
+		}
+	]
+	export const shark = [
+		{
+			cligno: 249.99
+		}
+	]
+	export const poli = [
+		{
+			cligno: 87.99
+		}
+	]
+	export const prettyle = [
+		{
+			cligno: 42.99
+		}
+	]
+	export const exc = [
+		{
+			cligno: 62.99
+		}
+	]
+	export const arriere = [
+		{
+			cligno: 28.99
+		}
+	]
+	export const barre = [
+		{
+			cligno: 3.99
+		}
+	]
+	export const yngia = [
+		{
+			cligno: 35.99
+		}
+	]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0
@@ -721,6 +771,56 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixK1 = () => {
+	const specific = k1[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixRabat = () => {
+	const specific = rabat[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixFull9 = () => {
+	const specific = full9[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixShark = () => {
+	const specific = shark[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixPoli = () => {
+	const specific = poli[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixPrettyle = () => {
+	const specific = prettyle[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixExc = () => {
+	const specific = exc[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixArriere = () => {
+	const specific = arriere[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixBarre = () => {
+	const specific = barre[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixYngia = () => {
+	const specific = yngia[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -785,5 +885,15 @@ export const general = [
 		dremel : PrixDremel(),
 		renvoie : PrixRenvoie(),
 		fraise : PrixFraise(),
+		k1 : PrixK1(),
+		rabat : PrixRabat(),
+		full9 : PrixFull9(),
+		shark : PrixShark(),
+		poli : PrixPoli(),
+		prettyle : PrixPrettyle(),
+		exc : PrixExc(),
+		arriere : PrixArriere(),
+		barre : PrixBarre(),
+		yngia : PrixYngia(),
 	},
   ]
