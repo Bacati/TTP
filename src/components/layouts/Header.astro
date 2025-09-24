@@ -1,6 +1,6 @@
 ---
 import Picture from 'astro/components/Picture.astro';
-import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft } from 'lucide-astro';
+import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap } from 'lucide-astro';
 import logo from '/public/images/logo2.png';
 
 export interface Props {
@@ -21,6 +21,7 @@ export interface Props {
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthetique</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/>Cycle</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/>Equipement</a>
+				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/accessoires-racing" rel="noopener noreferrer"><Zap alt="Accessoires Racing"/>Accessoires Racing</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Produit - Outillage"/>Produit / Outillage</a>
                 <a class="rounded-full bg-amber-600 flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/" rel="noopener noreferrer">Accueil <House alt="Home"/></a>
             </div>
@@ -37,6 +38,7 @@ export interface Props {
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush  alt="Esthetique"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/></a>
+					<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/accessoires-racing" rel="noopener noreferrer"><Zap alt="Accessoires Racing"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Produit - Outillage"/></a>
                 </div>
                 <input class="hidden" id="panneauDeux" name="equipe" type="radio" checked>
@@ -55,6 +57,7 @@ export interface Props {
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthétique</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/>Cycle</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/>Equipement</a>
+									<a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/accessoires-racing" rel="noopener noreferrer"><Zap alt="Accessoires Racing"/>Accessoires Racing</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Produit - Outillage"/>Produit / Outillage</a>
                                      <ChevronsRight class="text-orange-600 my-4 mx-2"/>
                                  </div>
