@@ -4,27 +4,51 @@ export const categories = [
 	{
 		products: [
 			{
-				title: "tenu",
+				title: "protege",
 				logo: "logo2.png",
-				alt: "Maître cylindre Adelin anodisé",
+				alt: "protege",
 				price: config[0]?.mcAdelin || 'N/A',
 				image: "mcAdelin.png",
 				configKey: ""
 			},
 			{
-				title: "Nettoyant pour Pots TTP - 120ml",
+				title: "protege",
 				logo: "logo2.png",
-				alt: "Nettoyant TTP",
-				price: config[0]?.clearPot || 'N/A',
-				image: "flacon.png",
+				alt: "protege",
+				price: config[0]?.mcAdelin || 'N/A',
+				image: "mcAdelin.png",
 				configKey: ""
 			},
 			{
-				title: "Nettoyant pour Pots TTP - 120ml",
+				title: "protege",
 				logo: "logo2.png",
-				alt: "Nettoyant TTP",
-				price: config[0]?.clearPot || 'N/A',
-				image: "flacon.png",
+				alt: "protege",
+				price: config[0]?.mcAdelin || 'N/A',
+				image: "mcAdelin.png",
+				configKey: ""
+			},
+			{
+				title: "protege",
+				logo: "logo2.png",
+				alt: "protege",
+				price: config[0]?.mcAdelin || 'N/A',
+				image: "mcAdelin.png",
+				configKey: ""
+			},
+			{
+				title: "protege",
+				logo: "logo2.png",
+				alt: "protege",
+				price: config[0]?.mcAdelin || 'N/A',
+				image: "mcAdelin.png",
+				configKey: ""
+			},
+			{
+				title: "protege",
+				logo: "logo2.png",
+				alt: "protege",
+				price: config[0]?.mcAdelin || 'N/A',
+				image: "mcAdelin.png",
 				configKey: ""
 			},
 		]

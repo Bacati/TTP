@@ -435,6 +435,41 @@ export const general = [
 			cligno: 35.99
 		}
 	]
+	export const horse = [
+		{
+			cligno: 15.99
+		}
+	]
+	export const evomosa = [
+		{
+			cligno: 28.99
+		}
+	]
+	export const jfg = [
+		{
+			cligno: 25.99
+		}
+	]
+	export const barreAlu = [
+		{
+			cligno: 27.99
+		}
+	]
+	export const vent = [
+		{
+			cligno: 29.99
+		}
+	]
+	export const protec = [
+		{
+			cligno: 34.99
+		}
+	]
+	export const embro = [
+		{
+			cligno: 44.99
+		}
+	]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0
@@ -821,6 +856,42 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+	const PrixHorse = () => {
+		const specific = horse[0]
+
+		return calculateTotalPrice(specific, {}, {}, {}, {})
+	}
+  const PrixEvomosa = () => {
+	const specific = evomosa[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixJfg = () => {
+	const specific = jfg[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixBarreAlu = () => {
+	const specific = barreAlu[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixVent = () => {
+	const specific = vent[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixProtec = () => {
+	const specific = protec[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixEmbro = () => {
+	const specific = embro[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+
 
   export const config = [
 	{
@@ -895,5 +966,12 @@ export const general = [
 		arriere : PrixArriere(),
 		barre : PrixBarre(),
 		yngia : PrixYngia(),
+		horse : PrixHorse(),
+		evomosa : PrixEvomosa(),
+		jfg : PrixJfg(),
+		barreAlu : PrixBarreAlu(),
+		vent : PrixVent(),
+		protec : PrixProtec(),
+		embro : PrixEmbro(),
 	},
   ]

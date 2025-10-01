@@ -4,28 +4,52 @@ export const categories = [
 	{
 		products: [
 			{
-				title: "protege",
+				title: "Protège levier",
 				logo: "logo2.png",
-				alt: "Maître cylindre Adelin anodisé",
-				price: config[0]?.mcAdelin || 'N/A',
-				image: "mcAdelin.png",
-				configKey: "https://www.amazon.fr/-/en/AXH16101942/dp/B0FDG3ZM8W/ref=sr_1_12?crid=7IKGLJUESFQA&dib=eyJ2IjoiMSJ9.0vk_LMwh6LppXHubwKYqKvXVui4QxHdlBIQx4cVH4QJDE75mmhz8EEtEjdX6FyQ7R3phN0uapESqu1PWjjQrbW73Tq9DVDsmERLzfSTS9QDxQw1_ZXuZHE-QdVcpCJ5fNxRzstpPMkx5UI01o82FD57g5xxExRTF0-WKUdoPfRa3ShWzLk8zAYhmUliNinC9qgrhu9ALT7_JfCFVYLMtyZW3JKBqW7nC1Ku1_Z6zVOH9owFiaG5B3sQCxYB1KFRuMI8_X28HtLa2X8CrOQGgfi6zJej0MpMWLhr3K7PtTxg.muKfBXo0mGOxtgX5NCGNy1QzpRBE-NtI-t0OvYGSYHg&dib_tag=se&keywords=disque%2Bgradu%C3%A9%2B360&qid=1750956118&sprefix=disque%2Bgradu%C3%A9%2B360%2B%2Caps%2C66&sr=8-12&th=1"
+				alt: "Protège levier",
+				price: config[0]?.horse || 'N/A',
+				image: "protege-levier.png",
+				configKey: "https://amzn.to/3IpF70F"
 			},
 			{
-				title: "Nettoyant pour Pots TTP - 120ml",
+				title: "Protège main clignotant intégré",
 				logo: "logo2.png",
-				alt: "Nettoyant TTP",
-				price: config[0]?.clearPot || 'N/A',
-				image: "flacon.png",
-				configKey: ""
+				alt: "Protège main clignotant intégré",
+				price: config[0]?.evomosa || 'N/A',
+				image: "evomosa.png",
+				configKey: "https://amzn.to/4gU4ww6"
 			},
 			{
-				title: "Nettoyant pour Pots TTP - 120ml",
+				title: "JFG RACING Protege Main",
 				logo: "logo2.png",
-				alt: "Nettoyant TTP",
-				price: config[0]?.clearPot || 'N/A',
-				image: "flacon.png",
-				configKey: ""
+				alt: "JFG RACING Protege Main",
+				price: config[0]?.jfg || 'N/A',
+				image: "jfg.png",
+				configKey: "https://amzn.to/4mMlYDT"
+			},
+			{
+				title: "Barre en Aluminium protège main",
+				logo: "logo2.png",
+				alt: "Barre en Aluminium protège main",
+				price: config[0]?.barreAlu || 'N/A',
+				image: "barreAlu.png",
+				configKey: "https://amzn.to/46O16q3"
+			},
+			{
+				title: "Déflecteur de vent",
+				logo: "logo2.png",
+				alt: "Déflecteur de vent",
+				price: config[0]?.vent || 'N/A',
+				image: "vent.png",
+				configKey: "https://amzn.to/4mCenrv"
+			},
+			{
+				title: "Protections de guidon",
+				logo: "logo2.png",
+				alt: "Protections de guidon",
+				price: config[0]?.protec || 'N/A',
+				image: "protec.png",
+				configKey: "https://amzn.to/4pL1wpX"
 			},
 		]
 	}
