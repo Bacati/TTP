@@ -207,7 +207,7 @@ export const general = [
   ]
   export const mcAdelin = [
 	{
-		maitre: 10
+		maitre: 66.5
 	}
   ]
 	export const progressif = [
@@ -468,6 +468,26 @@ export const general = [
 	export const embro = [
 		{
 			cligno: 44.99
+		}
+	]
+	export const woostar = [
+		{
+			cligno: 119.20
+		}
+	]
+	export const universal = [
+		{
+			cligno: 28.20
+		}
+	]
+	export const rcs = [
+		{
+			cligno: 105.90
+		}
+	]
+	export const clutch = [
+		{
+			cligno: 54.59
 		}
 	]
 
@@ -891,6 +911,26 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixWoostar = () => {
+	const specific = woostar[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixUniversal = () => {
+	const specific = universal[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixRcs = () => {
+	const specific = rcs[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixClutch = () => {
+	const specific = clutch[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
 
   export const config = [
@@ -973,5 +1013,9 @@ export const general = [
 		vent : PrixVent(),
 		protec : PrixProtec(),
 		embro : PrixEmbro(),
+		woostar : PrixWoostar(),
+		universal : PrixUniversal(),
+		rcs : PrixRcs(),
+		clutch : PrixClutch(),
 	},
   ]

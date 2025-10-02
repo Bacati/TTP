@@ -9,47 +9,47 @@ export const categories = [
 				alt: "Kit d'embrayage et Levier",
 				price: config[0]?.embro || 'N/A',
 				image: "embro.png",
-				configKey: ""
+				configKey: "https://amzn.to/3KzfBqa"
 			},
 			{
-				title: "protege",
+				title: "Levier CNC",
 				logo: "logo2.png",
-				alt: "protege",
-				price: config[0]?.mcAdelin || 'N/A',
-				image: "mcAdelin.png",
-				configKey: ""
+				alt: "Levier CNC",
+				price: config[0]?.woostar || 'N/A',
+				image: "woostar.png",
+				configKey: "https://amzn.to/3IN67Hr"
 			},
 			{
-				title: "protege",
+				title: "Levier universel",
 				logo: "logo2.png",
-				alt: "protege",
-				price: config[0]?.mcAdelin || 'N/A',
-				image: "mcAdelin.png",
-				configKey: ""
+				alt: "Levier universel",
+				price: config[0]?.universal || 'N/A',
+				image: "universal.png",
+				configKey: "https://amzn.to/46wC6ol"
 			},
 			{
-				title: "protege",
+				title: "Levier CNC 19 RCS",
 				logo: "logo2.png",
-				alt: "protege",
-				price: config[0]?.mcAdelin || 'N/A',
-				image: "mcAdelin.png",
-				configKey: ""
+				alt: "Levier CNC 19 RCS",
+				price: config[0]?.rcs || 'N/A',
+				image: "rcs.png",
+				configKey: "https://amzn.to/4pPWAA5"
 			},
 			{
-				title: "protege",
+				title: "Maître cylindre Adelin",
 				logo: "logo2.png",
-				alt: "protege",
+				alt: "Maître cylindre Adelin",
 				price: config[0]?.mcAdelin || 'N/A',
 				image: "mcAdelin.png",
-				configKey: ""
+				configKey: "https://amzn.to/3KOJYsK"
 			},
 			{
-				title: "protege",
+				title: "Levier d'embrayage À Roulement",
 				logo: "logo2.png",
-				alt: "protege",
-				price: config[0]?.mcAdelin || 'N/A',
-				image: "mcAdelin.png",
-				configKey: ""
+				alt: "Levier d'embrayage À Roulement",
+				price: config[0]?.clutch || 'N/A',
+				image: "clutch.png",
+				configKey: "https://amzn.to/4gRJ5Md"
 			},
 		]
 	}
