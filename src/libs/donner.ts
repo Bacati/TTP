@@ -490,6 +490,61 @@ export const general = [
 			cligno: 54.59
 		}
 	]
+	export const madbike = [
+		{
+			cligno: 7.99
+		}
+	]
+	export const support = [
+		{
+			cligno: 34.99
+		}
+	]
+	export const supportTel = [
+		{
+			cligno: 79.99
+		}
+	]
+	export const appli = [
+		{
+			cligno: 4.09
+		}
+	]
+	export const cagoule = [
+		{
+			cligno: 9.99
+		}
+	]
+	export const antivol = [
+		{
+			cligno: 27.99
+		}
+	]
+	export const cardo = [
+		{
+			cligno: 93.99
+		}
+	]
+	export const gonfleur = [
+		{
+			cligno: 39.99
+		}
+	]
+	export const stand = [
+		{
+			cligno: 59.99
+		}
+	]
+	export const vis = [
+		{
+			cligno: 35
+		}
+	]
+	export const housse = [
+		{
+			cligno: 279
+		}
+	]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0
@@ -931,7 +986,61 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixMadbike = () => {
+	const specific = madbike[0]
 
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixSupport = () => {
+	const specific = support[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixSupportTel = () => {
+	const specific = supportTel[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixAppli = () => {
+	const specific = appli[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixCagoule = () => {
+	const specific = cagoule[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixAntivol = () => {
+	const specific = antivol[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixCardo = () => {
+	const specific = cardo[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixGonfleur = () => {
+	const specific = gonfleur[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixStand = () => {
+	const specific = stand[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixVis = () => {
+	const specific = vis[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixHousse = () => {
+	const specific = housse[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -1017,5 +1126,16 @@ export const general = [
 		universal : PrixUniversal(),
 		rcs : PrixRcs(),
 		clutch : PrixClutch(),
+		madbike : PrixMadbike(),
+		support : PrixSupport(),
+		supportTel : PrixSupportTel(),
+		appli : PrixAppli(),
+		cagoule : PrixCagoule(),
+		antivol : PrixAntivol(),
+		cardo : PrixCardo(),
+		gonfleur : PrixGonfleur(),
+		stand : PrixStand(),
+		vis : PrixVis(),
+		housse : PrixHousse(),
 	},
   ]

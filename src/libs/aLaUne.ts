@@ -17,15 +17,12 @@ export const generateProductData = (config) => [
     link: `${linkPrefix}50mk`
   },
   {
-		title: "70cc 2Fast",
-		logo: "fast.png",
-		alt: "70 2Fast",
-		description: "Compétition",
-		typeMotor1: "Derbi",
-		typeMotor: "AM6",
-		price: config[0]?.compet70Fast || 'N/A',
-		imageSrc: `${imagePrefix}/fastCyl.png`,
-		link: `${linkPrefixCompet}70fast`
+		title: "Vis à tête remontante",
+		logo: "logo2.png",
+		alt: "Vis à tête remontante",
+		price: config[0]?.vis || 'N/A',
+		imageSrc: `${imagePrefix}/vis.png`,
+		link: "https://flushfasteners.com/?ref=TROUVETAPIECE"
 	},
   {
     title: "Nettoyant pot",
