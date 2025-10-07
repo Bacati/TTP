@@ -1,8 +1,12 @@
 ---
 import Picture from "astro/components/Picture.astro";
-const { title, imageSrc, lien, entreprise, alt } = Astro.props;
+const { title, imageSrc, lien, entreprise, alt, external } = Astro.props;
+const shouldOpenInNewWindow = external
 ---
-<a href={lien} rel="noopener noreferrer">
+<a href={lien}
+   rel={shouldOpenInNewWindow ? "noopener noreferrer" : undefined}
+   target={shouldOpenInNewWindow ? "_blank" : undefined}
+>
 	<div class="w-80 lg:w-96 shadow-lg lg:mt-16 rounded-3xl">
         <Picture
             src={imageSrc} alt={alt}
