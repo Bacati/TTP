@@ -517,7 +517,7 @@ export const general = [
 	]
 	export const antivol = [
 		{
-			cligno: 27.99
+			cligno: 37.99
 		}
 	]
 	export const cardo = [

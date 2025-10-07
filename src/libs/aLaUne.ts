@@ -20,9 +20,8 @@ export const generateProductData = (config) => [
 		title: "Vis à tête remontante",
 		logo: "logo2.png",
 		alt: "Vis à tête remontante",
-		price: config[0]?.vis || 'N/A',
 		imageSrc: `${imagePrefix}/vis.png`,
-		link: "https://flushfasteners.com/?ref=TROUVETAPIECE"
+		link: "https://flushfasteners.com/?ref=TROUVETAPIECE",
 	},
   {
     title: "Nettoyant pot",
@@ -34,15 +33,11 @@ export const generateProductData = (config) => [
     link: `${linkPrefixProduct}nettoyant`
   },
   {
-    title: "70cc Airsal Alu",
+    title: "Housse de protection",
     logo: "airsal.png",
-    alt: "70 airsal",
-    description: "Configuration AllDays",
-    typeMotor: "AM6",
-    typeMotor1: "Derbi",
-    price: config[0].allAirsalAlu || 'N/A',
-    imageSrc: `${imagePrefix}/70airsal.png`,
-    link: `${linkPrefix}70airsalAlu`
+    alt: "Housse de protection",
+    imageSrc: `${imagePrefix}/housse.png`,
+    link: `https://www.mycover-protection.com/?wpam_id=60`
   },
   {
     title: "75cc Top performance",
