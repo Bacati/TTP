@@ -4,97 +4,52 @@ export const categories = [
 	{
 		products: [
 			{
-				title: "Protection de chaussure",
+				title: "Système de transport",
 				logo: "logo2.png",
-				alt: "Protection de chaussure",
-				price: config[0]?.madbike || 'N/A',
-				image: "madbike.png",
+				alt: "Système de transport",
+				price: config[0]?.calePied || 'N/A',
+				image: "cale-pied.png",
 				configKey: "https://amzn.to/42IE8j5"
 			},
 			{
-				title: "Support Casque Moto",
+				title: "Système de transport PRO",
 				logo: "logo2.png",
-				alt: "Support Casque Moto",
-				price: config[0]?.support || 'N/A',
-				image: "support.png",
+				alt: "Système de transport PRO",
+				price: config[0]?.calePiedPro || 'N/A',
+				image: "fixation-moto.png",
 				configKey: "https://amzn.to/4nXRrE6"
 			},
 			{
-				title: "Vis à tête remontante",
+				title: "Lève moto ajustable",
 				logo: "logo2.png",
-				alt: "Vis à tête remontante",
-				image: "vis.png",
-				configKey: "https://flushfasteners.com/?ref=TROUVETAPIECE"
-			},
-			{
-				title: "Housse de protection",
-				logo: "logo2.png",
-				alt: "Housse de protection",
-				image: "housse.png",
-				configKey: "https://www.mycover-protection.com/?wpam_id=60"
-			},
-			{
-				title: "Support téléphone",
-				logo: "logo2.png",
-				alt: "Support téléphone",
-				price: config[0]?.supportTel || 'N/A',
-				image: "supportTel.png",
+				alt: "Lève moto ajustable",
+				price: config[0]?.leveMoto || 'N/A',
+				image: "leve-moto.png",
 				configKey: "https://amzn.to/4o01zfB"
 			},
 			{
-				title: "Applicateur de graisse",
+				title: "Grille de départ électronique",
 				logo: "logo2.png",
-				alt: "Applicateur de graisse",
-				price: config[0]?.appli || 'N/A',
-				image: "appli.png",
+				alt: "Grille de départ électronique",
+				price: config[0]?.grille || 'N/A',
+				image: "grille.png",
 				configKey: "https://amzn.to/4gTGJwb"
 			},
 			{
-				title: "Cagoule Moto",
+				title: "Élévateur / support",
 				logo: "logo2.png",
-				alt: "Cagoule Moto",
-				price: config[0]?.cagoule || 'N/A',
-				image: "cagoule.png",
+				alt: "Élévateur / support",
+				price: config[0]?.elevateur || 'N/A',
+				image: "leve-moto-pliable.png",
 				configKey: "https://amzn.to/4pRZuUW"
 			},
 			{
-				title: "Antivol",
+				title: "Starting block",
 				logo: "logo2.png",
-				alt: "Antivol",
-				image: "antivol.png",
-				configKey: "https://www.mycover-protection.com/?wpam_id=60"
-			},
-			{
-				title: "Système de communication",
-				logo: "logo2.png",
-				alt: "Système de communication",
-				price: config[0]?.cardo || 'N/A',
-				image: "cardo.png",
-				configKey: "https://amzn.to/4gOc4jU"
-			},
-			{
-				title: "Mini compresseur",
-				logo: "logo2.png",
-				alt: "Mini compresseur",
-				price: config[0]?.gonfleur || 'N/A',
-				image: "gonfleur.png",
-				configKey: "https://amzn.to/48ujRS3"
-			},
-			{
-				title: "Bequille arrière",
-				logo: "logo2.png",
-				alt: "Bequille arrière",
-				price: config[0]?.stand || 'N/A',
-				image: "stand.png",
-				configKey: "https://amzn.to/3IBiJRX"
-			},
-			{
-				title: "Antivol",
-				logo: "logo2.png",
-				alt: "Antivol",
-				price: config[0]?.antivol || 'N/A',
-				image: "antivol.png",
-				configKey: "https://amzn.to/4gO90Eo"
+				alt: "Starting block",
+				price: config[0]?.start || 'N/A',
+				image: "support-pied.png",
+				configKey: "https://amzn.to/4pRZuUW"
 			},
 		]
 	}

@@ -545,6 +545,36 @@ export const general = [
 			cligno: 279
 		}
 	]
+	export const calePied = [
+		{
+			cligno: 189
+		}
+	]
+	export const calePiedPro = [
+		{
+			cligno: 318
+		}
+	]
+	export const leveMoto = [
+		{
+			cligno: 153
+		}
+	]
+	export const grille = [
+		{
+			cligno: 330
+		}
+	]
+	export const elevateur = [
+		{
+			cligno: 154
+		}
+	]
+	export const start = [
+		{
+			cligno: 83
+		}
+	]
 
   const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
     let total = 0
@@ -1041,6 +1071,36 @@ export const general = [
 
 	return calculateTotalPrice(specific, {}, {}, {}, {})
   }
+  const PrixCalePied = () => {
+	const specific = calePied[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixCalePiedPro = () => {
+	const specific = calePiedPro[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixLeveMoto = () => {
+	const specific = leveMoto[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixGrille = () => {
+	const specific = grille[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixElevateur = () => {
+	const specific = elevateur[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
+  const PrixStart = () => {
+	const specific = start[0]
+
+	return calculateTotalPrice(specific, {}, {}, {}, {})
+  }
 
   export const config = [
 	{
@@ -1137,5 +1197,11 @@ export const general = [
 		stand : PrixStand(),
 		vis : PrixVis(),
 		housse : PrixHousse(),
+		calePied : PrixCalePied(),
+		calePiedPro : PrixCalePiedPro(),
+		leveMoto : PrixLeveMoto(),
+		grille : PrixGrille(),
+		elevateur : PrixElevateur(),
+		start : PrixStart(),
 	},
   ]
