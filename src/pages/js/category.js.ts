@@ -27,11 +27,15 @@
 	});
 	document.addEventListener("scroll", function () {
 		const fleche: any = document.getElementById("fleche");
+		const boutonRetour: any = document.getElementById("boutonRetour");
 		if (window.scrollY > window.innerWidth * 0.3) {
 			fleche.classList.remove("hidden");
 			fleche.classList.add("flex");
+			boutonRetour.classList.remove("hidden");
+			boutonRetour.classList.add("flex");
 		} else {
 			fleche.classList.add("hidden");
+			boutonRetour.classList.add("hidden");
 		}
 	});
 	
