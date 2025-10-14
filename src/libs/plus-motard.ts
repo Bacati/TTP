@@ -31,7 +31,7 @@ export const categories = [
 				logo: "mycover.avif",
 				alt: "Housse de protection",
 				image: "housse.png",
-				configKey: "https://www.mycover-protection.com/?wpam_id=60"
+				configKey: "https://www.mycover-protection.com/fr/?wpam_id=60"
 			},
 			{
 				title: "Support téléphone",
@@ -62,7 +62,7 @@ export const categories = [
 				logo: "mycover.avif",
 				alt: "Antivol",
 				image: "antivol.png",
-				configKey: "https://www.mycover-protection.com/?wpam_id=60"
+				configKey: "https://www.mycover-protection.com/fr/?wpam_id=60"
 			},
 			{
 				title: "Système de communication",
@@ -87,14 +87,6 @@ export const categories = [
 				price: config[0]?.stand || 'N/A',
 				image: "stand.png",
 				configKey: "https://amzn.to/3IBiJRX"
-			},
-			{
-				title: "Antivol",
-				logo: "logo2.png",
-				alt: "Antivol",
-				price: config[0]?.antivol || 'N/A',
-				image: "antivol.png",
-				configKey: "https://amzn.to/4gO90Eo"
 			},
 		]
 	}
