@@ -1,14 +1,6 @@
 name: Build Docker Image
 
-on:
-  push:
-    branches:
-      - '*'
-    tags:
-      - v*
-  pull_request:
-    branches:
-      - master
+on: push
 
 env:
   IMAGE_NAME: ${{ github.repository }}
@@ -26,12 +18,12 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: |
-          git.dzeio.com/${{ env.IMAGE_NAME }}
+          ghcr.io/${{ env.IMAGE_NAME }}
         #   ${{ env.IMAGE_NAME }}
         #   ghcr.io/${{ env.IMAGE_NAME }}
         tags: |
           type=edge
-          type=ref,event=pr
+          type=ref,suffix=,event=pr
           type=ref,event=branch
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
