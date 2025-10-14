@@ -21,14 +21,14 @@ export const categories = [
 			},
 			{
 				title: "Vis à tête remontante",
-				logo: "logo2.png",
+				logo: "flush.webp",
 				alt: "Vis à tête remontante",
 				image: "vis.png",
 				configKey: "https://flushfasteners.com/?ref=TROUVETAPIECE"
 			},
 			{
 				title: "Housse de protection",
-				logo: "logo2.png",
+				logo: "mycover.avif",
 				alt: "Housse de protection",
 				image: "housse.png",
 				configKey: "https://www.mycover-protection.com/?wpam_id=60"
@@ -59,7 +59,7 @@ export const categories = [
 			},
 			{
 				title: "Antivol",
-				logo: "logo2.png",
+				logo: "mycover.avif",
 				alt: "Antivol",
 				image: "antivol.png",
 				configKey: "https://www.mycover-protection.com/?wpam_id=60"

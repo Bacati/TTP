@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Système de transport",
-				logo: "logo2.png",
+				logo: "risk.avif",
 				alt: "Système de transport",
 				price: config[0]?.calePied || 'N/A',
 				image: "cale-pied.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Système de transport PRO",
-				logo: "logo2.png",
+				logo: "risk.avif",
 				alt: "Système de transport PRO",
 				price: config[0]?.calePiedPro || 'N/A',
 				image: "fixation-moto.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "Lève moto ajustable",
-				logo: "logo2.png",
+				logo: "risk.avif",
 				alt: "Lève moto ajustable",
 				price: config[0]?.leveMoto || 'N/A',
 				image: "leve-moto.png",
@@ -29,7 +29,7 @@ export const categories = [
 			},
 			{
 				title: "Grille de départ électronique",
-				logo: "logo2.png",
+				logo: "risk.avif",
 				alt: "Grille de départ électronique",
 				price: config[0]?.grille || 'N/A',
 				image: "grille.png",
@@ -37,7 +37,7 @@ export const categories = [
 			},
 			{
 				title: "Élévateur / support",
-				logo: "logo2.png",
+				logo: "risk.avif",
 				alt: "Élévateur / support",
 				price: config[0]?.elevateur || 'N/A',
 				image: "leve-moto-pliable.png",
@@ -45,7 +45,7 @@ export const categories = [
 			},
 			{
 				title: "Starting block",
-				logo: "logo2.png",
+				logo: "risk.avif",
 				alt: "Starting block",
 				price: config[0]?.start || 'N/A',
 				image: "support-pied.png",

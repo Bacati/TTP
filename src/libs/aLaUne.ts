@@ -18,7 +18,7 @@ export const generateProductData = (config) => [
   },
   {
 		title: "Vis à tête remontante",
-		logo: "logo2.png",
+		logo: "flush.webp",
 		alt: "Vis à tête remontante",
 		imageSrc: `${imagePrefix}/vis.png`,
 		link: "https://flushfasteners.com/?ref=TROUVETAPIECE",
@@ -34,7 +34,7 @@ export const generateProductData = (config) => [
   },
   {
     title: "Housse de protection",
-    logo: "airsal.png",
+    logo: "mycover.avif",
     alt: "Housse de protection",
     imageSrc: `${imagePrefix}/housse.png`,
     link: `https://www.mycover-protection.com/?wpam_id=60`
