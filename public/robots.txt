@@ -3,3 +3,5 @@ Disallow: /private/
 Disallow: /temp/
 Allow: /public/
 Allow: /favicon.ico
+
+Sitemap: https://trouve-ta-piece.fr/sitemap.xml
