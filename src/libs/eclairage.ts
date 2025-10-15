@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Polisport E-blaze Headlight",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Polisport E-blaze Headlight",
 				price: config[0]?.poli || 'N/A',
 				image: "polisport.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "PRETTYLE Phare de LED",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "PRETTYLE Phare de LED",
 				price: config[0]?.prettyle || 'N/A',
 				image: "prettyle.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "LOTFI Phare LED",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "LOTFI Phare LED",
 				price: config[0]?.exc || 'N/A',
 				image: "exc.png",
@@ -29,7 +29,7 @@ export const categories = [
 			},
 			{
 				title: "Feu Arrière de Moto",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Feu Arrière de Moto",
 				price: config[0]?.arriere || 'N/A',
 				image: "arriere.png",
@@ -37,7 +37,7 @@ export const categories = [
 			},
 			{
 				title: "Barre de feu arrière",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Barre de feu arrière",
 				price: config[0]?.barre || 'N/A',
 				image: "barre.png",
@@ -45,7 +45,7 @@ export const categories = [
 			},
 			{
 				title: "YnGia Feu arrière",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "YnGia Feu arrière",
 				price: config[0]?.yngia || 'N/A',
 				image: "yngia.png",

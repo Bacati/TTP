@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Protège levier",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Protège levier",
 				price: config[0]?.horse || 'N/A',
 				image: "protege-levier.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Protège main clignotant intégré",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Protège main clignotant intégré",
 				price: config[0]?.evomosa || 'N/A',
 				image: "evomosa.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "JFG RACING Protege Main",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "JFG RACING Protege Main",
 				price: config[0]?.jfg || 'N/A',
 				image: "jfg.png",
@@ -29,7 +29,7 @@ export const categories = [
 			},
 			{
 				title: "Barre en Aluminium protège main",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Barre en Aluminium protège main",
 				price: config[0]?.barreAlu || 'N/A',
 				image: "barreAlu.png",
@@ -37,7 +37,7 @@ export const categories = [
 			},
 			{
 				title: "Déflecteur de vent",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Déflecteur de vent",
 				price: config[0]?.vent || 'N/A',
 				image: "vent.png",
@@ -45,7 +45,7 @@ export const categories = [
 			},
 			{
 				title: "Protections de guidon",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Protections de guidon",
 				price: config[0]?.protec || 'N/A',
 				image: "protec.png",

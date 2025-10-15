@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Outils multifonctions",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Outils multifonctions",
 				price: config[0]?.dremel || 'N/A',
 				image: "dremel.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Renvoi d'angle",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Renvoi d'angle",
 				price: config[0]?.renvoie || 'N/A',
 				image: "renvoie.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "Jeu de Fraises Rotatives",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Jeu de Fraises Rotatives",
 				price: config[0]?.fraise || 'N/A',
 				image: "fraise.png",

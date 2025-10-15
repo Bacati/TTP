@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Clé à Chocs",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Clé à Chocs",
 				price: config[0]?.peteuse || 'N/A',
 				image: "peteuse.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Chariot à outils 156 pièces",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Chariot à outils 156 pièces",
 				price: config[0]?.caisse || 'N/A',
 				image: "caisse.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "Outil Montage Roulements Vilebrequin",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Outil Montage Roulements Vilebrequin",
 				price: config[0]?.montageRoulement || 'N/A',
 				image: "montageRoulement.png",
@@ -29,7 +29,7 @@ export const categories = [
 			},
 			{
 				title: "Extracteur de Roulement",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Extracteur de Roulement",
 				price: config[0]?.extracteur || 'N/A',
 				image: "extracteur.png",
@@ -37,7 +37,7 @@ export const categories = [
 			},
 			{
 				title: "Extracteur de Roulement 4PCs",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Extracteur de Roulement 4PCs",
 				price: config[0]?.branche3 || 'N/A',
 				image: "troisBranche.png",
@@ -45,7 +45,7 @@ export const categories = [
 			},
 			{
 				title: "Extracteurs de roulements",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Extracteurs de roulements",
 				price: config[0]?.dayuan || 'N/A',
 				image: "dayuan.png",
@@ -53,7 +53,7 @@ export const categories = [
 			},
 			{
 				title: "Arrache à inertie",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Arrache à inertie",
 				price: config[0]?.inertie || 'N/A',
 				image: "inertie.png",

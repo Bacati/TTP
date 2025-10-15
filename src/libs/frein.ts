@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Kit d'embrayage et Levier",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Kit d'embrayage et Levier",
 				price: config[0]?.embro || 'N/A',
 				image: "embro.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Levier CNC",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Levier CNC",
 				price: config[0]?.woostar || 'N/A',
 				image: "woostar.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "Levier universel",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Levier universel",
 				price: config[0]?.universal || 'N/A',
 				image: "universal.png",
@@ -29,7 +29,7 @@ export const categories = [
 			},
 			{
 				title: "Levier CNC 19 RCS",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Levier CNC 19 RCS",
 				price: config[0]?.rcs || 'N/A',
 				image: "rcs.png",
@@ -37,7 +37,7 @@ export const categories = [
 			},
 			{
 				title: "Maître cylindre Adelin",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Maître cylindre Adelin",
 				price: config[0]?.mcAdelin || 'N/A',
 				image: "mcAdelin.png",
@@ -45,7 +45,7 @@ export const categories = [
 			},
 			{
 				title: "Levier d'embrayage À Roulement",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Levier d'embrayage À Roulement",
 				price: config[0]?.clutch || 'N/A',
 				image: "clutch.png",

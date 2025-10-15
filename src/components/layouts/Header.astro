@@ -1,7 +1,7 @@
 ---
 import Picture from 'astro/components/Picture.astro';
 import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap } from 'lucide-astro';
-import logo from '/public/images/logo2.png';
+import logo from '/public/images/logo2.svg';
 
 export interface Props {
     right?: Record<string, string>
@@ -32,7 +32,7 @@ export interface Props {
             </a>
             <div class="bg-white rounded-full mobile">
                 <div class="relative flex flex-col items-center justify-center">
-                    <a class="mx-4 py-4 bg-amber-600 text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/" rel="noopener noreferrer"><House alt="Home"/></a>
+                    <a class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/" rel="noopener noreferrer"><House alt="Home"/></a>
                     <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush  alt="Esthetique"/></a>
@@ -51,7 +51,7 @@ export interface Props {
                         <div class="bg-white z-50 panneau fixed top-4 right-4 invisible opacity-0 rounded-3xl" id="panneauUn-panneau">
                              <label for="panneauDeux" class="menu-closed">
                                  <div class="flex flex-col justify-center">
-                                    <a class="py-3 bg-amber-600 text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/" rel="noopener noreferrer"><House alt="Home" class="mx-4"/> Accueil</a>
+                                    <a class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/" rel="noopener noreferrer"><House alt="Home" class="mx-4"/> Accueil</a>
                                     <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS"/>Alldays</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/>Compétition</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthétique</a>

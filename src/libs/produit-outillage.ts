@@ -16,7 +16,7 @@ const createConfig = (title: string, logo: string, alt: string, description: str
 const configurations = {
 	"nettoyant": createConfig(
 		"Nettoyant pour Pots TTP - 120ml",
-		`${imagePrefix}/logo2.png`,
+		`${imagePrefix}/logo2.svg`,
 		"Nettoyant TTP",
 		`
 		<p class="mb-2">Notre nettoyant pour pots est spécialement conçu pour éliminer efficacement le brunissement et les résidus tenaces qui s'accumulent sur vos pots. En plus de redonner de l’éclat à vos surfaces, il forme une barrière protectrice contre la rouille, prolongeant ainsi la durée de vie de vos ustensiles.</p>
@@ -47,7 +47,7 @@ export const categories = [
 		products: [
 			{
 				title: "Nettoyant pour Pots TTP - 120ml",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Nettoyant TTP",
 				price: config[0]?.clearPot || 'N/A',
 				image: "flacon.png",
@@ -55,7 +55,7 @@ export const categories = [
 			},
 			{
 				title: "Kit nettoyage Muc-Off",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Kit nettoyage Muc-Off",
 				price: config[0]?.kitNettoyage || 'N/A',
 				image: "kit-nettoyage.png",
@@ -63,7 +63,7 @@ export const categories = [
 			},
 			{
 				title: "Vulcanet lingettes nettoyante",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Vulcanet lingettes nettoyante",
 				price: config[0]?.vulcanet || 'N/A',
 				image: "vulcanet.png",
@@ -71,7 +71,7 @@ export const categories = [
 			},
 			{
 				title: "WD-40 Cire Et Polish",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "WD-40 Cire Et Polish",
 				price: config[0]?.wd || 'N/A',
 				image: "wd.png",
@@ -79,7 +79,7 @@ export const categories = [
 			},
 			{
 				title: "WD-40 Nettoyant polyvalent",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "WD-40 Nettoyant polyvalent",
 				price: config[0]?.wdSpray || 'N/A',
 				image: "wd-spray.png",
@@ -87,7 +87,7 @@ export const categories = [
 			},
 			{
 				title: "Nettoyant dégraissant freins",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Nettoyant dégraissant freins",
 				price: config[0]?.nettoyantFrein || 'N/A',
 				image: "nettoyant-frein.png",
@@ -95,7 +95,7 @@ export const categories = [
 			},
 			{
 				title: "Agent à polir métal Autosol",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Agent à polir métal Autosol",
 				price: config[0]?.autosol || 'N/A',
 				image: "autosol.png",
@@ -103,7 +103,7 @@ export const categories = [
 			},
 			{
 				title: "Nettoyant cuir crème",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Nettoyant cuir crème",
 				price: config[0]?.cuir || 'N/A',
 				image: "cuir.png",

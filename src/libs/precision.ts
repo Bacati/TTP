@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Pige de Calage Comparateur",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Pige de Calage Comparateur",
 				price: config[0]?.pige || 'N/A',
 				image: "pige.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Jauge d'alésage",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Jauge d'alésage",
 				price: config[0]?.alesage || 'N/A',
 				image: "alesage.png",
@@ -21,7 +21,7 @@ export const categories = [
 			},
 			{
 				title: "Rapporteur circulaire gradué",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Rapporteur circulaire gradué",
 				price: config[0]?.disque || 'N/A',
 				image: "disque.png",
@@ -29,7 +29,7 @@ export const categories = [
 			},
 			{
 				title: "Pied a Coulisse",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Pied a Coulisse",
 				price: config[0]?.pied || 'N/A',
 				image: "pied.png",
@@ -37,7 +37,7 @@ export const categories = [
 			},
 			{
 				title: "Clé Dynamométrique",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Clé Dynamométrique",
 				price: config[0]?.dynamo || 'N/A',
 				image: "dynamo.png",
@@ -45,7 +45,7 @@ export const categories = [
 			},
 			{
 				title: "Burette graduié",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Burette graduié",
 				price: config[0]?.burette || 'N/A',
 				image: "burette.png",

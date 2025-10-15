@@ -5,7 +5,7 @@ export const categories = [
 		products: [
 			{
 				title: "Protection de chaussure",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Protection de chaussure",
 				price: config[0]?.madbike || 'N/A',
 				image: "madbike.png",
@@ -13,7 +13,7 @@ export const categories = [
 			},
 			{
 				title: "Support Casque Moto",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Support Casque Moto",
 				price: config[0]?.support || 'N/A',
 				image: "support.png",
@@ -35,7 +35,7 @@ export const categories = [
 			},
 			{
 				title: "Support téléphone",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Support téléphone",
 				price: config[0]?.supportTel || 'N/A',
 				image: "supportTel.png",
@@ -43,7 +43,7 @@ export const categories = [
 			},
 			{
 				title: "Applicateur de graisse",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Applicateur de graisse",
 				price: config[0]?.appli || 'N/A',
 				image: "appli.png",
@@ -51,7 +51,7 @@ export const categories = [
 			},
 			{
 				title: "Cagoule Moto",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Cagoule Moto",
 				price: config[0]?.cagoule || 'N/A',
 				image: "cagoule.png",
@@ -66,7 +66,7 @@ export const categories = [
 			},
 			{
 				title: "Système de communication",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Système de communication",
 				price: config[0]?.cardo || 'N/A',
 				image: "cardo.png",
@@ -74,7 +74,7 @@ export const categories = [
 			},
 			{
 				title: "Mini compresseur",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Mini compresseur",
 				price: config[0]?.gonfleur || 'N/A',
 				image: "gonfleur.png",
@@ -82,7 +82,7 @@ export const categories = [
 			},
 			{
 				title: "Bequille arrière",
-				logo: "logo2.png",
+				logo: "logo2.svg",
 				alt: "Bequille arrière",
 				price: config[0]?.stand || 'N/A',
 				image: "stand.png",
