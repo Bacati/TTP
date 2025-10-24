@@ -4,7 +4,7 @@ const { title, imageSrc, lien, entreprise, alt, external } = Astro.props;
 const shouldOpenInNewWindow = external
 ---
 <a href={lien}
-   rel={shouldOpenInNewWindow ? "noopener noreferrer" : undefined}
+   rel={shouldOpenInNewWindow ? "noopener noreferrer nofollow" : undefined}
    target={shouldOpenInNewWindow ? "_blank" : undefined}
 >
 	<div class="w-80 lg:w-96 shadow-lg lg:mt-16 rounded-3xl">

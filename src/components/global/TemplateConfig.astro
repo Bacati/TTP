@@ -14,7 +14,7 @@ import type { ImageMetadata } from 'astro';
 
             {images?.map((imageSrc: string | ImageMetadata, index: number) => (
                 <div class={`carousel-item item-${index + 1} flex justify-center items-center absolute top-0 bottom-0 left-0 right-0 opacity-0 mx-auto`}>
-                    <a href={`#item-${(index === 0 ? images.length : index)}`} class="z-30" rel="noopener noreferrer">
+                    <a href={`#item-${(index === 0 ? images.length : index)}`} class="z-30">
                         <ChevronLeft class="w-10 h-10 cursor-pointer" />
                     </a>
                     <div class="flex items-center justify-center w-8/12">
@@ -30,7 +30,7 @@ import type { ImageMetadata } from 'astro';
                             </div>
                         </div>
                     </div>
-                    <a href={`#item-${(index + 1 === images.length ? 1 : index + 2)}`} class="z-30" rel="noopener noreferrer">
+                    <a href={`#item-${(index + 1 === images.length ? 1 : index + 2)}`} class="z-30">
                         <ChevronRight class="w-10 h-10 cursor-pointer" />
                     </a>
                 </div>
@@ -83,7 +83,7 @@ import type { ImageMetadata } from 'astro';
                 </details>
             )}
             {link &&(
-                <a href={link} target="_blank" rel="noopener noreferrer" class="rounded-full bg-amber-600 w-fit p-2 px-8 mt-4 text-white flex gap-4 text-xl lg:hover:bg-slate-900 items-center">
+                <a href={link} target="_blank" rel="noopener noreferrer nofollow" class="rounded-full bg-amber-600 w-fit p-2 px-8 mt-4 text-white flex gap-4 text-xl lg:hover:bg-slate-900 items-center">
                         Consulter le site
                 </a>
             )}

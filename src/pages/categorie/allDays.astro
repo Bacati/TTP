@@ -24,7 +24,6 @@ import Picture from 'components/global/Picture.astro';
 			class="mx-2 my-6 text-lg gap-3 flex items-center rounded-3xl py-2 px-6 justify-center categorie text-orange-600"
 			href={`#${category.id}`}
 			data-category={category.id}
-			rel="noopener noreferrer"
 		  >
 			<Picture src={category.source} width="0" height="0"></Picture>{category.label}
 		  </a>
@@ -52,7 +51,7 @@ import Picture from 'components/global/Picture.astro';
 		</div>
 	  ))}
 
-    <a id="fleche" class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 items-center hidden" href="#top" rel="noopener noreferrer">
+    <a id="fleche" class="bg-orange-500 z-30 fixed right-14 p-4 bottom-8 rounded-full w-16 h-16 m-0 items-center hidden" href="#top">
       <MoveUp class="h-10 w-10 text-white" />
     </a>
   </main>

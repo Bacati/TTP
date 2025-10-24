@@ -12,18 +12,18 @@ export interface Props {
 <header class="p-8 z-20 absolute w-full">
     <nav class="items-center">
         <div class="hidden justify-between items-center w-11/12 fixed lg:flex">
-            <a href="/" rel="noopener noreferrer">
+            <a href="/">
                 <Picture src={logo} alt="TTP" class="p-1 rounded-2xl w-8/12"></Picture>
             </a>
             <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex">
-                <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS" />Alldays</a>
-                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/>Compétitions</a>
-                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthetique</a>
-                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/>Cycle</a>
-                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/>Equipement</a>
-				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/accessoires-racing" rel="noopener noreferrer"><Zap alt="Accessoires Racing"/>Accessoires</a>
-                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Garage"/>Garage</a>
-                <a class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/" rel="noopener noreferrer">Accueil <House alt="Home"/></a>
+                <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays"><Gauge alt="ALLDAYS" />Alldays</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition"><Trophy alt="Compétition"/>Compétitions</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthetique</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/cycle"><Bike alt="Cycle"/>Cycle</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/equipement"><HardHat alt="Equipement"/>Equipement</a>
+				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/>Accessoires</a>
+                <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/produit-outillage"><Wrench alt="Garage"/>Garage</a>
+                <a class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/">Accueil <House alt="Home"/></a>
             </div>
         </div>
         <div class="flex justify-between lg:hidden gap-6">
@@ -32,14 +32,14 @@ export interface Props {
             </a>
             <div class="bg-white rounded-full mobile">
                 <div class="relative flex flex-col items-center justify-center">
-                    <a class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/" rel="noopener noreferrer"><House alt="Home"/></a>
-                    <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush  alt="Esthetique"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/></a>
-					<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/accessoires-racing" rel="noopener noreferrer"><Zap alt="Accessoires Racing"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Garage"/></a>
+                    <a class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/"><House alt="Home"/></a>
+                    <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays"><Gauge alt="ALLDAYS"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition"><Trophy alt="Compétition"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique"><Paintbrush  alt="Esthetique"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/cycle"><Bike alt="Cycle"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/equipement"><HardHat alt="Equipement"/></a>
+					<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/produit-outillage"><Wrench alt="Garage"/></a>
                 </div>
                 <input class="hidden" id="panneauDeux" name="equipe" type="radio" checked>
                 <div id="panneauDeux-panneau" class="flex justify-center z-20 py-4 items-center">
@@ -51,14 +51,14 @@ export interface Props {
                         <div class="bg-white z-50 panneau fixed top-4 right-4 invisible opacity-0 rounded-3xl" id="panneauUn-panneau">
                              <label for="panneauDeux" class="menu-closed">
                                  <div class="flex flex-col justify-center">
-                                    <a class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/" rel="noopener noreferrer"><House alt="Home" class="mx-4"/> Accueil</a>
-                                    <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays" rel="noopener noreferrer"><Gauge alt="ALLDAYS"/>Alldays</a>
-                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition" rel="noopener noreferrer"><Trophy alt="Compétition"/>Compétition</a>
-                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique" rel="noopener noreferrer"><Paintbrush alt="Esthetique"/>Esthétique</a>
-                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/cycle" rel="noopener noreferrer"><Bike alt="Cycle"/>Cycle</a>
-                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/equipement" rel="noopener noreferrer"><HardHat alt="Equipement"/>Equipement</a>
-									<a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/accessoires-racing" rel="noopener noreferrer"><Zap alt="Accessoires Racing"/>Accessoires</a>
-                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/produit-outillage" rel="noopener noreferrer"><Wrench alt="Garage"/>Garage</a>
+                                    <a class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/"><House alt="Home" class="mx-4"/> Accueil</a>
+                                    <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays"><Gauge alt="ALLDAYS"/>Alldays</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition"><Trophy alt="Compétition"/>Compétition</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthétique</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/cycle"><Bike alt="Cycle"/>Cycle</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/equipement"><HardHat alt="Equipement"/>Equipement</a>
+									<a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/>Accessoires</a>
+                                    <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/produit-outillage"><Wrench alt="Garage"/>Garage</a>
                                      <ChevronsRight class="text-orange-600 my-4 mx-2"/>
                                  </div>
                             </label>
