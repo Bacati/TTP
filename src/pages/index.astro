@@ -25,43 +25,46 @@ import Picture from 'components/global/Picture.astro';
     </div>
     <div class="gradient w-full h-2"></div>
     <div class="flex justify-center gap-1 lg:gap-3 mt-16 lg:w-4/5 lg:mx-auto">
-      <div class="h-[37rem] rem flex items-center overflow-hidden">
-        <div id="slide" class="slide-track hover:[animation-play-state:paused] md:flex">
-          {generateProductData(config).map(product => (
-              <div class="mx-4">
-                  <ProductCard
-                    title={product.title}
-                    logo={`/images/${product.logo}`}
-                    alt={product.alt}
-                    description={product.description}
-                    typeMotor={product.typeMotor}
+		<div
+			id="carousel"
+			class="h-[37rem] flex items-center overflow-hidden lg:overflow-x-auto lg:overflow-y-hidden lg:select-none lg:cursor-grab lg:touch-pan-y"
+		>
+			<div id="slide" class="slide-track hover:[animation-play-state:paused] md:flex">
+			{generateProductData(config).map(product => (
+				<div class="mx-4">
+					<ProductCard
+						title={product.title}
+						logo={`/images/${product.logo}`}
+						alt={product.alt}
+						description={product.description}
+						typeMotor={product.typeMotor}
+						typeMotor1={product.typeMotor1}
+						price={product.price}
+						imageSrc={product.imageSrc}
+						lien={product.link}
+					/>
+				</div>
+			))}
+			{generateProductData(config).map(product => (
+				<div class="hidden lg:block mx-4">
+					<ProductCard
+					title={product.title}
+					logo={`/images/${product.logo}`}
+					alt={product.alt}
+					description={product.description}
+					typeMotor={product.typeMotor}
 					typeMotor1={product.typeMotor1}
-                    price={product.price}
-                    imageSrc={product.imageSrc}
-                    lien={product.link}
-                  />
-              </div>
-          ))}
-          {generateProductData(config).map(product => (
-            <div class="hidden lg:block mx-4">
-                <ProductCard
-                  title={product.title}
-                  logo={`/images/${product.logo}`}
-                  alt={product.alt}
-                  description={product.description}
-                  typeMotor={product.typeMotor}
-                  typeMotor1={product.typeMotor1}
-                  price={product.price}
-                  imageSrc={product.imageSrc}
-                  lien={product.link}
-                />
-            </div>
-        ))}
-		  <div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">
-			<img src="/images/slide.png" class="w-10 h-10" alt="">
+					price={product.price}
+					imageSrc={product.imageSrc}
+					lien={product.link}
+					/>
+				</div>
+			))}
+			<div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">
+				<img src="/images/slide.png" class="w-10 h-10" alt="">
+			</div>
 		</div>
-        </div>
-      </div>
+	</div>
     </div>
     <div class="w-full flex justify-center mb-20 mt-16 lg:mt-0">
       <div class="w-11/12 lg:w-4/5 rounded-2xl bg flex items-center pb-4 justify-center lg:py-0 lg:pr-20 flex-col lg:flex-row">
@@ -85,7 +88,6 @@ import Picture from 'components/global/Picture.astro';
       </div>
     </div>
   </main>
-  <!-- Lazy loading images (performance) -->
 <script>
   document.querySelectorAll('img').forEach(img => {
     img.loading = 'lazy';
@@ -94,24 +96,125 @@ import Picture from 'components/global/Picture.astro';
 </script>
 </MainLayout>
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const slider = document.getElementById('slide');
-		const moveIndicator = document.getElementById('move');
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('carousel') as HTMLElement | null;
+    const track = document.getElementById('slide') as HTMLElement | null;
+    const moveIndicator = document.getElementById('move') as HTMLElement | null;
+    if (!carousel || !track) return;
 
-		let isSliding = false;
+    // 1) Pas de drag natif d’images
+    carousel.querySelectorAll('img').forEach(img => {
+      img.setAttribute('draggable', 'false');
+    });
+    carousel.addEventListener('dragstart', (e) => e.preventDefault(), { capture: true });
 
-		slider.addEventListener('touchstart', handleUserInteraction);
-		slider.addEventListener('mousedown', handleUserInteraction);
-		slider.addEventListener('scroll', handleUserInteraction);
+    // 2) Hint mobile une seule fois
+    let hinted = false;
+    const hintOnce = () => {
+      if (hinted || !moveIndicator) return;
+      hinted = true;
+      setTimeout(() => moveIndicator.classList.add('hidden'), 1000);
+    };
 
-		function handleUserInteraction() {
-			if (!isSliding) {
-			isSliding = true;
+    // 3) Gestion du drag
+    let pointerActive = false;
+    let dragging = false;
+    let startX = 0;
+    let lastX = 0;
+    let startScrollLeft = 0;
+    let movedPx = 0;
 
-			setTimeout(function() {
-				moveIndicator.classList.add('hidden');
-			}, 1000);
-			}
-		}
-	});
+    const DRAG_THRESHOLD = 6; // px avant d'entrer en mode drag
+
+    const pause = () => { track.style.animationPlayState = 'paused'; };
+    const play  = () => { track.style.animationPlayState = ''; };
+
+    // Pour couper les interactions pendant le drag
+    const interactiveSelector = 'a, button, input, textarea, select, [role="button"]';
+    let disabledInteractive: HTMLElement[] = [];
+    const disableInteractives = () => {
+      disabledInteractive = Array.from(carousel.querySelectorAll<HTMLElement>(interactiveSelector));
+      disabledInteractive.forEach(el => el.classList.add('pointer-events-none'));
+    };
+    const enableInteractives = () => {
+      disabledInteractive.forEach(el => el.classList.remove('pointer-events-none'));
+      disabledInteractive = [];
+    };
+
+    carousel.addEventListener('pointerdown', (e: PointerEvent) => {
+      pointerActive = true;
+      dragging = false;
+      hintOnce();
+      startX = e.clientX;
+      lastX = e.clientX;
+      startScrollLeft = carousel.scrollLeft;
+      movedPx = 0;
+
+      carousel.setPointerCapture?.(e.pointerId);
+      // On ne pause pas encore l’animation : on attend le seuil
+    });
+
+    carousel.addEventListener('pointermove', (e: PointerEvent) => {
+      if (!pointerActive) return;
+
+      const dx = e.clientX - lastX;
+      lastX = e.clientX;
+      movedPx += Math.abs(dx);
+
+      if (!dragging) {
+        if (Math.abs(e.clientX - startX) < DRAG_THRESHOLD) return;
+        // On entre en mode drag
+        dragging = true;
+        pause();
+        disableInteractives();
+        carousel.classList.add('cursor-grabbing', 'select-none');
+      }
+
+      // Une fois en drag, on empêche la sélection/clic & on scroll
+      e.preventDefault();
+      carousel.scrollLeft = startScrollLeft - (e.clientX - startX);
+    }, { passive: false });
+
+    const endPointer = (e: PointerEvent) => {
+      if (!pointerActive) return;
+      pointerActive = false;
+
+      try { carousel.releasePointerCapture?.(e.pointerId); } catch {}
+
+      if (dragging) {
+        // Fin d'un vrai drag
+        dragging = false;
+        enableInteractives();
+        carousel.classList.remove('cursor-grabbing', 'select-none');
+        if (!carousel.matches(':hover')) play();
+      } else {
+        // Pas de drag => clic normal
+        // (on ne touche pas à l’anim qui peut être en pause via :hover)
+      }
+    };
+
+    carousel.addEventListener('pointerup', endPointer);
+    carousel.addEventListener('pointercancel', endPointer);
+    carousel.addEventListener('mouseleave', () => {
+      // Si la souris sort sans pointerup
+      if (!pointerActive && !dragging) { if (!carousel.matches(':hover')) play(); }
+    });
+
+    // Cohérence avec le hover
+    carousel.addEventListener('mouseenter', () => { if (!dragging) pause(); });
+    carousel.addEventListener('mouseleave', () => { if (!dragging) play(); });
+
+    // 4) Tue le clic si on a vraiment glissé (capture pour battre les <a>)
+    carousel.addEventListener('click', (e) => {
+      if (movedPx > DRAG_THRESHOLD) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+
+    // 5) Optionnel : pas de menu contextuel si on était en drag
+    carousel.addEventListener('contextmenu', (e) => {
+      if (movedPx > DRAG_THRESHOLD) e.preventDefault();
+    })
+  })
 </script>
