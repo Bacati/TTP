@@ -29,7 +29,7 @@ import Picture from 'components/global/Picture.astro';
 			id="carousel"
 			class="h-[37rem] flex items-center overflow-hidden lg:overflow-x-auto lg:overflow-y-hidden lg:select-none lg:cursor-grab lg:touch-pan-y"
 		>
-			<div id="slide" class="slide-track hover:[animation-play-state:paused] md:flex">
+			<div id="slide" class="slide-track hover:[animation-play-state:paused] flex">
 			{generateProductData(config).map(product => (
 				<div class="mx-4">
 					<ProductCard
@@ -60,7 +60,7 @@ import Picture from 'components/global/Picture.astro';
 					/>
 				</div>
 			))}
-			<div id="move" class="flex justify-center opacity-75 items-end absolute ml-36 h-2/3 z-50 md:hidden">
+			<div id="move" class="flex justify-center opacity-75 items-end absolute ml-32 h-2/5 z-50 md:hidden">
 				<img src="/images/slide.png" class="w-10 h-10" alt="">
 			</div>
 		</div>

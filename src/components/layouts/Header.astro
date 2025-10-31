@@ -1,6 +1,6 @@
 ---
 import Picture from 'astro/components/Picture.astro';
-import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap } from 'lucide-astro';
+import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap, Search } from 'lucide-astro';
 import logo from '/public/images/logo2.svg';
 
 export interface Props {
@@ -12,10 +12,8 @@ export interface Props {
 <header class="p-8 z-20 absolute w-full">
     <nav class="items-center">
         <div class="hidden justify-between items-center w-11/12 fixed lg:flex">
-            <a href="/">
-                <Picture src={logo} alt="TTP" class="p-1 rounded-2xl w-8/12"></Picture>
-            </a>
-            <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex">
+			<a href="/" class="p-1 w-1/12"><img src="/images/logo2.svg" alt="TTP"></a>
+            <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex *:items-center text-[0.8vw]">
                 <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays"><Gauge alt="ALLDAYS" />Alldays</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition"><Trophy alt="Compétition"/>Compétitions</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthetique</a>
@@ -24,7 +22,11 @@ export interface Props {
 				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/>Accessoires</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/produit-outillage"><Wrench alt="Garage"/>Garage</a>
                 <a class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/">Accueil <House alt="Home"/></a>
-            </div>
+				<form id="global-search" action="/recherche" method="get" role="search" aria-label="Recherche produits">
+					<input type="search" name="q" placeholder="Rechercher" required autocomplete="off">
+					<button type="submit"><Search /></button>
+				</form>
+			</div>
         </div>
         <div class="flex justify-between lg:hidden gap-6">
             <a href="/">
