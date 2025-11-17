@@ -1,0 +1,15 @@
+<form id="global-search" action="/recherche" method="get" role="search" aria-label="Recherche produits" style="display:flex;gap:.5rem;">
+  <input type="search" name="q" placeholder="Rechercher une marque, un modèle…" required autocomplete="off" style="flex:1;padding:.6rem 1rem;">
+  <button type="submit" style="padding:.6rem 1rem;border-radius:.6rem;">🔎</button>
+</form>
+
+<script>
+  // Raccourci Ctrl+K ou Cmd+K pour focus
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      const inp = document.querySelector('#global-search input[name="q"]');
+      if (inp) inp.focus();
+    }
+  });
+</script>
