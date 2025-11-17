@@ -2,7 +2,7 @@
 const { title, description, price, imageSrc, lien, logo, typeMotor, typeMotor1, alt, altLogo, external } = Astro.props;
 import Picture from 'components/global/Picture.astro';
 import { Eye } from 'lucide-astro';
-import motor from '/public/images/motor.png';
+import motor from '/public/images/motor.svg';
 
 const isNettoyantPots = lien?.includes('/product/produit?produit=nettoyant')
 const shouldOpenInNewWindow = external && !isNettoyantPots
