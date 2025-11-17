@@ -1,15 +1,22 @@
-@media (min-width: 768px) {
-	$animationSpeed: 30s;
-
-	@keyframes scroll {
-		0% { transform: translateX(0); }
-		100% { transform: translateX(calc(-384px * 9)); }
+	#carousel::-webkit-scrollbar {
+		display: none;	
 	}
-
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		width: calc(384px * 18);
-		animation-play-state: running;
-		overflow-y: unset !important;
+	#carousel {
+		scrollbar-width: none;
 	}
-}
+	@media (min-width: 768px) {
+		$animationSpeed: 30s;
+	
+		@keyframes scroll {
+			0% { transform: translateX(0); }
+			100% { transform: translateX(calc(-384px * 9)); }
+		}
+	
+		.slide-track {
+			animation: scroll $animationSpeed linear infinite;
+			width: calc(384px * 18);
+			animation-play-state: running;
+			overflow-y: unset !important;
+		}
+	}
+	
