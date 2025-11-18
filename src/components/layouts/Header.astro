@@ -21,7 +21,7 @@ export interface Props {
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/equipement"><HardHat alt="Equipement"/>Equipement</a>
 				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/>Accessoires</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/produit-outillage"><Wrench alt="Garage"/>Garage</a>
-                <a class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/">Recherche <Search alt="Search"/></a>
+                <a class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/recherche">Recherche <Search alt="Search"/></a>
 			</div>
         </div>
         <div class="flex justify-between lg:hidden gap-6">
@@ -30,7 +30,7 @@ export interface Props {
             </a>
             <div class="bg-white rounded-full mobile">
                 <div class="relative flex flex-col items-center justify-center">
-                    <a class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/"><Search alt="Search"/></a>
+                    <a class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/recherche"><Search alt="Search"/></a>
                     <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays"><Gauge alt="ALLDAYS"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition"><Trophy alt="Compétition"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique"><Paintbrush  alt="Esthetique"/></a>
@@ -49,7 +49,7 @@ export interface Props {
                         <div class="bg-white z-50 panneau fixed top-4 right-4 invisible opacity-0 rounded-3xl" id="panneauUn-panneau">
                              <label for="panneauDeux" class="menu-closed">
                                  <div class="flex flex-col justify-center">
-                                    <a class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/"><Search alt="Search" class="mx-4"/> Recherche</a>
+                                    <a class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/recherche"><Search alt="Search" class="mx-4"/> Recherche</a>
                                     <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays"><Gauge alt="ALLDAYS"/>Alldays</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition"><Trophy alt="Compétition"/>Compétition</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthétique</a>
