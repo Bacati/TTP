@@ -88,133 +88,30 @@ import Picture from 'components/global/Picture.astro';
       </div>
     </div>
   </main>
-<script>
-  document.querySelectorAll('img').forEach(img => {
-    img.loading = 'lazy';
-    img.decoding = 'async';
-  });
-</script>
 </MainLayout>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.getElementById('carousel') as HTMLElement | null;
-    const track = document.getElementById('slide') as HTMLElement | null;
-    const moveIndicator = document.getElementById('move') as HTMLElement | null;
-    if (!carousel || !track) return;
+	document.querySelectorAll('img').forEach(img => {
+		img.loading = 'lazy';
+		img.decoding = 'async';
+	});
+	document.addEventListener('DOMContentLoaded', function() {
+		const slider: any = document.getElementById('slide');
+		const moveIndicator: any = document.getElementById('move');
 
-    // 1) Pas de drag natif d’images
-    carousel.querySelectorAll('img').forEach(img => {
-      img.setAttribute('draggable', 'false');
-    });
-    carousel.addEventListener('dragstart', (e) => e.preventDefault(), { capture: true });
+		let isSliding = false;
 
-    // 2) Hint mobile une seule fois
-    let hinted = false;
-    const hintOnce = () => {
-      if (hinted || !moveIndicator) return;
-      hinted = true;
-      setTimeout(() => moveIndicator.classList.add('hidden'), 1000);
-    };
+		slider.addEventListener('touchstart', handleUserInteraction);
+		slider.addEventListener('mousedown', handleUserInteraction);
+		slider.addEventListener('scroll', handleUserInteraction);
 
-    // 3) Gestion du drag
-    let pointerActive = false;
-    let dragging = false;
-    let startX = 0;
-    let lastX = 0;
-    let startScrollLeft = 0;
-    let movedPx = 0;
+		function handleUserInteraction() {
+			if (!isSliding) {
+			isSliding = true;
 
-    const DRAG_THRESHOLD = 6; // px avant d'entrer en mode drag
-
-    const pause = () => { track.style.animationPlayState = 'paused'; };
-    const play  = () => { track.style.animationPlayState = ''; };
-
-    // Pour couper les interactions pendant le drag
-    const interactiveSelector = 'a, button, input, textarea, select, [role="button"]';
-    let disabledInteractive: HTMLElement[] = [];
-    const disableInteractives = () => {
-      disabledInteractive = Array.from(carousel.querySelectorAll<HTMLElement>(interactiveSelector));
-      disabledInteractive.forEach(el => el.classList.add('pointer-events-none'));
-    };
-    const enableInteractives = () => {
-      disabledInteractive.forEach(el => el.classList.remove('pointer-events-none'));
-      disabledInteractive = [];
-    };
-
-    carousel.addEventListener('pointerdown', (e: PointerEvent) => {
-      pointerActive = true;
-      dragging = false;
-      hintOnce();
-      startX = e.clientX;
-      lastX = e.clientX;
-      startScrollLeft = carousel.scrollLeft;
-      movedPx = 0;
-
-      carousel.setPointerCapture?.(e.pointerId);
-      // On ne pause pas encore l’animation : on attend le seuil
-    });
-
-    carousel.addEventListener('pointermove', (e: PointerEvent) => {
-      if (!pointerActive) return;
-
-      const dx = e.clientX - lastX;
-      lastX = e.clientX;
-      movedPx += Math.abs(dx);
-
-      if (!dragging) {
-        if (Math.abs(e.clientX - startX) < DRAG_THRESHOLD) return;
-        // On entre en mode drag
-        dragging = true;
-        pause();
-        disableInteractives();
-        carousel.classList.add('cursor-grabbing', 'select-none');
-      }
-
-      // Une fois en drag, on empêche la sélection/clic & on scroll
-      e.preventDefault();
-      carousel.scrollLeft = startScrollLeft - (e.clientX - startX);
-    }, { passive: false });
-
-    const endPointer = (e: PointerEvent) => {
-      if (!pointerActive) return;
-      pointerActive = false;
-
-      try { carousel.releasePointerCapture?.(e.pointerId); } catch {}
-
-      if (dragging) {
-        // Fin d'un vrai drag
-        dragging = false;
-        enableInteractives();
-        carousel.classList.remove('cursor-grabbing', 'select-none');
-        if (!carousel.matches(':hover')) play();
-      } else {
-        // Pas de drag => clic normal
-        // (on ne touche pas à l’anim qui peut être en pause via :hover)
-      }
-    };
-
-    carousel.addEventListener('pointerup', endPointer);
-    carousel.addEventListener('pointercancel', endPointer);
-    carousel.addEventListener('mouseleave', () => {
-      // Si la souris sort sans pointerup
-      if (!pointerActive && !dragging) { if (!carousel.matches(':hover')) play(); }
-    });
-
-    // Cohérence avec le hover
-    carousel.addEventListener('mouseenter', () => { if (!dragging) pause(); });
-    carousel.addEventListener('mouseleave', () => { if (!dragging) play(); });
-
-    // 4) Tue le clic si on a vraiment glissé (capture pour battre les <a>)
-    carousel.addEventListener('click', (e) => {
-      if (movedPx > DRAG_THRESHOLD) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, true);
-
-    // 5) Optionnel : pas de menu contextuel si on était en drag
-    carousel.addEventListener('contextmenu', (e) => {
-      if (movedPx > DRAG_THRESHOLD) e.preventDefault();
-    })
-  })
+			setTimeout(function() {
+				moveIndicator.classList.add('hidden');
+			}, 1000);
+			}
+		}
+	});
 </script>
