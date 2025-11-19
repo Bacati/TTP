@@ -1,6 +1,6 @@
 ---
 import Picture from 'astro/components/Picture.astro';
-import { Bike, Gauge, HardHat, House, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap } from 'lucide-astro';
+import { Bike, Gauge, HardHat, Search, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap } from 'lucide-astro';
 import logo from '/public/images/logo2.svg';
 
 export interface Props {
@@ -12,7 +12,7 @@ export interface Props {
 <header class="p-8 z-20 absolute w-full">
     <nav class="items-center">
         <div class="hidden justify-between items-center w-11/12 fixed lg:flex">
-			<a href="/" class="p-1 w-1/12"><img src="/images/logo2.svg" alt="TTP"></a>
+			<a href="/" class="p-1 w-2/12"><img src="/images/logo2.svg" alt="TTP"></a>
             <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex *:items-center text-[0.8vw]">
                 <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays"><Gauge alt="ALLDAYS" />Alldays</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition"><Trophy alt="Compétition"/>Compétitions</a>
@@ -21,7 +21,13 @@ export interface Props {
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/equipement"><HardHat alt="Equipement"/>Equipement</a>
 				<a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/>Accessoires</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/produit-outillage"><Wrench alt="Garage"/>Garage</a>
-                <a class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white" href="/">Accueil <House alt="Home"/></a>
+                <button
+                    type="button"
+                    data-open-search
+                    class="rounded-full bg flex py-3 px-6 gap-3 text-white shadow-2xl hover:bg-black hover:text-white"
+                >
+                    Recherche <Search alt="Search" />
+                </button>
 			</div>
         </div>
         <div class="flex justify-between lg:hidden gap-6">
@@ -30,7 +36,13 @@ export interface Props {
             </a>
             <div class="bg-white rounded-full mobile">
                 <div class="relative flex flex-col items-center justify-center">
-                    <a class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer" href="/"><House alt="Home"/></a>
+                    <button
+                        type="button"
+                        data-open-search
+                        class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer"
+                    >
+                        <Search alt="Search" />
+                    </button>
                     <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays"><Gauge alt="ALLDAYS"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition"><Trophy alt="Compétition"/></a>
                     <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique"><Paintbrush  alt="Esthetique"/></a>
@@ -49,7 +61,13 @@ export interface Props {
                         <div class="bg-white z-50 panneau fixed top-4 right-4 invisible opacity-0 rounded-3xl" id="panneauUn-panneau">
                              <label for="panneauDeux" class="menu-closed">
                                  <div class="flex flex-col justify-center">
-                                    <a class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center" href="/"><House alt="Home" class="mx-4"/> Accueil</a>
+                                    <button
+                                        type="button"
+                                        data-open-search
+                                        class="py-3 bg text-white flex rounded-t-3xl w-full gap-2 text-xl items-center justify-center"
+                                    >
+                                        Recherche <Search alt="Search" />
+                                    </button>
                                     <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays"><Gauge alt="ALLDAYS"/>Alldays</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition"><Trophy alt="Compétition"/>Compétition</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthétique</a>
