@@ -63,6 +63,7 @@ const isExternal = (p: Product) =>
   >
     <!-- Boîte principale -->
     <div
+      data-search-container
       class="w-full max-w-7xl bg-[#0f1015] rounded-3xl border border-orange-400/40 shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
     >
       <!-- Header overlay -->
@@ -252,8 +253,8 @@ const isExternal = (p: Product) =>
 </div>
 
 <script>
-  // Overlay / open / close
   const overlay = document.querySelector("[data-search-overlay]");
+  const container = overlay?.querySelector("[data-search-container]"); 
   const input = overlay?.querySelector("[data-search-input]");
   const resultsContainer = overlay?.querySelector("[data-search-results]");
   const cards = resultsContainer
@@ -267,7 +268,6 @@ const isExternal = (p: Product) =>
     document.body.style.overflow = "hidden";
     overlay.classList.remove("pointer-events-none");
     overlay.classList.add("opacity-100");
-    // reset input et résultats
     if (input) {
       input.value = "";
       setTimeout(() => input.focus(), 10);
@@ -290,7 +290,6 @@ const isExternal = (p: Product) =>
     overlay.classList.remove("opacity-100");
   }
 
-  // Boutons d'ouverture présents dans le header (desktop + mobile)
   document.querySelectorAll("[data-open-search]").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -298,26 +297,23 @@ const isExternal = (p: Product) =>
     });
   });
 
-  // Boutons de fermeture
+  // Fermeture via le bouton "Échap" (l'icône croix/bouton texte)
   overlay
     ?.querySelector("[data-search-close]")
     ?.addEventListener("click", () => closeSearch());
 
-  // Fermeture sur clic en dehors de la box
   overlay?.addEventListener("click", (e) => {
-    if (e.target === overlay) {
+    if (container && !container.contains(e.target)) {
       closeSearch();
     }
   });
 
-  // Échap pour fermer
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeSearch();
     }
   });
 
-  // Filtrage
   function updateSearch() {
     if (!input) return;
     const q = input.value.trim().toLowerCase();
