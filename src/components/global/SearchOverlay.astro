@@ -264,6 +264,7 @@ const isExternal = (p: Product) =>
 
   function openSearch() {
     if (!overlay) return;
+    document.body.style.overflow = "hidden";
     overlay.classList.remove("pointer-events-none");
     overlay.classList.add("opacity-100");
     // reset input et résultats
@@ -284,6 +285,7 @@ const isExternal = (p: Product) =>
 
   function closeSearch() {
     if (!overlay) return;
+    document.body.style.overflow = ""
     overlay.classList.add("pointer-events-none");
     overlay.classList.remove("opacity-100");
   }
