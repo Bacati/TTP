@@ -1,1207 +1,384 @@
-export const general = [
-	{
-	  roulement: 14,
-	  embrayage: 44,
-	  pipe: 14,
-	  carbu: 105,
-	  pot: 212,
-	  embrayageMost: 50,
-	  lamelleFibre: 10,
-	  carbu24: 110,
-	  potVoca: 279,
-	  clapetVl6: 33,
-	  lamelleCarbonne:23,
-	  mvtdd:289,
-	  potMost80:246,
-	  roulementMost:28,
-	  admiItalkit: 88,
-	  pvl: 399,
-	  vforce: 199,
-	  admiMost: 51,
-	  potMost70: 289,
-	  potTxtV8: 401,
-	  potTxtV21:459,
-	  carbu32: 129,
-	  viloItal: 229,
-	  viloItal44: 250,
-	},
-  ]
-  export const general70 = {
-	viloItal: 229,
-	carbu32: 129,
-	roulementMost: 28,
-	pvl: 399,
+// On centralise tout ici. C'est le seul endroit à modifier pour changer un prix général.
+const prices = {
+	// Pièces générales
+	roulement: 14,
+	embrayage: 44,
+	pipe: 14,
+	carbu: 105,
+	pot: 212,
 	embrayageMost: 50,
+	lamelleFibre: 10,
+	carbu24: 110,
+	potVoca: 279,
+	clapetVl6: 33,
+	lamelleCarbonne: 23,
+	mvtdd: 289,
+	potMost80: 246,
+	roulementMost: 28,
+	admiItalkit: 88,
+	pvl: 399,
 	vforce: 199,
 	admiMost: 51,
+	potMost70: 289,
 	potTxtV8: 401,
-  }
-  export const general80 = {
-	viloItal44: 250,
-	carbu32: 129,
-	roulementMost: 28,
-	pvl: 399,
-	embrayageMost: 50,
-	vforce: 199,
-	admiMost: 51,
-	potTxtV8: 401,
-  }
-  export const general90 = {
-	carbu32: 129,
-	roulementMost: 28,
-	pvl: 399,
-	embrayageMost: 50,
-	vforce: 199,
-	admiMost: 51,
 	potTxtV21: 459,
-  }
-
-  export const clearPot = [
-	{
-		nettoyant: 7.99
-	}
-  ]
-  export const all50Mk = [
-	{
-	  cylindre: 230,
-	  carbu: 118,
-	},
-  ]
-
-  export const all70top = [
-	{
-	  cylindre: 188,
-	  vilo: 105,
-	},
-  ]
-
-  export const all70airsal = [
-	{
-	  cylindre: 131,
-	  vilo: 77,
-	},
-  ]
-
-  export const all70airsalAlu = [
-	{
-	  cylindre: 132,
-	  vilo: 128,
-	},
-  ]
-
-  export const all75TopRose = [
-	{
-	  cylindre: 289,
-	  vilo: 129,
-	},
-  ]
-  export const all78Airsal = [
-	{
-	  cylindre: 219,
-	  vilo: 129,
-	},
-  ]
-  export const all78brk = [
-	{
-	  cylindre: 257,
-	  vilo: 162,
-	},
-  ]
-  export const allTopalu = [
-	{
-	  pack: 426,
-	  embrayage:65,
-	  bacTop: 97,
-	  pipeMost: 47,
-	  pot2win: 329,
-	},
-  ]
-  export const all78Most = [
-	{
-		cylindre: 249,
-	  	vilo:199,
-	},
-  ]
-  export const compet50Doppler = [
-	{
-		cylindre: 249,
-		vilo: 129,
-	},
-  ]
-  export const compet50Mhr = [
-	{
-		cylindre: 407,
-		vilo: 129,
-	},
-  ]
-  export const compet50Wr = [
-	{
-		cylindre: 417,
-		vilo: 280,
-		pot: 440,
-	},
-  ]
-  export const compet70Fast = [
-	{
-		cylindre: 492,
-	},
-  ]
-  export const compet70Wr = [
-	{
-		cylindre: 384,
-	},
-  ]
-  export const compet70ProRace = [
-	{
-		cylindre: 302,
-	},
-  ]
-  export const compet78xtrem = [
-	{
-		cylindre: 265,
-	},
-  ]
-  export const compet78mhr = [
-	{
-		cylindre: 398,
-	},
-  ]
-  export const compet78most = [
-	{
-		cylindre: 249,
-	},
-  ]
-  export const compet80fast = [
-	{
-		cylindre: 499,
-	},
-  ]
-  export const compet80wr = [
-	{
-		cylindre: 419,
-	},
-  ]
-  export const compet90wr = [
-	{
-		cylindre: 481,
-		viloItal44: 250,
-	},
-  ]
-  export const compet90fast = [
-	{
-		cylindre: 520,
-		viloItal44: 250,
-	},
-  ]
-  export const compet100fast = [
-	{
-		cylindre: 520,
-		vilo: 476
-	}
-  ]
-  export const compet96bida = [
-	{
-		cylindre: 481,
-		vilo: 350
-	}
-  ]
-  export const mcAdelin = [
-	{
-		maitre: 66.5
-	}
-  ]
-	export const progressif = [
-		{
-			cligno: 14.59
-		}
-	]
-	export const street = [
-		{
-			cligno: 23.99
-		}
-	]
-	export const greluma = [
-		{
-			cligno: 17.99
-		}
-	]
-	export const guidon = [
-		{
-			cligno: 21.99
-		}
-	]
-	export const autocollant = [
-		{
-			cligno: 16.99
-		}
-	]
-	export const kitNettoyage = [
-		{
-			cligno: 38
-		}
-	]
-	export const vulcanet = [
-		{
-			cligno: 43.99
-		}
-	]
-	export const wd = [
-		{
-			cligno: 9.99
-		}
-	]
-	export const wdSpray = [
-		{
-			cligno: 17.73
-		}
-	]
-	export const nettoyantFrein = [
-		{
-			cligno: 19.50
-		}
-	]
-	export const motul800 = [
-		{
-			cligno: 21.30
-		}
-	]
-	export const autosol = [
-		{
-			cligno: 8
-		}
-	]
-	export const chaine = [
-		{
-			cligno: 19
-		}
-	]
-	export const graisse = [
-		{
-			cligno: 21
-		}
-	]
-	export const huileBoite = [
-		{
-			cligno: 19
-		}
-	]
-	export const cuir = [
-		{
-			cligno: 14.55
-		}
-	]
-	export const bougie = [
-		{
-			cligno: 8
-		}
-	]
-	export const brosse = [
-		{
-			cligno: 8.99
-		}
-	]
-	export const wd40 = [
-		{
-			cligno: 5.9
-		}
-	]
-	export const pige = [
-		{
-			cligno: 49.99
-		}
-	]
-	export const alesage = [
-		{
-			cligno: 51.23
-		}
-	]
-	export const disque = [
-		{
-			cligno: 15.23
-		}
-	]
-	export const pied = [
-		{
-			cligno: 21.99
-		}
-	]
-	export const dynamo = [
-		{
-			cligno: 28.37
-		}
-	]
-	export const burette = [
-		{
-			cligno: 18.99
-		}
-	]
-	export const peteuse = [
-		{
-			cligno: 74.99
-		}
-	]
-	export const caisse = [
-		{
-			cligno: 139.05
-		}
-	]
-	export const montageRoulement = [
-		{
-			cligno: 39.99
-		}
-	]
-	export const extracteur = [
-		{
-			cligno: 20.99
-		}
-	]
-	export const branche3 = [
-		{
-			cligno: 44.80
-		}
-	]
-	export const dayuan = [
-		{
-			cligno: 38.95
-		}
-	]
-	export const inertie = [
-		{
-			cligno: 49
-		}
-	]
-	export const dremel = [
-		{
-			cligno: 54.99
-		}
-	]
-	export const renvoie = [
-		{
-			cligno: 91
-		}
-	]
-	export const fraise = [
-		{
-			cligno: 16.87
-		}
-	]
-	export const k1 = [
-		{
-			cligno: 142.99
-		}
-	]
-	export const rabat = [
-		{
-			cligno: 118.99
-		}
-	]
-	export const full9 = [
-		{
-			cligno: 273.93
-		}
-	]
-	export const shark = [
-		{
-			cligno: 249.99
-		}
-	]
-	export const poli = [
-		{
-			cligno: 87.99
-		}
-	]
-	export const prettyle = [
-		{
-			cligno: 42.99
-		}
-	]
-	export const exc = [
-		{
-			cligno: 62.99
-		}
-	]
-	export const arriere = [
-		{
-			cligno: 28.99
-		}
-	]
-	export const barre = [
-		{
-			cligno: 3.99
-		}
-	]
-	export const yngia = [
-		{
-			cligno: 35.99
-		}
-	]
-	export const horse = [
-		{
-			cligno: 15.99
-		}
-	]
-	export const evomosa = [
-		{
-			cligno: 28.99
-		}
-	]
-	export const jfg = [
-		{
-			cligno: 25.99
-		}
-	]
-	export const barreAlu = [
-		{
-			cligno: 27.99
-		}
-	]
-	export const vent = [
-		{
-			cligno: 29.99
-		}
-	]
-	export const protec = [
-		{
-			cligno: 34.99
-		}
-	]
-	export const embro = [
-		{
-			cligno: 44.99
-		}
-	]
-	export const woostar = [
-		{
-			cligno: 119.20
-		}
-	]
-	export const universal = [
-		{
-			cligno: 28.20
-		}
-	]
-	export const rcs = [
-		{
-			cligno: 105.90
-		}
-	]
-	export const clutch = [
-		{
-			cligno: 54.59
-		}
-	]
-	export const madbike = [
-		{
-			cligno: 7.99
-		}
-	]
-	export const support = [
-		{
-			cligno: 34.99
-		}
-	]
-	export const supportTel = [
-		{
-			cligno: 79.99
-		}
-	]
-	export const appli = [
-		{
-			cligno: 4.09
-		}
-	]
-	export const cagoule = [
-		{
-			cligno: 9.99
-		}
-	]
-	export const antivol = [
-		{
-			cligno: 37.99
-		}
-	]
-	export const cardo = [
-		{
-			cligno: 93.99
-		}
-	]
-	export const gonfleur = [
-		{
-			cligno: 39.99
-		}
-	]
-	export const stand = [
-		{
-			cligno: 59.99
-		}
-	]
-	export const vis = [
-		{
-			cligno: 35
-		}
-	]
-	export const housse = [
-		{
-			cligno: 279
-		}
-	]
-	export const calePied = [
-		{
-			cligno: 189
-		}
-	]
-	export const calePiedPro = [
-		{
-			cligno: 318
-		}
-	]
-	export const leveMoto = [
-		{
-			cligno: 153
-		}
-	]
-	export const grille = [
-		{
-			cligno: 330
-		}
-	]
-	export const elevateur = [
-		{
-			cligno: 154
-		}
-	]
-	export const start = [
-		{
-			cligno: 83
-		}
-	]
-
-  const calculateTotalPrice = (specificParts: any, generalParts70: any = {}, generalParts80: any = {}, generalParts90: any = {}, generalParts: any, additionalParts: string[] = []) => {
-    let total = 0
-    // Additionner les valeurs spécifiques
-    for (const part of Object.values(specificParts)) {
-        total += part
-    }
-    if (Object.keys(generalParts70).length > 0) {
-        for (const part of Object.values(generalParts70)) {
-            total += part
-        }
-    }
-	if (Object.keys(generalParts80).length > 0) {
-        for (const part of Object.values(generalParts80)) {
-            total += part
-        }
-    }
-	if (Object.keys(generalParts90).length > 0) {
-        for (const part of Object.values(generalParts90)) {
-            total += part
-        }
-    }
-    // Additionner les valeurs supplémentaires
-    for (const part of additionalParts) {
-        total += generalParts[part] || 0
-    }
-
-    return total
-}
-
-  const PrixAllMk = () => {
-	const specific = all50Mk[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot'])
-  }
-
-  const PrixAllTop = () => {
-	const specific = all70top[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot', 'roulement', 'embrayage', 'pipe', 'carbu'])
-  }
-
-  const PrixAllAirsal = () => {
-	const specific = all70airsal[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['pot', 'roulement', 'embrayage', 'pipe', 'carbu'])
-  }
-
-  const PrixAllAirsalAlu = () => {
-	const specific = all70airsalAlu[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleFibre', 'pipe', 'carbu24'])
-  }
-
-  const PrixAllTopRose = () => {
-	const specific = all75TopRose[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu24'])
-  }
-  const PrixAll78Airsal = () => {
-	const specific = all78Airsal[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potVoca', 'roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu24'])
-  }
-  const PrixAll78Brk = () => {
-	const specific = all78brk[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['potMost80', 'embrayageMost', 'carbu24', 'mvtdd', 'roulementMost', 'admiItalkit'])
-  }
-  const PrixAllTopAlu = () => {
-	const specific = allTopalu[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24'])
-  }
-  const PrixAll78Most = () => {
-	const specific = all78Most[0]
-	const generalParts = general[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'potMost80', 'embrayageMost', 'mvtdd', 'roulementMost', 'admiItalkit'])
-  }
-  const PrixClear = () => {
-	const specific = clearPot[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCompetDoppler = () => {
-	const specific = compet50Doppler[0]
-	const generalParts = general[0]
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70' ])
-  }
-  const PrixCompet50Mhr = () => {
-	const specific = compet50Mhr[0]
-	const generalParts = general[0]
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70' ])
-  }
-  const PrixCompet50Wr = () => {
-	const specific = compet50Wr[0]
-	const generalParts = general[0]
-	return calculateTotalPrice(specific, {}, {}, {}, generalParts, ['carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost' ])
-  }
-  const PrixCompet70Fast = () => {
-	const specific = compet70Fast[0]
-	return calculateTotalPrice(specific, general70, {}, {}, {},)
-  }
-  const PrixCompet70Wr = () => {
-	const specific = compet70Wr[0]
-	return calculateTotalPrice(specific, general70, {}, {}, {})
-  }
-  const PrixCompet70ProRace = () => {
-	const specific = compet70ProRace[0]
-	return calculateTotalPrice(specific, general70, {}, {}, {})
-  }
-  const PrixCompet78xtrem = () => {
-	const specific = compet78xtrem[0]
-	return calculateTotalPrice(specific, general70, {}, {}, {})
-  }
-  const PrixCompet78mhr = () => {
-	const specific = compet78mhr[0]
-	return calculateTotalPrice(specific, general70, {}, {}, {})
-  }
-  const PrixCompet78most = () => {
-	const specific = compet78most[0]
-	return calculateTotalPrice(specific, general70, {}, {}, {})
-  }
-  const PrixCompet80fast = () => {
-	const specific = compet80fast[0]
-	return calculateTotalPrice(specific, {}, general80, {}, {})
-  }
-  const PrixCompet80wr = () => {
-	const specific = compet80wr[0]
-	return calculateTotalPrice(specific, {}, general80, {}, {})
-  }
-  const PrixCompet90wr = () => {
-	const specific = compet90wr[0]
-	return calculateTotalPrice(specific, {}, general90, {}, {})
-  }
-  const PrixCompet90fast = () => {
-	const specific = compet90fast[0]
-	return calculateTotalPrice(specific, {}, general90, {}, {})
-  }
-  const PrixCompet100fast = () => {
-	const specific = compet100fast[0]
-	return calculateTotalPrice(specific, {}, general90, {}, {})
-  }
-  const PrixCompet96bida = () => {
-	const specific = compet96bida[0]
-	return calculateTotalPrice(specific, {}, general90, {}, {})
-  }
-  const PrixMcAdelin = () => {
-	const specific = mcAdelin[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixProgressif = () => {
-	const specific = progressif[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixStreet = () => {
-	const specific = street[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixGreluma = () => {
-	const specific = greluma[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixGuidon = () => {
-	const specific = guidon[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixAutocollant = () => {
-	const specific = autocollant[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixKitNettoyage = () => {
-	const specific = kitNettoyage[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixVulcanet = () => {
-	const specific = vulcanet[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-   const PrixWd = () => {
-	const specific = wd[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixWdSpray = () => {
-	const specific = wdSpray[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixNettoyantFrein = () => {
-	const specific = nettoyantFrein[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixMotul800 = () => {
-	const specific = motul800[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixAutosol = () => {
-	const specific = autosol[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixChaine = () => {
-	const specific = chaine[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixGraisse = () => {
-	const specific = graisse[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixHuileBoite = () => {
-	const specific = huileBoite[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCuir = () => {
-	const specific = cuir[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixBougie = () => {
-	const specific = bougie[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixBrosse = () => {
-	const specific = brosse[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixWd40 = () => {
-	const specific = wd40[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-   const PrixPige = () => {
-	const specific = pige[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixAlesage = () => {
-	const specific = alesage[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixDisque = () => {
-	const specific = disque[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixPied = () => {
-	const specific = pied[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixDynamo = () => {
-	const specific = dynamo[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixBurette = () => {
-	const specific = burette[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixPeteuse = () => {
-	const specific = peteuse[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCaisse = () => {
-	const specific = caisse[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixMontageRoulement = () => {
-	const specific = montageRoulement[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixExtracteur = () => {
-	const specific = extracteur[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-   const PrixBranche3 = () => {
-	const specific = branche3[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixDayuan = () => {
-	const specific = dayuan[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixInertie = () => {
-	const specific = inertie[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixDremel = () => {
-	const specific = dremel[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixRenvoie = () => {
-	const specific = renvoie[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixFraise = () => {
-	const specific = fraise[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixK1 = () => {
-	const specific = k1[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixRabat = () => {
-	const specific = rabat[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixFull9 = () => {
-	const specific = full9[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixShark = () => {
-	const specific = shark[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixPoli = () => {
-	const specific = poli[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixPrettyle = () => {
-	const specific = prettyle[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixExc = () => {
-	const specific = exc[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixArriere = () => {
-	const specific = arriere[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixBarre = () => {
-	const specific = barre[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixYngia = () => {
-	const specific = yngia[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-	const PrixHorse = () => {
-		const specific = horse[0]
-
-		return calculateTotalPrice(specific, {}, {}, {}, {})
-	}
-  const PrixEvomosa = () => {
-	const specific = evomosa[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixJfg = () => {
-	const specific = jfg[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixBarreAlu = () => {
-	const specific = barreAlu[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixVent = () => {
-	const specific = vent[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixProtec = () => {
-	const specific = protec[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixEmbro = () => {
-	const specific = embro[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixWoostar = () => {
-	const specific = woostar[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixUniversal = () => {
-	const specific = universal[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixRcs = () => {
-	const specific = rcs[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixClutch = () => {
-	const specific = clutch[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixMadbike = () => {
-	const specific = madbike[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixSupport = () => {
-	const specific = support[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixSupportTel = () => {
-	const specific = supportTel[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixAppli = () => {
-	const specific = appli[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCagoule = () => {
-	const specific = cagoule[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixAntivol = () => {
-	const specific = antivol[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCardo = () => {
-	const specific = cardo[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixGonfleur = () => {
-	const specific = gonfleur[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixStand = () => {
-	const specific = stand[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixVis = () => {
-	const specific = vis[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixHousse = () => {
-	const specific = housse[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCalePied = () => {
-	const specific = calePied[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixCalePiedPro = () => {
-	const specific = calePiedPro[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixLeveMoto = () => {
-	const specific = leveMoto[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixGrille = () => {
-	const specific = grille[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixElevateur = () => {
-	const specific = elevateur[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-  const PrixStart = () => {
-	const specific = start[0]
-
-	return calculateTotalPrice(specific, {}, {}, {}, {})
-  }
-
+	carbu32: 129,
+	viloItal: 229,
+	viloItal44: 250,
+	
+	// Accessoires & Entretien (Produits simples)
+	nettoyant: 7.99,
+	maitre: 66.5,
+	cligno_progressif: 14.59,
+	cligno_street: 23.99,
+	cligno_greluma: 17.99,
+	cligno_guidon: 21.99,
+	cligno_autocollant: 16.99,
+	kitNettoyage: 38,
+	vulcanet: 43.99,
+	wd: 9.99,
+	wdSpray: 17.73,
+	nettoyantFrein: 19.50,
+	motul800: 21.30,
+	autosol: 8,
+	chaine: 19,
+	graisse: 21,
+	huileBoite: 19,
+	cuir: 14.55,
+	bougie: 8,
+	brosse: 8.99,
+	wd40: 5.9,
+	pige: 49.99,
+	alesage: 51.23,
+	disque: 15.23,
+	pied: 21.99,
+	dynamo: 28.37,
+	burette: 18.99,
+	peteuse: 74.99,
+	caisse: 139.05,
+	montageRoulement: 39.99,
+	extracteur: 20.99,
+	branche3: 44.80,
+	dayuan: 38.95,
+	inertie: 49,
+	dremel: 54.99,
+	renvoie: 91,
+	fraise: 16.87,
+	k1: 142.99,
+	rabat: 118.99,
+	full9: 273.93,
+	shark: 249.99,
+	poli: 87.99,
+	prettyle: 42.99,
+	exc: 62.99,
+	arriere: 28.99,
+	barre: 3.99,
+	yngia: 35.99,
+	horse: 15.99,
+	evomosa: 28.99,
+	jfg: 25.99,
+	barreAlu: 27.99,
+	vent: 29.99,
+	protec: 34.99,
+	embro: 44.99,
+	woostar: 119.20,
+	universal: 28.20,
+	rcs: 105.90,
+	clutch: 54.59,
+	madbike: 7.99,
+	support: 34.99,
+	supportTel: 79.99,
+	appli: 4.09,
+	cagoule: 9.99,
+	antivol: 37.99,
+	cardo: 93.99,
+	gonfleur: 39.99,
+	stand: 59.99,
+	vis: 35,
+	housse: 279,
+	calePied: 189,
+	calePiedPro: 318,
+	leveMoto: 153,
+	grille: 330,
+	elevateur: 154,
+	start: 83,
+  };
+  
+  // --- 2. FONCTION DE CALCUL (Le moteur) ---
+  // Calcule le prix total en additionnant les objets et les clés
+  const calc = (specificObj: any, ...extras: (object | string)[]) => {
+	let total = Object.values(specificObj).reduce((a: number, b: any) => a + b, 0);
+	
+	extras.forEach(item => {
+	  if (typeof item === 'string') {
+		// Si c'est une clé (ex: 'pot'), on cherche dans prices
+		total += prices[item as keyof typeof prices] || 0;
+	  } else {
+		// Si c'est un objet (ex: general70), on additionne ses valeurs
+		total += Object.values(item).reduce((a: number, b: any) => a + b, 0);
+	  }
+	});
+	// Arrondi pour éviter les erreurs de flottants (ex: 19.9900004)
+	return Math.round(total * 100) / 100;
+  };
+  
+  // --- 3. DÉFINITION DES COMPOSANTS (Interne) ---
+  // On définit les objets simples ici pour s'en servir dans les calculs ET les exports
+  const defs = {
+	all50Mk: { cylindre: 230, carbu: 118 },
+	all70top: { cylindre: 188, vilo: 105 },
+	all70airsal: { cylindre: 131, vilo: 77 },
+	all70airsalAlu: { cylindre: 132, vilo: 128 },
+	all75TopRose: { cylindre: 289, vilo: 129 },
+	all78Airsal: { cylindre: 219, vilo: 129 },
+	all78brk: { cylindre: 257, vilo: 162 },
+	allTopalu: { pack: 426, embrayage: 65, bacTop: 97, pipeMost: 47, pot2win: 329 },
+	all78Most: { cylindre: 249, vilo: 199 },
+	
+	// Compétition
+	compet50Doppler: { cylindre: 249, vilo: 129 },
+	compet50Mhr: { cylindre: 407, vilo: 129 },
+	compet50Wr: { cylindre: 417, vilo: 280, pot: 440 },
+	compet70Fast: { cylindre: 492 },
+	compet70Wr: { cylindre: 384 },
+	compet70ProRace: { cylindre: 302 },
+	compet78xtrem: { cylindre: 265 },
+	compet78mhr: { cylindre: 398 },
+	compet78most: { cylindre: 249 },
+	compet80fast: { cylindre: 499 },
+	compet80wr: { cylindre: 419 },
+	compet90wr: { cylindre: 481, viloItal44: 250 },
+	compet90fast: { cylindre: 520, viloItal44: 250 },
+	compet100fast: { cylindre: 520, vilo: 476 },
+	compet96bida: { cylindre: 481, vilo: 350 },
+  };
+  
+  // Les packs généraux (Objets, comme dans votre original)
+  export const general70 = { viloItal: prices.viloItal, carbu32: prices.carbu32, roulementMost: prices.roulementMost, pvl: prices.pvl, embrayageMost: prices.embrayageMost, vforce: prices.vforce, admiMost: prices.admiMost, potTxtV8: prices.potTxtV8 };
+  export const general80 = { viloItal44: prices.viloItal44, carbu32: prices.carbu32, roulementMost: prices.roulementMost, pvl: prices.pvl, embrayageMost: prices.embrayageMost, vforce: prices.vforce, admiMost: prices.admiMost, potTxtV8: prices.potTxtV8 };
+  export const general90 = { carbu32: prices.carbu32, roulementMost: prices.roulementMost, pvl: prices.pvl, embrayageMost: prices.embrayageMost, vforce: prices.vforce, admiMost: prices.admiMost, potTxtV21: prices.potTxtV21 };
+  
+  // --- 4. EXPORTS COMPATIBLES (Tableaux d'objets) ---
+  
+  // Export general (Array wrapper pour compatibilité general[0])
+  export const general = [prices];
+  
+  // Exports des Kits (Array wrapper pour compatibilité all50Mk[0])
+  export const all50Mk = [defs.all50Mk];
+  export const all70top = [defs.all70top];
+  export const all70airsal = [defs.all70airsal];
+  export const all70airsalAlu = [defs.all70airsalAlu];
+  export const all75TopRose = [defs.all75TopRose];
+  export const all78Airsal = [defs.all78Airsal];
+  export const all78brk = [defs.all78brk];
+  export const allTopalu = [defs.allTopalu];
+  export const all78Most = [defs.all78Most];
+  export const compet50Doppler = [defs.compet50Doppler];
+  export const compet50Mhr = [defs.compet50Mhr];
+  export const compet50Wr = [defs.compet50Wr];
+  export const compet70Fast = [defs.compet70Fast];
+  export const compet70Wr = [defs.compet70Wr];
+  export const compet70ProRace = [defs.compet70ProRace];
+  export const compet78xtrem = [defs.compet78xtrem];
+  export const compet78mhr = [defs.compet78mhr];
+  export const compet78most = [defs.compet78most];
+  export const compet80fast = [defs.compet80fast];
+  export const compet80wr = [defs.compet80wr];
+  export const compet90wr = [defs.compet90wr];
+  export const compet90fast = [defs.compet90fast];
+  export const compet100fast = [defs.compet100fast];
+  export const compet96bida = [defs.compet96bida];
+  
+  // Exports des Produits Simples (Array wrapper pour compatibilité)
+  // Dans votre ancien code, vous utilisiez souvent la clé "cligno" ou "nettoyant", je mappe tout ça.
+  export const clearPot = [{ nettoyant: prices.nettoyant }];
+  export const mcAdelin = [{ maitre: prices.maitre }];
+  // Génération automatique pour tous les produits qui utilisent la clé 'cligno' dans votre original
+  const makeExport = (key: keyof typeof prices) => [{ cligno: prices[key] }];
+  
+  export const progressif = makeExport('cligno_progressif');
+  export const street = makeExport('cligno_street');
+  export const greluma = makeExport('cligno_greluma');
+  export const guidon = makeExport('cligno_guidon');
+  export const autocollant = makeExport('cligno_autocollant');
+  export const kitNettoyage = makeExport('kitNettoyage');
+  export const vulcanet = makeExport('vulcanet');
+  export const wd = makeExport('wd');
+  export const wdSpray = makeExport('wdSpray');
+  export const nettoyantFrein = makeExport('nettoyantFrein');
+  export const motul800 = makeExport('motul800');
+  export const autosol = makeExport('autosol');
+  export const chaine = makeExport('chaine');
+  export const graisse = makeExport('graisse');
+  export const huileBoite = makeExport('huileBoite');
+  export const cuir = makeExport('cuir');
+  export const bougie = makeExport('bougie');
+  export const brosse = makeExport('brosse');
+  export const wd40 = makeExport('wd40');
+  export const pige = makeExport('pige');
+  export const alesage = makeExport('alesage');
+  export const disque = makeExport('disque');
+  export const pied = makeExport('pied');
+  export const dynamo = makeExport('dynamo');
+  export const burette = makeExport('burette');
+  export const peteuse = makeExport('peteuse');
+  export const caisse = makeExport('caisse');
+  export const montageRoulement = makeExport('montageRoulement');
+  export const extracteur = makeExport('extracteur');
+  export const branche3 = makeExport('branche3');
+  export const dayuan = makeExport('dayuan');
+  export const inertie = makeExport('inertie');
+  export const dremel = makeExport('dremel');
+  export const renvoie = makeExport('renvoie');
+  export const fraise = makeExport('fraise');
+  export const k1 = makeExport('k1');
+  export const rabat = makeExport('rabat');
+  export const full9 = makeExport('full9');
+  export const shark = makeExport('shark');
+  export const poli = makeExport('poli');
+  export const prettyle = makeExport('prettyle');
+  export const exc = makeExport('exc');
+  export const arriere = makeExport('arriere');
+  export const barre = makeExport('barre');
+  export const yngia = makeExport('yngia');
+  export const horse = makeExport('horse');
+  export const evomosa = makeExport('evomosa');
+  export const jfg = makeExport('jfg');
+  export const barreAlu = makeExport('barreAlu');
+  export const vent = makeExport('vent');
+  export const protec = makeExport('protec');
+  export const embro = makeExport('embro');
+  export const woostar = makeExport('woostar');
+  export const universal = makeExport('universal');
+  export const rcs = makeExport('rcs');
+  export const clutch = makeExport('clutch');
+  export const madbike = makeExport('madbike');
+  export const support = makeExport('support');
+  export const supportTel = makeExport('supportTel');
+  export const appli = makeExport('appli');
+  export const cagoule = makeExport('cagoule');
+  export const antivol = makeExport('antivol');
+  export const cardo = makeExport('cardo');
+  export const gonfleur = makeExport('gonfleur');
+  export const stand = makeExport('stand');
+  export const vis = makeExport('vis');
+  export const housse = makeExport('housse');
+  export const calePied = makeExport('calePied');
+  export const calePiedPro = makeExport('calePiedPro');
+  export const leveMoto = makeExport('leveMoto');
+  export const grille = makeExport('grille');
+  export const elevateur = makeExport('elevateur');
+  export const start = makeExport('start');
+  
+  // --- 5. EXPORT CONFIG (Calculs finaux) ---
+  // C'est ce tableau que vous utilisez le plus souvent (config[0]?.key)
   export const config = [
 	{
-	  allMk: PrixAllMk(),
-	  allTop: PrixAllTop(),
-	  allAirsal: PrixAllAirsal(),
-	  allAirsalAlu: PrixAllAirsalAlu(),
-	  allTopRose: PrixAllTopRose(),
-	  all78Airsal: PrixAll78Airsal(),
-	  all78brk : PrixAll78Brk(),
-	  allTopalu : PrixAllTopAlu(),
-	  all78Most : PrixAll78Most(),
-	  clearPot : PrixClear(),
-	  compet50Doppler : PrixCompetDoppler(),
-	  compet50Mhr : PrixCompet50Mhr(),
-	  compet50Wr : PrixCompet50Wr(),
-	  compet70Fast : PrixCompet70Fast(),
-	  compet70Wr : PrixCompet70Wr(),
-	  compet70ProRace : PrixCompet70ProRace(),
-	  compet78xtrem : PrixCompet78xtrem(),
-	  compet78mhr : PrixCompet78mhr(),
-	  compet78most : PrixCompet78most(),
-	  compet80fast : PrixCompet80fast(),
-	  compet80wr : PrixCompet80wr(),
-	  compet90wr : PrixCompet90wr(),
-	  compet90fast : PrixCompet90fast(),
-	  compet100fast : PrixCompet100fast(),
-	  compet96bida : PrixCompet96bida(),
-	  mcAdelin : PrixMcAdelin(),
-	  progressif : PrixProgressif(),
-	  street : PrixStreet(),
-	  greluma : PrixGreluma(),
-	  guidon : PrixGuidon(),
-	  autocollant : PrixAutocollant(),
-	  kitNettoyage : PrixKitNettoyage(),
-	  vulcanet : PrixVulcanet(),
-		wd : PrixWd(),
-		wdSpray : PrixWdSpray(),
-		nettoyantFrein : PrixNettoyantFrein(),
-		motul800 : PrixMotul800(),
-		autosol : PrixAutosol(),
-		chaine : PrixChaine(),
-		graisse : PrixGraisse(),
-		huileBoite : PrixHuileBoite(),
-		cuir : PrixCuir(),
-		bougie : PrixBougie(),
-		brosse : PrixBrosse(),
-		wd40 : PrixWd40(),
-		pige : PrixPige(),
-		alesage : PrixAlesage(),
-		disque : PrixDisque(),
-		pied : PrixPied(),
-		dynamo : PrixDynamo(),
-		burette : PrixBurette(),
-		peteuse : PrixPeteuse(),
-		caisse : PrixCaisse(),
-		montageRoulement : PrixMontageRoulement(),
-		extracteur : PrixExtracteur(),
-		branche3 : PrixBranche3(),
-		dayuan : PrixDayuan(),
-		inertie : PrixInertie(),
-		dremel : PrixDremel(),
-		renvoie : PrixRenvoie(),
-		fraise : PrixFraise(),
-		k1 : PrixK1(),
-		rabat : PrixRabat(),
-		full9 : PrixFull9(),
-		shark : PrixShark(),
-		poli : PrixPoli(),
-		prettyle : PrixPrettyle(),
-		exc : PrixExc(),
-		arriere : PrixArriere(),
-		barre : PrixBarre(),
-		yngia : PrixYngia(),
-		horse : PrixHorse(),
-		evomosa : PrixEvomosa(),
-		jfg : PrixJfg(),
-		barreAlu : PrixBarreAlu(),
-		vent : PrixVent(),
-		protec : PrixProtec(),
-		embro : PrixEmbro(),
-		woostar : PrixWoostar(),
-		universal : PrixUniversal(),
-		rcs : PrixRcs(),
-		clutch : PrixClutch(),
-		madbike : PrixMadbike(),
-		support : PrixSupport(),
-		supportTel : PrixSupportTel(),
-		appli : PrixAppli(),
-		cagoule : PrixCagoule(),
-		antivol : PrixAntivol(),
-		cardo : PrixCardo(),
-		gonfleur : PrixGonfleur(),
-		stand : PrixStand(),
-		vis : PrixVis(),
-		housse : PrixHousse(),
-		calePied : PrixCalePied(),
-		calePiedPro : PrixCalePiedPro(),
-		leveMoto : PrixLeveMoto(),
-		grille : PrixGrille(),
-		elevateur : PrixElevateur(),
-		start : PrixStart(),
-	},
+	  allMk:           calc(defs.all50Mk, 'pot'),
+	  allTop:          calc(defs.all70top, 'pot', 'roulement', 'embrayage', 'pipe', 'carbu'),
+	  allAirsal:       calc(defs.all70airsal, 'pot', 'roulement', 'embrayage', 'pipe', 'carbu'),
+	  allAirsalAlu:    calc(defs.all70airsalAlu, 'potVoca', 'roulement', 'embrayageMost', 'lamelleFibre', 'pipe', 'carbu24'),
+	  allTopRose:      calc(defs.all75TopRose, 'potVoca', 'roulement', 'embrayageMost', 'clapetVl6', 'pipe', 'carbu24'),
+	  all78Airsal:     calc(defs.all78Airsal, 'potVoca', 'roulement', 'embrayageMost', 'lamelleCarbonne', 'pipe', 'carbu24'),
+	  all78brk:        calc(defs.all78brk, 'potMost80', 'embrayageMost', 'carbu24', 'mvtdd', 'roulementMost', 'admiItalkit'),
+	  allTopalu:       calc(defs.allTopalu, 'carbu24'),
+	  all78Most:       calc(defs.all78Most, 'carbu24', 'potMost80', 'embrayageMost', 'mvtdd', 'roulementMost', 'admiItalkit'),
+	  
+	  clearPot:        calc({ p: prices.nettoyant }),
+	  
+	  compet50Doppler: calc(defs.compet50Doppler, 'carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70'),
+	  compet50Mhr:     calc(defs.compet50Mhr, 'carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost', 'potMost70'),
+	  compet50Wr:      calc(defs.compet50Wr, 'carbu24', 'roulementMost', 'pvl', 'embrayageMost', 'vforce', 'admiMost'),
+	  
+	  compet70Fast:    calc(defs.compet70Fast, general70),
+	  compet70Wr:      calc(defs.compet70Wr, general70),
+	  compet70ProRace: calc(defs.compet70ProRace, general70),
+	  compet78xtrem:   calc(defs.compet78xtrem, general70),
+	  compet78mhr:     calc(defs.compet78mhr, general70),
+	  compet78most:    calc(defs.compet78most, general70),
+	  
+	  compet80fast:    calc(defs.compet80fast, general80),
+	  compet80wr:      calc(defs.compet80wr, general80),
+	  
+	  compet90wr:      calc(defs.compet90wr, general90),
+	  compet90fast:    calc(defs.compet90fast, general90),
+	  compet100fast:   calc(defs.compet100fast, general90),
+	  compet96bida:    calc(defs.compet96bida, general90),
+  
+	  // Produits simples (directement mappés depuis l'objet prices pour éviter les fonctions inutiles)
+	  mcAdelin:        prices.maitre,
+	  progressif:      prices.cligno_progressif,
+	  street:          prices.cligno_street,
+	  greluma:         prices.cligno_greluma,
+	  guidon:          prices.cligno_guidon,
+	  autocollant:     prices.cligno_autocollant,
+	  kitNettoyage:    prices.kitNettoyage,
+	  vulcanet:        prices.vulcanet,
+	  wd:              prices.wd,
+	  wdSpray:         prices.wdSpray,
+	  nettoyantFrein:  prices.nettoyantFrein,
+	  motul800:        prices.motul800,
+	  autosol:         prices.autosol,
+	  chaine:          prices.chaine,
+	  graisse:         prices.graisse,
+	  huileBoite:      prices.huileBoite,
+	  cuir:            prices.cuir,
+	  bougie:          prices.bougie,
+	  brosse:          prices.brosse,
+	  wd40:            prices.wd40,
+	  pige:            prices.pige,
+	  alesage:         prices.alesage,
+	  disque:          prices.disque,
+	  pied:            prices.pied,
+	  dynamo:          prices.dynamo,
+	  burette:         prices.burette,
+	  peteuse:         prices.peteuse,
+	  caisse:          prices.caisse,
+	  montageRoulement: prices.montageRoulement,
+	  extracteur:      prices.extracteur,
+	  branche3:        prices.branche3,
+	  dayuan:          prices.dayuan,
+	  inertie:         prices.inertie,
+	  dremel:          prices.dremel,
+	  renvoie:         prices.renvoie,
+	  fraise:          prices.fraise,
+	  k1:              prices.k1,
+	  rabat:           prices.rabat,
+	  full9:           prices.full9,
+	  shark:           prices.shark,
+	  poli:            prices.poli,
+	  prettyle:        prices.prettyle,
+	  exc:             prices.exc,
+	  arriere:         prices.arriere,
+	  barre:           prices.barre,
+	  yngia:           prices.yngia,
+	  horse:           prices.horse,
+	  evomosa:         prices.evomosa,
+	  jfg:             prices.jfg,
+	  barreAlu:        prices.barreAlu,
+	  vent:            prices.vent,
+	  protec:          prices.protec,
+	  embro:           prices.embro,
+	  woostar:         prices.woostar,
+	  universal:       prices.universal,
+	  rcs:             prices.rcs,
+	  clutch:          prices.clutch,
+	  madbike:         prices.madbike,
+	  support:         prices.support,
+	  supportTel:      prices.supportTel,
+	  appli:           prices.appli,
+	  cagoule:         prices.cagoule,
+	  antivol:         prices.antivol,
+	  cardo:           prices.cardo,
+	  gonfleur:        prices.gonfleur,
+	  stand:           prices.stand,
+	  vis:             prices.vis,
+	  housse:          prices.housse,
+	  calePied:        prices.calePied,
+	  calePiedPro:     prices.calePiedPro,
+	  leveMoto:        prices.leveMoto,
+	  grille:          prices.grille,
+	  elevateur:       prices.elevateur,
+	  start:           prices.start,
+	}
   ]
