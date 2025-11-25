@@ -17,7 +17,7 @@ export const categories = [
 				alt: "Dégraissant de Chaine",
 				price: config[0]?.chaine || 'N/A',
 				image: "chaine.png",
-				configKey: "https://amzn.to/4pUVFhV"
+				configKey: "https://mucoff.sjv.io/09WEnM"
 			},
 			{
 				title: "Graisse de chaîne",
@@ -25,7 +25,7 @@ export const categories = [
 				alt: "Graisse de chaîne",
 				price: config[0]?.graisse || 'N/A',
 				image: "graisse.png",
-				configKey: "https://amzn.to/4pMiBj9"
+				configKey: "https://mucoff.sjv.io/WynWJM"
 			},
 			{
 				title: "Huile de boîte 10w40",

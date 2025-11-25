@@ -59,7 +59,7 @@ export const categories = [
 				alt: "Kit nettoyage Muc-Off",
 				price: config[0]?.kitNettoyage || 'N/A',
 				image: "kit-nettoyage.png",
-				configKey: "https://amzn.to/48qy56r"
+				configKey: "https://mucoff.sjv.io/WynWgP"
 			},
 			{
 				title: "Vulcanet lingettes nettoyante",
