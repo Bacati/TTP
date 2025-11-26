@@ -62,7 +62,7 @@ export const categories = [
 				logo: "mycover.avif",
 				alt: "Antivol",
 				image: "antivol.png",
-				configKey: "https://www.mycover-protection.com/fr/?wpam_id=60"
+				configKey: "https://www.mycover-protection.com/fr/categorie-de-produits/antivols-abus/?wpam_id=60"
 			},
 			{
 				title: "Système de communication",
