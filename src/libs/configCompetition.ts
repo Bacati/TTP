@@ -130,7 +130,7 @@ const configurations = {
     "50cc Doppler vortex",
 	`${imagePrefix}/doppler.png`,
     "Doppler vortex",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet50Doppler,
     ["vortex.png", ...imageConfig50, "potmost70.png"],
     createSpecificPieces(
@@ -143,7 +143,7 @@ const configurations = {
     "50cc Malossi MHR team",
     `${imagePrefix}/malossi.png`,
     "50 malossi mhr team",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet50Mhr,
     ["50mhr.png", ...imageConfig50, "potmost70.png"],
     createSpecificPieces(
@@ -156,7 +156,7 @@ const configurations = {
     "50cc Bidalot WR",
     `${imagePrefix}/bida.png`,
     "50 bidalot wr",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet50Wr,
     ["70bida.png", "vilobida.png", "pvl.png", "vforce.png", "carbu.png", "potbida.png"],
     createSpecificPieces(
@@ -171,7 +171,7 @@ const configurations = {
     "70cc 2Fast",
     `${imagePrefix}/fast.png`,
     "70 fast",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet70Fast,
     ["fastCyl.png", ...imageConfig70, "txt80.png"],
     createSpecificPieces(
@@ -183,7 +183,7 @@ const configurations = {
     "70cc Bidalot WR",
     `${imagePrefix}/bida.png`,
     "70 wr",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet70Wr,
     ["70bida.png", ...imageConfig70, "txt80.png"],
     createSpecificPieces(
@@ -195,7 +195,7 @@ const configurations = {
     "70cc Metrakit pro race",
     `${imagePrefix}/mk.svg`,
     "70 pro race",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet70ProRace,
     ["prorace.png", ...imageConfig70, "txt80.png"],
     createSpecificPieces(
@@ -207,7 +207,7 @@ const configurations = {
     "78cc Airsal xtrem",
     `${imagePrefix}/airsal.png`,
     "80 airsal xtrem",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet78xtrem,
     ["airsalxtrem.png", ...imageConfig70, "txt.png"],
     createSpecificPieces(
@@ -219,7 +219,7 @@ const configurations = {
     "78cc Malossi MHR Team",
     `${imagePrefix}/malossi.png`,
     "80 MHR team",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet78mhr,
     ["50mhr.png", ...imageConfig70, "txt.png"],
     createSpecificPieces(
@@ -231,7 +231,7 @@ const configurations = {
     "78cc MOST 4STREET",
     `${imagePrefix}/most.png`,
     "80 most",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet78most,
     ["80most.png", ...imageConfig70, "txt.png"],
     createSpecificPieces(
@@ -243,7 +243,7 @@ const configurations = {
     "80cc 2Fast",
     `${imagePrefix}/fast.png`,
     "80 fast",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet80fast,
     ["fastCyl.png", ...imageConfig , "txt.png"],
     createSpecificPieces(
@@ -255,7 +255,7 @@ const configurations = {
     "80cc Bidalot WR",
     `${imagePrefix}/bida.png`,
     "80 wr",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet80wr,
     ["70bida.png", ...imageConfig , "txt.png"],
     createSpecificPieces(
@@ -267,7 +267,7 @@ const configurations = {
     "90cc Bidalot WR",
     `${imagePrefix}/bida.png`,
     "90 wr",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet90wr,
     ["90bida.png", ...imageConfig , "v21.png"],
     createSpecificPieces(
@@ -279,7 +279,7 @@ const configurations = {
     "90cc 2Fast",
     `${imagePrefix}/fast.png`,
     "90 fast",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet90fast,
     ["fastCyl.png", ...imageConfig , "v21.png"],
     createSpecificPieces(
@@ -291,7 +291,7 @@ const configurations = {
     "100cc 2Fast",
     `${imagePrefix}/fast.png`,
     "100 fast",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet100fast,
     ["fastCyl.png", "vilofast.png", ...imageConfig100],
     createSpecificPieces(
@@ -305,7 +305,7 @@ const configurations = {
     "96 Bidalot WR",
     `${imagePrefix}/bida.png`,
     "96 wr",
-    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé, nous vous recommandons WRP Racing.",
+    "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
     config[0]?.compet96bida,
     ["90bida.png", "vilobida48.png", ...imageConfig100],
     createSpecificPieces(
