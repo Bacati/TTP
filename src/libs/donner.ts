@@ -34,7 +34,7 @@ const prices = {
 	cligno_greluma: 17.99,
 	cligno_guidon: 21.99,
 	cligno_autocollant: 16.99,
-	kitNettoyage: 18.75,
+	kitNettoyage: 25,
 	vulcanet: 43.99,
 	wd: 9.99,
 	wdSpray: 17.73,
