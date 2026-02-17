@@ -6,15 +6,12 @@ const imagePrefix = "/images";
 // Fonction pour générer des données produits à partir de `config`
 export const generateProductData = (config) => [
   {
-    title: "50cc Metrakit Alu",
-    logo: "mk.svg",
-    alt: "50 Metrakit",
-    description: "Configuration AllDays",
-    typeMotor1: "Derbi",
-    typeMotor: "AM6",
-    price: config[0].allMk || 'N/A',
-    imageSrc: `${imagePrefix}/50mk.png`,
-    link: `${linkPrefix}50mk`
+    title: "Kits décos -10%",
+    logo: "gxs.jpg",
+    alt: "kit déco perso",
+    description: "GXS Racing - Personnalise ta moto avec un kit déco UNIQUE ! HOLOGRAPHIQUE & CHROME. Code -10% SPCODE_XARUO",
+    imageSrc: `${imagePrefix}/yoni.png`,
+    link: "https://gxs-racing.com/fr/?refs=8350"
   },
   {
 		title: "Vis à tête remontante",
@@ -40,35 +37,28 @@ export const generateProductData = (config) => [
     link: `https://www.mycover-protection.com/?wpam_id=60`
   },
   {
-    title: "75cc Top performance",
-    logo: "top.webp",
-    alt: "75 top rose",
-    description: "Configuration AllDays",
-    typeMotor: "AM6",
-    price: config[0].allTopRose || 'N/A',
-    imageSrc: `${imagePrefix}/toprose.png`,
-    link: `${linkPrefix}75topRose`
+    title: "Impresson 3d",
+    logo:  "lmr.png",
+    alt: "LMR 3D",
+    description: "LMR 3D Objet cassé, pièce rare ou création sur mesure ? Nous concevons et imprimons en 3D tout ce dont vous avez besoin.",
+    imageSrc: `${imagePrefix}/cacheAllumage.png`,
+    link: "https://www.lmr3d.com/?ref=TTP"
   },
   {
-    title: "78cc Airsal alu",
-    logo: "airsal.png",
-    alt: "80 airsal",
-    description: "Configuration AllDays",
-    typeMotor: "AM6",
-    price: config[0].all78Airsal || 'N/A',
-    imageSrc: `${imagePrefix}/70airsal.png`,
-    link: `${linkPrefix}78airsal`
+    title: "Fabriquant Carbone",
+    logo: "of.jpg",
+    alt: "moulage Carbone",
+    description: "OF Carbon fabiquant de pièces carbone tissé / brut / forged",
+    imageSrc: `${imagePrefix}/carbone.png`,
+    link: "https://www.instagram.com/of_carbon/"
   },
   {
-    title: "78cc BRK 4RACE",
-    logo: "brk.png",
-    alt: "80 brk",
-    description: "Configuration AllDays",
-    typeMotor: "AM6",
-    typeMotor1: "Derbi",
-    price: config[0].all78brk || 'N/A',
-    imageSrc: `${imagePrefix}/80brk.png`,
-    link: `${linkPrefix}78brk`
+    title: "Kit nettoyage Muc-Off",
+    logo: "logo2.svg",
+    alt: "Kit nettoyage Muc-Off",
+    price: config[0]?.kitNettoyage || 'N/A',
+    imageSrc: `${imagePrefix}/kit-nettoyage.png`,
+    link: "https://mucoff.sjv.io/WynWgP"
   },
   {
     title: "86cc Top performance",
