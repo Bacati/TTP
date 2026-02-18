@@ -37,7 +37,7 @@ export const generateProductData = (config) => [
     link: `https://www.mycover-protection.com/?wpam_id=60`
   },
   {
-    title: "Impresson 3d",
+    title: "Impression 3d",
     logo:  "lmr.png",
     alt: "LMR 3D",
     description: "LMR 3D Objet cassé, pièce rare ou création sur mesure ? Nous concevons et imprimons en 3D tout ce dont vous avez besoin.",
