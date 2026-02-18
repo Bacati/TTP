@@ -10,7 +10,7 @@ export const generateProductData = (config) => [
     logo: "gxs.jpg",
     alt: "kit déco perso",
     description: "GXS Racing - Personnalise ta moto avec un kit déco UNIQUE ! HOLOGRAPHIQUE & CHROME. Code -10% SPCODE_XARUO",
-    imageSrc: `${imagePrefix}/yoni.png`,
+    imageSrc: `${imagePrefix}/lucas.png`,
     link: "https://gxs-racing.com/fr/?refs=8350"
   },
   {
