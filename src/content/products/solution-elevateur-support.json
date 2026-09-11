@@ -1,0 +1,14 @@
+{
+	"title": "Élévateur / support",
+	"image": "../../assets/images/leve-moto-pliable.png",
+	"imageAlt": "Élévateur / support",
+	"category": "accessoires-racing/solution",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pRZuUW"
+	},
+	"order": 4,
+	"brandLogo": "../../assets/images/risk.avif",
+	"brandLogoAlt": "Élévateur / support",
+	"priceKey": "elevateur"
+}

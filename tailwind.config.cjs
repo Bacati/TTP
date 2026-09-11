@@ -7,7 +7,7 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			// add your default font below
-			sans: ['Outfit', ...defaultTheme.fontFamily.sans],
+			sans: ['Outfit', ...defaultTheme.fontFamily.sans]
 		},
 		extend: {
 			colors: {
@@ -21,7 +21,7 @@ module.exports = {
 					// add a default padding to the container
 					DEFAULT: '1rem'
 				}
-			},
-		},
+			}
+		}
 	}
 }

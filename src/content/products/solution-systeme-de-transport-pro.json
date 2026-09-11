@@ -1,0 +1,14 @@
+{
+	"title": "Système de transport PRO",
+	"image": "../../assets/images/fixation-moto.png",
+	"imageAlt": "Système de transport PRO",
+	"category": "accessoires-racing/solution",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nXRrE6"
+	},
+	"order": 1,
+	"brandLogo": "../../assets/images/risk.avif",
+	"brandLogoAlt": "Système de transport PRO",
+	"priceKey": "calePiedPro"
+}

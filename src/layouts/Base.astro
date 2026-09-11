@@ -1,5 +1,6 @@
 ---
 import Head, { type Props as HeadProps } from './Head.astro'
+import 'assets/styles/fonts.scss'
 import 'assets/styles/style.scss'
 import 'assets/styles/slider.scss'
 import 'assets/styles/carrousel.scss'
@@ -7,17 +8,47 @@ import 'assets/styles/menuMobil.scss'
 import 'assets/styles/cards.scss'
 
 export interface Props extends HeadProps {
-	class?: string
+	class?: string | undefined
 }
+
+const SITE_NAME = 'Trouve ta pièce'
+const site = Astro.site?.origin ?? Astro.url.origin
+
+// Données structurées communes à toutes les pages
+const siteJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		name: SITE_NAME,
+		alternateName: 'TTP',
+		url: site,
+		email: 'contact@trouve-ta-piece.fr'
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: SITE_NAME,
+		url: site,
+		inLanguage: 'fr-FR'
+	}
+]
+
+const pageJsonLd = Astro.props.jsonLd ? (Array.isArray(Astro.props.jsonLd) ? Astro.props.jsonLd : [Astro.props.jsonLd]) : []
 ---
 
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<Head {...Astro.props} />
+		<Head {...Astro.props} siteName={Astro.props.siteName ?? SITE_NAME} jsonLd={[...siteJsonLd, ...pageJsonLd]} />
 		<slot name="head" />
 	</head>
-	<body class:list={["", Astro.props.class]}>
+	<body class:list={[Astro.props.class]}>
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-amber-700 focus:shadow-lg focus:outline focus:outline-2 focus:outline-amber-600"
+		>
+			Aller au contenu principal
+		</a>
 		<slot />
 	</body>
 </html>

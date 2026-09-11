@@ -1,0 +1,12 @@
+{
+	"title": "Graisse de chaîne",
+	"image": "../../assets/images/graisse.png",
+	"imageAlt": "Graisse de chaîne",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://mucoff.sjv.io/WynWJM"
+	},
+	"order": 2,
+	"priceKey": "graisse"
+}

@@ -1,0 +1,56 @@
+{
+	"name": "50cc Doppler vortex",
+	"range": "competition",
+	"brand": "Doppler",
+	"brandLogo": "../../assets/images/doppler.png",
+	"cc": 50,
+	"engines": ["AM6", "Derbi"],
+	"description": "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
+	"images": [
+		"../../assets/images/vortex.png",
+		"../../assets/images/vilojasilH.png",
+		"../../assets/images/pvl.png",
+		"../../assets/images/vforce.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/potmost70.png"
+	],
+	"pieces": [
+		{
+			"label": "Kit 50cc DOPPLER vortex",
+			"price": 249
+		},
+		{
+			"label": "Vilebrequin JASIL high tech",
+			"price": 129
+		},
+		{
+			"label": "Roulement et spy MOST",
+			"price": 28
+		},
+		{
+			"label": "Allumage pvl BIDALOT",
+			"price": 399
+		},
+		{
+			"label": "Embrayage MOST",
+			"price": 50
+		},
+		{
+			"label": "Boite à clapet vforce 3i 85cr",
+			"price": 199
+		},
+		{
+			"label": "Pipe d'admission MOST",
+			"price": 51
+		},
+		{
+			"label": "Carburateur 28MM SUNWORLD",
+			"price": 110
+		},
+		{
+			"label": "Pot MOST 70-80",
+			"price": 289
+		}
+	],
+	"order": 0
+}

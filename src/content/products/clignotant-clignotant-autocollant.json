@@ -1,0 +1,12 @@
+{
+	"title": "Clignotant autocollant",
+	"image": "../../assets/images/autocollant.png",
+	"imageAlt": "Clignotant autocollant",
+	"category": "cycle/clignotant",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3VE3Np4"
+	},
+	"order": 4,
+	"priceKey": "autocollant"
+}

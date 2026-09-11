@@ -1,0 +1,12 @@
+{
+	"title": "Clignotant progressif",
+	"image": "../../assets/images/cligno-progressif.png",
+	"imageAlt": "Clignotant progressif",
+	"category": "cycle/clignotant",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3VEh7K7"
+	},
+	"order": 0,
+	"priceKey": "progressif"
+}

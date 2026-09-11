@@ -1,4 +1,4 @@
-import { defineMiddleware } from "astro/middleware"
+import { defineMiddleware } from 'astro/middleware'
 import ResponseBuilder from 'libs/ResponseBuilder'
 
 /**
@@ -45,9 +45,6 @@ export default defineMiddleware(async ({ request, url }, next) => {
 		console.error(e)
 		console.error(`\x1b[91m${dashes} ERROR ${dashes}\x1b[0m`)
 
-		return new ResponseBuilder()
-			.status(500)
-			.body('An error occured while processing your request')
-			.build()
+		return new ResponseBuilder().status(500).body('An error occured while processing your request').build()
 	}
 })

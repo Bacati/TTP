@@ -1,0 +1,58 @@
+---
+/**
+ * Bouton « haut de page » + bouton « retour ». Factorise le `#fleche` /
+ * `#boutonRetour` et le script de scroll recopiés dans chaque ancienne page.
+ */
+import { MoveUp, Undo2 } from 'lucide-astro'
+
+interface Props {
+	/** affiche aussi un bouton "retour" (history.back) */
+	withBack?: boolean
+}
+
+const { withBack = false } = Astro.props
+---
+
+<a
+	href="#main"
+	data-back-to-top
+	hidden
+	class="fixed bottom-8 right-6 z-30 items-center rounded-full border border-amber-600 bg-white/90 p-4 text-amber-600 backdrop-blur transition-colors hover:bg-amber-600 hover:text-white motion-reduce:transition-none lg:right-14"
+	aria-label="Revenir en haut de page"
+>
+	<MoveUp class="h-8 w-8" aria-hidden="true" />
+</a>
+
+{withBack && (
+	<button
+		type="button"
+		data-history-back
+		hidden
+		class="fixed bottom-8 left-6 z-30 items-center gap-2 rounded-full border border-amber-600 bg-white/90 px-4 py-2 text-amber-600 backdrop-blur transition-colors hover:bg-amber-600 hover:text-white lg:left-14"
+	>
+		Retour <Undo2 class="inline h-5 w-5" />
+	</button>
+)}
+
+<script>
+	const boot = () => {
+		const up = document.querySelector<HTMLElement>('[data-back-to-top]')
+		const back = document.querySelector<HTMLElement>('[data-history-back]')
+		if (!up && !back) return
+		const onScroll = () => {
+			const show = window.scrollY > window.innerHeight * 0.6
+			for (const el of [up, back]) {
+				if (!el) continue
+				el.hidden = !show
+				el.style.display = show ? 'flex' : 'none'
+			}
+		}
+		back?.addEventListener('click', () => history.back())
+		document.removeEventListener('scroll', onScroll)
+		document.addEventListener('scroll', onScroll, { passive: true })
+		onScroll()
+	}
+	document.addEventListener('astro:page-load', boot)
+	if (document.readyState !== 'loading') boot()
+	else document.addEventListener('DOMContentLoaded', boot)
+</script>

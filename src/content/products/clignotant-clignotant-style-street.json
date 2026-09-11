@@ -1,0 +1,12 @@
+{
+	"title": "Clignotant style street",
+	"image": "../../assets/images/street.png",
+	"imageAlt": "Clignotant street",
+	"category": "cycle/clignotant",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nXN6RE"
+	},
+	"order": 1,
+	"priceKey": "street"
+}

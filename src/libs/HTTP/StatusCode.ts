@@ -4,7 +4,6 @@
  * Following https://developer.mozilla.org/en-US/docs/Web/HTTP/Status an extension of the RFC9110
  */
 enum StatusCode {
-
 	/****************
 	 * 1xx Requests *
 	 ****************/
@@ -283,7 +282,7 @@ enum StatusCode {
 	/**
 	 * Indicates that the client needs to authenticate to gain network access.
 	 */
-	NETWORK_AUTHENTIFICATION_REQUIRED,
+	NETWORK_AUTHENTIFICATION_REQUIRED
 }
 
 export default StatusCode

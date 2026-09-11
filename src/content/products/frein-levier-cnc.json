@@ -1,0 +1,12 @@
+{
+	"title": "Levier CNC",
+	"image": "../../assets/images/woostar.png",
+	"imageAlt": "Levier CNC",
+	"category": "cycle/frein",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3IN67Hr"
+	},
+	"order": 1,
+	"priceKey": "woostar"
+}

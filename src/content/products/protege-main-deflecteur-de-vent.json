@@ -1,0 +1,12 @@
+{
+	"title": "Déflecteur de vent",
+	"image": "../../assets/images/vent.png",
+	"imageAlt": "Déflecteur de vent",
+	"category": "cycle/protege-main",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4mCenrv"
+	},
+	"order": 4,
+	"priceKey": "vent"
+}

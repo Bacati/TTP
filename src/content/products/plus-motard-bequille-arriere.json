@@ -1,0 +1,12 @@
+{
+	"title": "Bequille arrière",
+	"image": "../../assets/images/stand.png",
+	"imageAlt": "Bequille arrière",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3IBiJRX"
+	},
+	"order": 10,
+	"priceKey": "stand"
+}

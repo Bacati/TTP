@@ -1,0 +1,12 @@
+{
+	"title": "Outil Montage Roulements Vilebrequin",
+	"image": "../../assets/images/montageRoulement.png",
+	"imageAlt": "Outil Montage Roulements Vilebrequin",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nMkonb"
+	},
+	"order": 2,
+	"priceKey": "montageRoulement"
+}

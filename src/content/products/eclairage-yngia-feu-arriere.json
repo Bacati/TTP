@@ -1,0 +1,12 @@
+{
+	"title": "YnGia Feu arrière",
+	"image": "../../assets/images/yngia.png",
+	"imageAlt": "YnGia Feu arrière",
+	"category": "cycle/eclairage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4gRyKQn"
+	},
+	"order": 5,
+	"priceKey": "yngia"
+}

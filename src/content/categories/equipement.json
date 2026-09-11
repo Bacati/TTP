@@ -1,0 +1,9 @@
+{
+	"name": "Équipement",
+	"title": "Équipement",
+	"intro": "Casques, blousons, gants, bottes, combinaisons : l'équipement du pilote, sélectionné pour la sécurité, le confort et le style, du débutant au pilote confirmé.",
+	"heroImage": "../../assets/images/equipement.webp",
+	"heroImageAlt": "Équipement",
+	"layout": "hub",
+	"order": 5
+}

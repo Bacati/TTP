@@ -1,0 +1,37 @@
+---
+/**
+ * Grille de cartes filtrable. Rend TOUTES les cartes côté serveur avec des
+ * attributs `data-*` ; `src/scripts/filters.ts` se charge du masquage réel.
+ */
+import ProductCard from 'components/ProductCard.astro'
+import type { CardModel } from 'libs/catalog'
+
+interface Props {
+	cards: Array<CardModel>
+}
+
+const { cards } = Astro.props
+---
+
+<div data-product-grid>
+	<p class="mb-4 text-center text-sm text-gray-500">
+		<span data-result-count>{cards.length}</span> résultat{cards.length > 1 ? 's' : ''}
+	</p>
+
+	<div class="mx-auto flex w-11/12 flex-wrap justify-center gap-6 pb-8 lg:w-4/5">
+		{cards.map((card) => (
+			<ProductCard
+				{...card}
+				filterData={{
+					'data-cc': String(card.cc ?? ''),
+					'data-engines': card.engines.join(',').toLowerCase(),
+					'data-price': card.priceBucket ?? '',
+				}}
+			/>
+		))}
+	</div>
+
+	<p data-empty-state hidden class="py-10 text-center text-gray-500">
+		Aucun produit ne correspond à ces filtres.
+	</p>
+</div>

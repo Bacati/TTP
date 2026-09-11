@@ -1,0 +1,10 @@
+{
+	"name": "Clignotants",
+	"title": "Clignotants",
+	"intro": "Chez <b>TTP</b>, les clignotants ne sont pas de simples signaux lumineux : des modèles distinctifs, design et performants, pour allier sécurité et personnalité.",
+	"heroImage": "../../../assets/images/cligno.jpg",
+	"heroImageAlt": "Clignotants",
+	"layout": "products",
+	"order": 2,
+	"parent": "cycle"
+}

@@ -1,0 +1,12 @@
+{
+	"title": "Huile de boîte 10w40",
+	"image": "../../assets/images/boite.png",
+	"imageAlt": "Huile de boîte 10w40",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4npy7jj"
+	},
+	"order": 3,
+	"priceKey": "huileBoite"
+}

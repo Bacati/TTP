@@ -1,0 +1,12 @@
+{
+	"title": "Barre en Aluminium protège main",
+	"image": "../../assets/images/barreAlu.png",
+	"imageAlt": "Barre en Aluminium protège main",
+	"category": "cycle/protege-main",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/46O16q3"
+	},
+	"order": 3,
+	"priceKey": "barreAlu"
+}

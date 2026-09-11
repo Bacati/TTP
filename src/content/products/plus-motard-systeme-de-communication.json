@@ -1,0 +1,12 @@
+{
+	"title": "Système de communication",
+	"image": "../../assets/images/cardo.png",
+	"imageAlt": "Système de communication",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4gOc4jU"
+	},
+	"order": 8,
+	"priceKey": "cardo"
+}

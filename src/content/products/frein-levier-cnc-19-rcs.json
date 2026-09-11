@@ -1,0 +1,12 @@
+{
+	"title": "Levier CNC 19 RCS",
+	"image": "../../assets/images/rcs.png",
+	"imageAlt": "Levier CNC 19 RCS",
+	"category": "cycle/frein",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pPWAA5"
+	},
+	"order": 3,
+	"priceKey": "rcs"
+}

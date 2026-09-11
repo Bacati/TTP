@@ -1,0 +1,12 @@
+{
+	"title": "Vulcanet lingettes nettoyante",
+	"image": "../../assets/images/vulcanet.png",
+	"imageAlt": "Vulcanet lingettes nettoyante",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3WjreUI"
+	},
+	"order": 2,
+	"priceKey": "vulcanet"
+}

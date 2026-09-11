@@ -1,0 +1,10 @@
+{
+	"title": "Pièce taillée masse",
+	"image": "../../assets/images/t.png",
+	"imageAlt": "Pièce taillée masse",
+	"tagline": "Pièces massives, style inimitable : le sur-mesure à l'état brut.",
+	"category": "cycle",
+	"order": 10,
+	"url": "/categorie/cycle",
+	"hidden": true
+}

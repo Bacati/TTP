@@ -1,6 +1,6 @@
+import node from '@astrojs/node'
+import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
-import tailwind from "@astrojs/tailwind"
-import node from "@astrojs/node"
 import routing from './hooks/routing'
 
 // const faviconHook = {
@@ -18,7 +18,7 @@ import routing from './hooks/routing'
 export default defineConfig({
 	// Use the NodeJS adapter
 	adapter: node({
-		mode: "standalone"
+		mode: 'standalone'
 	}),
 
 	// some settings to the build output
@@ -33,6 +33,14 @@ export default defineConfig({
 	// Compress the HTML output
 	compressHTML: true,
 
+	// Redirections des anciennes URLs (v1 -> v2)
+	redirects: {
+		'/categorie/allDays': '/categorie/alldays',
+		'/categorie/cycle/protegeMain': '/categorie/cycle/protege-main',
+		'/product/produit': '/produit/nettoyant',
+		'/product/config': '/categorie/alldays'
+	},
+
 	// Customizable depending on goal
 	output: 'server',
 
@@ -45,7 +53,7 @@ export default defineConfig({
 	},
 
 	// the site url
-	site: 'https://example.com',
+	site: 'https://trouve-ta-piece.fr',
 
 	// the Output server
 	server: {
@@ -66,7 +74,5 @@ export default defineConfig({
 				usePolling: !!(process.env.USE_POLLING ?? process.env.WSL_DISTRO_NAME)
 			}
 		}
-	},
-
-
- })
+	}
+})

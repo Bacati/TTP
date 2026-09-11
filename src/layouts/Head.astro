@@ -1,146 +1,99 @@
 ---
-import Favicon from 'components/layouts/Favicon/Favicon.astro'
-import IconSVG from 'assets/layouts/Head/favicon.svg'
+// Outfit est la police par défaut (cf. tailwind.config.cjs) : on la précharge.
+// Oswald (chargée via assets/styles/fonts.scss) n'est actuellement utilisée
+// par aucune classe du site ; pas de préchargement pour elle tant que c'est le cas.
+import outfitFontUrl from 'assets/fonts/outfit-variable-latin.woff2?url'
 import IconPNG from 'assets/layouts/Head/favicon.png'
+import IconSVG from 'assets/layouts/Head/favicon.svg'
+import Favicon from 'components/layouts/Favicon/Favicon.astro'
 
 export interface Props {
-	/**
-	 * Site display name
-	 */
+	/** Nom d'affichage du site */
 	siteName?: string | undefined
-	/**
-	 * Page Title
-	 */
+	/** Titre de la page */
 	title?: string | undefined
-	/**
-	 * Page description
-	 */
+	/** Description de la page (meta description + OG + Twitter) */
 	description?: string | undefined
-	/**
-	 * define the cannonical url
-	 */
+	/** URL canonique ; `false` pour la retirer */
 	canonical?: string | false | undefined
-	/**
-	 * OpenGraph image(s)
-	 */
+	/** Directive robots (défaut : index,follow) */
+	robots?: string | undefined
+	/** Image OpenGraph */
 	image?: typeof IconPNG | Array<typeof IconPNG> | undefined
-	/**
-	 * Twitter/X Specific options
-	 */
-	twitter?: {
-		title?: string | undefined
-		card?: "summary" | "summary_large_image" | "app" | "player" | undefined
-		site?: string | undefined
-		creator?: string | undefined
-	} | undefined
-	/**
-	 * OpenGraph Specific options (override defaults set by other options)
-	 */
-	og?: {
-		title?: string | undefined
-		type?: string | undefined
-		description?: string | undefined
-		url?: string | undefined
-	} | undefined
+	twitter?:
+		| {
+				title?: string | undefined
+				card?: 'summary' | 'summary_large_image' | 'app' | 'player' | undefined
+				site?: string | undefined
+				creator?: string | undefined
+		  }
+		| undefined
+	og?:
+		| {
+				title?: string | undefined
+				type?: string | undefined
+				description?: string | undefined
+				url?: string | undefined
+		  }
+		| undefined
+	/** Données structurées JSON-LD (objet ou tableau d'objets) */
+	jsonLd?: Record<string, unknown> | Array<Record<string, unknown>> | undefined
 }
 
 const props = Astro.props
 
-const image = props.image ? Array.isArray(props.image) ? props.image : [props.image] : undefined
+const DEFAULT_DESCRIPTION =
+	'Trouve ta pièce (TTP) référence des pièces et configurations moto 50cc 2 temps, des plus classiques aux plus rares, avec des conseils de préparateur et une gamme de prix pour chaque budget.'
 
-const canonical = typeof Astro.props.canonical === 'string' ? Astro.props.canonical : Astro.props.canonical === false ? undefined : Astro.url.href
+const description = props.description ?? DEFAULT_DESCRIPTION
+const image = props.image ? (Array.isArray(props.image) ? props.image : [props.image]) : [IconPNG]
+
+const canonical = typeof props.canonical === 'string' ? props.canonical : props.canonical === false ? undefined : new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href
+
+const ogTitle = props.og?.title ?? props.title
+const ogDescription = props.og?.description ?? description
+const twitterTitle = props.twitter?.title ?? props.title
+const jsonLdItems = props.jsonLd ? (Array.isArray(props.jsonLd) ? props.jsonLd : [props.jsonLd]) : []
 ---
 
-<!-- Charset -->
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Viewport -->
-<meta name="viewport" content="width=device-width" />
+<!-- Police principale auto-hébergée : préchargée pour éviter le texte invisible (FOIT) -->
+<link rel="preload" href={outfitFontUrl} as="font" type="font/woff2" crossorigin />
 
+<!-- Analytics (proxy Plausible, même origine) -->
+<script defer data-domain="trouve-ta-piece.fr" src="/js/script.js" is:inline></script>
 
-<!-- Analytics -->
-<script defer data-domain="trouve-ta-piece.com" src="/js/script.js"></script>
-
-<!-- Favicon -->
 <Favicon svg={IconSVG} png={IconPNG} icoPath="/favicon.ico" />
 
-<!-- OpenGraph Sitename -->
-{props.siteName && (
-	<meta property="og:site_name" content={props.siteName} />
-)}
+{props.title && <title>{props.title}</title>}
+<meta name="description" content={description} />
+<meta name="robots" content={props.robots ?? 'index,follow'} />
+{canonical && <link rel="canonical" href={canonical} />}
 
-<!-- Title -->
-{props.title && (
-	<title>{props.title}</title>
-	// <meta property="twitter:title" content={props.twitter?.title ?? props.title} />
-)}
-
-<!-- Description -->
-{props.description && (
-	<meta name="description" content={props.description} />
-)}
-
-<!-- Canonical -->
-{canonical && (
-	<link rel="canonical" href={canonical} />
-)}
-
-<!-- Twitter -->
-<!-- Twitter Card -->
-<meta property="twitter:card" content={props.twitter?.card ?? 'summary'} />
-
-<!-- Twitter Site -->
-{props.twitter?.site && (
-	<meta property="twitter:site" content={props.twitter.site} />
-)}
-
-<!-- Twitter Creator -->
-{props.twitter?.creator && (
-	<meta property="twitter:creator" content={props.twitter.creator} />
-)}
-
-<!-- Twitter Title -->
-{(props.twitter?.title ?? props.title) && (
-	<meta property="twitter:title" content={props.twitter?.title ?? props.title} />
-)}
-
-<!-- OpenGraph -->
-<!-- OpenGraph Title -->
-{(props.og?.title ?? props.title) && (
-	<meta property="og:title" content={props.og?.title ?? props.title} />
-)}
-
-<!-- OpenGraph Description -->
-{(props.og?.description ?? props.description) && (
-	<meta property="og:description" content={props.og?.description ?? props.description} />
-)}
-
-<!-- OpenGraph Type -->
+{props.siteName && <meta property="og:site_name" content={props.siteName} />}
 <meta property="og:type" content={props.og?.type ?? 'website'} />
-
-<!-- OpenGraph URL -->
-{(props.og?.url ?? canonical) && (
-	<meta property="og:url" content={props.og?.url ?? canonical} />
-)}
-
-<!-- OpenGraph Image -->
-{image?.map((img) => (
-	<meta property="og:image" content={img.src} />
-	<meta property="og:image:type" content={`image/${img.format}`} />
-	<meta property="og:image:width" content={img.width.toString()} />
-	<meta property="og:image:height" content={img.height.toString()} />
+{ogTitle && <meta property="og:title" content={ogTitle} />}
+<meta property="og:description" content={ogDescription} />
+{(props.og?.url ?? canonical) && <meta property="og:url" content={props.og?.url ?? canonical} />}
+{image.map((img) => (
+	<>
+		<meta property="og:image" content={new URL(img.src, Astro.site ?? Astro.url.origin).href} />
+		<meta property="og:image:type" content={`image/${img.format}`} />
+		<meta property="og:image:width" content={img.width.toString()} />
+		<meta property="og:image:height" content={img.height.toString()} />
+	</>
 ))}
-<meta lang="fr" name="keywords" content="peinture, moto, auto, vehicule, thermolaquage, poudre, peinture en poudre, peinture au four, epoxy
-airsoft, mobilier, alu, inox, acier, couleur, teinte, rale, tenu, moto cross, mx, produit, produit de lavage, ttp, trouve ta piece, trouve ta pièce, nettoyage, nettoyants, Carbone,
-francais, conseil, mecanique, pièce, configuration, moteur, frein, fouche, clignotant, apprenssage, 50cc, 2 temps, motocross, Pièces de rechange, Accessoires moto, Achat pièces moto en ligne,
-Pièces moto pas cher, Comparateur de pièces moto, Guide d'achat pièces moto">
-<meta name="Trouve ta pièce" content="TTP, Référencement en ligne de pièces et d'accessoires pour motos 50">
-<meta name="description" content="TTP a une vaste collection de pièces, allant des classiques aux plus rares, soigneusement répertoriées pour répondre à tous vos besoins.
-        Notre plateforme vous propose une gamme variée de tarifs, garantissant des options pour chaque budget.
-        En plus de vous offrir un accès facile à ces trésors mécaniques, je partage également mes conseils d'expert pour vous guider dans vos choix.
-        Plongez dans l'univers de la moto et parcourez notre sélection pour transformer votre expérience de conduite.">
-<meta name="robots" content="INDEX,FOLLOW">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<meta name="twitter:card" content={props.twitter?.card ?? 'summary_large_image'} />
+{props.twitter?.site && <meta name="twitter:site" content={props.twitter.site} />}
+{props.twitter?.creator && <meta name="twitter:creator" content={props.twitter.creator} />}
+{twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
+<meta name="twitter:description" content={ogDescription} />
+
+{jsonLdItems.map((item) => (
+	<script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />
+))}
+
+{/* Oswald + Outfit sont désormais auto-hébergées (voir assets/styles/fonts.scss) : plus de requête vers Google Fonts. */}

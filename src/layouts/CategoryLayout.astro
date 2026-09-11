@@ -1,0 +1,46 @@
+---
+import type { ImageMetadata } from 'astro'
+import BackToTop from 'components/BackToTop.astro'
+import CategoryHero from 'components/CategoryHero.astro'
+/**
+ * Gabarit commun à TOUTES les pages de catégorie (hub, configs, products).
+ * hero + contenu (slot par défaut) + retour haut de page.
+ */
+import MainLayout from 'layouts/MainLayout.astro'
+
+interface Props {
+	title: string
+	/** nom affiché en `<h1>` dans l'entête (défaut : `title`) */
+	name?: string | undefined
+	description?: string | undefined
+	heroImage: ImageMetadata
+	heroImageAlt: string
+	heroPosition?: 'center' | 'top' | 'bottom' | 'left' | 'right' | undefined
+	intro: string
+	withBack?: boolean | undefined
+	jsonLd?: Record<string, unknown> | Array<Record<string, unknown>> | undefined
+}
+
+const { title, name = title, description, heroImage, heroImageAlt, heroPosition, intro, withBack = false, jsonLd } = Astro.props
+---
+
+<MainLayout
+	title={`Trouve ta pièce | ${title}`}
+	description={description}
+	jsonLd={jsonLd}
+	class="overflow-x-hidden"
+>
+	<main id="main" class="pt-44">
+		<CategoryHero name={name} image={heroImage} imageAlt={heroImageAlt} position={heroPosition} intro={intro} />
+
+		<div class="mt-8">
+			<slot />
+		</div>
+
+		<BackToTop withBack={withBack} />
+	</main>
+</MainLayout>
+
+<script>
+	import 'scripts/filters'
+</script>

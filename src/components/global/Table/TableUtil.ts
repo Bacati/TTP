@@ -87,8 +87,8 @@ export function setOnTableClick(table: HTMLTableElement, fn: (row: number, cell:
 	table.querySelectorAll<HTMLTableCellElement>('td').forEach((it) => {
 		it.addEventListener('click', () => {
 			const row = it.parentElement as HTMLTableRowElement
-			const rowIdx = parseInt(row.dataset.row as string)
-			const cellIdx = parseInt(it.dataset.cell as string)
+			const rowIdx = Number.parseInt(row.dataset.row as string)
+			const cellIdx = Number.parseInt(it.dataset.cell as string)
 			fn(rowIdx, cellIdx)
 		})
 	})

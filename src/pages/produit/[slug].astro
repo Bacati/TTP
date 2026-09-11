@@ -1,0 +1,58 @@
+---
+export const prerender = true
+
+import { getCollection } from 'astro:content'
+import Picture from 'components/global/Picture.astro'
+import MainLayout from 'layouts/MainLayout.astro'
+import { resolvePrice } from 'libs/catalog'
+import { Undo2 } from 'lucide-astro'
+
+export async function getStaticPaths() {
+	const products = await getCollection('products')
+	return products
+		.filter((p) => p.data.body && p.data.link.type === 'product')
+		.map((p) => ({
+			params: { slug: p.data.link.type === 'product' ? p.data.link.slug : p.id },
+			props: { id: p.id }
+		}))
+}
+
+const { id } = Astro.props
+const products = await getCollection('products')
+const entry = products.find((p) => p.id === id)
+if (!entry) return Astro.redirect('/404')
+
+const price = resolvePrice(entry.data)
+const gallery = entry.data.gallery.length ? entry.data.gallery : [entry.data.image]
+const backUrl = `/categorie/${entry.data.category.id}`
+---
+
+<MainLayout title={`Trouve ta pièce | ${entry.data.title}`} class="overflow-x-hidden">
+	<main id="main" class="pt-32">
+		<article class="mx-4 my-12 flex flex-col items-center gap-8 rounded-3xl bg-white p-6 md:mx-auto md:w-10/12 lg:flex-row lg:p-10">
+			<div class="flex aspect-square w-full max-w-md shrink-0 items-center justify-center rounded-full cards">
+				<Picture
+					src={gallery[0]!}
+					alt={entry.data.imageAlt}
+					width={640}
+					height={640}
+					loading="eager"
+					class="max-h-[80%] max-w-[80%] object-contain"
+				/>
+			</div>
+			<div class="w-full lg:w-1/2">
+				<h1 class="text-3xl font-bold lg:text-4xl">{entry.data.title}</h1>
+				{price != null && <p class="mt-2 text-3xl font-bold">{price}€</p>}
+				<div class="mt-4 leading-relaxed text-gray-700" set:html={entry.data.body} />
+			</div>
+		</article>
+		<div class="mx-auto mb-16 w-10/12">
+			<a
+				href={backUrl}
+				class="flex w-fit items-center gap-3 rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white"
+			>
+				Retour <Undo2 class="h-5 w-5" />
+			</a>
+		</div>
+	</main>
+</MainLayout>

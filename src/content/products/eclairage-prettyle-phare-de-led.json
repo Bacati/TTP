@@ -1,0 +1,12 @@
+{
+	"title": "PRETTYLE Phare de LED",
+	"image": "../../assets/images/prettyle.png",
+	"imageAlt": "PRETTYLE Phare de LED",
+	"category": "cycle/eclairage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nW73If"
+	},
+	"order": 1,
+	"priceKey": "prettyle"
+}

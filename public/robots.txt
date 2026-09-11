@@ -1,7 +1,5 @@
 User-agent: *
-Disallow: /private/
-Disallow: /temp/
-Allow: /public/
-Allow: /favicon.ico
+Allow: /
+Disallow: /api/
 
 Sitemap: https://trouve-ta-piece.fr/sitemap.xml

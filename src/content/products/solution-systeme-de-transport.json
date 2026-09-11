@@ -1,0 +1,14 @@
+{
+	"title": "Système de transport",
+	"image": "../../assets/images/cale-pied.png",
+	"imageAlt": "Système de transport",
+	"category": "accessoires-racing/solution",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/42IE8j5"
+	},
+	"order": 0,
+	"brandLogo": "../../assets/images/risk.avif",
+	"brandLogoAlt": "Système de transport",
+	"priceKey": "calePied"
+}

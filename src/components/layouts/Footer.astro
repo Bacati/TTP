@@ -4,8 +4,8 @@ import { BadgeEuro, Contact, Instagram } from 'lucide-astro'
 const year = new Date().getFullYear()
 
 export interface Props {
-	links?: Array<{href: string, target?: string, display: string}>
-	socials?: Array<{href: string, target?: string, icon: any}>
+	links?: Array<{ href: string; target?: string; display: string }>
+	socials?: Array<{ href: string; target?: string; icon: any }>
 }
 ---
 
@@ -13,7 +13,7 @@ export interface Props {
 	<div class="bg-white w-10/12 h-1 rounded-3xl"></div>
 	<div class="w-11/12 flex justify-between gap-8 text-white items-center py-8 pr-0 flex-col lg:flex-row">
 		<a href="/" class="w-52" ><img src="/images/logo2.svg" alt="TTP"></a>
-		<p class="flex gap-3"><Contact />contact@trouve-ta-piece.com</p>
+		<p class="flex gap-3"><Contact />contact@trouve-ta-piece.fr</p>
 		<a href="/mentions-legales">Mentions légales</a>
 		<a href="https://paypal.me/trouvetapiece" target="_blank" title="paypal" class="flex gap-2"><BadgeEuro />Faire une donation</a>
 		<div class="gap-3 flex">

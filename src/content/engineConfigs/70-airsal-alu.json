@@ -1,0 +1,50 @@
+{
+	"name": "70cc Airsal Alu",
+	"range": "alldays",
+	"brand": "Airsal",
+	"brandLogo": "../../assets/images/airsal.png",
+	"cc": 70,
+	"engines": ["AM6", "Derbi"],
+	"description": "Cylindre très solide, bien respecter les temps de chauffe.",
+	"images": [
+		"../../assets/images/70airsal.png",
+		"../../assets/images/artekk2.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/potvoca.png"
+	],
+	"pieces": [
+		{
+			"label": "70cc AIRSAL ALU",
+			"price": 132
+		},
+		{
+			"label": "Vilebrequin ARTEK K2",
+			"price": 128
+		},
+		{
+			"label": "Roulement et spy WATTS",
+			"price": 14
+		},
+		{
+			"label": "Embrayage MOST",
+			"price": 50
+		},
+		{
+			"label": "Lamelle fibre DOPPLER ER2",
+			"price": 10
+		},
+		{
+			"label": "Pipe d'admission WATTS type cr",
+			"price": 14
+		},
+		{
+			"label": "Carburateur 24MM SUNWORLD",
+			"price": 110
+		},
+		{
+			"label": "Pot VOCA 70-80",
+			"price": 279
+		}
+	],
+	"order": 3
+}

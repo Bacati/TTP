@@ -1,0 +1,53 @@
+---
+import type { ImageMetadata } from 'astro'
+/**
+ * Tuile "partenaire / renvoi" pour les pages `hub`. Remplace
+ * `components/global/CardsCate.astro`. Dimensions constantes, image en
+ * `object-cover` dans un cadre à ratio fixe.
+ */
+import Picture from 'components/global/Picture.astro'
+
+interface Props {
+	title: string
+	image: ImageMetadata
+	imageAlt: string
+	tagline: string
+	logo?: ImageMetadata | undefined
+	logoAlt?: string | undefined
+	/** absent = tuile non cliquable ("bientôt") */
+	href?: string | undefined
+}
+
+const { title, image, imageAlt, tagline, logo, logoAlt, href } = Astro.props
+
+const external = href ? /^https?:\/\//.test(href) : false
+const Tag = href ? 'a' : 'div'
+---
+
+<Tag
+	href={href}
+	rel={external ? 'noopener noreferrer nofollow' : undefined}
+	target={external ? '_blank' : undefined}
+	aria-label={href ? title : undefined}
+	class:list={[
+		'group relative block h-[26rem] w-80 overflow-hidden rounded-3xl shadow-lg lg:w-96',
+		href &&
+			'transition-transform duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 motion-reduce:transition-none motion-reduce:hover:scale-100',
+	]}
+>
+	<Picture
+		src={image}
+		alt={imageAlt}
+		width={480}
+		height={624}
+		loading="lazy"
+		decoding="async"
+		class="absolute inset-0 h-full w-full object-cover"
+	/>
+	<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+	<div class="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5">
+		{logo && <Picture src={logo} alt={logoAlt ?? ''} class="mb-2 max-h-10 w-auto max-w-24 object-contain" />}
+		<p class="text-2xl font-bold text-white">{title}</p>
+		<p class="text-sm text-gray-200">{tagline}</p>
+	</div>
+</Tag>

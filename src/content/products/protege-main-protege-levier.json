@@ -1,0 +1,12 @@
+{
+	"title": "Protège levier",
+	"image": "../../assets/images/protege-levier.png",
+	"imageAlt": "Protège levier",
+	"category": "cycle/protege-main",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3IpF70F"
+	},
+	"order": 0,
+	"priceKey": "horse"
+}

@@ -1,0 +1,12 @@
+{
+	"title": "Extracteurs de roulements",
+	"image": "../../assets/images/dayuan.png",
+	"imageAlt": "Extracteurs de roulements",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pO7bLK"
+	},
+	"order": 5,
+	"priceKey": "dayuan"
+}

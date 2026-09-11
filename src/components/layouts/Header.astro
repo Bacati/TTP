@@ -1,20 +1,20 @@
 ---
-import Picture from 'astro/components/Picture.astro';
-import { Bike, Gauge, HardHat, Search, Paintbrush, Trophy, Wrench, ChevronsRight, ChevronsLeft, Zap } from 'lucide-astro';
-import logo from '/public/images/logo2.svg';
+import Picture from 'astro/components/Picture.astro'
+import { Bike, ChevronsLeft, ChevronsRight, Gauge, HardHat, Paintbrush, Search, Trophy, Wrench, Zap } from 'lucide-astro'
+import logo from '../../assets/images/logo2.svg'
 
 export interface Props {
-    right?: Record<string, string>
-    left?: Record<string, string>
+	right?: Record<string, string>
+	left?: Record<string, string>
 }
 ---
 
 <header class="p-8 z-20 absolute w-full">
     <nav class="items-center">
         <div class="hidden justify-between items-center w-11/12 fixed lg:flex">
-			<a href="/" class="p-1 w-2/12"><img src="/images/logo2.svg" alt="TTP"></a>
+			<a href="/" class="p-1 w-2/12" aria-label="Trouve ta pièce — accueil"><img src={logo.src} alt="TTP" width="120" /></a>
             <div class="bg-white rounded-full items-center h-fit justify-center shadow-lg flex *:items-center text-[0.8vw]">
-                <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/allDays"><Gauge alt="ALLDAYS" />Alldays</a>
+                <a class="pl-4 pr-0 mx-2 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/alldays"><Gauge alt="ALLDAYS" />Alldays</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/competition"><Trophy alt="Compétition"/>Compétitions</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthetique</a>
                 <a class="border-l-2 border-orange-300 pl-4 mx-2 pr-0 text-orange-600 gap-3 flex hover:text-gray-500" href="/categorie/cycle"><Bike alt="Cycle"/>Cycle</a>
@@ -39,24 +39,26 @@ export interface Props {
                     <button
                         type="button"
                         data-open-search
+                        aria-label="Rechercher"
                         class="mx-4 py-4 bg text-white flex rounded-t-full w-full justify-center cursor-pointer"
                     >
-                        <Search alt="Search" />
+                        <Search aria-hidden="true" />
                     </button>
-                    <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/allDays"><Gauge alt="ALLDAYS"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition"><Trophy alt="Compétition"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique"><Paintbrush  alt="Esthetique"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/cycle"><Bike alt="Cycle"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/equipement"><HardHat alt="Equipement"/></a>
-					<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/accessoires-racing"><Zap alt="Accessoires Racing"/></a>
-                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/produit-outillage"><Wrench alt="Garage"/></a>
+                    <a class="mx-2 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/alldays" aria-label="Alldays"><Gauge aria-hidden="true"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/competition" aria-label="Compétitions"><Trophy aria-hidden="true"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/esthetique" aria-label="Esthetique"><Paintbrush aria-hidden="true"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/cycle" aria-label="Cycle"><Bike aria-hidden="true"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/equipement" aria-label="Equipement"><HardHat aria-hidden="true"/></a>
+					<a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/accessoires-racing" aria-label="Accessoires Racing"><Zap aria-hidden="true"/></a>
+                    <a class="mx-2 pr-0 text-orange-600 flex pt-4 cursor-pointer" href="/categorie/produit-outillage" aria-label="Garage"><Wrench aria-hidden="true"/></a>
                 </div>
-                <input class="hidden" id="panneauDeux" name="equipe" type="radio" checked>
+                <input class="sr-only" id="panneauDeux" name="equipe" type="radio" checked>
                 <div id="panneauDeux-panneau" class="flex justify-center z-20 py-4 items-center">
-                    <input id="panneauUn" class="hidden menu-switch" name="equipe" type="radio">
+                    <input id="panneauUn" class="sr-only menu-switch" name="equipe" type="radio">
                     <div>
                         <label for="panneauUn" class="menu-open">
-                            <ChevronsLeft class="text-orange-600"/>
+                            <ChevronsLeft class="text-orange-600" aria-hidden="true"/>
+                            <span class="sr-only">Ouvrir le menu</span>
                         </label>
                         <div class="bg-white z-50 panneau fixed top-4 right-4 invisible opacity-0 rounded-3xl" id="panneauUn-panneau">
                              <label for="panneauDeux" class="menu-closed">
@@ -68,7 +70,7 @@ export interface Props {
                                     >
                                         Recherche <Search alt="Search" />
                                     </button>
-                                    <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/allDays"><Gauge alt="ALLDAYS"/>Alldays</a>
+                                    <a class="mx-4 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/alldays"><Gauge alt="ALLDAYS"/>Alldays</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/competition"><Trophy alt="Compétition"/>Compétition</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/esthetique"><Paintbrush alt="Esthetique"/>Esthétique</a>
                                     <a class="mx-4 pr-0 text-orange-600 flex py-3 gap-2 text-xl items-center border-b border-orange-200" href="/categorie/cycle"><Bike alt="Cycle"/>Cycle</a>

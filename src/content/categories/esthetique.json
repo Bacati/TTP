@@ -1,0 +1,10 @@
+{
+	"name": "Esthétique",
+	"title": "Esthétique",
+	"intro": "L'art de la personnalisation moto : peintures, carbone, impression 3D et kits décos. De quoi transformer votre deux-roues en une œuvre roulante à votre image.",
+	"heroImage": "../../assets/images/pedroni.jpeg",
+	"heroImageAlt": "Esthétique",
+	"layout": "hub",
+	"partnerStyle": "product",
+	"order": 3
+}

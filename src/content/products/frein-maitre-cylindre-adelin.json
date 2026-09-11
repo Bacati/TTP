@@ -1,0 +1,12 @@
+{
+	"title": "Maître cylindre Adelin",
+	"image": "../../assets/images/mcAdelin.png",
+	"imageAlt": "Maître cylindre Adelin",
+	"category": "cycle/frein",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3KOJYsK"
+	},
+	"order": 4,
+	"priceKey": "mcAdelin"
+}

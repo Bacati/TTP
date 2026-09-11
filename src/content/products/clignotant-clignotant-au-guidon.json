@@ -1,0 +1,12 @@
+{
+	"title": "Clignotant au guidon",
+	"image": "../../assets/images/guidon.png",
+	"imageAlt": "Clignotant au guidon",
+	"category": "cycle/clignotant",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4mMAuMb"
+	},
+	"order": 3,
+	"priceKey": "guidon"
+}

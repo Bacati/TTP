@@ -59,7 +59,8 @@ export default interface RFC7807 {
  * @returns
  */
 export function buildRFC7807(error: RFC7807 & Record<string, any>, response: ResponseBuilder = new ResponseBuilder()): Response {
-	response.addHeader('Content-Type', 'application/problem+json')
+	response
+		.addHeader('Content-Type', 'application/problem+json')
 		.body(JSON.stringify(error))
 		.status(error.status ?? 500)
 	return response.build()

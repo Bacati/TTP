@@ -1,0 +1,12 @@
+{
+	"title": "Brosse chaîne",
+	"image": "../../assets/images/brosse.png",
+	"imageAlt": "Brosse chaîne",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nvkFut"
+	},
+	"order": 5,
+	"priceKey": "brosse"
+}

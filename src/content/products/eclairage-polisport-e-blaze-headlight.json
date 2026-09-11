@@ -1,0 +1,12 @@
+{
+	"title": "Polisport E-blaze Headlight",
+	"image": "../../assets/images/polisport.png",
+	"imageAlt": "Polisport E-blaze Headlight",
+	"category": "cycle/eclairage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pJ54sN"
+	},
+	"order": 0,
+	"priceKey": "poli"
+}
