@@ -1,0 +1,14 @@
+{
+	"title": "Starting block",
+	"image": "../../assets/images/support-pied.png",
+	"imageAlt": "Starting block",
+	"category": "accessoires-racing/solution",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pRZuUW"
+	},
+	"order": 5,
+	"brandLogo": "../../assets/images/risk.avif",
+	"brandLogoAlt": "Starting block",
+	"priceKey": "start"
+}

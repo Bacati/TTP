@@ -1,0 +1,15 @@
+{
+	"title": "Nettoyant pour Pots TTP — 120 ml",
+	"image": "../../assets/images/flacon.png",
+	"imageAlt": "Nettoyant TTP",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "product",
+		"slug": "nettoyant"
+	},
+	"order": 0,
+	"priceKey": "clearPot",
+	"gallery": ["../../assets/images/flacon.png"],
+	"body": "<p class=\"mb-2\">Notre nettoyant pour pots est spécialement conçu pour éliminer efficacement le brunissement et les résidus tenaces qui s'accumulent sur vos pots. En plus de redonner de l'éclat à vos surfaces, il forme une barrière protectrice contre la rouille, prolongeant ainsi la durée de vie de vos ustensiles.</p><p class=\"mb-2 text-xl font-bold\">Conseils d'utilisation :</p><ul class=\"mb-2 ml-4 list-decimal\"><li class=\"mb-2\">Bien agiter avant chaque utilisation pour une efficacité optimale.</li><li class=\"mb-2\">Porter des gants pour protéger vos mains pendant l'application.</li><li class=\"mb-2\">Appliquer le produit en petite quantité sur les surfaces à nettoyer.</li><li class=\"mb-2\">Puis frotter avec un chiffon.</li></ul><p class=\"text-xl font-bold\">Précautions :</p><ul class=\"mb-2 ml-4 list-disc\"><li class=\"mb-2\">Conserver à température ambiante, entre 10 °C et 30 °C.</li><li class=\"mb-2\">Ne pas consommer, ne pas mettre dans les yeux.</li><li class=\"mb-2\">Produit inflammable : tenir à l'écart des sources de chaleur et des flammes.</li></ul><p>Offert dans un format de 120 ml, ce nettoyant est ultra-efficace pour les tâches les plus incrustées, tout en étant facile à stocker et à utiliser.</p>",
+	"featured": true
+}

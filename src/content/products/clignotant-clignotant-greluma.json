@@ -1,0 +1,12 @@
+{
+	"title": "Clignotant Greluma",
+	"image": "../../assets/images/greluma.png",
+	"imageAlt": "Clignotant Greluma",
+	"category": "cycle/clignotant",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nXODqS"
+	},
+	"order": 2,
+	"priceKey": "greluma"
+}

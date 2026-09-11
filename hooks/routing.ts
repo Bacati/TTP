@@ -1,5 +1,5 @@
-import type { AstroIntegration } from 'astro'
 import fs from 'node:fs/promises'
+import type { AstroIntegration } from 'astro'
 
 const baseFile = `
 import { objectLoop } from '@dzeio/object-util'
@@ -59,7 +59,6 @@ async function updateRoutes(output: string, routes: Array<string>) {
 
 	await fs.writeFile(output, file)
 }
-
 
 /**
  * format the path back to an url usable by the app
@@ -134,19 +133,22 @@ const integration: () => AstroIntegration = () => ({
 			outputFile = srcFolder + 'route.ts'
 
 			// get the files list
-			const files = (await Promise.all([
-				await getFiles(pagesFolder).then((ev) => ev.map((it) => formatPath(pagesFolder, it))),
-				await getFiles(publicFolder).then((ev) => ev.map((it) => formatPath(publicFolder, it, false)))
-			])).flat()
+			const files = (
+				await Promise.all([
+					await getFiles(pagesFolder).then((ev) => ev.map((it) => formatPath(pagesFolder, it))),
+					await getFiles(publicFolder).then((ev) => ev.map((it) => formatPath(publicFolder, it, false)))
+				])
+			).flat()
 			await updateRoutes(outputFile, files)
 		},
 		'astro:server:setup': async ({ server }) => {
-
 			// get the files list
-			const files = (await Promise.all([
-				await getFiles(pagesFolder).then((ev) => ev.map((it) => formatPath(pagesFolder, it))),
-				await getFiles(publicFolder).then((ev) => ev.map((it) => formatPath(publicFolder, it, false)))
-			])).flat()
+			const files = (
+				await Promise.all([
+					await getFiles(pagesFolder).then((ev) => ev.map((it) => formatPath(pagesFolder, it))),
+					await getFiles(publicFolder).then((ev) => ev.map((it) => formatPath(publicFolder, it, false)))
+				])
+			).flat()
 
 			// watch FS changes for new files to add them to the route list
 			server.watcher.on('add', (path) => {
@@ -158,7 +160,7 @@ const integration: () => AstroIntegration = () => ({
 
 				let removeExtension = true
 				let folder = pagesFolder
-				if(path.startsWith(publicFolder)) {
+				if (path.startsWith(publicFolder)) {
 					removeExtension = false
 					folder = publicFolder
 				} else if (!path.startsWith(folder)) {
@@ -178,7 +180,7 @@ const integration: () => AstroIntegration = () => ({
 				path = path.replace(/\\/g, '/')
 				let removeExtension = true
 				let folder = pagesFolder
-				if(path.startsWith(publicFolder)) {
+				if (path.startsWith(publicFolder)) {
 					removeExtension = false
 					folder = publicFolder
 				}

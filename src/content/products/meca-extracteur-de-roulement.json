@@ -1,0 +1,12 @@
+{
+	"title": "Extracteur de Roulement",
+	"image": "../../assets/images/extracteur.png",
+	"imageAlt": "Extracteur de Roulement",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/48IcWEB"
+	},
+	"order": 3,
+	"priceKey": "extracteur"
+}

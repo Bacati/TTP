@@ -1,0 +1,12 @@
+{
+	"title": "Levier universel",
+	"image": "../../assets/images/universal.png",
+	"imageAlt": "Levier universel",
+	"category": "cycle/frein",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/46wC6ol"
+	},
+	"order": 2,
+	"priceKey": "universal"
+}

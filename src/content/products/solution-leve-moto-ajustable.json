@@ -1,0 +1,14 @@
+{
+	"title": "Lève moto ajustable",
+	"image": "../../assets/images/leve-moto.png",
+	"imageAlt": "Lève moto ajustable",
+	"category": "accessoires-racing/solution",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4o01zfB"
+	},
+	"order": 2,
+	"brandLogo": "../../assets/images/risk.avif",
+	"brandLogoAlt": "Lève moto ajustable",
+	"priceKey": "leveMoto"
+}

@@ -1,0 +1,12 @@
+{
+	"title": "Clé à Chocs",
+	"image": "../../assets/images/peteuse.png",
+	"imageAlt": "Clé à Chocs",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3KuqucU"
+	},
+	"order": 0,
+	"priceKey": "peteuse"
+}

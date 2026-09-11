@@ -1,0 +1,10 @@
+{
+	"name": "Outils de mécanique",
+	"title": "Outils de mécanique",
+	"intro": "Chez <b>TTP</b>, la mécanique mérite des outils à la hauteur : des équipements robustes, fiables et adaptés pour travailler efficacement sur chaque intervention.",
+	"heroImage": "../../../assets/images/mecanique.jpg",
+	"heroImageAlt": "Outils de mécanique",
+	"layout": "products",
+	"order": 4,
+	"parent": "produit-outillage"
+}

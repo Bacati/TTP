@@ -1,0 +1,10 @@
+{
+	"name": "Outils de précision",
+	"title": "Outils de précision",
+	"intro": "Chez <b>TTP</b>, la précision n'est pas un détail : des outils spécialisés et pointus pour les réglages fins et les interventions techniques les plus exigeantes.",
+	"heroImage": "../../../assets/images/precision.webp",
+	"heroImageAlt": "Outils de précision",
+	"layout": "products",
+	"order": 3,
+	"parent": "produit-outillage"
+}

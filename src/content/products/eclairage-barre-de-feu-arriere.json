@@ -1,0 +1,12 @@
+{
+	"title": "Barre de feu arrière",
+	"image": "../../assets/images/barre.png",
+	"imageAlt": "Barre de feu arrière",
+	"category": "cycle/eclairage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pNdPBT"
+	},
+	"order": 4,
+	"priceKey": "barre"
+}

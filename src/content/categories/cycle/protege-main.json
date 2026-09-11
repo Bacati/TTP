@@ -1,0 +1,10 @@
+{
+	"name": "Protège-mains",
+	"title": "Protège-mains",
+	"intro": "Chez <b>TTP</b>, les protège-mains ne sont pas qu'un accessoire de protection : des modèles robustes, précis et stylés, pour la sécurité, le confort et le design.",
+	"heroImage": "../../../assets/images/protege.jpg",
+	"heroImageAlt": "Protège-mains",
+	"layout": "products",
+	"order": 4,
+	"parent": "cycle"
+}

@@ -4,17 +4,15 @@
 /**
  * Environment variables declaration
  */
-interface ImportMetaEnv {
-}
+type ImportMetaEnv = {}
 
 interface ImportMeta {
-	readonly env: ImportMetaEnv;
+	readonly env: ImportMetaEnv
 }
-
 
 declare namespace App {
 	/**
 	 * Middlewares variables
 	 */
-	interface Locals {}
+	type Locals = {}
 }

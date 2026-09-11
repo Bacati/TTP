@@ -1,0 +1,12 @@
+{
+	"title": "Mini compresseur",
+	"image": "../../assets/images/gonfleur.png",
+	"imageAlt": "Mini compresseur",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/48ujRS3"
+	},
+	"order": 9,
+	"priceKey": "gonfleur"
+}

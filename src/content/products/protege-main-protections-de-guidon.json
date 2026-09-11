@@ -1,0 +1,12 @@
+{
+	"title": "Protections de guidon",
+	"image": "../../assets/images/protec.png",
+	"imageAlt": "Protections de guidon",
+	"category": "cycle/protege-main",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pL1wpX"
+	},
+	"order": 5,
+	"priceKey": "protec"
+}

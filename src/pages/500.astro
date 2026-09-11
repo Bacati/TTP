@@ -1,0 +1,29 @@
+---
+import I404Light from 'assets/pages/404/404.light.svg'
+import I404 from 'assets/pages/404/404.svg'
+import Button from 'components/global/Button.astro'
+import Picture from 'components/global/Picture.astro'
+import MainLayout from 'layouts/MainLayout.astro'
+---
+
+<MainLayout
+	title="Trouve ta pièce | Erreur serveur"
+	description="Une erreur inattendue est survenue. Réessaie dans un instant ou retourne à l'accueil."
+	robots="noindex,follow"
+	class="overflow-x-hidden"
+>
+	<main id="main" class="container flex flex-col items-center justify-center gap-24 pt-48 pb-10">
+		<h1 class="text-center text-6xl font-bold">500 — Une erreur est survenue :(</h1>
+		<Picture src={I404Light} srcDark={I404} alt="Erreur serveur" />
+		<div class="flex gap-6">
+			<Button href="/">Retour à la page d'accueil</Button>
+			<Button id="back_button">Retour à la page précédente</Button>
+		</div>
+	</main>
+</MainLayout>
+
+<script>
+	document.querySelector<HTMLButtonElement>('#back_button')?.addEventListener('click', () => {
+		history.back()
+	})
+</script>

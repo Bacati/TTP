@@ -1,0 +1,52 @@
+---
+/**
+ * Barre de filtres réels (masquage + URL partageable via `scripts/filters.ts`).
+ * N'affiche que les groupes présents dans `active` ET ayant au moins 2 valeurs.
+ */
+import type { Facets } from 'libs/catalog'
+
+interface Props {
+	facets: Facets
+	active: Array<'cc' | 'engine' | 'price'>
+}
+
+const { facets, active } = Astro.props
+
+const groups = [
+	{ key: 'cc' as const, label: 'Cylindrée', options: facets.cc.map((v) => ({ value: String(v), label: `${v} cc` })) },
+	{ key: 'engine' as const, label: 'Moteur', options: facets.engine.map((v) => ({ value: v.toLowerCase(), label: v })) },
+	{ key: 'price' as const, label: 'Prix', options: facets.price.map((b) => ({ value: b.id, label: b.label })) }
+].filter((g) => active.includes(g.key) && g.options.length > 1)
+---
+
+{groups.length > 0 && (
+	<form
+		data-filter-bar
+		class="mx-auto mb-8 flex w-11/12 flex-col gap-4 rounded-3xl bg-white p-5 shadow-sm lg:w-4/5"
+	>
+		{groups.map((group) => (
+			<fieldset class="flex flex-wrap items-center gap-2">
+				<legend class="mr-2 inline-block text-sm font-semibold uppercase tracking-wide text-gray-500">
+					{group.label}
+				</legend>
+				{group.options.map((opt) => (
+					<label class="cursor-pointer">
+						<input type="checkbox" name={group.key} value={opt.value} class="peer sr-only" data-filter={group.key} />
+						<span class="inline-block rounded-full border-2 border-orange-200 bg-orange-50 px-4 py-1.5 text-sm text-orange-700 transition-colors peer-checked:border-orange-500 peer-checked:bg-orange-500 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-orange-400">
+							{opt.label}
+						</span>
+					</label>
+				))}
+			</fieldset>
+		))}
+
+		<button
+			type="button"
+			data-filter-reset
+			hidden
+			class="self-start text-sm text-gray-500 underline underline-offset-2 hover:text-orange-600"
+		>
+			Réinitialiser les filtres
+		</button>
+	</form>
+)}

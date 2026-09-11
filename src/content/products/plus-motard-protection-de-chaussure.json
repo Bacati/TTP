@@ -1,0 +1,12 @@
+{
+	"title": "Protection de chaussure",
+	"image": "../../assets/images/madbike.png",
+	"imageAlt": "Protection de chaussure",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/42IE8j5"
+	},
+	"order": 0,
+	"priceKey": "madbike"
+}

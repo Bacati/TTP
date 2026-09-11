@@ -1,0 +1,52 @@
+{
+	"name": "78cc MOST 4STREET",
+	"range": "alldays",
+	"brand": "Most",
+	"brandLogo": "../../assets/images/most.png",
+	"cc": 78,
+	"engines": ["AM6", "Derbi"],
+	"description": "Configuration légèrement plus avancée, avec un cylindre à la fois solide et performant. Il est crucial de bien respecter le temps de chauffe. Le cylindre offre un bon couple et monte bien dans les tours, ce qui le rend idéal pour une utilisation quotidienne tout en offrant un réel plaisir de conduite.",
+	"images": [
+		"../../assets/images/80most.png",
+		"../../assets/images/viloairsal.png",
+		"../../assets/images/admiita.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/potmost.png"
+	],
+	"pieces": [
+		{
+			"label": "Kit cylindre 78cc MOST 4street",
+			"price": 249
+		},
+		{
+			"label": "Vilebrequin AIRSAL",
+			"price": 199
+		},
+		{
+			"label": "Embrayage MOST",
+			"price": 50
+		},
+		{
+			"label": "Carburateur 28MM SUNWORLD",
+			"price": 110
+		},
+		{
+			"label": "Pot MOST 80-90",
+			"price": 246
+		},
+		{
+			"label": "Allumage MVT Digital Direct",
+			"price": 289
+		},
+		{
+			"label": "Roulement et spy MOST",
+			"price": 14
+		},
+		{
+			"label": "Admission ITALKIT",
+			"price": 88
+		}
+	],
+	"order": 8,
+	"featured": true
+}

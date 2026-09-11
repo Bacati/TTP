@@ -1,0 +1,43 @@
+{
+	"name": "86cc Top performance",
+	"range": "alldays",
+	"brand": "Top Performance",
+	"brandLogo": "../../assets/images/top.webp",
+	"cc": 86,
+	"engines": ["AM6"],
+	"description": "Configuration basique avec un cylindre particulièrement solide. Il est essentiel de bien respecter les temps de chauffe. Lors du montage, il est important d'appliquer une fine couche de pâte à joint au niveau du joint d'embase pour éviter d'endommager le piston. Le moteur, très coupleux, est non seulement agréable à conduire au quotidien, mais aussi très réactif et ludique.",
+	"images": [
+		"../../assets/images/topalu.png",
+		"../../assets/images/baatop.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/ardv2.png"
+	],
+	"pieces": [
+		{
+			"label": "Pack moteur 86cc TOP performance alu",
+			"price": 426
+		},
+		{
+			"label": "Embrayage NEWFREN",
+			"price": 65
+		},
+		{
+			"label": "Boite à clapet TOP performance",
+			"price": 97
+		},
+		{
+			"label": "Pipe d'admission MOST",
+			"price": 47
+		},
+		{
+			"label": "Pot 2WIN ARD V2",
+			"price": 329
+		},
+		{
+			"label": "Carburateur 28MM SUNWORLD",
+			"price": 110
+		}
+	],
+	"order": 7,
+	"featured": true
+}

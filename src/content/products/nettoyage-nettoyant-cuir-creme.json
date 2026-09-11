@@ -1,0 +1,12 @@
+{
+	"title": "Nettoyant cuir crème",
+	"image": "../../assets/images/cuir.png",
+	"imageAlt": "Nettoyant cuir crème",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3VHQCU8"
+	},
+	"order": 7,
+	"priceKey": "cuir"
+}

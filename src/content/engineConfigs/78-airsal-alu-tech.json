@@ -1,0 +1,51 @@
+{
+	"name": "78cc Airsal alu tech",
+	"range": "alldays",
+	"brand": "Airsal",
+	"brandLogo": "../../assets/images/airsal.png",
+	"cc": 78,
+	"engines": ["Derbi"],
+	"description": "Configuration très basique avec un cylindre robuste. Il est essentiel de respecter le temps de chauffe. Le cylindre offre un bon couple, idéal pour une utilisation quotidienne tout en procurant du plaisir de conduite.",
+	"images": [
+		"../../assets/images/70airsal.png",
+		"../../assets/images/vilojasilH.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/potvoca.png"
+	],
+	"pieces": [
+		{
+			"label": "Kit cylindre 78cc Airsal alu tech",
+			"price": 219
+		},
+		{
+			"label": "Vilebrequin Jasil high tech",
+			"price": 129
+		},
+		{
+			"label": "Roulement et spy WATTS",
+			"price": 14
+		},
+		{
+			"label": "Embrayage MOST",
+			"price": 50
+		},
+		{
+			"label": "Lamelle carbon DOPPLER ER3 derbi",
+			"price": 23
+		},
+		{
+			"label": "Pipe d'admission WATTS type cr",
+			"price": 14
+		},
+		{
+			"label": "Carburateur 28MM SUNWORLD",
+			"price": 110
+		},
+		{
+			"label": "Pot VOCA 70-80",
+			"price": 279
+		}
+	],
+	"order": 5,
+	"featured": true
+}

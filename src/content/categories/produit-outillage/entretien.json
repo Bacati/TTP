@@ -1,0 +1,10 @@
+{
+	"name": "Entretien",
+	"title": "Entretien",
+	"intro": "Chez <b>TTP</b>, l'entretien ne se limite pas au nettoyage : des produits performants et spécifiques pour protéger, préserver et optimiser chaque pièce de ta machine.",
+	"heroImage": "../../../assets/images/entretien.jpg",
+	"heroImageAlt": "Entretien",
+	"layout": "products",
+	"order": 2,
+	"parent": "produit-outillage"
+}

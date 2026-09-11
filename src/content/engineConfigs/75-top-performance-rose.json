@@ -1,0 +1,51 @@
+{
+	"name": "75cc Top performance rose",
+	"range": "alldays",
+	"brand": "Top Performance",
+	"brandLogo": "../../assets/images/top.webp",
+	"cc": 75,
+	"engines": ["AM6"],
+	"description": "Configuration solide pour de nombreux kilomètres avec performance.",
+	"images": [
+		"../../assets/images/toprose.png",
+		"../../assets/images/vilojasilH.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/potvoca.png"
+	],
+	"pieces": [
+		{
+			"label": "Kit cylindre 75cc Top performance rose",
+			"price": 289
+		},
+		{
+			"label": "Vilebrequin Jasil high tech",
+			"price": 129
+		},
+		{
+			"label": "Roulement et spy WATTS",
+			"price": 14
+		},
+		{
+			"label": "Embrayage MOST",
+			"price": 50
+		},
+		{
+			"label": "Boite à clapets MALOSSI VL6",
+			"price": 33
+		},
+		{
+			"label": "Pipe d'admission WATTS type cr",
+			"price": 14
+		},
+		{
+			"label": "Carburateur 26MM SUNWORLD",
+			"price": 110
+		},
+		{
+			"label": "Pot VOCA 70-80",
+			"price": 279
+		}
+	],
+	"order": 4,
+	"featured": true
+}

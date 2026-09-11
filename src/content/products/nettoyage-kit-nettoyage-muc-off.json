@@ -1,0 +1,12 @@
+{
+	"title": "Kit nettoyage Muc-Off",
+	"image": "../../assets/images/kit-nettoyage.png",
+	"imageAlt": "Kit nettoyage Muc-Off",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://mucoff.sjv.io/WynWgP"
+	},
+	"order": 1,
+	"priceKey": "kitNettoyage"
+}

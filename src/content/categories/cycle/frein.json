@@ -1,0 +1,12 @@
+{
+	"name": "Levier",
+	"title": "Levier",
+	"intro": "Chez <b>TTP</b>, nous ne nous contentons pas des systèmes de freinage standards : pièces rares, spécifiques et performantes, pensées pour un freinage différent et hors du commun.",
+	"heroImage": "../../../assets/images/freinage.jpg",
+	"heroImageAlt": "Levier",
+	"tileImage": "../../../assets/images/etrier.webp",
+	"tileImageAlt": "levier moto",
+	"layout": "products",
+	"order": 1,
+	"parent": "cycle"
+}

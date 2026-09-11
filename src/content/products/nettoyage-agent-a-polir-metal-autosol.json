@@ -1,0 +1,12 @@
+{
+	"title": "Agent à polir métal Autosol",
+	"image": "../../assets/images/autosol.png",
+	"imageAlt": "Agent à polir métal Autosol",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3INHKt5"
+	},
+	"order": 6,
+	"priceKey": "autosol"
+}

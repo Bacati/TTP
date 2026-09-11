@@ -4,7 +4,6 @@
  * you MUST call it through the `DaoFactory` file
  */
 export default abstract class Dao<Object extends { id: any } = { id: any }> {
-
 	/**
 	 * insert a new object into the source
 	 *
@@ -46,7 +45,7 @@ export default abstract class Dao<Object extends { id: any } = { id: any }> {
 	 * @returns
 	 */
 	public findById(id: Object['id']): Promise<Object | null> {
-		return this.findOne({id: id} as Partial<Object>)
+		return this.findOne({ id: id } as Partial<Object>)
 	}
 
 	/**
@@ -91,7 +90,7 @@ export default abstract class Dao<Object extends { id: any } = { id: any }> {
 		if (!query) {
 			return null
 		}
-		return await this.update({...query, ...changes})
+		return await this.update({ ...query, ...changes })
 	}
 	/**
 	 * update the remote reference of the object or create it if not found

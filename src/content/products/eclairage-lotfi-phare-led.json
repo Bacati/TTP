@@ -1,0 +1,12 @@
+{
+	"title": "LOTFI Phare LED",
+	"image": "../../assets/images/exc.png",
+	"imageAlt": "LOTFI Phare LED",
+	"category": "cycle/eclairage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pMfSq3"
+	},
+	"order": 2,
+	"priceKey": "exc"
+}

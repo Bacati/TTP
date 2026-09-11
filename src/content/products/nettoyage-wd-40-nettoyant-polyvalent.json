@@ -1,0 +1,12 @@
+{
+	"title": "WD-40 Nettoyant polyvalent",
+	"image": "../../assets/images/wd-spray.png",
+	"imageAlt": "WD-40 Nettoyant polyvalent",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4mGseNs"
+	},
+	"order": 4,
+	"priceKey": "wdSpray"
+}

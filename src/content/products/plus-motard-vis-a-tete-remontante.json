@@ -1,0 +1,14 @@
+{
+	"title": "Vis à tête remontante",
+	"image": "../../assets/images/vis.png",
+	"imageAlt": "Vis à tête remontante",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://flushfasteners.com/?ref=TROUVETAPIECE"
+	},
+	"order": 2,
+	"brandLogo": "../../assets/images/flush.webp",
+	"brandLogoAlt": "Vis à tête remontante",
+	"featured": true
+}

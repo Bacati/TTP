@@ -7,7 +7,7 @@ export interface Props extends Omit<astroHTML.JSX.InputHTMLAttributes, 'type'> {
 	block?: boolean
 	suffix?: string
 	prefix?: string
-	options: Array<string | number | {title: string | number, description?: string | number | null}>
+	options: Array<string | number | { title: string | number; description?: string | number | null }>
 }
 
 const baseProps = objectOmit(Astro.props, 'label', 'block', 'suffix', 'prefix', 'options')

@@ -1,0 +1,9 @@
+{
+	"name": "Accessoires",
+	"title": "Accessoires racing",
+	"intro": "Des accessoires pensés pour la performance et les pilotes exigeants : pièces légères et résistantes, équipements spécifiques compétition, et tous les petits plus qui font la différence.",
+	"heroImage": "../../assets/images/accessoire.jpg",
+	"heroImageAlt": "Accessoires",
+	"layout": "hub",
+	"order": 6
+}

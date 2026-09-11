@@ -1,0 +1,12 @@
+{
+	"title": "Jeu de Fraises Rotatives",
+	"image": "../../assets/images/fraise.png",
+	"imageAlt": "Jeu de Fraises Rotatives",
+	"category": "produit-outillage/prepa",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/46B8o04"
+	},
+	"order": 2,
+	"priceKey": "fraise"
+}

@@ -1,0 +1,14 @@
+{
+	"title": "Grille de départ électronique",
+	"image": "../../assets/images/grille.png",
+	"imageAlt": "Grille de départ électronique",
+	"category": "accessoires-racing/solution",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4gTGJwb"
+	},
+	"order": 3,
+	"brandLogo": "../../assets/images/risk.avif",
+	"brandLogoAlt": "Grille de départ électronique",
+	"priceKey": "grille"
+}

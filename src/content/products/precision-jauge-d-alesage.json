@@ -1,0 +1,12 @@
+{
+	"title": "Jauge d'alésage",
+	"image": "../../assets/images/alesage.png",
+	"imageAlt": "Jauge d'alésage",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4gPYah9"
+	},
+	"order": 1,
+	"priceKey": "alesage"
+}

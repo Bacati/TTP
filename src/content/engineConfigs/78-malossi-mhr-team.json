@@ -1,0 +1,56 @@
+{
+	"name": "78cc Malossi MHR Team",
+	"range": "competition",
+	"brand": "Malossi",
+	"brandLogo": "../../assets/images/malossi.png",
+	"cc": 78,
+	"engines": ["AM6", "Derbi"],
+	"description": "Très bonne configuration, peu de couple mais enormément de régime très performant dans ça catégorie. Un entretien très régulier et minutieux est nécessaire. le moteur doit obligatoirement être préparé.",
+	"images": [
+		"../../assets/images/50mhr.png",
+		"../../assets/images/viloitalikit.png",
+		"../../assets/images/pvl.png",
+		"../../assets/images/vforce.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/txt.png"
+	],
+	"pieces": [
+		{
+			"label": "78cc Malossi MHR Team",
+			"price": 398
+		},
+		{
+			"label": "Vilebrequin ITALKIT compétion",
+			"price": 229
+		},
+		{
+			"label": "Roulement et spy MOST",
+			"price": 28
+		},
+		{
+			"label": "Allumage pvl BIDALOT",
+			"price": 399
+		},
+		{
+			"label": "Embrayage MOST",
+			"price": 50
+		},
+		{
+			"label": "Boite à clapet vforce 3i 85cr",
+			"price": 199
+		},
+		{
+			"label": "Pipe d'admission MOST",
+			"price": 51
+		},
+		{
+			"label": "Carburateur 34MM SUNWORLD",
+			"price": 129
+		},
+		{
+			"label": "Pot TXT V8",
+			"price": 401
+		}
+	],
+	"order": 7
+}

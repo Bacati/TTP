@@ -4,9 +4,7 @@ type Fn<T extends HTMLElement> = (el: Component<T>) => void | Promise<void>
  * Component client side initialisation class
  */
 export default class Component<T extends HTMLElement> {
-	private constructor(
-		public element: T
-	) {}
+	private constructor(public element: T) {}
 
 	public handled(value: boolean): this
 	public handled(): boolean

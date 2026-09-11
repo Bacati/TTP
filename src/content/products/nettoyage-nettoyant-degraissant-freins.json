@@ -1,0 +1,12 @@
+{
+	"title": "Nettoyant dégraissant freins",
+	"image": "../../assets/images/nettoyant-frein.png",
+	"imageAlt": "Nettoyant dégraissant freins",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3VHQLH2"
+	},
+	"order": 5,
+	"priceKey": "nettoyantFrein"
+}

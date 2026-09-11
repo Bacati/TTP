@@ -1,0 +1,11 @@
+{
+	"name": "Transport & solutions MX",
+	"title": "Transport & solutions MX",
+	"intro": "Chez <b>TTP</b>, chaque seconde compte en motocross : grilles de départ connectées, systèmes de transport ingénieux, lève-moto innovants… tout pour rouler, t'entraîner et performer.",
+	"heroImage": "../../../assets/images/holshot.webp",
+	"heroImageAlt": "Transport & solutions MX",
+	"layout": "products",
+	"order": 2,
+	"parent": "accessoires-racing",
+	"hidden": true
+}

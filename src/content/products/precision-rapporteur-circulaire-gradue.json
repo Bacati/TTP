@@ -1,0 +1,12 @@
+{
+	"title": "Rapporteur circulaire gradué",
+	"image": "../../assets/images/disque.png",
+	"imageAlt": "Rapporteur circulaire gradué",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/488FcQD"
+	},
+	"order": 2,
+	"priceKey": "disque"
+}

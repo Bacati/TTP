@@ -1,0 +1,12 @@
+{
+	"title": "Levier d'embrayage À Roulement",
+	"image": "../../assets/images/clutch.png",
+	"imageAlt": "Levier d'embrayage À Roulement",
+	"category": "cycle/frein",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4gRJ5Md"
+	},
+	"order": 5,
+	"priceKey": "clutch"
+}

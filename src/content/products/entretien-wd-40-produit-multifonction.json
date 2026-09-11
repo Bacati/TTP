@@ -1,0 +1,12 @@
+{
+	"title": "WD-40 Produit Multifonction",
+	"image": "../../assets/images/wd40.png",
+	"imageAlt": "WD-40 Produit Multifonction",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/48D1fz1"
+	},
+	"order": 6,
+	"priceKey": "wd40"
+}

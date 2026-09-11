@@ -1,0 +1,10 @@
+{
+	"name": "Outils de préparation",
+	"title": "Outils de préparation",
+	"intro": "Chez <b>TTP</b>, la préparation est une question de performance : des outils dédiés, adaptés et précis pour optimiser chaque réglage.",
+	"heroImage": "../../../assets/images/prepa.jpg",
+	"heroImageAlt": "Outils de préparation",
+	"layout": "products",
+	"order": 5,
+	"parent": "produit-outillage"
+}

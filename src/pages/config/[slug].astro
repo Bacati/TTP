@@ -1,0 +1,62 @@
+---
+export const prerender = true
+
+import { getCollection } from 'astro:content'
+import ConfigDetail from 'components/ConfigDetail.astro'
+import MainLayout from 'layouts/MainLayout.astro'
+import { engineConfigTotal, getEngineConfig, resolvePrice } from 'libs/catalog'
+import { Undo2 } from 'lucide-astro'
+
+export async function getStaticPaths() {
+	const configs = await getCollection('engineConfigs')
+	return configs.map((c) => ({ params: { slug: c.id }, props: { id: c.id } }))
+}
+
+const { id } = Astro.props
+const entry = await getEngineConfig(id)
+if (!entry) return Astro.redirect('/404')
+
+const rangeLabel = entry.data.range === 'alldays' ? 'Configuration Alldays' : 'Compétition'
+const backUrl = entry.data.range === 'alldays' ? '/categorie/alldays' : '/categorie/competition'
+const pieces = entry.data.pieces.map((p) => ({ label: p.label, price: resolvePrice(p) ?? 0 }))
+const total = engineConfigTotal(entry)
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Product',
+	name: entry.data.name,
+	category: rangeLabel,
+	description: entry.data.description,
+	brand: { '@type': 'Brand', name: entry.data.brand },
+	...(total != null ? { offers: { '@type': 'Offer', price: total, priceCurrency: 'EUR', availability: 'https://schema.org/InStock' } } : {})
+}
+---
+
+<MainLayout
+	title={`Trouve ta pièce | ${entry.data.name}`}
+	description={entry.data.description}
+	jsonLd={jsonLd}
+	class="overflow-x-hidden"
+>
+	<main id="main" class="flex items-center justify-center">
+		<ConfigDetail
+			name={entry.data.name}
+			brand={entry.data.brand}
+			brandLogo={entry.data.brandLogo}
+			rangeLabel={rangeLabel}
+			engines={entry.data.engines}
+			description={entry.data.description}
+			images={entry.data.images}
+			pieces={pieces}
+			total={total}
+		/>
+	</main>
+	<div class="mx-auto w-9/12">
+		<a
+			href={backUrl}
+			class="relative -top-4 flex w-fit items-center gap-3 rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white motion-reduce:transition-none lg:-top-36"
+		>
+			Retour <Undo2 class="h-5 w-5" aria-hidden="true" />
+		</a>
+	</div>
+</MainLayout>

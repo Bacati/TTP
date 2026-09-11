@@ -1,0 +1,12 @@
+{
+	"title": "Outils multifonctions",
+	"image": "../../assets/images/dremel.png",
+	"imageAlt": "Outils multifonctions",
+	"category": "produit-outillage/prepa",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3ILY2md"
+	},
+	"order": 0,
+	"priceKey": "dremel"
+}

@@ -1,0 +1,9 @@
+{
+	"title": "Préparateur moteur",
+	"image": "../../assets/images/preparateur.jpg",
+	"imageAlt": "Préparateur moteur",
+	"tagline": "L'art de booster votre moteur.",
+	"category": "accessoires-racing",
+	"order": 12,
+	"hidden": true
+}

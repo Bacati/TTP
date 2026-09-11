@@ -1,0 +1,30 @@
+{
+	"name": "50cc Metrakit Alu",
+	"range": "alldays",
+	"brand": "Metrakit",
+	"brandLogo": "../../assets/images/mk.svg",
+	"cc": 50,
+	"engines": ["Derbi", "AM6"],
+	"description": "Une configuration robuste. Pas très performante, mais capable de parcourir de nombreux kilomètres sans souci.",
+	"images": [
+		"../../assets/images/50mk.png",
+		"../../assets/images/carbupolini.png",
+		"../../assets/images/potmost50.png"
+	],
+	"pieces": [
+		{
+			"label": "Kit 50cc METRAKIT ALU",
+			"price": 230
+		},
+		{
+			"label": "Carburateur 17,5MM POLINI",
+			"price": 118
+		},
+		{
+			"label": "Pot MOST 50-70",
+			"price": 212
+		}
+	],
+	"order": 0,
+	"featured": true
+}

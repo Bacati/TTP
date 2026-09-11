@@ -1,0 +1,12 @@
+{
+	"title": "Chariot à outils 156 pièces",
+	"image": "../../assets/images/caisse.png",
+	"imageAlt": "Chariot à outils 156 pièces",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nt66rb"
+	},
+	"order": 1,
+	"priceKey": "caisse"
+}

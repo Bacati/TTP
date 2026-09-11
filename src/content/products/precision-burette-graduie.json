@@ -1,0 +1,12 @@
+{
+	"title": "Burette graduié",
+	"image": "../../assets/images/burette.png",
+	"imageAlt": "Burette graduié",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3Wh4zII"
+	},
+	"order": 5,
+	"priceKey": "burette"
+}

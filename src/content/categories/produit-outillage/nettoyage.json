@@ -1,0 +1,10 @@
+{
+	"name": "Nettoyage",
+	"title": "Nettoyage",
+	"intro": "Chez <b>TTP</b>, nous allons au-delà des nettoyants classiques : des produits spécialisés et efficaces pour garder ta moto impeccable, de l'entretien de précision au soin de pièces spécifiques.",
+	"heroImage": "../../../assets/images/nettoyage.jpg",
+	"heroImageAlt": "Nettoyage",
+	"layout": "products",
+	"order": 1,
+	"parent": "produit-outillage"
+}

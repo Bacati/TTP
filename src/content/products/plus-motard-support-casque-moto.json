@@ -1,0 +1,12 @@
+{
+	"title": "Support Casque Moto",
+	"image": "../../assets/images/support.png",
+	"imageAlt": "Support Casque Moto",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4nXRrE6"
+	},
+	"order": 1,
+	"priceKey": "support"
+}

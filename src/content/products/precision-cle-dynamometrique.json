@@ -1,0 +1,12 @@
+{
+	"title": "Clé Dynamométrique",
+	"image": "../../assets/images/dynamo.png",
+	"imageAlt": "Clé Dynamométrique",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4mDaJhj"
+	},
+	"order": 4,
+	"priceKey": "dynamo"
+}

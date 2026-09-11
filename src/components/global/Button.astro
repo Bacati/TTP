@@ -6,13 +6,7 @@ export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
 	ghost?: boolean
 }
 
-const classes = [
-	"button",
-	{outline: Astro.props.outline},
-	{ghost: Astro.props.ghost},
-	Astro.props.class
-]
-
+const classes = ['button', { outline: Astro.props.outline }, { ghost: Astro.props.ghost }, Astro.props.class]
 ---
 {'href' in Astro.props && (
 	<a class:list={classes} {...objectOmit(Astro.props, 'type') as any}>

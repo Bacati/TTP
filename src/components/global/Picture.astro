@@ -1,12 +1,9 @@
 ---
 import { getImage } from 'astro:assets'
-import AstroUtils from '../../libs/AstroUtils'
 import { objectOmit } from '@dzeio/object-util'
+import AstroUtils from '../../libs/AstroUtils'
 
-const formats = [
-	'avif',
-	'webp'
-]
+const formats = ['avif', 'webp']
 
 export interface Props extends Omit<astroHTML.JSX.ImgHTMLAttributes, 'src'> {
 	src: ImageMetadata | string
@@ -15,14 +12,16 @@ export interface Props extends Omit<astroHTML.JSX.ImgHTMLAttributes, 'src'> {
 	height?: number
 }
 
-type PictureResult = {
-	format: 'new'
-	formats: Array<{format: string, img: Awaited<ReturnType<typeof getImage>>}>
-	src: Awaited<ReturnType<typeof getImage>>
-} | {
-	format: 'raw'
-	src: string
-}
+type PictureResult =
+	| {
+			format: 'new'
+			formats: Array<{ format: string; img: Awaited<ReturnType<typeof getImage>> }>
+			src: Awaited<ReturnType<typeof getImage>>
+	  }
+	| {
+			format: 'raw'
+			src: string
+	  }
 
 interface Result {
 	light: PictureResult
@@ -38,14 +37,14 @@ async function resolvePicture(image: ImageMetadata | string): Promise<PictureRes
 		}
 	}
 
-	const imageFormats: Array<{format: string, img: Awaited<ReturnType<typeof getImage>>}> = await Promise.all(
+	const imageFormats: Array<{ format: string; img: Awaited<ReturnType<typeof getImage>> }> = await Promise.all(
 		formats.map(async (it) => ({
-			img: await getImage({src: Astro.props.src, format: it, width: Astro.props.width, height: Astro.props.height}),
+			img: await getImage({ src: Astro.props.src, format: it, width: Astro.props.width, height: Astro.props.height }),
 			format: it
 		}))
 	)
 
-	const orig = await getImage({src: Astro.props.src, format: ext, width: Astro.props.width, height: Astro.props.height})
+	const orig = await getImage({ src: Astro.props.src, format: ext, width: Astro.props.width, height: Astro.props.height })
 
 	return {
 		format: 'new',
@@ -62,7 +61,6 @@ const res = await AstroUtils.wrap<Result>(async () => {
 })
 
 const props = objectOmit(Astro.props, 'src', 'srcDark', 'class')
-
 ---
 
 {res.light.format === 'new' && (

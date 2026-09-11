@@ -1,0 +1,11 @@
+{
+	"name": "Alldays",
+	"title": "Alldays",
+	"intro": "<strong>Optimisez votre conduite quotidienne avec nos configurations moteur Alldays.</strong><br>Des configurations pensées pour améliorer les performances de votre véhicule sans sacrifier la fiabilité, dans une gamme de prix adaptée à chaque budget.",
+	"heroImage": "../../assets/images/yoni.jpeg",
+	"heroImageAlt": "Alldays",
+	"layout": "configs",
+	"order": 1,
+	"filters": ["cc", "engine", "price"],
+	"configRange": "alldays"
+}

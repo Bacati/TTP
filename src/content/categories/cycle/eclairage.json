@@ -1,0 +1,10 @@
+{
+	"name": "Éclairage",
+	"title": "Éclairage",
+	"intro": "Chez <b>TTP</b>, l'éclairage ne se résume pas à illuminer la route : des optiques uniques, puissantes et stylées, pour la visibilité, la sécurité et le caractère.",
+	"heroImage": "../../../assets/images/feu.jpeg",
+	"heroImageAlt": "Éclairage",
+	"layout": "products",
+	"order": 3,
+	"parent": "cycle"
+}

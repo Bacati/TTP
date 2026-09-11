@@ -5,7 +5,6 @@ import StatusCode from './HTTP/StatusCode'
  * Simple builde to create a new Response object
  */
 export default class ResponseBuilder {
-
 	public static redirect(location: string, statusCode: number = StatusCode.FOUND) {
 		const resp = new ResponseBuilder()
 		resp.addHeader('Location', location)
@@ -21,7 +20,7 @@ export default class ResponseBuilder {
 		} else if (body instanceof Buffer) {
 			this._body = body.toString()
 		} else {
-			this._body = body
+			this._body = body as string | null | undefined
 		}
 		return this
 	}

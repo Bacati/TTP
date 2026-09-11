@@ -1,0 +1,12 @@
+{
+	"name": "Compétition",
+	"title": "Compétition",
+	"intro": "<strong>Optimisez votre performance sur circuit avec nos configurations moteur haute performance.</strong><br>Une gamme conçue pour les passionnés de course, du novice à l'expert, à tous les niveaux de prix.",
+	"heroImage": "../../assets/images/bg.svg",
+	"heroImageAlt": "Compétition",
+	"heroPosition": "bottom",
+	"layout": "configs",
+	"order": 2,
+	"filters": ["cc", "price"],
+	"configRange": "competition"
+}

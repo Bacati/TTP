@@ -1,0 +1,12 @@
+{
+	"title": "Pied a Coulisse",
+	"image": "../../assets/images/pied.png",
+	"imageAlt": "Pied a Coulisse",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4mLrJlw"
+	},
+	"order": 3,
+	"priceKey": "pied"
+}

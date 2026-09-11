@@ -1,0 +1,12 @@
+{
+	"title": "JFG RACING Protege Main",
+	"image": "../../assets/images/jfg.png",
+	"imageAlt": "JFG RACING Protege Main",
+	"category": "cycle/protege-main",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4mMlYDT"
+	},
+	"order": 2,
+	"priceKey": "jfg"
+}

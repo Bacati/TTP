@@ -1,0 +1,9 @@
+{
+	"title": "Astuces & conseils",
+	"image": "../../assets/images/astuce.avif",
+	"imageAlt": "Astuces & conseils",
+	"tagline": "Petits trucs, grands résultats : nos conseils mécaniques.",
+	"category": "produit-outillage",
+	"order": 21,
+	"url": "/categorie/astuce"
+}

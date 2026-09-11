@@ -1,0 +1,12 @@
+{
+	"title": "Motul 800 2T",
+	"image": "../../assets/images/motul800.png",
+	"imageAlt": "Motul 800 2T",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pMgig7"
+	},
+	"order": 0,
+	"priceKey": "motul800"
+}

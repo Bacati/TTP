@@ -1,0 +1,12 @@
+{
+	"title": "Extracteur de Roulement 4PCs",
+	"image": "../../assets/images/troisBranche.png",
+	"imageAlt": "Extracteur de Roulement 4PCs",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pJ64x3"
+	},
+	"order": 4,
+	"priceKey": "branche3"
+}

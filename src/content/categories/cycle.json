@@ -1,0 +1,9 @@
+{
+	"name": "Cycle",
+	"title": "Cycle",
+	"intro": "Une sélection soignée de pièces de qualité pour optimiser et personnaliser le châssis de votre moto : freinage, éclairage, clignotants, protège-mains et tous les éléments qui affinent la conduite.",
+	"heroImage": "../../assets/images/antoine.jpeg",
+	"heroImageAlt": "Cycle",
+	"layout": "hub",
+	"order": 4
+}

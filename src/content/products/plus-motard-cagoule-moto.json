@@ -1,0 +1,12 @@
+{
+	"title": "Cagoule Moto",
+	"image": "../../assets/images/cagoule.png",
+	"imageAlt": "Cagoule Moto",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pRZuUW"
+	},
+	"order": 6,
+	"priceKey": "cagoule"
+}

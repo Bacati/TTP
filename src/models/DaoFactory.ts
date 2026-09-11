@@ -9,8 +9,7 @@
  *
  * Touch this interface to define which key is linked to which Dao
  */
-interface DaoItem {
-}
+type DaoItem = {}
 
 /**
  * Class to get any DAO
@@ -48,7 +47,8 @@ export default class DaoFactory {
 	 */
 	private static initDao(item: keyof DaoItem): any | undefined {
 		switch (item) {
-			default: return undefined
+			default:
+				return undefined
 		}
 	}
 }

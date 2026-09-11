@@ -1,0 +1,12 @@
+{
+	"title": "Support téléphone",
+	"image": "../../assets/images/supportTel.png",
+	"imageAlt": "Support téléphone",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4o01zfB"
+	},
+	"order": 4,
+	"priceKey": "supportTel"
+}

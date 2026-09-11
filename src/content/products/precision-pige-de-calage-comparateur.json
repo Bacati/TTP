@@ -1,0 +1,12 @@
+{
+	"title": "Pige de Calage Comparateur",
+	"image": "../../assets/images/pige.png",
+	"imageAlt": "Pige de Calage Comparateur",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/46M18Pd"
+	},
+	"order": 0,
+	"priceKey": "pige"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Garage",
+	"title": "Garage",
+	"intro": "Produits de nettoyage et outils de qualité pour les mécaniciens passionnés et les amateurs méticuleux. De quoi entretenir votre moto comme un professionnel et intervenir avec précision.",
+	"heroImage": "../../assets/images/charlie.jpg",
+	"heroImageAlt": "Garage",
+	"layout": "hub",
+	"order": 7
+}

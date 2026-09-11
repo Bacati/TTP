@@ -1,0 +1,13 @@
+{
+	"title": "Antivol",
+	"image": "../../assets/images/antivol.png",
+	"imageAlt": "Antivol",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://www.mycover-protection.com/fr/categorie-de-produits/antivols-abus/?wpam_id=60"
+	},
+	"order": 7,
+	"brandLogo": "../../assets/images/mycover.avif",
+	"brandLogoAlt": "Antivol"
+}

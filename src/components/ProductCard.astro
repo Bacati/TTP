@@ -1,0 +1,77 @@
+---
+/**
+ * Carte produit / config moteur. Consomme un `CardModel` (voir `libs/catalog.ts`).
+ * Reprend fidèlement le visuel de l'ancien `components/global/Cards.astro` :
+ * l'image de contenu déborde volontairement du cercle (effet de relief) et
+ * grossit au survol. Les dimensions du cadre sont fixes, donc toutes les cartes
+ * ont la même empreinte quelle que soit l'image source.
+ */
+import Picture from 'components/global/Picture.astro'
+import type { CardModel } from 'libs/catalog'
+import { Eye } from 'lucide-astro'
+import motor from '../assets/images/motor.svg'
+
+type Props = CardModel & {
+	class?: string | undefined
+	/** attributs `data-*` de filtrage injectés par `<ProductGrid>` */
+	filterData?: Record<string, string> | undefined
+}
+
+const { title, image, imageAlt, brandLogo, brandLogoAlt, typeLabel, price, href, external, engines, class: className, filterData } = Astro.props as Props
+
+const rel = external ? 'noopener noreferrer nofollow' : undefined
+const target = external ? '_blank' : undefined
+---
+
+<a
+	href={href}
+	rel={rel}
+	target={target}
+	aria-label={title}
+	{...filterData}
+	class:list={[
+		'card group relative flex h-[29rem] w-80 flex-col items-center justify-between rounded-3xl bg-white p-6 shadow-lg transition-[transform,box-shadow] duration-300 hover:z-20 hover:-translate-y-1.5 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:w-96',
+		className,
+	]}
+>
+	<div class="flex min-h-14 w-full items-center justify-between gap-2">
+		<p class="line-clamp-3 w-3/4 text-xl font-bold leading-tight [hyphens:auto] lg:text-2xl">{title}</p>
+		{brandLogo && (
+			<Picture src={brandLogo} alt={brandLogoAlt ?? ''} class="max-h-12 max-w-20 shrink-0 object-contain lg:max-w-24" />
+		)}
+	</div>
+
+	<div class="mt-2 flex w-full items-center justify-between">
+		<p class="z-20 text-gray-500">{typeLabel}</p>
+		{engines.length > 0 && (
+			<div class="flex w-2/3 items-center justify-end gap-1">
+				<Picture src={motor} alt="" class="h-12 w-12" />
+				<div class="flex flex-col gap-1.5 lg:flex-row">
+					{engines.map((e) => (
+						<span class="inline-flex h-fit items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 py-1 pl-2.5 pr-3 text-sm font-semibold text-neutral-900">
+							<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500"></span>
+							{e}
+						</span>
+					))}
+				</div>
+			</div>
+		)}
+	</div>
+
+	<div class="mt-6 flex h-52 w-52 items-center justify-center rounded-full cards">
+		<Picture
+			src={image}
+			alt={imageAlt}
+			width={500}
+			height={500}
+			loading="lazy"
+			decoding="async"
+			class="max-h-64 max-w-64 transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100 lg:max-h-80 lg:max-w-80"
+		/>
+	</div>
+
+	<div class="mt-4 flex w-full items-center justify-between">
+		{price != null ? <p class="text-3xl font-bold">{price}€</p> : <span />}
+		<Eye class="h-10 w-10 rounded-2xl bg-orange-500 p-2 text-white" />
+	</div>
+</a>

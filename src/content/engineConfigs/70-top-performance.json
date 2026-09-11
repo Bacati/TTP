@@ -1,0 +1,46 @@
+{
+	"name": "70cc Top Performance noir",
+	"range": "alldays",
+	"brand": "top performance",
+	"brandLogo": "../../assets/images/top.webp",
+	"cc": 70,
+	"engines": ["AM6"],
+	"description": "Configuration commune, solide et adaptée pour de longues distances.",
+	"images": [
+		"../../assets/images/topnoir.png",
+		"../../assets/images/vilojasilv.png",
+		"../../assets/images/carbu.png",
+		"../../assets/images/potmost50.png"
+	],
+	"pieces": [
+		{
+			"label": "Kit TOP Performance noir 70cc",
+			"price": 188
+		},
+		{
+			"label": "Vilebrequin JASIL EVO",
+			"price": 105
+		},
+		{
+			"label": "Roulement et spy WATTS",
+			"price": 14
+		},
+		{
+			"label": "Embrayage MALOSSI",
+			"price": 44
+		},
+		{
+			"label": "Pipe d'admission WATTS type cr",
+			"price": 14
+		},
+		{
+			"label": "Carburateur 21MM SUNWORLD",
+			"price": 105
+		},
+		{
+			"label": "Pot MOST 50-70",
+			"price": 212
+		}
+	],
+	"order": 1
+}

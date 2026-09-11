@@ -1,0 +1,14 @@
+{
+	"title": "Housse de protection",
+	"image": "../../assets/images/housse.png",
+	"imageAlt": "Housse de protection",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://www.mycover-protection.com/fr/?wpam_id=60"
+	},
+	"order": 3,
+	"brandLogo": "../../assets/images/mycover.avif",
+	"brandLogoAlt": "Housse de protection",
+	"featured": true
+}

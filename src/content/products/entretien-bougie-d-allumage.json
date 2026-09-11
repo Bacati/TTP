@@ -1,0 +1,12 @@
+{
+	"title": "Bougie d'allumage",
+	"image": "../../assets/images/bougie.png",
+	"imageAlt": "Bougie d'allumage",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/46Zz0t8"
+	},
+	"order": 4,
+	"priceKey": "bougie"
+}

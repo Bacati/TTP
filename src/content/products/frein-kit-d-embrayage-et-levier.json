@@ -1,0 +1,12 @@
+{
+	"title": "Kit d'embrayage et Levier",
+	"image": "../../assets/images/embro.png",
+	"imageAlt": "Kit d'embrayage et Levier",
+	"category": "cycle/frein",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3KzfBqa"
+	},
+	"order": 0,
+	"priceKey": "embro"
+}

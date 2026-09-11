@@ -1,0 +1,12 @@
+{
+	"title": "Dégraissant de Chaine",
+	"image": "../../assets/images/chaine.png",
+	"imageAlt": "Dégraissant de Chaine",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://mucoff.sjv.io/09WEnM"
+	},
+	"order": 1,
+	"priceKey": "chaine"
+}

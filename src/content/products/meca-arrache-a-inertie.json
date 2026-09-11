@@ -1,0 +1,12 @@
+{
+	"title": "Arrache à inertie",
+	"image": "../../assets/images/inertie.png",
+	"imageAlt": "Arrache à inertie",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3KsPu4s"
+	},
+	"order": 6,
+	"priceKey": "inertie"
+}

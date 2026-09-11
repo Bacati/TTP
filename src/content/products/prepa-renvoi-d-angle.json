@@ -1,0 +1,12 @@
+{
+	"title": "Renvoi d'angle",
+	"image": "../../assets/images/renvoie.png",
+	"imageAlt": "Renvoi d'angle",
+	"category": "produit-outillage/prepa",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/3KllN5h"
+	},
+	"order": 1,
+	"priceKey": "renvoie"
+}

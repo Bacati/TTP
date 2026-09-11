@@ -1,0 +1,12 @@
+{
+	"title": "Feu Arrière de Moto",
+	"image": "../../assets/images/arriere.png",
+	"imageAlt": "Feu Arrière de Moto",
+	"category": "cycle/eclairage",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4pHQAct"
+	},
+	"order": 3,
+	"priceKey": "arriere"
+}

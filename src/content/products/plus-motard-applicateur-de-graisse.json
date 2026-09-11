@@ -1,0 +1,12 @@
+{
+	"title": "Applicateur de graisse",
+	"image": "../../assets/images/appli.png",
+	"imageAlt": "Applicateur de graisse",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://amzn.to/4gTGJwb"
+	},
+	"order": 5,
+	"priceKey": "appli"
+}

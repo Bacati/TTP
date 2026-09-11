@@ -1,0 +1,11 @@
+{
+	"name": "Les petits plus du motard",
+	"title": "Les petits plus du motard",
+	"intro": "Chez <b>TTP</b>, des accessoires ingénieux et durables pour protéger, organiser et simplifier ton quotidien sur deux roues. Des détails qui, ensemble, changent tout.",
+	"heroImage": "../../../assets/images/plus.png",
+	"heroImageAlt": "Les petits plus du motard",
+	"layout": "products",
+	"order": 1,
+	"heroPosition": "center",
+	"parent": "accessoires-racing"
+}

@@ -6,7 +6,6 @@ interface Props extends Omit<astroHTML.JSX.InputHTMLAttributes, 'type'> {
 }
 
 const baseProps = objectOmit(Astro.props, 'label', 'block')
-
 ---
 
 <div class:list={[{parent: Astro.props.block}]}>
