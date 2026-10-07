@@ -27,6 +27,7 @@ const jsonLd = {
 	name: entry.data.name,
 	category: rangeLabel,
 	description: entry.data.description,
+	image: entry.data.images.map((img) => new URL(img.src, Astro.site ?? Astro.url.origin).href),
 	brand: { '@type': 'Brand', name: entry.data.brand },
 	...(total != null ? { offers: { '@type': 'Offer', price: total, priceCurrency: 'EUR', availability: 'https://schema.org/InStock' } } : {})
 }
