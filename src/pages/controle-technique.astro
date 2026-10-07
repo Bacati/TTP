@@ -1,0 +1,271 @@
+---
+export const prerender = true
+
+import BackToTop from 'components/BackToTop.astro'
+import CategoryHero from 'components/CategoryHero.astro'
+import ProductCard from 'components/ProductCard.astro'
+import MainLayout from 'layouts/MainLayout.astro'
+import { getProductsForCategory, productToCard } from 'libs/catalog'
+import { RULES_CHECKED_ON, amazonSearchUrl, formatLong, parseIsoDate } from 'libs/controleTechnique'
+import { AlertCircle, CalendarPlus, CircleDot, Disc, Download, Eye, Fingerprint, Gauge, Lightbulb, Volume2 } from 'lucide-astro'
+import hero from '../assets/images/freinage.jpg'
+
+const BRAKE_PRODUCTS = ['frein-levier-universel', 'frein-maitre-cylindre-adelin', 'frein-levier-cnc']
+const brakeCards = (await getProductsForCategory('cycle/frein')).filter((p) => BRAKE_PRODUCTS.includes(p.id)).map(productToCard)
+const cleanerCards = (await getProductsForCategory('produit-outillage/nettoyage')).filter((p) => p.id === 'nettoyage-nettoyant-degraissant-freins').map(productToCard)
+const partCards = [...cleanerCards, ...brakeCards]
+
+const shopping = [
+	{ label: 'Ampoules moto homologuées', url: amazonSearchUrl('ampoule moto homologuée') },
+	{ label: 'Rétroviseur moto homologué', url: amazonSearchUrl('rétroviseur moto homologué') },
+	{ label: 'Plaquettes de frein scooter et moto', url: amazonSearchUrl('plaquettes de frein moto') },
+	{ label: 'Pneu cyclomoteur', url: amazonSearchUrl('pneu cyclomoteur homologué route') }
+].filter((item): item is { label: string; url: string } => Boolean(item.url))
+
+const checkedOn = parseIsoDate(RULES_CHECKED_ON)
+
+const checklist = [
+	{
+		icon: CircleDot,
+		title: 'Pneus et roues',
+		lead: 'En tête des défaillances relevées.',
+		points: ['Usure au-delà des témoins, coupure ou hernie : défaillance.', 'Dimensions conformes à la carte grise.', 'Jantes sans fêlure ni voile, roulements sans jeu.']
+	},
+	{
+		icon: Volume2,
+		title: 'Échappement et bruit',
+		lead: 'Parmi les premières causes de contre-visite.',
+		points: [
+			'Le pot doit porter son marquage d’homologation, chicane en place.',
+			'Le niveau sonore est mesuré pendant le contrôle.',
+			'Les pots compétition sont faits pour le circuit, pas pour la route.'
+		]
+	},
+	{
+		icon: Lightbulb,
+		title: 'Éclairage et clignotants',
+		lead: 'Tout doit s’allumer, avec des optiques homologuées.',
+		points: [
+			'Codes, phares, feux arrière, clignotants et éclairage de plaque.',
+			'Feu stop au levier et à la pédale, catadioptre arrière présent.',
+			'Une ampoule ou un phare LED sans homologation compte comme une défaillance majeure.'
+		]
+	},
+	{
+		icon: Disc,
+		title: 'Freinage',
+		lead: 'L’efficacité est mesurée au banc.',
+		points: ['Plaquettes et disques au-dessus des cotes d’usure.', 'Durites sans fissure ni fuite, liquide propre et à niveau.', 'Leviers et pédale sans jeu anormal.']
+	},
+	{
+		icon: Fingerprint,
+		title: 'Identification',
+		lead: 'Le contrôleur compare le véhicule à la carte grise.',
+		points: ['Plaque lisible, bien fixée et au bon format.', 'Numéro de série lisible et identique à la carte grise.']
+	},
+	{
+		icon: Gauge,
+		title: 'Cyclos 50 cc et équipements',
+		lead: 'La vitesse maximale est contrôlée depuis le 1er mars 2026.',
+		points: ['Le contrôleur vérifie que le cyclo ne dépasse pas 45 km/h.', 'Rétroviseur, klaxon et compteur doivent fonctionner.', 'La béquille doit tenir et se replier correctement.']
+	}
+]
+
+const site = Astro.site ?? Astro.url.origin
+const jsonLd = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', site).href },
+			{ '@type': 'ListItem', position: 2, name: 'Contrôle technique 2-roues', item: new URL('/controle-technique', site).href }
+		]
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebApplication',
+		name: 'Calcul de la date limite du contrôle technique moto et scooter',
+		url: new URL('/controle-technique', site).href,
+		applicationCategory: 'UtilitiesApplication',
+		operatingSystem: 'Tous',
+		inLanguage: 'fr-FR',
+		offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR' }
+	}
+]
+---
+
+<MainLayout
+	title="Contrôle technique moto et scooter : calculez votre date limite | Trouve ta pièce"
+	description="Date limite exacte du contrôle technique de votre moto, scooter, cyclo ou quad à partir de la carte grise, rappel dans votre agenda et liste des points contrôlés pour éviter la contre-visite."
+	jsonLd={jsonLd}
+	class="overflow-x-hidden"
+>
+	<main id="main" class="pt-44">
+		<CategoryHero
+			name="Contrôle technique 2-roues"
+			image={hero}
+			imageAlt="Freinage de moto"
+			intro="<strong>Votre date limite, au jour près.</strong><br>Pour un 2-roues immatriculé en 2020 ou 2021, l’échéance tombe 4 mois après la date anniversaire de la mise en circulation. Le 31 décembre n’est qu’un plafond : beaucoup de motards sont déjà en retard sans le savoir."
+		/>
+
+		<div class="mx-auto w-11/12 space-y-12 py-10 lg:w-9/12">
+			<section aria-labelledby="calcul" class="grid gap-6 lg:grid-cols-2">
+				<h2 id="calcul" class="sr-only">Calcul de la date limite</h2>
+				<form data-ct-form class="flex flex-col gap-5 rounded-3xl bg-white p-6 shadow-sm lg:p-8" autocomplete="off">
+					<p class="text-sm font-semibold uppercase tracking-wide text-gray-500">Recopiez votre carte grise</p>
+					<div class="flex flex-col gap-1.5">
+						<label for="ct-immat" class="font-semibold">Date de 1re immatriculation <span class="text-gray-500">(case B)</span></label>
+						<input id="ct-immat" type="date" min="1900-01-01" required class="rounded-xl border-2 border-orange-200 px-4 py-3 focus:border-orange-500 focus:outline-none" />
+					</div>
+					<div class="flex flex-col gap-1.5">
+						<label for="ct-dernier" class="font-semibold">Date du dernier contrôle favorable</label>
+						<input id="ct-dernier" type="date" min="2024-01-01" class="rounded-xl border-2 border-orange-200 px-4 py-3 focus:border-orange-500 focus:outline-none" />
+						<p class="text-sm text-gray-500">Laissez vide si le véhicule n’est jamais passé au contrôle.</p>
+					</div>
+					<label for="ct-collection" class="flex cursor-pointer items-start gap-3">
+						<input id="ct-collection" type="checkbox" class="mt-1 h-5 w-5 accent-orange-500" />
+						<span><span class="font-semibold">Carte grise de collection</span><br /><span class="text-sm text-gray-500">Contrôle tous les 5 ans, dispense avant 1960.</span></span>
+					</label>
+					<div class="flex flex-col gap-1.5">
+						<label for="ct-nom" class="font-semibold">Nom du véhicule, pour le rappel</label>
+						<input id="ct-nom" type="text" maxlength="60" placeholder="MBK 51, Derbi DRD, scooter…" class="rounded-xl border-2 border-orange-200 px-4 py-3 focus:border-orange-500 focus:outline-none" />
+					</div>
+					<p class="text-xs text-gray-500">Les dates restent sur votre appareil : rien n’est envoyé ni enregistré.</p>
+				</form>
+
+				<div
+					data-ct-result
+					data-status="neutre"
+					aria-live="polite"
+					class="group flex flex-col gap-4 rounded-3xl border-4 border-orange-100 bg-white p-6 shadow-sm data-[status=ok]:border-green-500 data-[status=proche]:border-amber-500 data-[status=retard]:border-red-600 lg:p-8"
+				>
+					<div class="flex flex-wrap items-center justify-between gap-2">
+						<p data-ct-label class="text-sm font-semibold uppercase tracking-wide text-gray-500">Votre échéance</p>
+						<span
+							data-ct-chip
+							hidden
+							class="rounded-full px-3 py-1 text-sm font-semibold group-data-[status=ok]:bg-green-100 group-data-[status=ok]:text-green-800 group-data-[status=proche]:bg-amber-100 group-data-[status=proche]:text-amber-800 group-data-[status=retard]:bg-red-100 group-data-[status=retard]:text-red-800"
+						></span>
+					</div>
+					<p data-ct-date class="text-4xl font-bold tabular-nums group-data-[status=ok]:text-green-700 group-data-[status=proche]:text-amber-700 group-data-[status=retard]:text-red-700 lg:text-5xl">—</p>
+					<p data-ct-count class="text-lg font-semibold"></p>
+					<p data-ct-rule class="text-gray-600">Saisissez la date de la case B pour obtenir votre date limite.</p>
+					<p data-ct-hint hidden class="rounded-xl bg-orange-50 p-4 text-sm text-gray-800"></p>
+					<div data-ct-actions hidden class="mt-auto flex flex-col gap-3 border-t border-dashed border-orange-200 pt-4">
+						<div class="flex flex-wrap gap-2">
+							<a data-ct-google href="https://calendar.google.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-full bg px-5 py-3 font-semibold text-white shadow hover:opacity-90">
+								<CalendarPlus class="h-5 w-5" aria-hidden="true" /> Google Agenda
+							</a>
+							<a data-ct-outlook href="https://outlook.live.com/calendar" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-full border-2 border-orange-500 px-5 py-3 font-semibold text-orange-600 hover:bg-orange-50">
+								Outlook
+							</a>
+							<button data-ct-ics type="button" class="flex items-center gap-2 rounded-full border-2 border-orange-500 px-5 py-3 font-semibold text-orange-600 hover:bg-orange-50">
+								<Download class="h-5 w-5" aria-hidden="true" /> Apple, autres (.ics)
+							</button>
+						</div>
+						<p data-ct-note class="text-sm text-gray-500"></p>
+					</div>
+					<noscript><p class="text-sm text-gray-600">Activez JavaScript pour le calcul, ou utilisez le calendrier officiel plus bas.</p></noscript>
+				</div>
+			</section>
+
+			<section aria-labelledby="echeances" class="rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+				<h2 id="echeances" class="mb-2 text-2xl font-semibold">Vos prochaines échéances</h2>
+				<p class="mb-4 text-gray-600">Les renouvellements se comptent à partir du jour où le contrôle est réellement passé.</p>
+				<ol data-ct-timeline class="flex flex-col gap-1">
+					<li class="text-gray-500">Les échéances s’affichent dès que la date de la case B est saisie.</li>
+				</ol>
+			</section>
+
+			<section aria-labelledby="preparer" class="space-y-6">
+				<div>
+					<h2 id="preparer" class="text-2xl font-semibold">Préparer le contrôle pour éviter la contre-visite</h2>
+					<p class="mt-2 max-w-3xl text-gray-600">En 2025, près d’un cyclomoteur sur quatre est reparti avec une contre-visite. Les pneus, les échappements non conformes, l’éclairage et le freinage arrivent en tête des défaillances.</p>
+				</div>
+				<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+					{checklist.map((item) => (
+						<article class="flex flex-col gap-3 border-l-4 border-amber-600 bg-white p-5 shadow-sm">
+							<h3 class="flex items-center gap-2 text-lg font-bold"><item.icon class="h-5 w-5 text-orange-600" aria-hidden="true" />{item.title}</h3>
+							<p class="font-medium text-gray-800">{item.lead}</p>
+							<ul class="list-inside list-disc space-y-1 text-gray-700">
+								{item.points.map((point) => <li>{point}</li>)}
+							</ul>
+						</article>
+					))}
+				</div>
+				<p class="flex items-start gap-2 text-red-700">
+					<AlertCircle class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
+					Avant d’acheter un feu, un clignotant ou un pot pour le contrôle, vérifiez le marquage d’homologation sur la pièce.
+				</p>
+			</section>
+
+			{partCards.length > 0 && (
+				<section aria-labelledby="pieces" class="space-y-6">
+					<div>
+						<h2 id="pieces" class="text-2xl font-semibold">Les pièces de freinage du catalogue</h2>
+						<p class="mt-2 text-gray-600">Nettoyant pour retrouver un freinage franc avant le banc, leviers et maître-cylindre pour remplacer une pièce usée ou tordue.</p>
+					</div>
+					<div class="flex flex-wrap justify-center gap-6">
+						{partCards.map((card) => <ProductCard {...card} />)}
+					</div>
+					<div class="flex flex-wrap justify-center gap-3">
+						<a href="/categorie/cycle/frein" class="flex items-center gap-2 rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white"><Eye class="h-5 w-5" aria-hidden="true" />Tous les freins</a>
+						<a href="/categorie/cycle/eclairage" class="flex items-center gap-2 rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white"><Eye class="h-5 w-5" aria-hidden="true" />Éclairage</a>
+						<a href="/categorie/cycle/clignotant" class="flex items-center gap-2 rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white"><Eye class="h-5 w-5" aria-hidden="true" />Clignotants</a>
+					</div>
+				</section>
+			)}
+
+			{shopping.length > 0 && (
+				<section aria-labelledby="achats" class="rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+					<h2 id="achats" class="mb-4 text-2xl font-semibold">À vérifier ou remplacer avant le contrôle</h2>
+					<div class="flex flex-wrap gap-3">
+						{shopping.map((item) => (
+							<a href={item.url} target="_blank" rel="sponsored noopener noreferrer" class="rounded-full border-2 border-orange-200 bg-orange-50 px-4 py-2 font-medium text-orange-700 hover:border-orange-500">{item.label}</a>
+						))}
+					</div>
+				</section>
+			)}
+
+			<section aria-labelledby="calendrier" class="space-y-4">
+				<h2 id="calendrier" class="text-2xl font-semibold">Le calendrier officiel</h2>
+				<p class="max-w-3xl text-gray-600">Le contrôle des véhicules de catégorie L (cyclos, motos, scooters, tricycles et quads) se met en place par génération depuis le 15 avril 2024. Chaque génération repasse ensuite tous les 3 ans : 2027 sera chargée, avec tout le parc d’avant 2017 et les premiers véhicules de 2022.</p>
+				<div class="overflow-x-auto rounded-3xl bg-white shadow-sm">
+					<table class="w-full min-w-[40rem] text-left">
+						<thead class="text-sm uppercase tracking-wide text-gray-500">
+							<tr><th scope="col" class="p-4">1re immatriculation</th><th scope="col" class="p-4">Premier contrôle</th><th scope="col" class="p-4">Renouvellement</th></tr>
+						</thead>
+						<tbody class="divide-y divide-orange-100">
+							<tr><td class="p-4 font-semibold">Avant 2017</td><td class="p-4">En 2024 : au plus tard le 14 août si la date anniversaire tombait avant le 15 avril, sinon 4 mois après, au plus tard le 31 décembre 2024</td><td class="p-4 font-bold text-orange-600">2027</td></tr>
+							<tr><td class="p-4 font-semibold">2017 à 2019</td><td class="p-4">En 2025 : 4 mois après la date anniversaire, au plus tard le 31 décembre 2025</td><td class="p-4 font-bold text-orange-600">2028</td></tr>
+							<tr><td class="p-4 font-semibold">2020 et 2021</td><td class="p-4">En 2026 : 4 mois après la date anniversaire, au plus tard le 31 décembre 2026</td><td class="p-4 font-bold text-orange-600">2029</td></tr>
+							<tr><td class="p-4 font-semibold">Depuis 2022</td><td class="p-4">Dans les 6 mois avant le 5e anniversaire de la mise en circulation</td><td class="p-4 font-bold text-orange-600">Tous les 3 ans</td></tr>
+						</tbody>
+					</table>
+				</div>
+				<ul class="grid gap-x-8 gap-y-3 text-gray-700 md:grid-cols-2">
+					<li><strong>Collection :</strong> contrôle tous les 5 ans, dispense pour les véhicules mis en circulation avant 1960.</li>
+					<li><strong>Contre-visite :</strong> à faire dans les 2 mois après un avis défavorable.</li>
+					<li><strong>Vente :</strong> le vendeur remet un procès-verbal de moins de 6 mois.</li>
+					<li><strong>Sanction :</strong> amende de 135 €, carte grise retenue et immobilisation possibles.</li>
+				</ul>
+			</section>
+
+			<section class="space-y-2 border-t border-orange-200 pt-6 text-sm text-gray-500">
+				{checkedOn && <p>Règles vérifiées le {formatLong(checkedOn)}. La date inscrite sur votre procès-verbal ou sur le timbre de la carte grise fait foi.</p>}
+				<p>
+					Sources :
+					<a class="underline" href="https://www.eure.gouv.fr/index.php/contenu/telechargement/53487/393931/file/Mise%20en%20place%20des%20contr%C3%B4les%20techniques%20v%C3%A9hicules%20CL%20MAJ150424.pdf" target="_blank" rel="noopener noreferrer">préfecture de l’Eure</a>,
+					<a class="underline" href="https://www.inc-conso.fr/content/les-regles-du-controle-technique-obligatoire-pour-les-deux-roues-motorises-avec-lalldc" target="_blank" rel="noopener noreferrer">Institut national de la consommation</a>,
+					<a class="underline" href="https://www.lerepairedesmotards.com/actualites/2026/controle-technique-deux-roues-introduction-celerometre.php" target="_blank" rel="noopener noreferrer">Le Repaire des Motards</a>.
+				</p>
+			</section>
+		</div>
+
+		<BackToTop withBack />
+	</main>
+</MainLayout>
+
+<script>
+	import 'scripts/controleTechnique'
+</script>

@@ -1,0 +1,9 @@
+{
+	"title": "Contrôle technique",
+	"image": "../../assets/images/freinage.jpg",
+	"imageAlt": "Contrôle technique 2-roues",
+	"tagline": "Calculez la date limite du CT de votre 2-roues et préparez-le.",
+	"category": "cycle",
+	"order": 20,
+	"url": "/controle-technique"
+}
