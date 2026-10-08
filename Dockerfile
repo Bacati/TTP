@@ -51,6 +51,9 @@ USER node
 # go to work folder
 WORKDIR /usr/src/app
 
+# alert database folder (mount a volume here)
+RUN mkdir -p data
+
 # copy from build image
 COPY --chown=node:node package.json .env* ./
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules

@@ -9,6 +9,7 @@ export const ALL: APIRoute = async () => {
 	sitemap.addEntry('/')
 	sitemap.addEntry('/categorie/astuce')
 	sitemap.addEntry('/controle-technique')
+	sitemap.addEntry('/alertes')
 
 	for (const category of await getCollection('categories')) {
 		sitemap.addEntry(`/categorie/${category.id}`)

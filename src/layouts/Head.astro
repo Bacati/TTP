@@ -18,6 +18,7 @@ export interface Props {
 	canonical?: string | false | undefined
 	/** Directive robots (défaut : index,follow) */
 	robots?: string | undefined
+	analytics?: boolean | undefined
 	/** Image OpenGraph */
 	image?: typeof IconPNG | Array<typeof IconPNG> | undefined
 	twitter?:
@@ -63,7 +64,7 @@ const jsonLdItems = props.jsonLd ? (Array.isArray(props.jsonLd) ? props.jsonLd :
 <link rel="preload" href={outfitFontUrl} as="font" type="font/woff2" crossorigin />
 
 <!-- Analytics (proxy Plausible, même origine) -->
-<script defer data-domain="trouve-ta-piece.fr" src="/js/script.js" is:inline></script>
+{props.analytics !== false && <script defer data-domain="trouve-ta-piece.fr" src="/js/script.js" is:inline></script>}
 
 <Favicon svg={IconSVG} png={IconPNG} icoPath="/favicon.ico" />
 

@@ -1,0 +1,76 @@
+---
+export const prerender = false
+
+import { type ManageView, handleManage } from 'alerts/handlers'
+import { getAlertsContext } from 'alerts/service'
+import { formatDate, formatPrice } from 'alerts/text'
+import MainLayout from 'layouts/MainLayout.astro'
+
+const ctx = getAlertsContext()
+const view: ManageView = ctx ? await handleManage(Astro.request, Astro.url, ctx) : { state: 'invalid', status: 404 }
+Astro.response.status = view.status
+Astro.response.headers.set('Cache-Control', 'no-store')
+---
+
+<MainLayout title="Mes alertes | Trouve ta pièce" robots="noindex,nofollow" analytics={false} class="overflow-x-hidden">
+	<main id="main" class="mx-auto flex w-11/12 flex-col gap-6 pb-16 pt-44 lg:w-8/12">
+		{view.state === 'invalid' && (
+			<section class="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+				<h1 class="text-2xl font-bold">Lien invalide</h1>
+				<p class="text-gray-700">Ce lien de gestion n’est pas valable. Utilisez le lien présent en bas de vos e-mails d’alerte.</p>
+			</section>
+		)}
+		{view.state === 'empty' && (
+			<section class="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+				<h1 class="text-2xl font-bold">Aucune alerte</h1>
+				<p class="text-gray-700">Vous n’avez plus d’alerte active et votre adresse a été effacée.</p>
+				<a href="/alertes" class="bg w-fit rounded-full px-5 py-3 font-semibold text-white">Créer une alerte</a>
+			</section>
+		)}
+		{view.state === 'list' && (
+			<section class="flex flex-col gap-5 rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+				<div>
+					<h1 class="text-2xl font-bold">Mes alertes</h1>
+					<p class="text-sm text-gray-500">Adresse : {view.maskedEmail}</p>
+				</div>
+				{view.notice && <p role="status" class="rounded-xl bg-orange-50 p-4 text-gray-800">{view.notice}</p>}
+				<ul class="flex flex-col gap-3">
+					{view.alerts.map((alert) => (
+						<li class="flex flex-col gap-3 rounded-2xl border border-orange-100 p-4 md:flex-row md:items-center md:justify-between">
+							<div class="min-w-0">
+								<p class="break-words font-semibold">{alert.query}</p>
+								<p class="text-sm text-gray-600">
+									{[
+										alert.reference ? `Réf. ${alert.reference}` : undefined,
+										alert.maxPriceCents !== null ? `max ${formatPrice(alert.maxPriceCents)}` : undefined,
+										alert.status === 'active' && alert.expiresAt ? `active jusqu’au ${formatDate(alert.expiresAt)}` : 'en attente de confirmation'
+									]
+										.filter(Boolean)
+										.join(' · ')}
+								</p>
+							</div>
+							<div class="flex flex-wrap gap-2">
+								{alert.status === 'active' && (
+									<form method="post">
+										<input type="hidden" name="t" value={view.token} />
+										<input type="hidden" name="alerte" value={alert.id} />
+										<button name="action" value="prolonger" class="rounded-full border border-amber-600 px-4 py-2 text-sm text-amber-700 hover:bg-amber-50">Prolonger 6 mois</button>
+									</form>
+								)}
+								<form method="post">
+									<input type="hidden" name="t" value={view.token} />
+									<input type="hidden" name="alerte" value={alert.id} />
+									<button name="action" value="supprimer" class="rounded-full border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-700">Supprimer</button>
+								</form>
+							</div>
+						</li>
+					))}
+				</ul>
+				<form method="post" class="border-t border-orange-100 pt-4">
+					<input type="hidden" name="t" value={view.token} />
+					<button name="action" value="tout-supprimer" class="rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white hover:bg-red-700">Me désinscrire et tout effacer</button>
+				</form>
+			</section>
+		)}
+	</main>
+</MainLayout>
