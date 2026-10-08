@@ -1,0 +1,104 @@
+---
+export const prerender = false
+
+import { CONSENT_TEXT } from 'alerts/config'
+import { type CreateView, handleCreate } from 'alerts/handlers'
+import { getAlertsContext } from 'alerts/service'
+import CategoryHero from 'components/CategoryHero.astro'
+import MainLayout from 'layouts/MainLayout.astro'
+import { BellRing, MailCheck, ShieldCheck } from 'lucide-astro'
+import hero from '../../assets/images/mecanique.jpg'
+
+const ctx = getAlertsContext()
+const view: CreateView | undefined = ctx ? await handleCreate(Astro.request, Astro.clientAddress, ctx) : undefined
+if (view) Astro.response.status = view.status
+Astro.response.headers.set('Cache-Control', 'no-store')
+
+const errors = view?.state === 'form' ? view.errors : {}
+const values = view?.state === 'form' ? view.values : { email: '', query: '', reference: '', maxPrice: '' }
+const inputClass = 'rounded-xl border-2 border-orange-200 px-4 py-3 focus:border-orange-500 focus:outline-none aria-[invalid=true]:border-red-500'
+---
+
+<MainLayout
+	title="Alertes pièces rares moto : soyez prévenu dès qu’elle est en vente | Trouve ta pièce"
+	description="Créez une alerte gratuite pour une pièce moto rare : modèle ou référence, prix maximum. Vous recevez un e-mail dès qu’une annonce correspondante apparaît."
+	class="overflow-x-hidden"
+>
+	<main id="main" class="pt-44">
+		<CategoryHero
+			name="Alertes pièces rares"
+			image={hero}
+			imageAlt="Moteur en préparation"
+			intro="<strong>La pièce introuvable, sans passer vos soirées à chercher.</strong><br>Indiquez la pièce ou sa référence : dès qu’une annonce correspondante est publiée, vous recevez un e-mail. C’est gratuit."
+		/>
+
+		<div class="mx-auto grid w-11/12 gap-6 py-10 lg:w-9/12 lg:grid-cols-[3fr_2fr]">
+			{!view && (
+				<section class="rounded-3xl bg-white p-6 shadow-sm lg:col-span-2 lg:p-8">
+					<h2 class="text-2xl font-semibold">Les alertes arrivent bientôt</h2>
+					<p class="mt-2 text-gray-600">Le service est en cours de mise en route. Revenez dans quelques jours.</p>
+				</section>
+			)}
+
+			{view?.state === 'sent' && (
+				<section class="flex flex-col gap-3 rounded-3xl border-4 border-green-500 bg-white p-6 shadow-sm lg:col-span-2 lg:p-8" aria-live="polite">
+					<h2 class="flex items-center gap-2 text-2xl font-semibold"><MailCheck class="h-6 w-6 text-green-600" aria-hidden="true" />Vérifiez votre boîte mail</h2>
+					<p class="text-gray-700">Si l’adresse est valide, vous allez recevoir un e-mail de confirmation. Cliquez sur le lien qu’il contient pour activer l’alerte : sans confirmation sous 48 heures, rien n’est conservé.</p>
+					<p class="text-sm text-gray-500">Rien reçu ? Regardez dans les indésirables.</p>
+					<a href="/alertes" class="w-fit rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white">Créer une autre alerte</a>
+				</section>
+			)}
+
+			{view?.state === 'form' && (
+				<form method="post" action="/alertes" class="flex flex-col gap-5 rounded-3xl bg-white p-6 shadow-sm lg:p-8" novalidate>
+					<h2 class="flex items-center gap-2 text-2xl font-semibold"><BellRing class="h-6 w-6 text-orange-600" aria-hidden="true" />Créer une alerte</h2>
+					{errors.form && <p role="alert" class="rounded-xl bg-red-50 p-4 text-red-800">{errors.form}</p>}
+					<input type="hidden" name="jeton" value={view.formToken} />
+					<div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+						<label for="site_web">Laissez ce champ vide</label>
+						<input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off" />
+					</div>
+					<div class="flex flex-col gap-1.5">
+						<label for="query" class="font-semibold">Pièce recherchée</label>
+						<input id="query" name="query" type="text" required minlength="3" maxlength="80" value={values.query} placeholder="Carter Derbi Euro 3, cylindre Airsal 70…" class={inputClass} aria-invalid={errors.query ? 'true' : 'false'} aria-describedby="query-aide" />
+						<p id="query-aide" class:list={['text-sm', errors.query ? 'text-red-700' : 'text-gray-500']}>{errors.query ?? 'Le modèle et le nom de la pièce suffisent.'}</p>
+					</div>
+					<div class="flex flex-col gap-1.5">
+						<label for="reference" class="font-semibold">Référence constructeur <span class="font-normal text-gray-500">(facultatif)</span></label>
+						<input id="reference" name="reference" type="text" maxlength="40" value={values.reference} placeholder="00H01205041" class={inputClass} aria-invalid={errors.reference ? 'true' : 'false'} aria-describedby="reference-aide" />
+						<p id="reference-aide" class:list={['text-sm', errors.reference ? 'text-red-700' : 'text-gray-500']}>{errors.reference ?? 'Avec une référence, seules les annonces qui la citent vous sont envoyées.'}</p>
+					</div>
+					<div class="flex flex-col gap-1.5">
+						<label for="maxPrice" class="font-semibold">Prix maximum en € <span class="font-normal text-gray-500">(facultatif)</span></label>
+						<input id="maxPrice" name="maxPrice" type="text" inputmode="decimal" maxlength="12" value={values.maxPrice} placeholder="150" class={inputClass} aria-invalid={errors.maxPrice ? 'true' : 'false'} aria-describedby="maxPrice-aide" />
+						{errors.maxPrice && <p id="maxPrice-aide" class="text-sm text-red-700">{errors.maxPrice}</p>}
+					</div>
+					<div class="flex flex-col gap-1.5">
+						<label for="email" class="font-semibold">Votre e-mail</label>
+						<input id="email" name="email" type="email" required maxlength="254" autocomplete="email" value={values.email} class={inputClass} aria-invalid={errors.email ? 'true' : 'false'} aria-describedby="email-aide" />
+						{errors.email && <p id="email-aide" class="text-sm text-red-700">{errors.email}</p>}
+					</div>
+					<label for="consent" class="flex cursor-pointer items-start gap-3">
+						<input id="consent" name="consent" type="checkbox" value="oui" required class="mt-1 h-5 w-5 shrink-0 accent-orange-500" />
+						<span class="text-sm text-gray-700">{CONSENT_TEXT}</span>
+					</label>
+					{errors.consent && <p class="text-sm text-red-700">{errors.consent}</p>}
+					<button type="submit" class="bg w-fit rounded-full px-6 py-3 font-semibold text-white shadow hover:opacity-90">Créer mon alerte</button>
+				</form>
+			)}
+
+			{view?.state === 'form' && (
+				<aside class="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+					<h2 class="text-lg font-semibold">Comment ça marche</h2>
+					<ol class="list-inside list-decimal space-y-2 text-gray-700">
+						<li>Vous confirmez l’alerte depuis l’e-mail reçu.</li>
+						<li>Les nouvelles annonces sont vérifiées toutes les heures.</li>
+						<li>Dès qu’une pièce correspond, vous recevez un e-mail avec le lien.</li>
+					</ol>
+					<p class="flex items-start gap-2 text-sm text-gray-600"><ShieldCheck class="mt-0.5 h-5 w-5 shrink-0 text-orange-600" aria-hidden="true" />Votre adresse sert uniquement à ces alertes. Chaque e-mail contient un lien de désinscription qui efface tout immédiatement. Une alerte s’arrête seule au bout de 6 mois, sauf si vous la prolongez.</p>
+					<p class="text-sm text-gray-500">Les liens envoyés sont des liens affiliés : Trouve ta pièce touche une commission si vous achetez, sans surcoût pour vous. Détails dans les <a href="/mentions-legales" class="underline">mentions légales</a>.</p>
+				</aside>
+			)}
+		</div>
+	</main>
+</MainLayout>
