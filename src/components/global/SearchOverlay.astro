@@ -13,6 +13,9 @@ type Row = { card: CardModel; haystack: string }
 
 const [products, configs, partners, categories] = await Promise.all([getCollection('products'), getCollection('engineConfigs'), getCollection('partners'), getCollection('categories')])
 
+// les éléments `hidden` (pas encore validés) ne doivent pas apparaître, ni les produits d'une catégorie masquée
+const hiddenCats = new Set(categories.filter((c) => c.data.hidden).map((c) => c.id))
+
 const catName = (id: string) => categories.find((c) => c.id === id)?.data.name ?? id
 
 const rows: Array<Row> = [
@@ -20,11 +23,11 @@ const rows: Array<Row> = [
 		card: engineConfigToCard(c),
 		haystack: [c.data.name, c.data.brand, c.data.range, `${c.data.cc}cc`, ...c.data.engines].join(' ')
 	})),
-	...products.map((p) => ({
+	...products.filter((p) => !hiddenCats.has(p.data.category.id)).map((p) => ({
 		card: productToCard(p),
 		haystack: [p.data.title, p.data.tagline, p.data.brandLogoAlt, catName(p.data.category.id), `${p.data.cc ?? ''}cc`, ...p.data.engines].join(' ')
 	})),
-	...partners.map((p) => ({
+	...partners.filter((p) => !p.data.hidden && !hiddenCats.has(p.data.category.id)).map((p) => ({
 		card: {
 			title: p.data.title,
 			image: p.data.image,
@@ -37,21 +40,7 @@ const rows: Array<Row> = [
 			engines: []
 		} satisfies CardModel,
 		haystack: [p.data.title, p.data.tagline, catName(p.data.category.id)].join(' ')
-	})),
-	...categories
-		.filter((c) => c.data.layout === 'hub')
-		.map((c) => ({
-			card: {
-				title: c.data.name,
-				image: c.data.heroImage,
-				imageAlt: c.data.heroImageAlt,
-				typeLabel: c.data.intro.replace(/<[^>]+>/g, ''),
-				href: `/categorie/${c.id}`,
-				external: false,
-				engines: []
-			} satisfies CardModel,
-			haystack: [c.data.name, c.data.intro.replace(/<[^>]+>/g, '')].join(' ')
-		}))
+	}))
 ]
 
 const norm = (s: string) =>
@@ -120,12 +109,16 @@ const norm = (s: string) =>
 
 	const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '')
 
-	// Le panneau reste `hidden` (donc ses ~100 images ne sont pas chargées) tant
+	// Le panneau reste `hidden` (images lazy, non chargées) tant
 	// qu'il n'a jamais été ouvert — meilleur temps de chargement initial.
 	function open() {
 		if (!overlay) return
 		document.body.style.overflow = 'hidden'
 		overlay.hidden = false
+		// charge toutes les images des résultats à la 1re ouverture (sinon les cartes non défilées restent vides)
+		overlay.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((img) => {
+			img.loading = 'eager'
+		})
 		// force un reflow pour que la transition d'opacité s'anime bien
 		// après la sortie de `display:none`.
 		overlay.getBoundingClientRect()

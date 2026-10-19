@@ -60,27 +60,34 @@ const res = await AstroUtils.wrap<Result>(async () => {
 	}
 })
 
-const props = objectOmit(Astro.props, 'src', 'srcDark', 'class')
+// alt, loading, decoding et fetchpriority doivent être sur le <img> (et non sur <picture>) pour être pris en compte
+const props = objectOmit(Astro.props, 'src', 'srcDark', 'class', 'alt', 'loading', 'decoding', 'fetchpriority', 'width', 'height')
+const imgProps = {
+	alt: Astro.props.alt ?? '',
+	loading: Astro.props.loading,
+	decoding: Astro.props.decoding ?? 'async',
+	fetchpriority: Astro.props.fetchpriority
+}
 ---
 
 {res.light.format === 'new' && (
-	<picture {...props} {...res.light.src.attributes} class:list={[res.light.src.attributes.class, {'dark:hidden': res.dark}]}>
+	<picture {...props} class:list={[{'dark:hidden': res.dark}]}>
 		{res.light.formats.map((it) => (
 			<source srcset={it.img.src} type={`image/${it.format}`} />
 		))}
-		<img src={res.light.src.src} class:list={[Astro.props.class]} />
+		<img {...imgProps} src={res.light.src.src} width={res.light.src.attributes.width} height={res.light.src.attributes.height} class:list={[Astro.props.class]} />
 	</picture>
 ) || (
-	<img {...props} class:list={[Astro.props.class, {'dark:hidden': res.dark}]} src={res.light.src as string} />
+	<img {...props} {...imgProps} width={Astro.props.width} height={Astro.props.height} class:list={[Astro.props.class, {'dark:hidden': res.dark}]} src={res.light.src as string} />
 )}
 
 {res.dark && res.dark.format === 'new' && (
-	<picture {...props} {...res.dark.src.attributes} class:list={[res.dark.src.attributes.class, 'hidden', 'dark:block']}>
+	<picture {...props} class:list={['hidden', 'dark:block']}>
 		{res.dark.formats.map((it) => (
 			<source srcset={it.img.src} type={`image/${it.format}`} />
 		))}
-		<img src={res.dark.src.src} class:list={[Astro.props.class]} />
+		<img {...imgProps} src={res.dark.src.src} width={res.dark.src.attributes.width} height={res.dark.src.attributes.height} class:list={[Astro.props.class]} />
 	</picture>
 ) || (res.dark && (
-	<img {...props} class:list={[Astro.props.class, 'hidden', 'dark:block']} src={res.dark.src as string} />
+	<img {...props} {...imgProps} width={Astro.props.width} height={Astro.props.height} class:list={[Astro.props.class, 'hidden', 'dark:block']} src={res.dark.src as string} />
 ))}

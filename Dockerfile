@@ -52,7 +52,7 @@ USER node
 WORKDIR /usr/src/app
 
 # copy from build image
-COPY --chown=node:node package.json .env* ./
+COPY --chown=node:node package.json ./
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
 

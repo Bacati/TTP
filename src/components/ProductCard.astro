@@ -19,7 +19,7 @@ type Props = CardModel & {
 
 const { title, image, imageAlt, brandLogo, brandLogoAlt, typeLabel, price, href, external, engines, class: className, filterData } = Astro.props as Props
 
-const rel = external ? 'noopener noreferrer nofollow' : undefined
+const rel = external ? 'sponsored nofollow noopener noreferrer' : undefined
 const target = external ? '_blank' : undefined
 ---
 
@@ -58,7 +58,7 @@ const target = external ? '_blank' : undefined
 		)}
 	</div>
 
-	<div class="mt-6 flex h-52 w-52 items-center justify-center rounded-full cards">
+	<div class="my-7 flex h-52 w-52 items-center justify-center rounded-full cards">
 		<Picture
 			src={image}
 			alt={imageAlt}
@@ -66,7 +66,7 @@ const target = external ? '_blank' : undefined
 			height={500}
 			loading="lazy"
 			decoding="async"
-			class="max-h-64 max-w-64 transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100 lg:max-h-80 lg:max-w-80"
+			class="h-60 w-60 max-w-none shrink-0 object-contain transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
 		/>
 	</div>
 

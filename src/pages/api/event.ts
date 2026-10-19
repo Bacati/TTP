@@ -1,23 +1,27 @@
 import type { APIRoute } from 'astro'
-import ResponseBuilder from '../../libs/ResponseBuilder'
+
+const MAX_BODY = 4096
 
 /**
  * Plausible proxy
  */
 export const POST: APIRoute = async ({ request, clientAddress }) => {
-	// const body = await request.json()
-	// console.log(body, clientAddress)
-	const res = await fetch('https://plausible.io/api/event', {
-		method: 'POST',
-		headers: {
-			'User-Agent': request.headers.get('User-Agent') as string,
-			'X-Forwarded-For': clientAddress,
-			'Content-Type': 'application/json'
-		},
-		body: await request.text()
-	})
-	return new ResponseBuilder()
-		.status(res.status)
-		.body(await res.text())
-		.build()
+	const body = await request.text()
+	if (body.length > MAX_BODY) return new Response(null, { status: 413 })
+
+	try {
+		const res = await fetch('https://plausible.io/api/event', {
+			method: 'POST',
+			headers: {
+				'User-Agent': request.headers.get('User-Agent') ?? '',
+				'X-Forwarded-For': clientAddress,
+				'Content-Type': 'application/json'
+			},
+			body,
+			signal: AbortSignal.timeout(5000)
+		})
+		return new Response(await res.text(), { status: res.status })
+	} catch {
+		return new Response(null, { status: 502 })
+	}
 }

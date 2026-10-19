@@ -43,7 +43,7 @@ export const PRICES = {
 	// Accessoires & entretien (produits simples)
 	clearPot: 7.99,
 	mcAdelin: 66.5,
-	progressif: 14.59,
+	progressif: 13.19,
 	street: 23.99,
 	greluma: 17.99,
 	guidon: 21.99,
