@@ -19,7 +19,7 @@ type Props = CardModel & {
 
 const { title, image, imageAlt, brandLogo, brandLogoAlt, typeLabel, price, href, external, engines, class: className, filterData } = Astro.props as Props
 
-const rel = external ? 'noopener noreferrer nofollow' : undefined
+const rel = external ? 'sponsored nofollow noopener noreferrer' : undefined
 const target = external ? '_blank' : undefined
 ---
 

@@ -2,6 +2,9 @@
 	"name": "@dzeio/template",
 	"type": "module",
 	"private": true,
+	"engines": {
+		"node": ">=22.13"
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"start": "node ./dist/server/entry.mjs",

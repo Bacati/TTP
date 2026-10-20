@@ -21,7 +21,18 @@ const backUrl = entry.data.range === 'alldays' ? '/categorie/alldays' : '/catego
 const pieces = entry.data.pieces.map((p) => ({ label: p.label, price: resolvePrice(p) ?? 0 }))
 const total = engineConfigTotal(entry)
 
-const jsonLd = {
+const site = Astro.site ?? Astro.url.origin
+const breadcrumb = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', site).href },
+		{ '@type': 'ListItem', position: 2, name: rangeLabel, item: new URL(backUrl, site).href },
+		{ '@type': 'ListItem', position: 3, name: entry.data.name, item: new URL(`/config/${id}`, site).href }
+	]
+}
+
+const product = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
 	name: entry.data.name,
@@ -29,13 +40,15 @@ const jsonLd = {
 	description: entry.data.description,
 	image: entry.data.images.map((img) => new URL(img.src, Astro.site ?? Astro.url.origin).href),
 	brand: { '@type': 'Brand', name: entry.data.brand },
-	...(total != null ? { offers: { '@type': 'Offer', price: total, priceCurrency: 'EUR', availability: 'https://schema.org/InStock' } } : {})
+	...(total != null ? { offers: { '@type': 'Offer', price: total, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: new URL(`/config/${id}`, site).href } } : {})
 }
+const jsonLd = [product, breadcrumb]
 ---
 
 <MainLayout
-	title={`Trouve ta pièce | ${entry.data.name}`}
+	title={`${entry.data.name} : configuration moteur 50cc, prix et pièces | Trouve ta pièce`}
 	description={entry.data.description}
+	image={entry.data.images[0]}
 	jsonLd={jsonLd}
 	class="overflow-x-hidden"
 >

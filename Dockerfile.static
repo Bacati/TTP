@@ -3,7 +3,7 @@
 #########
 # Build #
 #########
-FROM docker.io/node:22-alpine as BUILD_IMAGE
+FROM docker.io/node:24-alpine as BUILD_IMAGE
 
 # run as non root user
 USER node

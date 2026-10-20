@@ -4,7 +4,7 @@ import type { Links } from './links'
 import type { Mailer } from './mailer'
 import { type FoundItem, type SearchQuery, type Source, SourceError } from './sources/types'
 import type { AlertStore, PendingMatch, StoredAlert } from './store'
-import { compactReference, normalizeText } from './text'
+import { compactReference, normalizeText, redactEmails } from './text'
 
 export interface RunDeps {
 	store: AlertStore
@@ -164,7 +164,7 @@ async function sendDigests(deps: RunDeps, summary: RunSummary) {
 			await deps.mailer.send(email, rendered)
 		} catch (error) {
 			summary.emailFailures++
-			deps.log(`[alertes] envoi au contact ${subscriberId} en échec : ${(error as Error).message}`)
+			deps.log(`[alertes] envoi au contact ${subscriberId} en échec : ${redactEmails((error as Error).message)}`)
 			continue
 		}
 		store.recordEmail(subscriberId, 'digest', now)
@@ -187,7 +187,7 @@ async function sendReminders(deps: RunDeps, summary: RunSummary) {
 		try {
 			await deps.mailer.send(alert.email, rendered)
 		} catch (error) {
-			deps.log(`[alertes] rappel d’expiration ${alert.id} en échec : ${(error as Error).message}`)
+			deps.log(`[alertes] rappel d’expiration ${alert.id} en échec : ${redactEmails((error as Error).message)}`)
 			continue
 		}
 		store.recordEmail(alert.subscriberId, 'reminder', deps.now())

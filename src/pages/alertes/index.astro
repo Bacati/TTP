@@ -22,6 +22,8 @@ const inputClass = 'rounded-xl border-2 border-orange-200 px-4 py-3 focus:border
 <MainLayout
 	title="Alertes pièces rares moto : soyez prévenu dès qu’elle est en vente | Trouve ta pièce"
 	description="Créez une alerte gratuite pour une pièce moto rare : modèle ou référence, prix maximum. Vous recevez un e-mail dès qu’une annonce correspondante apparaît."
+	robots={view ? undefined : 'noindex,follow'}
+	image={hero}
 	class="overflow-x-hidden"
 >
 	<main id="main" class="pt-44">

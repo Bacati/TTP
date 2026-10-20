@@ -6,6 +6,15 @@ import { type FetchLike, type FoundItem, type SearchQuery, type Source, SourceEr
 
 const TIMEOUT_MS = 30000
 const MAX_REDIRECTS = 3
+
+/** Redirection de flux : https uniquement, jamais vers localhost, une IP privée ou un nom interne. */
+function isPublicHttps(value: string): boolean {
+	const url = new URL(value)
+	if (url.protocol !== 'https:') return false
+	const host = url.hostname
+	if (host.startsWith('[') || !host.includes('.')) return false
+	return !/^(localhost$|127\.|10\.|0\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)|\.(local|internal|localhost)$/i.test(host)
+}
 const UNAVAILABLE = /\b(out of stock|rupture|indisponible|epuise|unavailable|false|no|non|0)\b/
 
 export interface FeedDeps {
@@ -85,7 +94,7 @@ export class FeedSource implements Source {
 			const location = response.status >= 300 && response.status < 400 ? response.headers.get('location') : null
 			if (location === null) return response
 			const next = URL.canParse(location, url) ? new URL(location, url).href : ''
-			if (!isAllowedFetchUrl(next)) throw new SourceError(`flux ${this.feed.name} : redirection non sécurisée refusée`)
+			if (!(isAllowedFetchUrl(next) && isPublicHttps(next))) throw new SourceError(`flux ${this.feed.name} : redirection non sécurisée refusée`)
 			url = next
 		}
 		throw new SourceError(`flux ${this.feed.name} : trop de redirections`)

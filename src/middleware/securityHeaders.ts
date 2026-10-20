@@ -32,7 +32,8 @@ const HEADERS: Record<string, string> = {
 export default defineMiddleware(async (_context, next) => {
 	const response = await next()
 	const contentType = response.headers.get('content-type') ?? ''
-	// n'ajoute les en-têtes que sur le HTML (pas sur les assets immuables)
+	// nosniff partout (API, XML, JS), le reste uniquement sur le HTML (pas sur les assets immuables)
+	response.headers.set('X-Content-Type-Options', 'nosniff')
 	if (contentType.includes('text/html')) {
 		for (const [key, value] of Object.entries(HEADERS)) {
 			response.headers.set(key, value)

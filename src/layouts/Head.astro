@@ -46,7 +46,18 @@ const props = Astro.props
 const DEFAULT_DESCRIPTION =
 	'Trouve ta pièce (TTP) référence des pièces et configurations moto 50cc 2 temps, des plus classiques aux plus rares, avec des conseils de préparateur et une gamme de prix pour chaque budget.'
 
-const description = props.description ?? DEFAULT_DESCRIPTION
+/** Retire le HTML, compacte les espaces et coupe à ~160 caractères (longueur affichée par Google) */
+function toMetaDescription(value: string, max = 160): string {
+	const text = value
+		.replace(/<[^>]+>/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim()
+	if (text.length <= max) return text
+	const cut = text.slice(0, max - 1)
+	return `${cut.slice(0, cut.lastIndexOf(' ') > 80 ? cut.lastIndexOf(' ') : cut.length).replace(/[\s,;:.\-–]+$/, '')}…`
+}
+
+const description = toMetaDescription(props.description ?? DEFAULT_DESCRIPTION)
 const image = props.image ? (Array.isArray(props.image) ? props.image : [props.image]) : [IconPNG]
 
 const canonical = typeof props.canonical === 'string' ? props.canonical : props.canonical === false ? undefined : new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href
@@ -75,13 +86,15 @@ const jsonLdItems = props.jsonLd ? (Array.isArray(props.jsonLd) ? props.jsonLd :
 
 {props.siteName && <meta property="og:site_name" content={props.siteName} />}
 <meta property="og:type" content={props.og?.type ?? 'website'} />
+<meta property="og:locale" content="fr_FR" />
 {ogTitle && <meta property="og:title" content={ogTitle} />}
 <meta property="og:description" content={ogDescription} />
 {(props.og?.url ?? canonical) && <meta property="og:url" content={props.og?.url ?? canonical} />}
 {image.map((img) => (
 	<>
 		<meta property="og:image" content={new URL(img.src, Astro.site ?? Astro.url.origin).href} />
-		<meta property="og:image:type" content={`image/${img.format}`} />
+		<meta property="og:image:alt" content={props.og?.title ?? props.title ?? props.siteName ?? 'Trouve ta pièce'} />
+			<meta property="og:image:type" content={`image/${img.format}`} />
 		<meta property="og:image:width" content={img.width.toString()} />
 		<meta property="og:image:height" content={img.height.toString()} />
 	</>

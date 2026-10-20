@@ -96,6 +96,11 @@ const PARIS_DATE_TIME = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month
 export const formatDate = (ms: number) => PARIS_DATE.format(new Date(ms))
 export const formatDateTime = (ms: number) => PARIS_DATE_TIME.format(new Date(ms))
 
+/** Retire toute adresse e-mail d'un message d'erreur (ex. réponses SMTP) avant de le journaliser. */
+export function redactEmails(message: string): string {
+	return message.replace(/[\w.+-]+@[\w.-]+/g, '***@***')
+}
+
 export function maskEmail(email: string): string {
 	const [local = '', domain = ''] = email.split('@')
 	return `${local.slice(0, 2)}***@${domain}`

@@ -5,7 +5,7 @@ import type { Links } from './links'
 import type { Mailer } from './mailer'
 import type { RunSummary } from './runner'
 import type { AlertStore, StoredAlert } from './store'
-import { maskEmail } from './text'
+import { maskEmail, redactEmails } from './text'
 import { safeEqual, signToken, verifyToken } from './tokens'
 import { type AlertField, type FormValues, parseAlertForm } from './validation'
 
@@ -30,7 +30,22 @@ async function readForm(request: Request): Promise<FormData | undefined> {
 	const length = Number(request.headers.get('content-length') ?? '0')
 	if (length > 20000) return undefined
 	try {
-		return await request.formData()
+		// lecture plafonnée : un corps `chunked` n'a pas de Content-Length
+		const reader = request.body?.getReader()
+		if (!reader) return undefined
+		const chunks: Array<Uint8Array> = []
+		let received = 0
+		for (;;) {
+			const { done, value } = await reader.read()
+			if (done) break
+			received += value.byteLength
+			if (received > 20000) {
+				await reader.cancel()
+				return undefined
+			}
+			chunks.push(value)
+		}
+		return await new Response(new Blob(chunks as Array<BlobPart>), { headers: { 'content-type': type } }).formData()
 	} catch {
 		return undefined
 	}
@@ -84,7 +99,7 @@ export async function handleCreate(request: Request, clientAddress: string | und
 	try {
 		await ctx.mailer.send(parsed.value.email, email)
 	} catch (error) {
-		ctx.log(`[alertes] e-mail de confirmation en échec : ${(error as Error).message}`)
+		ctx.log(`[alertes] e-mail de confirmation en échec : ${redactEmails((error as Error).message)}`)
 		if (!result.reused) store.deleteAlert(result.alert.subscriberId, result.alert.id)
 		return view(503, parsed.values, { form: 'L’e-mail de confirmation n’a pas pu partir. Réessayez dans quelques minutes.' })
 	}
