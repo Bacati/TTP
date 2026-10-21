@@ -56,7 +56,7 @@ export const PRICES = {
 	motul800: 21.3,
 	autosol: 8,
 	chaine: 15.5,
-	graisse: 16.5,
+	graisse: 15.99,
 	huileBoite: 19,
 	cuir: 14.55,
 	bougie: 8,
