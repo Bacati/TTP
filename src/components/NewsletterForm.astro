@@ -1,0 +1,35 @@
+---
+---
+
+<section id="newsletter" class="w-11/12 lg:w-8/12 mx-auto my-12 rounded-2xl bg-white/10 p-6 text-white">
+	<h2 class="text-2xl font-bold">La newsletter Trouve ta pièce</h2>
+	<p class="mt-2">Recevez nos bons plans pièces moto, astuces mécaniques et rappels contrôle technique. Environ 2 e-mails par mois, désinscription en un clic.</p>
+	<form id="newsletter-form" class="mt-4 flex flex-col gap-3" method="post" action="/api/newsletter">
+		<div class="flex flex-col sm:flex-row gap-3">
+			<input type="email" name="email" required autocomplete="email" placeholder="votre@email.fr" aria-label="Adresse e-mail" class="flex-1 rounded-lg px-4 py-3 text-black" />
+			<button type="submit" class="rounded-lg bg-amber-400 px-6 py-3 font-bold text-black">Je m'abonne</button>
+		</div>
+		<label class="flex items-start gap-2 text-sm">
+			<input type="checkbox" name="consent" required class="mt-1" />
+			<span>J'accepte de recevoir la newsletter de Trouve ta pièce par e-mail. Les e-mails peuvent contenir des liens affiliés (eBay, Amazon). Je peux me désinscrire à tout moment. <a href="/mentions-legales#newsletter-donnees" class="underline">En savoir plus</a></span>
+		</label>
+		<p id="newsletter-msg" class="text-sm" role="status"></p>
+	</form>
+</section>
+
+<script>
+	const form = document.getElementById('newsletter-form') as HTMLFormElement | null
+	const msg = document.getElementById('newsletter-msg')
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault()
+		if (!msg) return
+		msg.textContent = 'Envoi…'
+		try {
+			const res = await fetch('/api/newsletter', { method: 'POST', body: new FormData(form) })
+			msg.textContent = res.ok ? 'Merci ! Vous êtes bien inscrit(e) à la newsletter.' : "Inscription impossible, vérifiez l'adresse e-mail."
+			if (res.ok) form.reset()
+		} catch {
+			msg.textContent = 'Erreur réseau, réessayez plus tard.'
+		}
+	})
+</script>

@@ -1,4 +1,5 @@
 ---
+import NewsletterForm from 'components/NewsletterForm.astro'
 import { BadgeEuro, Contact, Instagram } from 'lucide-astro'
 
 const year = new Date().getFullYear()
@@ -10,6 +11,7 @@ export interface Props {
 ---
 
 <footer class="w-full flex flex-col justify-center items-center py-16">
+	<NewsletterForm />
 	<div class="bg-white w-10/12 h-1 rounded-3xl"></div>
 	<div class="w-11/12 flex justify-between gap-8 text-white items-center py-8 pr-0 flex-col lg:flex-row">
 		<a href="/" class="w-52" ><img src="/images/logo2.svg" alt="TTP"></a>
@@ -23,5 +25,5 @@ export interface Props {
 		</div>
 	</div>
 	<p class="font-light text-center text-white mt-4">© {year}&nbsp;TTP. Tout droits réservé.</p>
-	<p class="font-light text-center text-white text-sm mt-2 px-4">En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</p>
+	<p class="font-light text-center text-white text-sm mt-2 px-4">En tant que Partenaire Amazon et partenaire eBay (eBay Partner Network), je réalise un bénéfice sur les achats remplissant les conditions requises.</p>
 </footer>

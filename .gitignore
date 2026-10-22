@@ -31,3 +31,9 @@ coverage/
 /playwright/
 
 /src/route.ts
+
+# newsletter subscribers
+/data/
+
+# publications Instagram (hors dépôt)
+/publications/
