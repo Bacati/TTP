@@ -1,0 +1,32 @@
+name: Alertes pièces rares
+
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  executer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Déclencher la vérification des alertes
+        env:
+          ALERTS_RUN_URL: ${{ secrets.ALERTS_RUN_URL }}
+          ALERTS_RUN_TOKEN: ${{ secrets.ALERTS_RUN_TOKEN }}
+        run: |
+          if [ -z "$ALERTS_RUN_URL" ] || [ -z "$ALERTS_RUN_TOKEN" ]; then
+            echo "Secrets ALERTS_RUN_URL et ALERTS_RUN_TOKEN absents : rien à faire."
+            exit 0
+          fi
+          status=$(curl --silent --show-error --max-time 300 --output response.json --write-out '%{http_code}' \
+            --request POST --header "Authorization: Bearer $ALERTS_RUN_TOKEN" "$ALERTS_RUN_URL")
+          cat response.json
+          echo
+          if [ "$status" = "409" ]; then
+            echo "Un passage est déjà en cours."
+            exit 0
+          fi
+          test "$status" = "200"

@@ -4,13 +4,14 @@ import ResponseBuilder from 'libs/ResponseBuilder'
 /**
  * Simple Middleware that handle the logging of requests and handling processing errors
  */
-export default defineMiddleware(async ({ request, url }, next) => {
+export default defineMiddleware(async ({ request, url, isPrerendered }, next) => {
 	const now = new Date()
+	// pas d'en-têtes sur une page prérendue (Astro 7 le signale)
 	//                   Date of request              User-Agent 32 first chars                                     request Method
-	let prefix = `\x1b[2m${now.toISOString()}\x1b[22m ${request.headers.get('user-agent')?.slice(0, 32).padEnd(32)} ${request.method.padEnd(7)}`
+	let prefix = `\x1b[2m${now.toISOString()}\x1b[22m ${(isPrerendered ? '' : request.headers.get('user-agent'))?.slice(0, 32).padEnd(32)} ${request.method.padEnd(7)}`
 
 	const fullURL = url.toString()
-	const path = fullURL.slice(fullURL.indexOf(url.pathname, fullURL.indexOf(url.host)))
+	const path = fullURL.slice(fullURL.indexOf(url.pathname, fullURL.indexOf(url.host))).replace(/([?&]t=)[^&#]+/g, '$1[masqué]')
 
 	if (!import.meta.env.PROD) {
 		//                time of request
