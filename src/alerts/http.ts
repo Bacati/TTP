@@ -49,7 +49,7 @@ export function isSameOrigin(request: Request, siteUrl: string): boolean {
 
 /**
  * IP de la connexion TCP, posée par `server.mjs` (qui écrase l'en-tête à chaque requête).
- * `Astro.clientAddress` n'est pas utilisable : Astro 4 y met la première valeur de X-Forwarded-For,
+ * `Astro.clientAddress` n'est pas utilisable : Astro y met (selon la version et `allowedDomains`) la première valeur de X-Forwarded-For,
  * fournie par le client. Absente en dev (pas de `server.mjs`).
  */
 export function socketIp(request: Request): string | undefined {

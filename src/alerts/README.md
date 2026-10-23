@@ -70,3 +70,9 @@ Chaque alerte est vérifiée au plus une fois par heure, dans la limite de `EBAY
 ## Avant la mise en production
 
 Le site utilise Astro 4 et `@astrojs/node` 8, qui ont des failles connues (`npm audit` : 1 critique et 24 élevées, toutes présentes avant ce module, qui n'en ajoute aucune). Les alertes ajoutent des pages dynamiques avec des données personnelles : fais d'abord la mise à jour d'Astro dans une branche séparée.
+
+## Newsletter
+
+- `POST /api/newsletter` : même origine exigée, 5 essais par IP et par quart d'heure, 20 000 abonnés maximum, réponse identique si l'adresse est déjà inscrite. Les abonnés sont dans `data/newsletter.jsonl` (volume Docker).
+- Désinscription : `GET /api/newsletter?email=...&t=<jeton>`. Le jeton est signé avec `ALERTS_SECRET`. Pour générer le lien d'une adresse : `ALERTS_SECRET=... SITE_URL=https://trouve-ta-piece.fr npm run newsletter:lien -- adresse@exemple.fr`.
+- `/_image` est limité à 300 requêtes par minute et par IP dans `server.mjs` ; un cache nginx ou CDN devant reste recommandé.
