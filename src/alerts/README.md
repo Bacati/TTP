@@ -39,7 +39,7 @@ Pas de Leboncoin ni de scraping : uniquement des sources officielles.
 3. **SMTP** : utilise une adresse d'expédition dédiée (`alertes@…`) avec SPF, DKIM et DMARC configurés sur le domaine. Le chiffrement TLS est imposé vers tout serveur distant (`smtps://` port 465, ou `smtp://` avec STARTTLS obligatoire).
    `MAIL_POSTAL_ADDRESS` est obligatoire : l'adresse postale de l'expéditeur figure en bas de chaque e-mail (loi et eBay Partner Network).
 4. **Variables** : copie `.env.example` et remplis-le dans l'hébergement. Génère les deux secrets avec `openssl rand -base64 48`.
-5. **Docker** : monte un volume persistant sur `/usr/src/app/data` (par exemple `-v ttp-data:/usr/src/app/data`). Derrière nginx, mets `TRUST_PROXY=true`.
+5. **Docker** : monte un volume persistant sur `/usr/src/app/data` (par exemple `-v ttp-data:/usr/src/app/data`). Derrière nginx, mets `TRUST_PROXY=true` et fais écraser l'IP cliente : `proxy_set_header X-Forwarded-For $remote_addr;`. Sans proxy, `TRUST_PROXY=false` : l'IP de la connexion est lue par `server.mjs` (`npm start`), jamais `X-Forwarded-For`.
 6. **Planification** : appelle `POST /api/alertes/executer` toutes les 15 à 30 minutes, au choix :
    - cron sur le serveur (recommandé) : `*/15 * * * * curl -fsS -X POST -H "Authorization: Bearer $ALERTS_RUN_TOKEN" https://trouve-ta-piece.fr/api/alertes/executer`
    - ou le workflow `.github/workflows/alertes.yml` (toutes les 30 minutes, environ 1 450 minutes d'Actions par mois, dans le quota gratuit d'un dépôt privé), avec les secrets de dépôt `ALERTS_RUN_URL` et `ALERTS_RUN_TOKEN`.

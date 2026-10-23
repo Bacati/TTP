@@ -47,6 +47,15 @@ export function isSameOrigin(request: Request, siteUrl: string): boolean {
 	return referer !== undefined && allowed.has(referer)
 }
 
+/**
+ * IP de la connexion TCP, posée par `server.mjs` (qui écrase l'en-tête à chaque requête).
+ * `Astro.clientAddress` n'est pas utilisable : Astro 4 y met la première valeur de X-Forwarded-For,
+ * fournie par le client. Absente en dev (pas de `server.mjs`).
+ */
+export function socketIp(request: Request): string | undefined {
+	return request.headers.get('x-ttp-socket-ip')?.trim() || undefined
+}
+
 export function clientIp(request: Request, clientAddress: string | undefined, trustProxy: boolean): string {
 	if (trustProxy) {
 		const forwarded = (request.headers.get('x-forwarded-for') ?? '')

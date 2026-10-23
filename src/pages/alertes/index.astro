@@ -3,6 +3,7 @@ export const prerender = false
 
 import { CONSENT_TEXT } from 'alerts/config'
 import { type CreateView, handleCreate } from 'alerts/handlers'
+import { socketIp } from 'alerts/http'
 import { getAlertsContext } from 'alerts/service'
 import CategoryHero from 'components/CategoryHero.astro'
 import MainLayout from 'layouts/MainLayout.astro'
@@ -10,7 +11,7 @@ import { BellRing, MailCheck, ShieldCheck } from 'lucide-astro'
 import hero from '../../assets/images/mecanique.jpg'
 
 const ctx = getAlertsContext()
-const view: CreateView | undefined = ctx ? await handleCreate(Astro.request, Astro.clientAddress, ctx) : undefined
+const view: CreateView | undefined = ctx ? await handleCreate(Astro.request, socketIp(Astro.request), ctx) : undefined
 if (view) Astro.response.status = view.status
 Astro.response.headers.set('Cache-Control', 'no-store')
 

@@ -84,7 +84,7 @@ export async function handleCreate(request: Request, clientAddress: string | und
 
 	const result = store.createPendingAlert(parsed.value, now, CONSENT_VERSION, limits)
 	if (!result.created) {
-		ctx.log(`[alertes] création refusée (${result.reason}) pour ${maskEmail(parsed.value.email)}`)
+		ctx.log(`[alertes] création refusée (${result.reason})`)
 		return { state: 'sent', status: 200 }
 	}
 	const expiresAt = now + limits.pendingTtlMs

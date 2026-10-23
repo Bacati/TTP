@@ -13,7 +13,7 @@ function isPublicHttps(value: string): boolean {
 	if (url.protocol !== 'https:') return false
 	const host = url.hostname
 	if (host.startsWith('[') || !host.includes('.')) return false
-	return !/^(localhost$|127\.|10\.|0\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)|\.(local|internal|localhost)$/i.test(host)
+	return !/^(localhost$|127\.|10\.|0\.|192\.168\.|169\.254\.|100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.|192\.0\.0\.|198\.1[89]\.|172\.(1[6-9]|2\d|3[01])\.)|\.(local|internal|localhost)$/i.test(host)
 }
 const UNAVAILABLE = /\b(out of stock|rupture|indisponible|epuise|unavailable|false|no|non|0)\b/
 

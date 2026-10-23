@@ -43,7 +43,7 @@ export const PRICES = {
 	// Accessoires & entretien (produits simples)
 	clearPot: 7.99,
 	mcAdelin: 66.5,
-	progressif: 14.59,
+	progressif: 13.19,
 	street: 23.99,
 	greluma: 17.99,
 	guidon: 21.99,
@@ -56,7 +56,7 @@ export const PRICES = {
 	motul800: 21.3,
 	autosol: 8,
 	chaine: 15.5,
-	graisse: 16.5,
+	graisse: 15.99,
 	huileBoite: 19,
 	cuir: 14.55,
 	bougie: 8,

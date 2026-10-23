@@ -42,6 +42,7 @@ export function parseAlertForm(form: FormData): ParseResult {
 	if (!email) errors.email = 'Saisissez une adresse e-mail valide.'
 
 	if (values.query.length < 3 || values.query.length > 80) errors.query = 'Décrivez la pièce en 3 à 80 caractères.'
+	else if (/https?:|www\.|@|\w\.(?:fr|com|net|org|io|eu|ru|xyz|top)\b/i.test(values.query)) errors.query = 'Décrivez la pièce sans adresse web ni e-mail.'
 	else if (keywords(values.query).length === 0) errors.query = 'Ajoutez au moins un mot significatif, par exemple le modèle ou la pièce.'
 
 	let reference: string | undefined
