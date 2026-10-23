@@ -2,9 +2,12 @@
 	"name": "@dzeio/template",
 	"type": "module",
 	"private": true,
+	"engines": {
+		"node": ">=22.13"
+	},
 	"scripts": {
 		"dev": "astro dev",
-		"start": "node ./dist/server/entry.mjs",
+		"start": "node ./server.mjs",
 		"build": "astro build",
 		"check": "npm run check:astro && npm run check:typescript",
 		"check:astro": "astro check",
@@ -24,6 +27,7 @@
 		"astro": "^4",
 		"easy-sitemap": "^1.2.0",
 		"lucide-astro": "^0",
+		"nodemailer": "^10.0.16",
 		"sass": "^1.77.8",
 		"sharp": "^0",
 		"simple-icons-astro": "^13.0.0",
@@ -35,6 +39,7 @@
 		"@playwright/test": "^1",
 		"@types/node": "^20",
 		"@vitest/coverage-v8": "^1",
+		"fast-check": "^3.23.2",
 		"typescript": "^5",
 		"vitest": "^1"
 	}

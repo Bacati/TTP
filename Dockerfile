@@ -3,7 +3,7 @@
 #########
 # Build #
 #########
-FROM docker.io/node:22-alpine AS build
+FROM docker.io/node:24-alpine AS build
 
 # Build env variables
 ENV ASTRO_TELEMETRY_DISABLED=1
@@ -35,7 +35,7 @@ RUN npm prune --omit=dev
 ##############
 # Production #
 ##############
-FROM docker.io/node:22-alpine AS prod
+FROM docker.io/node:24-alpine AS prod
 
 # inform software to be in production
 ENV NODE_ENV=production
@@ -51,10 +51,14 @@ USER node
 # go to work folder
 WORKDIR /usr/src/app
 
+# alert database folder (mount a volume here)
+RUN mkdir -p data && chown node:node data
+
 # copy from build image
 COPY --chown=node:node package.json ./
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
+COPY --chown=node:node server.mjs securityHeaders.mjs ./
 
 # Expose port
 EXPOSE 3000

@@ -1,0 +1,50 @@
+---
+export const prerender = false
+
+import { type ConfirmView, handleConfirm } from 'alerts/handlers'
+import { getAlertsContext } from 'alerts/service'
+import { formatDate, formatPrice } from 'alerts/text'
+import MainLayout from 'layouts/MainLayout.astro'
+
+const ctx = getAlertsContext()
+const view: ConfirmView = ctx ? await handleConfirm(Astro.request, Astro.url, ctx) : { state: 'invalid', status: 404 }
+Astro.response.status = view.status
+Astro.response.headers.set('Cache-Control', 'no-store')
+const alert = view.state === 'ask' || view.state === 'done' ? view.alert : undefined
+---
+
+<MainLayout title="Confirmer mon alerte | Trouve ta pièce" robots="noindex,nofollow" analytics={false} class="overflow-x-hidden">
+	<main id="main" class="mx-auto flex w-11/12 flex-col gap-6 pb-16 pt-44 lg:w-7/12">
+		<section class="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+			{view.state === 'invalid' && (
+				<>
+					<h1 class="text-2xl font-bold">Lien invalide ou expiré</h1>
+					<p class="text-gray-700">Ce lien de confirmation n’est plus valable. Les demandes non confirmées sont effacées au bout de 48 heures.</p>
+					<a href="/alertes" class="bg w-fit rounded-full px-5 py-3 font-semibold text-white">Créer une nouvelle alerte</a>
+				</>
+			)}
+			{alert && (
+				<div class="rounded-2xl bg-orange-50 p-4">
+					<p class="font-semibold">{alert.query}</p>
+					{alert.reference && <p class="text-sm text-gray-700">Référence : {alert.reference}</p>}
+					{alert.maxPriceCents !== null && <p class="text-sm text-gray-700">Prix maximum : {formatPrice(alert.maxPriceCents)}</p>}
+				</div>
+			)}
+			{view.state === 'ask' && (
+				<form method="post" class="flex flex-col gap-4">
+					<h1 class="text-2xl font-bold">Activer cette alerte ?</h1>
+					<input type="hidden" name="t" value={view.token} />
+					<button type="submit" class="bg w-fit rounded-full px-6 py-3 font-semibold text-white shadow hover:opacity-90">Activer mon alerte</button>
+					<p class="text-sm text-gray-500">Vous n’êtes pas à l’origine de cette demande ? Fermez simplement cette page : rien ne sera activé.</p>
+				</form>
+			)}
+			{view.state === 'done' && (
+				<>
+					<h1 class="text-2xl font-bold text-green-700">Alerte activée</h1>
+					<p class="text-gray-700">Les annonces sont vérifiées toutes les heures. Vous recevrez un e-mail dès qu’une pièce correspond{view.alert.expiresAt ? `, jusqu’au ${formatDate(view.alert.expiresAt)}` : ''}.</p>
+					<a href={view.manageUrl} class="w-fit rounded-full border border-amber-600 px-4 py-2 text-amber-600 transition-colors hover:bg-amber-600 hover:text-white">Gérer mes alertes</a>
+				</>
+			)}
+		</section>
+	</main>
+</MainLayout>

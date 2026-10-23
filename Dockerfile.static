@@ -3,7 +3,7 @@
 #########
 # Build #
 #########
-FROM docker.io/node:22-alpine as BUILD_IMAGE
+FROM docker.io/node:24-alpine as BUILD_IMAGE
 
 # run as non root user
 USER node
@@ -35,4 +35,4 @@ WORKDIR /usr/share/nginx/html
 ADD ./nginx.conf /etc/nginx/nginx.conf
 
 # Copy dist fro mthe build image
-COPY --from=BUILD_IMAGE /home/node/dist ./
+COPY --from=BUILD_IMAGE /home/node/dist/client ./
