@@ -8,6 +8,7 @@ export const GET: APIRoute = async () => {
 	sitemap.addEntry('/', { changefreq: 'weekly', priority: 1 })
 	sitemap.addEntry('/categorie/astuce', { changefreq: 'monthly', priority: 0.6 })
 	sitemap.addEntry('/controle-technique', { changefreq: 'monthly', priority: 0.8 })
+	sitemap.addEntry('/alertes', { changefreq: 'monthly', priority: 0.5 })
 	sitemap.addEntry('/mentions-legales', { changefreq: 'yearly', priority: 0.1 })
 
 	for (const category of await getCollection('categories')) {
