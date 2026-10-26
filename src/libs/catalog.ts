@@ -77,7 +77,9 @@ export function resolveProductHref(link: ProductEntry['data']['link']): string {
 
 // --- catégories ------------------------------------------------
 
-const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) => a.data.order - b.data.order
+// à `order` égal, l'ordre des fichiers (id + extension, comme avant) : le loader glob d'Astro 5+ ne garantit plus l'ordre du dossier
+const fileOrder = (a: string, b: string) => (`${a}.json` < `${b}.json` ? -1 : `${a}.json` > `${b}.json` ? 1 : 0)
+const byOrder = (a: { id: string; data: { order: number } }, b: { id: string; data: { order: number } }) => a.data.order - b.data.order || fileOrder(a.id, b.id)
 
 export async function getCategories(): Promise<Array<CategoryEntry>> {
 	return (await getCollection('categories')).sort(byOrder)

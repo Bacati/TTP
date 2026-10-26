@@ -11,7 +11,10 @@ import { Search, X } from 'lucide-astro'
 
 type Row = { card: CardModel; haystack: string }
 
+// ordre des fichiers (id + extension, comme avant) : le loader glob d'Astro 5+ ne garantit plus l'ordre du dossier
+const inFileOrder = (a: { id: string }, b: { id: string }) => (`${a.id}.json` < `${b.id}.json` ? -1 : `${a.id}.json` > `${b.id}.json` ? 1 : 0)
 const [products, configs, partners, categories] = await Promise.all([getCollection('products'), getCollection('engineConfigs'), getCollection('partners'), getCollection('categories')])
+for (const entries of [products, configs, partners, categories]) entries.sort(inFileOrder)
 
 // les éléments `hidden` (pas encore validés) ne doivent pas apparaître, ni les produits d'une catégorie masquée
 const hiddenCats = new Set(categories.filter((c) => c.data.hidden).map((c) => c.id))
