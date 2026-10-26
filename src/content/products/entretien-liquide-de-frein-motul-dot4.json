@@ -1,0 +1,12 @@
+{
+	"title": "Liquide de frein Motul DOT 4",
+	"image": "../../assets/images/entretien-liquide-de-frein-motul-dot4.png",
+	"imageAlt": "Liquide de frein Motul DOT 4",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B01tq14Gz"
+	},
+	"order": 8,
+	"priceKey": "liquideFreinDot4"
+}

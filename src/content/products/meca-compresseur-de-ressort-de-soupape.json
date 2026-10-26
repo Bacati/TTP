@@ -1,0 +1,12 @@
+{
+	"title": "Compresseur de ressort de soupape",
+	"image": "../../assets/images/meca-compresseur-de-ressort-de-soupape.png",
+	"imageAlt": "Compresseur de ressort de soupape",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B03l8zpfC"
+	},
+	"order": 14,
+	"priceKey": "compresseurSoupape"
+}

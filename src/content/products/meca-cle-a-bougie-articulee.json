@@ -1,0 +1,12 @@
+{
+	"title": "Clé à bougie articulée 16 mm",
+	"image": "../../assets/images/meca-cle-a-bougie-articulee.png",
+	"imageAlt": "Clé à bougie articulée 16 mm",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://www.amazon.fr/dp/B0FG7VXX7R"
+	},
+	"order": 13,
+	"priceKey": "cleBougie"
+}

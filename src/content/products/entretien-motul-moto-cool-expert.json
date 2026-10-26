@@ -1,0 +1,12 @@
+{
+	"title": "Motul Moto Cool Expert",
+	"image": "../../assets/images/entretien-motul-moto-cool-expert.png",
+	"imageAlt": "Motul Moto Cool Expert",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B0eXBUfde"
+	},
+	"order": 9,
+	"priceKey": "motocool"
+}

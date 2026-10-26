@@ -1,5 +1,4 @@
 import node from '@astrojs/node'
-import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 import routing from './hooks/routing'
 
@@ -18,8 +17,19 @@ import routing from './hooks/routing'
 export default defineConfig({
 	// Use the NodeJS adapter
 	adapter: node({
-		mode: 'standalone'
+		mode: 'standalone',
+		// formulaires uniquement : 64 Ko suffisent (défaut de l'adaptateur : 1 Gio)
+		bodySizeLimit: 64 * 1024
 	}),
+
+	// aucune session utilisée : évite l'activation du stockage de sessions sur disque
+	session: false,
+
+	// Hôtes acceptés pour reconstruire l'URL de la requête (sinon Astro 7 retombe sur http://localhost:3000
+	// et son contrôle d'origine CSRF refuse les envois). L'IP cliente vient de `socketIp`, jamais de `clientAddress`.
+	security: {
+		allowedDomains: [{ hostname: 'trouve-ta-piece.fr', protocol: 'https' }, { hostname: 'localhost' }, { hostname: '127.0.0.1' }]
+	},
 
 	// some settings to the build output
 	build: {
@@ -44,8 +54,8 @@ export default defineConfig({
 	// Customizable depending on goal
 	output: 'server',
 
-	// Add TailwindCSS
-	integrations: [tailwind(), routing()],
+	// TailwindCSS passe par PostCSS (postcss.config.cjs) : @astrojs/tailwind ne supporte pas Astro 6+
+	integrations: [routing()],
 
 	// prefetch links
 	prefetch: {
@@ -66,6 +76,10 @@ export default defineConfig({
 
 	// Dev Server
 	vite: {
+		build: {
+			// Astro 5+ inline les petits scripts dans le HTML : la CSP (script-src 'self') les bloquerait
+			assetsInlineLimit: 0
+		},
 		server: {
 			watch: {
 				// Ignore some paths

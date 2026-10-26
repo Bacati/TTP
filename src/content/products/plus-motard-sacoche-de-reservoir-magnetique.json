@@ -1,0 +1,12 @@
+{
+	"title": "Sacoche de réservoir magnétique",
+	"image": "../../assets/images/plus-motard-sacoche-de-reservoir-magnetique.png",
+	"imageAlt": "Sacoche de réservoir magnétique",
+	"category": "accessoires-racing/plus-motard",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B0e78v2z7"
+	},
+	"order": 13,
+	"priceKey": "sacocheReservoir"
+}

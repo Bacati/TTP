@@ -37,3 +37,9 @@ coverage/
 
 # publications Instagram (hors dépôt)
 /publications/
+
+# Claude Code (config locale) et fichier de suivi
+/.claude/
+/SUIVI.md
+CLAUDE.md
+AGENTS.md

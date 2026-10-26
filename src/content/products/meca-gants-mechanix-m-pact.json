@@ -1,0 +1,12 @@
+{
+	"title": "Gants Mechanix M-Pact",
+	"image": "../../assets/images/meca-gants-mechanix-m-pact.png",
+	"imageAlt": "Gants Mechanix M-Pact",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B08Ae2ld8"
+	},
+	"order": 10,
+	"priceKey": "mechanix"
+}

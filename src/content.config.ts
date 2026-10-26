@@ -1,5 +1,7 @@
-import { defineCollection, reference, z } from 'astro:content'
-import { PRICES } from '../data/prices'
+import { defineCollection, reference } from 'astro:content'
+import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
+import { PRICES } from './data/prices'
 
 /**
  * Clés autorisées pour `priceKey` : celles du registre `src/data/prices.ts`.
@@ -31,7 +33,7 @@ const pieceSchema = z.object({
  * - `products` : grille filtrable de produits (ex. Freinage, Clignotants…).
  */
 const categories = defineCollection({
-	type: 'data',
+	loader: glob({ pattern: '**/*.json', base: './src/content/categories' }),
 	schema: ({ image }) =>
 		z.object({
 			name: z.string(),
@@ -63,7 +65,7 @@ const categories = defineCollection({
  * products — catalogue unifié (ex-`src/libs/{frein,meca,clignotant,…}.ts`).
  */
 const products = defineCollection({
-	type: 'data',
+	loader: glob({ pattern: '**/*.json', base: './src/content/products' }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -91,7 +93,7 @@ const products = defineCollection({
  * (ex-`src/libs/configurations.ts` + `src/libs/configCompetition.ts`, fusionnés).
  */
 const engineConfigs = defineCollection({
-	type: 'data',
+	loader: glob({ pattern: '**/*.json', base: './src/content/engineConfigs' }),
 	schema: ({ image }) =>
 		z.object({
 			name: z.string(),
@@ -113,7 +115,7 @@ const engineConfigs = defineCollection({
  * et tuiles de renvoi affichées sur les pages `hub`.
  */
 const partners = defineCollection({
-	type: 'data',
+	loader: glob({ pattern: '**/*.json', base: './src/content/partners' }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),

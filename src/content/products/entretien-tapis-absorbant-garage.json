@@ -1,0 +1,12 @@
+{
+	"title": "Tapis absorbant garage",
+	"image": "../../assets/images/entretien-tapis-absorbant-garage.png",
+	"imageAlt": "Tapis absorbant garage",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B08PfYbNQ"
+	},
+	"order": 11,
+	"priceKey": "tapisGarage"
+}

@@ -1,0 +1,12 @@
+{
+	"title": "Huile filtre à air Motul A3",
+	"image": "../../assets/images/entretien-huile-filtre-a-air-motul-a3.png",
+	"imageAlt": "Huile filtre à air Motul A3",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B03OAj65a"
+	},
+	"order": 10,
+	"priceKey": "huileFiltreAir"
+}

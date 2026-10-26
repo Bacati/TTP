@@ -1,0 +1,12 @@
+{
+	"title": "Extracteur de volant magnétique",
+	"image": "../../assets/images/meca-extracteur-de-volant-magnetique.png",
+	"imageAlt": "Extracteur de volant magnétique",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://www.amazon.fr/dp/B0GG8TPZHV"
+	},
+	"order": 9,
+	"priceKey": "extracteurVolant"
+}
