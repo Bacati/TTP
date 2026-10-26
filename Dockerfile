@@ -3,7 +3,7 @@
 #########
 # Build #
 #########
-FROM docker.io/node:22-alpine AS build
+FROM docker.io/node:24-alpine AS build
 
 # Build env variables
 ENV ASTRO_TELEMETRY_DISABLED=1
@@ -35,7 +35,7 @@ RUN npm prune --omit=dev
 ##############
 # Production #
 ##############
-FROM docker.io/node:22-alpine AS prod
+FROM docker.io/node:24-alpine AS prod
 
 # inform software to be in production
 ENV NODE_ENV=production

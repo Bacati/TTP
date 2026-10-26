@@ -39,12 +39,12 @@ async function resolvePicture(image: ImageMetadata | string): Promise<PictureRes
 
 	const imageFormats: Array<{ format: string; img: Awaited<ReturnType<typeof getImage>> }> = await Promise.all(
 		formats.map(async (it) => ({
-			img: await getImage({ src: Astro.props.src, format: it, width: Astro.props.width, height: Astro.props.height }),
+			img: await getImage({ src: Astro.props.src, format: it, width: Astro.props.width, height: Astro.props.height, fit: 'contain' }),
 			format: it
 		}))
 	)
 
-	const orig = await getImage({ src: Astro.props.src, format: ext, width: Astro.props.width, height: Astro.props.height })
+	const orig = await getImage({ src: Astro.props.src, format: ext, width: Astro.props.width, height: Astro.props.height, fit: 'contain' })
 
 	return {
 		format: 'new',

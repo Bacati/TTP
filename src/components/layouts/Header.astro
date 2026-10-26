@@ -1,6 +1,6 @@
 ---
-import Picture from 'astro/components/Picture.astro'
-import { Bike, ChevronsLeft, ClipboardCheck, ChevronsRight, Gauge, HardHat, Paintbrush, Search, Trophy, Wrench, Zap } from 'lucide-astro'
+import Picture from 'components/global/Picture.astro'
+import { Bike, ChevronsLeft, ChevronsRight, ClipboardCheck, Gauge, HardHat, Paintbrush, Search, Trophy, Wrench, Zap } from 'lucide-astro'
 import logo from '../../assets/images/logo2.svg'
 
 export interface Props {
@@ -33,7 +33,7 @@ export interface Props {
         </div>
         <div class="flex justify-between lg:hidden gap-6">
             <a href="/">
-                <Picture src={logo} alt="TTP"></Picture>
+                <Picture src={logo} alt="TTP" width={logo.width} height={logo.height} loading="lazy"></Picture>
             </a>
             <div class="bg-white rounded-full mobile">
                 <div class="relative flex flex-col items-center justify-center">
