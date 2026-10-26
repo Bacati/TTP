@@ -27,6 +27,7 @@
 		"autoprefixer": "^10.6.1",
 		"easy-sitemap": "^1.2.0",
 		"lucide-astro": "^0",
+		"nodemailer": "^10.0.16",
 		"postcss": "^8.5.31",
 		"sass": "^1.77.8",
 		"sharp": "^0.35.5",
@@ -37,8 +38,9 @@
 		"@astrojs/check": "^0.9.12",
 		"@biomejs/biome": "^1.7.3",
 		"@playwright/test": "^1",
-		"@types/node": "^20",
-		"@vitest/coverage-v8": "^1",
+		"@types/node": "^24.19.2",
+		"@vitest/coverage-v8": "^5.0.5",
+		"fast-check": "^3.23.2",
 		"typescript": "^5",
 		"vitest": "^5.0.5"
 	}
