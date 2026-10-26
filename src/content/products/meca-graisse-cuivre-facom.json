@@ -1,0 +1,12 @@
+{
+	"title": "Graisse cuivre Facom",
+	"image": "../../assets/images/meca-graisse-cuivre-facom.png",
+	"imageAlt": "Graisse cuivre Facom",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B0d2PpabS"
+	},
+	"order": 16,
+	"priceKey": "graisseCuivre"
+}

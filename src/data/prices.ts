@@ -115,7 +115,35 @@ export const PRICES = {
 	leveMoto: 153,
 	grille: 330,
 	elevateur: 154,
-	start: 83
+	start: 83,
+
+	// Amazon (liens à remplacer par les liens affiliés)
+	ctek: 91.99,
+	liquideFreinDot4: 12.39,
+	loctite243: 14.7,
+	motocool: 8,
+	huileFiltreAir: 18,
+	pompeVide: 22.99,
+	extracteurVolant: 10.99,
+	mechanix: 39.82,
+	clesAllenTorx: 23.8,
+	pincesCirclips: 21.99,
+	comparateurCadran: 29.99,
+	multimetre: 55.86,
+	tapisGarage: 27.35,
+	bouclesArrimage: 15.99,
+	cleBougie: 10.82,
+	compresseurSoupape: 34.99,
+	lampeAtelier: 15.99,
+	fixationGopro: 21.99,
+	sacocheReservoir: 44.99,
+	renthalMx: 10.16,
+	retroviseursUniversels: 15.49,
+	cableEmbrayage: 9.71,
+	chaineDid428: 21.32,
+	duriteFrein: 11.79,
+	graisseCuivre: 10.99,
+	wdSilicone: 8.78
 } as const
 
 export type PriceKey = keyof typeof PRICES

@@ -1,0 +1,12 @@
+{
+	"title": "Comparateur à cadran base magnétique",
+	"image": "../../assets/images/precision-comparateur-a-cadran-base-magnetique.png",
+	"imageAlt": "Comparateur à cadran base magnétique",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B0d6V1VeD"
+	},
+	"order": 6,
+	"priceKey": "comparateurCadran"
+}

@@ -1,0 +1,12 @@
+{
+	"title": "Chargeur CTEK MXS 5.0",
+	"image": "../../assets/images/entretien-ctek-mxs-5-0.png",
+	"imageAlt": "Chargeur CTEK MXS 5.0",
+	"category": "produit-outillage/entretien",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B0cbJVUHQ"
+	},
+	"order": 7,
+	"priceKey": "ctek"
+}

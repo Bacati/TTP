@@ -1,0 +1,12 @@
+{
+	"title": "Lampe d'atelier LED rechargeable",
+	"image": "../../assets/images/meca-lampe-d-atelier-led.png",
+	"imageAlt": "Lampe d'atelier LED rechargeable",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B08XHzpWy"
+	},
+	"order": 15,
+	"priceKey": "lampeAtelier"
+}

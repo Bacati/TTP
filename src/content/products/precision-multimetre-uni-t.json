@@ -1,0 +1,12 @@
+{
+	"title": "Multimètre Uni-T UT139C",
+	"image": "../../assets/images/precision-multimetre-uni-t.png",
+	"imageAlt": "Multimètre Uni-T UT139C",
+	"category": "produit-outillage/precision",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B04rpMP3k"
+	},
+	"order": 7,
+	"priceKey": "multimetre"
+}

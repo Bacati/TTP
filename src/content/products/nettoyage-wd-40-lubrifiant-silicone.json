@@ -1,0 +1,12 @@
+{
+	"title": "WD-40 Lubrifiant silicone",
+	"image": "../../assets/images/nettoyage-wd-40-lubrifiant-silicone.png",
+	"imageAlt": "WD-40 Lubrifiant silicone",
+	"category": "produit-outillage/nettoyage",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B0bKdc4cB"
+	},
+	"order": 8,
+	"priceKey": "wdSilicone"
+}

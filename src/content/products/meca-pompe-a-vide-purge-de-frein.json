@@ -1,0 +1,12 @@
+{
+	"title": "Pompe à vide purge de frein",
+	"image": "../../assets/images/meca-pompe-a-vide-purge-de-frein.png",
+	"imageAlt": "Pompe à vide purge de frein",
+	"category": "produit-outillage/meca",
+	"link": {
+		"type": "external",
+		"url": "https://link.amazon/B00SpDtl2"
+	},
+	"order": 8,
+	"priceKey": "pompeVide"
+}
