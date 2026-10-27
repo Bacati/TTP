@@ -81,6 +81,8 @@ const products = defineCollection({
 			engines: z.array(z.string()).default([]),
 			priceKey: priceKey.optional(),
 			price: z.number().optional(),
+			/** date du dernier relevé du prix sur le site du marchand (AAAA-MM-JJ). Sans date récente, le prix n'est pas affiché (cf. `libs/priceFreshness.ts`). */
+			priceCheckedAt: z.coerce.date().optional(),
 			link: linkSchema,
 			featured: z.boolean().default(false),
 			order: z.number().default(0),

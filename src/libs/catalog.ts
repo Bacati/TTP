@@ -6,6 +6,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 import type { ImageMetadata } from 'astro'
 import { type PriceKey, configTotal, priceOf } from '../data/prices'
+import { isPriceFresh } from './priceFreshness'
 
 export type CategoryEntry = CollectionEntry<'categories'>
 export type ProductEntry = CollectionEntry<'products'>
@@ -50,6 +51,16 @@ export function resolvePrice(data: { priceKey?: string | undefined; price?: numb
 	if (typeof data.price === 'number') return data.price
 	if (data.priceKey) return priceOf(data.priceKey as PriceKey)
 	return undefined
+}
+
+/**
+ * Prix affiché d'un produit. Pour un produit qui renvoie vers un marchand, il n'est affiché que si son
+ * relevé (`priceCheckedAt`) est récent : sinon `undefined` (aucun prix plutôt qu'un prix faux).
+ */
+export function productPrice(entry: ProductEntry, now: Date = new Date()): number | undefined {
+	const price = resolvePrice(entry.data)
+	if (price == null || entry.data.link.type !== 'external') return price
+	return isPriceFresh(entry.data.priceCheckedAt, now) ? price : undefined
 }
 
 /** Coût total d'une config = somme des pièces (fallback : registre `configTotal`). */
@@ -152,7 +163,7 @@ export async function getRelatedProducts(entry: ProductEntry, limit = 3): Promis
 }
 
 export function productToCard(entry: ProductEntry): CardModel {
-	const price = resolvePrice(entry.data)
+	const price = productPrice(entry)
 	const hasPage = hasProductPage(entry)
 	return {
 		title: entry.data.title,

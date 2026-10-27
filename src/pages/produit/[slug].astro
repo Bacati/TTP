@@ -5,8 +5,9 @@ import { getCollection } from 'astro:content'
 import ProductCard from 'components/ProductCard.astro'
 import Picture from 'components/global/Picture.astro'
 import MainLayout from 'layouts/MainLayout.astro'
-import { getCategory, getRelatedProducts, hasProductPage, productSlug, productToCard, resolvePrice } from 'libs/catalog'
+import { getCategory, getRelatedProducts, hasProductPage, productPrice, productSlug, productToCard } from 'libs/catalog'
 import { merchantOf } from 'libs/merchant'
+import { formatCheckedAt } from 'libs/priceFreshness'
 import { ChevronDown, ExternalLink, Undo2 } from 'lucide-astro'
 
 export async function getStaticPaths() {
@@ -22,7 +23,8 @@ const products = await getCollection('products')
 const entry = products.find((p) => p.id === id)
 if (!entry) return Astro.redirect('/404')
 
-const price = resolvePrice(entry.data)
+const price = productPrice(entry)
+const checkedAt = entry.data.priceCheckedAt ? formatCheckedAt(entry.data.priceCheckedAt) : undefined
 const gallery = entry.data.gallery.length ? entry.data.gallery : [entry.data.image]
 const backUrl = `/categorie/${entry.data.category.id}`
 const category = await getCategory(entry.data.category.id)
@@ -109,7 +111,11 @@ const jsonLd = [
 				{price != null && (
 					<p class="mt-4 text-3xl font-bold">
 						{price}€
-						{merchant && <span class="ml-2 text-sm font-normal text-gray-500">prix indicatif sur {merchant}</span>}
+						{merchant && (
+							<span class="ml-2 text-sm font-normal text-gray-500">
+								prix relevé{checkedAt ? ` le ${checkedAt}` : ''} sur {merchant}, susceptible d'évoluer
+							</span>
+						)}
 					</p>
 				)}
 

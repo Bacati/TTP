@@ -16,7 +16,8 @@
 		"test:unit": "vitest --coverage --run",
 		"test:e2e": "playwright test",
 		"install:test": "playwright install --with-deps",
-		"lint": "biome check ."
+		"lint": "biome check .",
+		"prices:report": "node scripts/prices-report.mjs"
 	},
 	"dependencies": {
 		"@astrojs/node": "^11.1.9",
