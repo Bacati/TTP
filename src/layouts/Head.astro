@@ -104,6 +104,7 @@ const jsonLdItems = props.jsonLd ? (Array.isArray(props.jsonLd) ? props.jsonLd :
 {props.twitter?.creator && <meta name="twitter:creator" content={props.twitter.creator} />}
 {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
 <meta name="twitter:description" content={ogDescription} />
+{image[0] && <meta name="twitter:image" content={new URL(image[0].src, Astro.site ?? Astro.url.origin).href} />}
 
 {jsonLdItems.map((item) => (
 	<script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />

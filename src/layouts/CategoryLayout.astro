@@ -12,6 +12,8 @@ interface Props {
 	title: string
 	/** nom affiché en `<h1>` dans l'entête (défaut : `title`) */
 	name?: string | undefined
+	/** `<title>` complet (défaut : `title` + suffixe moteur 50cc 2 temps) */
+	seoTitle?: string | undefined
 	description?: string | undefined
 	heroImage: ImageMetadata
 	heroImageAlt: string
@@ -21,11 +23,11 @@ interface Props {
 	jsonLd?: Record<string, unknown> | Array<Record<string, unknown>> | undefined
 }
 
-const { title, name = title, description, heroImage, heroImageAlt, heroPosition, intro, withBack = false, jsonLd } = Astro.props
+const { title, name = title, seoTitle, description, heroImage, heroImageAlt, heroPosition, intro, withBack = false, jsonLd } = Astro.props
 ---
 
 <MainLayout
-	title={`${title} : pièces moto 50cc 2 temps | Trouve ta pièce`}
+	title={seoTitle ?? `${title} : pièces moto 50cc 2 temps | Trouve ta pièce`}
 	description={description}
 	image={heroImage}
 	jsonLd={jsonLd}

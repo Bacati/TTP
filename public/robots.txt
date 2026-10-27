@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /js/
 
 Sitemap: https://trouve-ta-piece.fr/sitemap.xml
