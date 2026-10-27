@@ -11,6 +11,7 @@ const appleTouch = await getImage({ src: Astro.props.png, width: 180, height: 18
 ---
 
 <>
+	{Astro.props.icoPath && <link rel="icon" href={Astro.props.icoPath} sizes="48x48" />}
 	<link rel="icon" href={Astro.props.svg.src} type="image/svg+xml">
 	<link rel="apple-touch-icon" href={appleTouch.src} />
 	<!-- Currently not integrated until I find a way to.  -->
