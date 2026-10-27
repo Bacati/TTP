@@ -1,0 +1,92 @@
+---
+export const prerender = true
+
+import BackToTop from 'components/BackToTop.astro'
+import CategoryHero from 'components/CategoryHero.astro'
+import GuideCard from 'components/GuideCard.astro'
+import MainLayout from 'layouts/MainLayout.astro'
+import { getGuides, readingMinutes } from 'libs/guides'
+import { ClipboardCheck, Gauge, Trophy } from 'lucide-astro'
+import hero from '../../assets/images/mecanique.jpg'
+
+const guides = await getGuides()
+
+const site = Astro.site ?? Astro.url.origin
+const pageUrl = new URL('/guides', site).href
+const jsonLd = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', site).href },
+			{ '@type': 'ListItem', position: 2, name: 'Guides', item: pageUrl }
+		]
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: 'Guides Trouve ta pièce',
+		url: pageUrl,
+		inLanguage: 'fr-FR',
+		mainEntity: {
+			'@type': 'ItemList',
+			itemListElement: guides.map((g, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				url: new URL(`/guides/${g.id}`, site).href,
+				name: g.data.title
+			}))
+		}
+	}
+]
+
+const related = [
+	{ href: '/categorie/alldays', label: 'Configurations Alldays', icon: Gauge },
+	{ href: '/categorie/competition', label: 'Configurations compétition', icon: Trophy },
+	{ href: '/controle-technique', label: 'Contrôle technique 2-roues', icon: ClipboardCheck }
+]
+---
+
+<MainLayout
+	title="Guides cyclo et scooter 50 à 100 cc : légalité, kit, rodage, carburation | Trouve ta pièce"
+	description="Guides pratiques pour cyclos et scooters 50 à 100 cc : ce que dit la loi sur le débridage, montage d'un kit 70 cc, rodage et réglage du carburateur."
+	image={hero}
+	imageAlt="Mur d'outils dans un atelier de mécanique"
+	jsonLd={jsonLd}
+	class="overflow-x-hidden"
+>
+	<main id="main" class="pt-44">
+		<CategoryHero
+			name="Guides"
+			image={hero}
+			imageAlt="Mur d'outils dans un atelier de mécanique"
+			intro="<strong>Préparer, monter, roder, régler.</strong><br>Des guides sobres pour les cyclos et scooters de 50 à 100 cc : les étapes, les bonnes pratiques et les points de vigilance. Les valeurs techniques restent celles de la notice de votre kit et de votre véhicule."
+		/>
+
+		<div class="mx-auto w-11/12 space-y-12 py-10 lg:w-9/12">
+			<section aria-label="Liste des guides">
+				<ul class="grid gap-6 md:grid-cols-2">
+					{guides.map((g) => (
+						<li>
+							<GuideCard href={`/guides/${g.id}`} title={g.data.title} description={g.data.description} updated={g.data.updated} minutes={readingMinutes(g.body ?? '')} />
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section aria-labelledby="voir-aussi" class="rounded-3xl bg-white p-6 shadow-sm lg:p-8">
+				<h2 id="voir-aussi" class="text-2xl font-semibold">Voir aussi</h2>
+				<p class="mt-2 max-w-3xl text-gray-700">Les configurations moteur du catalogue et le calcul de la date limite du contrôle technique.</p>
+				<div class="mt-5 flex flex-wrap gap-3">
+					{related.map((link) => (
+						<a href={link.href} class="flex items-center gap-2 rounded-full border border-amber-600 px-4 py-2 text-amber-700 transition-colors hover:bg-amber-600 hover:text-white">
+							<link.icon class="h-5 w-5" aria-hidden="true" />{link.label}
+						</a>
+					))}
+				</div>
+			</section>
+		</div>
+
+		<BackToTop />
+	</main>
+</MainLayout>

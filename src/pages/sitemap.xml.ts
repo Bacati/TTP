@@ -1,6 +1,8 @@
 import { getCollection } from 'astro:content'
 import type { APIRoute } from 'astro'
 import Sitemap from 'easy-sitemap'
+import { hasProductPage, productSlug } from 'libs/catalog'
+import { getGuides } from 'libs/guides'
 
 export const GET: APIRoute = async () => {
 	const sitemap = new Sitemap('https://trouve-ta-piece.fr')
@@ -9,6 +11,10 @@ export const GET: APIRoute = async () => {
 	sitemap.addEntry('/categorie/astuce', { changefreq: 'monthly', priority: 0.6 })
 	sitemap.addEntry('/controle-technique', { changefreq: 'monthly', priority: 0.8 })
 	sitemap.addEntry('/mentions-legales', { changefreq: 'yearly', priority: 0.1 })
+	sitemap.addEntry('/guides', { changefreq: 'monthly', priority: 0.7 })
+	for (const guide of await getGuides()) {
+		sitemap.addEntry(`/guides/${guide.id}`, { changefreq: 'monthly', priority: 0.7, lastmod: guide.data.updated })
+	}
 
 	for (const category of await getCollection('categories')) {
 		sitemap.addEntry(`/categorie/${category.id}`, { changefreq: 'weekly', priority: 0.8 })
@@ -17,8 +23,8 @@ export const GET: APIRoute = async () => {
 		sitemap.addEntry(`/config/${config.id}`, { changefreq: 'monthly', priority: 0.7 })
 	}
 	for (const product of await getCollection('products')) {
-		if (product.data.body && product.data.link.type === 'product') {
-			sitemap.addEntry(`/produit/${product.data.link.slug}`, { changefreq: 'monthly', priority: 0.6 })
+		if (hasProductPage(product)) {
+			sitemap.addEntry(`/produit/${productSlug(product)}`, { changefreq: 'monthly', priority: 0.6 })
 		}
 	}
 

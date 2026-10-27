@@ -1,0 +1,48 @@
+---
+/**
+ * Carte d'un guide (page `/guides` et bloc « Pour aller plus loin » des guides).
+ * Toute la carte est cliquable (lien « étiré » sur le titre) ; le niveau de
+ * titre s'adapte à la page pour garder une hiérarchie h1 > h2 > h3 correcte.
+ */
+import { formatGuideDate, isoDate } from 'libs/guides'
+import { ArrowRight, CalendarDays, Clock } from 'lucide-astro'
+
+interface Props {
+	href: string
+	title: string
+	description: string
+	updated: Date
+	minutes: number
+	/** niveau du titre de la carte (2 sur la page liste, 3 dans un guide) */
+	level?: 2 | 3
+}
+
+const { href, title, description, updated, minutes, level = 2 } = Astro.props
+const Heading = level === 2 ? 'h2' : 'h3'
+---
+
+<article
+	class="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-[transform,box-shadow] duration-300 focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-amber-600 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+>
+	<div class="h-1.5 w-full gradient-config" aria-hidden="true"></div>
+	<div class="flex flex-1 flex-col gap-3 p-6 lg:p-7">
+		<p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-amber-700">
+			Guide
+			<span class="text-gray-300" aria-hidden="true">·</span>
+			<span class="inline-flex items-center gap-1 normal-case tracking-normal text-gray-600"><Clock class="h-4 w-4" aria-hidden="true" />{minutes} min de lecture</span>
+		</p>
+		<Heading class:list={['font-bold leading-snug text-gray-900 text-balance', level === 2 ? 'text-xl lg:text-2xl' : 'text-lg lg:text-xl']}>
+			<a href={href} class="after:absolute after:inset-0 after:content-[''] focus:outline-none group-hover:text-amber-800">{title}</a>
+		</Heading>
+		<p class="text-pretty leading-relaxed text-gray-700">{description}</p>
+		<div class="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-orange-100 pt-4 text-sm">
+			<span class="inline-flex items-center gap-2 text-gray-600">
+				<CalendarDays class="h-4 w-4" aria-hidden="true" />
+				<span>Mis à jour le <time datetime={isoDate(updated)}>{formatGuideDate(updated)}</time></span>
+			</span>
+			<span class="inline-flex items-center gap-1 font-semibold text-amber-700" aria-hidden="true">
+				Lire le guide <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+			</span>
+		</div>
+	</div>
+</article>

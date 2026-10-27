@@ -12,6 +12,7 @@ Toutes les données catalogue vivent ici, en **content collections Astro** typé
 | `products/` | `<slug>.json` | Catalogue produits (ex-`src/libs/{frein,meca,…}.ts`). |
 | `engineConfigs/` | `<slug>.json` | Configs moteur Alldays + Compétition fusionnées. |
 | `partners/` | `<slug>.json` | Encarts affiliés / marques et tuiles de renvoi des pages `hub`. |
+| `guides/` | `<slug>.md` (frontmatter + Markdown, contenu à partir de h2) | Guides `/guides/<slug>` ; accès via `src/libs/guides.ts`, mise en page `GuideLayout`. |
 
 ## Conventions
 

@@ -73,6 +73,8 @@ const products = defineCollection({
 			imageAlt: z.string(),
 			brandLogo: image().optional(),
 			brandLogoAlt: z.string().optional(),
+			/** marque du produit (données structurées `Product.brand`) : seulement si elle figure dans le titre. */
+			brand: z.string().optional(),
 			tagline: z.string().optional(),
 			category: reference('categories'),
 			cc: z.number().optional(),
@@ -82,7 +84,7 @@ const products = defineCollection({
 			link: linkSchema,
 			featured: z.boolean().default(false),
 			order: z.number().default(0),
-			/** contenu de la fiche `/produit/<slug>` (si la carte y mène). */
+			/** contenu HTML de la fiche `/produit/<slug>` (p, h2, ul, li, strong). Présent = la carte mène à cette fiche ; la 1re `<p>` sert de meta description. */
 			body: z.string().optional(),
 			gallery: z.array(image()).default([])
 		})
@@ -133,4 +135,28 @@ const partners = defineCollection({
 		})
 })
 
-export const collections = { categories, products, engineConfigs, partners }
+/**
+ * guides — articles éditoriaux en Markdown (`src/content/guides/<slug>.md`), servis
+ * par `src/pages/guides/[slug].astro` via `src/libs/guides.ts`. Le contenu commence au
+ * niveau h2 (le h1 vient du layout `GuideLayout`).
+ */
+const guides = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+	schema: z.object({
+		title: z.string(),
+		/** meta description : 155 caractères maximum. */
+		description: z.string().max(155),
+		/** date de dernière mise à jour (AAAA-MM-JJ). */
+		updated: z.coerce.date(),
+		/** puces de l'encadré « En bref » sous le titre. */
+		summary: z.array(z.string()).min(3).max(5),
+		/** produits du catalogue recommandés (ids de `src/content/products/`) ; liste vide autorisée. */
+		products: z.array(reference('products')).default([]),
+		/** phrase d'introduction de la section « Outils et produits utiles » (optionnelle). */
+		toolsIntro: z.string().optional(),
+		sources: z.array(z.object({ label: z.string(), url: z.string().url() })).min(1),
+		order: z.number().default(0)
+	})
+})
+
+export const collections = { categories, products, engineConfigs, partners, guides }

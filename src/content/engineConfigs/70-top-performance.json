@@ -1,7 +1,7 @@
 {
 	"name": "70cc Top Performance noir",
 	"range": "alldays",
-	"brand": "top performance",
+	"brand": "Top Performance",
 	"brandLogo": "../../assets/images/top.webp",
 	"cc": 70,
 	"engines": ["AM6"],

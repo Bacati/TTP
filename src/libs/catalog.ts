@@ -75,6 +75,16 @@ export function resolveProductHref(link: ProductEntry['data']['link']): string {
 	}
 }
 
+/** Slug de la fiche `/produit/<slug>` : celui du lien `product`, sinon l'identifiant du fichier. */
+export function productSlug(entry: ProductEntry): string {
+	return entry.data.link.type === 'product' ? entry.data.link.slug : entry.id
+}
+
+/** Une fiche détaillée existe dès qu'un produit a un texte (sauf s'il renvoie vers une config moteur). */
+export function hasProductPage(entry: ProductEntry): boolean {
+	return Boolean(entry.data.body) && entry.data.link.type !== 'config'
+}
+
 // --- catégories ------------------------------------------------
 
 // à `order` égal, l'ordre des fichiers (id + extension, comme avant) : le loader glob d'Astro 5+ ne garantit plus l'ordre du dossier
@@ -136,8 +146,14 @@ export async function getFeaturedCards(): Promise<Array<CardModel>> {
 	return [...configs.map(engineConfigToCard), ...products.map(productToCard)]
 }
 
+/** Autres produits de la même catégorie (maillage interne des fiches), uniquement ceux qui ont une fiche. */
+export async function getRelatedProducts(entry: ProductEntry, limit = 3): Promise<Array<ProductEntry>> {
+	return (await getProductsForCategory(entry.data.category.id)).filter((p) => p.id !== entry.id && hasProductPage(p)).slice(0, limit)
+}
+
 export function productToCard(entry: ProductEntry): CardModel {
 	const price = resolvePrice(entry.data)
+	const hasPage = hasProductPage(entry)
 	return {
 		title: entry.data.title,
 		image: entry.data.image,
@@ -146,8 +162,8 @@ export function productToCard(entry: ProductEntry): CardModel {
 		brandLogoAlt: entry.data.brandLogoAlt,
 		typeLabel: entry.data.tagline,
 		price,
-		href: resolveProductHref(entry.data.link),
-		external: entry.data.link.type === 'external',
+		href: hasPage ? `/produit/${productSlug(entry)}` : resolveProductHref(entry.data.link),
+		external: !hasPage && entry.data.link.type === 'external',
 		cc: entry.data.cc,
 		engines: entry.data.engines,
 		priceBucket: priceBucketOf(price)

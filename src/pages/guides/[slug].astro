@@ -1,0 +1,26 @@
+---
+export const prerender = true
+
+import GuideLayout from 'layouts/GuideLayout.astro'
+import { type GuideEntry, getGuideProductCards, getGuides, getOtherGuides, renderGuide } from 'libs/guides'
+
+export async function getStaticPaths() {
+	return (await getGuides()).map((guide) => ({
+		params: { slug: guide.id },
+		props: { guide }
+	}))
+}
+
+interface Props {
+	guide: GuideEntry
+}
+
+const { guide } = Astro.props
+const { Content, headings } = await renderGuide(guide)
+const products = await getGuideProductCards(guide)
+const others = await getOtherGuides(guide.id)
+---
+
+<GuideLayout guide={guide} headings={headings} products={products} others={others}>
+	<Content />
+</GuideLayout>

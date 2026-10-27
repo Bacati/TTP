@@ -40,7 +40,7 @@ const product = {
 	description: entry.data.description,
 	image: entry.data.images.map((img) => new URL(img.src, Astro.site ?? Astro.url.origin).href),
 	brand: { '@type': 'Brand', name: entry.data.brand },
-	...(total != null ? { offers: { '@type': 'Offer', price: total, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: new URL(`/config/${id}`, site).href } } : {})
+	...(total != null ? { offers: { '@type': 'Offer', price: total, priceCurrency: 'EUR', url: new URL(`/config/${id}`, site).href } } : {})
 }
 const jsonLd = [product, breadcrumb]
 ---

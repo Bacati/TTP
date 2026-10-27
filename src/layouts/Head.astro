@@ -5,6 +5,7 @@
 import outfitFontUrl from 'assets/fonts/outfit-variable-latin.woff2?url'
 import IconPNG from 'assets/layouts/Head/favicon.png'
 import IconSVG from 'assets/layouts/Head/favicon.svg'
+import OgDefault from 'assets/layouts/Head/og-default.png'
 import Favicon from 'components/layouts/Favicon/Favicon.astro'
 
 export interface Props {
@@ -18,8 +19,10 @@ export interface Props {
 	canonical?: string | false | undefined
 	/** Directive robots (défaut : index,follow) */
 	robots?: string | undefined
-	/** Image OpenGraph */
+	/** Image OpenGraph (défaut : visuel 1200×630 de la marque) */
 	image?: typeof IconPNG | Array<typeof IconPNG> | undefined
+	/** Texte alternatif de l'image OpenGraph (défaut : titre de la page) */
+	imageAlt?: string | undefined
 	twitter?:
 		| {
 				title?: string | undefined
@@ -45,6 +48,8 @@ const props = Astro.props
 const DEFAULT_DESCRIPTION =
 	'Trouve ta pièce (TTP) référence des pièces et configurations moto 50cc 2 temps, des plus classiques aux plus rares, avec des conseils de préparateur et une gamme de prix pour chaque budget.'
 
+const OG_DEFAULT_ALT = 'Logo Trouve ta pièce : pièces et configurations moto 50cc 2 temps'
+
 /** Retire le HTML, compacte les espaces et coupe à ~160 caractères (longueur affichée par Google) */
 function toMetaDescription(value: string, max = 160): string {
 	const text = value
@@ -57,7 +62,7 @@ function toMetaDescription(value: string, max = 160): string {
 }
 
 const description = toMetaDescription(props.description ?? DEFAULT_DESCRIPTION)
-const image = props.image ? (Array.isArray(props.image) ? props.image : [props.image]) : [IconPNG]
+const image = props.image ? (Array.isArray(props.image) ? props.image : [props.image]) : [OgDefault]
 
 const canonical = typeof props.canonical === 'string' ? props.canonical : props.canonical === false ? undefined : new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href
 
@@ -92,7 +97,7 @@ const jsonLdItems = props.jsonLd ? (Array.isArray(props.jsonLd) ? props.jsonLd :
 {image.map((img) => (
 	<>
 		<meta property="og:image" content={new URL(img.src, Astro.site ?? Astro.url.origin).href} />
-		<meta property="og:image:alt" content={props.og?.title ?? props.title ?? props.siteName ?? 'Trouve ta pièce'} />
+		<meta property="og:image:alt" content={props.imageAlt ?? (props.image ? (props.og?.title ?? props.title ?? props.siteName ?? 'Trouve ta pièce') : OG_DEFAULT_ALT)} />
 			<meta property="og:image:type" content={`image/${img.format}`} />
 		<meta property="og:image:width" content={img.width.toString()} />
 		<meta property="og:image:height" content={img.height.toString()} />

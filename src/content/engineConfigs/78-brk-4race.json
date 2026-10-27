@@ -1,7 +1,7 @@
 {
 	"name": "78cc BRK 4RACE",
 	"range": "alldays",
-	"brand": "brk",
+	"brand": "BRK",
 	"brandLogo": "../../assets/images/brk.png",
 	"cc": 78,
 	"engines": ["AM6", "Derbi"],

@@ -1,0 +1,279 @@
+---
+/**
+ * Mise en page d'un guide (`/guides/<slug>`). Étend `MainLayout` (donc `Base.astro`).
+ *
+ * Ordre : fil d'Ariane, en-tête (h1, chapeau, date, « En bref »), sommaire +
+ * contenu Markdown (slot), « Outils et produits utiles » (cartes du catalogue,
+ * si le guide en recommande), « Sources », « Pour aller plus loin ».
+ *
+ * Le contenu Markdown commence au niveau h2 (le h1 est ici). Encadrés disponibles
+ * dans le Markdown :
+ * - `> **À retenir.** …` (blockquote) ;
+ * - `<div class="callout callout-warning" role="note">` + ligne vide + texte + ligne vide + `</div>` ;
+ * - `<div class="callout callout-info" role="note">` (même syntaxe) ;
+ * - tableau : entourer de `<div class="table-wrap">` (lignes vides autour) pour le défilement mobile.
+ */
+import OgDefault from 'assets/layouts/Head/og-default.png'
+import type { MarkdownHeading } from 'astro'
+import BackToTop from 'components/BackToTop.astro'
+import GuideCard from 'components/GuideCard.astro'
+import ProductCard from 'components/ProductCard.astro'
+import Picture from 'components/global/Picture.astro'
+import type { CardModel } from 'libs/catalog'
+import { type GuideEntry, SOURCES_ANCHOR, TOOLS_ANCHOR, buildToc, formatGuideDate, isoDate, readingMinutes } from 'libs/guides'
+import { CalendarDays, ClipboardCheck, Clock, ExternalLink, Gauge, ListOrdered, Trophy } from 'lucide-astro'
+import hero from '../assets/images/mecanique.jpg'
+import MainLayout from './MainLayout.astro'
+
+interface Props {
+	guide: GuideEntry
+	headings: Array<MarkdownHeading>
+	products: Array<CardModel>
+	others: Array<GuideEntry>
+}
+
+const { guide, headings, products, others } = Astro.props
+const { title, description, updated, summary, sources, toolsIntro } = guide.data
+
+const toc = buildToc(headings, { hasProducts: products.length > 0 })
+const minutes = readingMinutes(guide.body ?? '')
+const updatedIso = isoDate(updated)
+const updatedLabel = formatGuideDate(updated)
+
+const site = Astro.site ?? Astro.url.origin
+const pageUrl = new URL(`/guides/${guide.id}`, site).href
+const crumbs = [{ text: 'Accueil', href: '/' }, { text: 'Guides', href: '/guides' }, { text: title }]
+const organization = {
+	'@type': 'Organization',
+	name: 'Trouve ta pièce',
+	url: new URL('/', site).href
+}
+
+const jsonLd = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: title,
+		description,
+		inLanguage: 'fr-FR',
+		dateModified: updatedIso,
+		mainEntityOfPage: pageUrl,
+		image: new URL(OgDefault.src, site).href,
+		author: organization,
+		publisher: organization
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: crumbs.map((c, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: c.text,
+			item: c.href ? new URL(c.href, site).href : pageUrl
+		}))
+	}
+]
+
+const related = [
+	{ href: '/categorie/alldays', label: 'Configurations Alldays', icon: Gauge },
+	{ href: '/categorie/competition', label: 'Configurations compétition', icon: Trophy },
+	{ href: '/controle-technique', label: 'Contrôle technique 2-roues', icon: ClipboardCheck }
+]
+---
+
+<MainLayout title={`${title} | Trouve ta pièce`} description={description} og={{ type: 'article' }} jsonLd={jsonLd} class="overflow-x-hidden">
+	<main id="main" class="pt-56 lg:pt-32">
+		<article class="mx-auto mb-16 w-11/12 max-w-7xl">
+			<header class="overflow-hidden rounded-3xl bg-white shadow-sm lg:mt-8">
+				<div class="flex flex-col lg:flex-row-reverse">
+					{/* visuel commun aux guides : en tête sur mobile (sous le menu vertical, comme les autres pages), à droite sur desktop */}
+					<div class="p-4 pb-0 lg:w-[22rem] lg:shrink-0 lg:p-8 lg:pl-0 xl:w-[28rem]">
+						<Picture src={hero} alt="" width={900} height={600} loading="eager" class="h-56 w-full rounded-2xl object-cover sm:h-64 lg:h-full lg:min-h-[18rem]" />
+					</div>
+					<div class="min-w-0 flex-1 p-6 sm:p-8 lg:p-12">
+						<p class="text-sm font-semibold uppercase tracking-wide text-amber-700">Guide</p>
+						<h1 class="mt-2 max-w-4xl text-balance text-3xl font-bold leading-tight text-gray-900 lg:text-[2.75rem] lg:leading-[1.15]">{title}</h1>
+						<p class="mt-4 max-w-[68ch] text-pretty text-lg leading-relaxed text-gray-700">{description}</p>
+						<p class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
+							<span class="inline-flex items-center gap-2"><CalendarDays class="h-4 w-4" aria-hidden="true" /><span>Mis à jour le <time datetime={updatedIso}>{updatedLabel}</time></span></span>
+							<span class="inline-flex items-center gap-2"><Clock class="h-4 w-4" aria-hidden="true" />{minutes} min de lecture</span>
+						</p>
+
+						<section aria-labelledby="en-bref" class="mt-8 max-w-[68ch] rounded-2xl border-l-4 border-amber-500 bg-amber-50 p-5 sm:p-6">
+							<h2 id="en-bref" class="text-sm font-bold uppercase tracking-wide text-amber-800">En bref</h2>
+							<ul class="mt-3 space-y-2.5">
+								{summary.map((point) => (
+									<li class="flex gap-3 leading-relaxed text-gray-800">
+										<span class="mt-[0.6em] h-2 w-2 shrink-0 rounded-full bg-orange-500" aria-hidden="true"></span>
+										<span>{point}</span>
+									</li>
+								))}
+							</ul>
+						</section>
+					</div>
+				</div>
+				<div class="h-2 w-full gradient-config" aria-hidden="true"></div>
+			</header>
+
+			<div class="mt-8 grid grid-cols-[minmax(0,1fr)] items-start gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[17rem_minmax(0,1fr)]">
+				<nav aria-labelledby="toc-title" class="rounded-3xl bg-white p-5 shadow-sm lg:sticky lg:top-32 lg:max-h-[calc(100vh-10rem)] lg:overflow-y-auto">
+					<p id="toc-title" class="flex items-center gap-2 px-2 text-sm font-bold uppercase tracking-wide text-gray-600">
+						<ListOrdered class="h-4 w-4" aria-hidden="true" />Sommaire
+					</p>
+					<ol class="mt-3 space-y-0.5">
+						{toc.map((item, i) => (
+							<li>
+								<a href={`#${item.slug}`} class="flex gap-3 rounded-xl px-2 py-2 leading-snug text-gray-700 transition-colors hover:bg-amber-50 hover:text-amber-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-600">
+									<span class="w-5 shrink-0 text-right font-semibold tabular-nums text-amber-700" aria-hidden="true">{i + 1}.</span>
+									<span>{item.text}</span>
+								</a>
+							</li>
+						))}
+					</ol>
+				</nav>
+
+				<div class="rounded-3xl bg-white p-5 shadow-sm sm:p-8 lg:p-12">
+					<div class="guide-prose mx-auto max-w-[68ch]">
+						<slot />
+					</div>
+				</div>
+			</div>
+
+			{products.length > 0 && (
+				<section aria-labelledby={TOOLS_ANCHOR} class="mt-12">
+					<div class="mx-auto max-w-3xl text-center">
+						<h2 id={TOOLS_ANCHOR} class="scroll-mt-32 text-2xl font-bold text-gray-900 lg:text-3xl">Outils et produits utiles</h2>
+						{toolsIntro && <p class="mt-3 text-pretty leading-relaxed text-gray-700">{toolsIntro}</p>}
+						<p class="mt-2 text-sm text-gray-600">Chaque carte ouvre la fiche du produit au catalogue. Les fiches renvoient vers le marchand par un lien affilié : TTP peut percevoir une commission, sans surcoût pour vous.</p>
+					</div>
+					<div class="mt-8 flex flex-wrap justify-center gap-6">
+						{products.map((card) => <ProductCard {...card} />)}
+					</div>
+				</section>
+			)}
+
+			{/* même grille que sommaire + contenu : les sources s'alignent sur la colonne de lecture */}
+			<div class="mt-12 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[17rem_minmax(0,1fr)]">
+				<div class="hidden lg:block" aria-hidden="true"></div>
+				<section aria-labelledby={SOURCES_ANCHOR} class="rounded-3xl bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+					<div class="mx-auto max-w-[68ch]">
+						<h2 id={SOURCES_ANCHOR} class="scroll-mt-32 text-2xl font-bold text-gray-900">Sources</h2>
+						<ul class="mt-4 space-y-3">
+							{sources.map((source) => (
+								<li class="flex gap-3 leading-relaxed">
+									<ExternalLink class="mt-1 h-4 w-4 shrink-0 text-amber-700" aria-hidden="true" />
+									<a href={source.url} target="_blank" rel="noopener noreferrer" class="break-words text-amber-800 underline decoration-amber-300 underline-offset-2 hover:decoration-amber-700">
+										{source.label}<span class="sr-only"> (nouvel onglet)</span>
+									</a>
+								</li>
+							))}
+						</ul>
+						<p class="mt-6 border-t border-orange-100 pt-4 text-sm text-gray-600">Guide mis à jour le <time datetime={updatedIso}>{updatedLabel}</time>. Une erreur ou un texte qui a changé ? Écrivez à contact@trouve-ta-piece.fr.</p>
+					</div>
+				</section>
+			</div>
+
+			<section aria-labelledby="plus-loin" class="mt-12">
+				<h2 id="plus-loin" class="text-2xl font-bold text-gray-900 lg:text-3xl">Pour aller plus loin</h2>
+				{others.length > 0 && (
+					<ul class="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+						{others.map((g) => (
+							<li>
+								<GuideCard href={`/guides/${g.id}`} title={g.data.title} description={g.data.description} updated={g.data.updated} minutes={readingMinutes(g.body ?? '')} level={3} />
+							</li>
+						))}
+					</ul>
+				)}
+				<div class="mt-8 flex flex-wrap gap-3">
+					{related.map((link) => (
+						<a href={link.href} class="flex items-center gap-2 rounded-full border border-amber-600 bg-white px-4 py-2 text-amber-700 transition-colors hover:bg-amber-600 hover:text-white">
+							<link.icon class="h-5 w-5" aria-hidden="true" />{link.label}
+						</a>
+					))}
+					<a href="/guides" class="flex items-center gap-2 rounded-full border border-amber-600 bg-white px-4 py-2 text-amber-700 transition-colors hover:bg-amber-600 hover:text-white">Tous les guides</a>
+				</div>
+			</section>
+		</article>
+
+		<BackToTop />
+	</main>
+</MainLayout>
+
+<style>
+	/* Contenu Markdown rendu par <Content /> : pas de classes dans les fichiers .md, tout est stylé ici. */
+	.guide-prose {
+		@apply break-words text-[1.0625rem] leading-[1.75] text-gray-800 lg:text-lg;
+	}
+	.guide-prose > :global(:first-child) {
+		@apply mt-0;
+	}
+	.guide-prose :global(h2) {
+		@apply mb-4 mt-12 scroll-mt-32 border-b border-orange-100 pb-2 text-2xl font-bold leading-snug text-gray-900 lg:text-[1.75rem];
+	}
+	.guide-prose :global(h3) {
+		@apply mb-3 mt-8 scroll-mt-32 text-xl font-semibold leading-snug text-gray-900;
+	}
+	.guide-prose :global(p) {
+		@apply mb-5;
+	}
+	.guide-prose :global(ul),
+	.guide-prose :global(ol) {
+		@apply mb-6 space-y-2 pl-6;
+	}
+	.guide-prose :global(ul) {
+		@apply list-disc;
+	}
+	.guide-prose :global(ol) {
+		@apply list-decimal;
+	}
+	.guide-prose :global(li)::marker {
+		color: theme('colors.orange.600');
+		font-weight: 600;
+	}
+	.guide-prose :global(li > p) {
+		@apply mb-2;
+	}
+	.guide-prose :global(strong) {
+		@apply font-semibold text-gray-900;
+	}
+	.guide-prose :global(a) {
+		@apply text-amber-800 underline decoration-amber-300 underline-offset-2 hover:decoration-amber-700;
+	}
+	.guide-prose :global(code) {
+		@apply rounded bg-gray-100 px-1.5 py-0.5 text-[0.9em];
+	}
+	.guide-prose :global(hr) {
+		@apply my-10 border-orange-100;
+	}
+	/* « À retenir » */
+	.guide-prose :global(blockquote) {
+		@apply my-8 rounded-2xl border-l-4 border-amber-500 bg-amber-50 px-5 py-4 text-gray-800;
+	}
+	.guide-prose :global(blockquote > :last-child),
+	.guide-prose :global(.callout > :last-child) {
+		@apply mb-0;
+	}
+	/* encadrés « Attention » / information */
+	.guide-prose :global(.callout) {
+		@apply my-8 rounded-2xl border-l-4 px-5 py-4;
+	}
+	.guide-prose :global(.callout-warning) {
+		@apply border-red-600 bg-red-50 text-gray-900;
+	}
+	.guide-prose :global(.callout-info) {
+		@apply border-gray-400 bg-gray-50 text-gray-800;
+	}
+	/* tableaux : défilement horizontal sur mobile */
+	.guide-prose :global(.table-wrap) {
+		@apply my-8 overflow-x-auto rounded-2xl border border-orange-100;
+	}
+	.guide-prose :global(table) {
+		@apply w-full min-w-[34rem] border-collapse text-left text-base;
+	}
+	.guide-prose :global(th) {
+		@apply bg-orange-50 p-3 align-bottom font-semibold text-gray-900;
+	}
+	.guide-prose :global(td) {
+		@apply border-t border-orange-100 p-3 align-top;
+	}
+</style>

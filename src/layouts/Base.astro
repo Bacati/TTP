@@ -1,4 +1,5 @@
 ---
+import logo from 'assets/images/logo2.png'
 import Head, { type Props as HeadProps } from './Head.astro'
 import 'assets/styles/tailwind.css'
 import 'assets/styles/fonts.scss'
@@ -23,7 +24,9 @@ const siteJsonLd: Array<Record<string, unknown>> = [
 		name: SITE_NAME,
 		alternateName: 'TTP',
 		url: site,
-		email: 'contact@trouve-ta-piece.fr'
+		logo: new URL(logo.src, site).href,
+		email: 'contact@trouve-ta-piece.fr',
+		sameAs: ['https://www.instagram.com/ttp_trouvetapiece.fr/']
 	},
 	{
 		'@context': 'https://schema.org',

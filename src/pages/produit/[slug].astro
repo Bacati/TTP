@@ -2,19 +2,19 @@
 export const prerender = true
 
 import { getCollection } from 'astro:content'
+import ProductCard from 'components/ProductCard.astro'
 import Picture from 'components/global/Picture.astro'
 import MainLayout from 'layouts/MainLayout.astro'
-import { getCategory, resolvePrice } from 'libs/catalog'
-import { Undo2 } from 'lucide-astro'
+import { getCategory, getRelatedProducts, hasProductPage, productSlug, productToCard, resolvePrice } from 'libs/catalog'
+import { merchantOf } from 'libs/merchant'
+import { ChevronDown, ExternalLink, Undo2 } from 'lucide-astro'
 
 export async function getStaticPaths() {
 	const products = await getCollection('products')
-	return products
-		.filter((p) => p.data.body && p.data.link.type === 'product')
-		.map((p) => ({
-			params: { slug: p.data.link.type === 'product' ? p.data.link.slug : p.id },
-			props: { id: p.id }
-		}))
+	return products.filter(hasProductPage).map((p) => ({
+		params: { slug: productSlug(p) },
+		props: { id: p.id }
+	}))
 }
 
 const { id } = Astro.props
@@ -26,30 +26,56 @@ const price = resolvePrice(entry.data)
 const gallery = entry.data.gallery.length ? entry.data.gallery : [entry.data.image]
 const backUrl = `/categorie/${entry.data.category.id}`
 const category = await getCategory(entry.data.category.id)
+const parent = category?.data.parent ? await getCategory(category.data.parent.id) : undefined
+const related = (await getRelatedProducts(entry)).map(productToCard)
+
+// lien affilié : uniquement pour les produits qui renvoient vers un marchand
+const affiliateUrl = entry.data.link.type === 'external' ? entry.data.link.url : undefined
+const merchant = affiliateUrl ? merchantOf(affiliateUrl) : undefined
+
+const body = entry.data.body ?? ''
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+// la 1re phrase du texte est rédigée pour servir de meta description
+const description = stripTags(body.match(/<p[^>]*>([\s\S]*?)<\/p>/)?.[1] ?? body)
+
+// affichage : 1er paragraphe visible, le reste en sections dépliables (le texte reste dans le HTML, donc indexable)
+const intro = body.match(/^\s*<p[^>]*>[\s\S]*?<\/p>/)?.[0] ?? ''
+const rest = body.slice(intro.length).trim()
+const parts = rest ? rest.split(/(?=<h2>)/).filter((s) => s.trim()) : []
+const sections = parts.every((s) => s.startsWith('<h2>'))
+	? parts.map((s) => ({ title: stripTags(s.match(/<h2>([\s\S]*?)<\/h2>/)?.[1] ?? ''), html: s.replace(/<h2>[\s\S]*?<\/h2>/, '') }))
+	: rest
+		? [{ title: 'Détails et conseils d\'utilisation', html: rest }]
+		: []
 
 const site = Astro.site ?? Astro.url.origin
 const productUrl = new URL(Astro.url.pathname, site).href
-const description = (entry.data.body ?? '')
-	.replace(/<[^>]+>/g, ' ')
-	.replace(/\s+/g, ' ')
-	.trim()
+const crumbs = [
+	{ text: 'Accueil', href: '/' },
+	...(parent ? [{ text: parent.data.name, href: `/categorie/${parent.id}` }] : []),
+	...(category ? [{ text: category.data.name, href: backUrl }] : []),
+	{ text: entry.data.title }
+]
+
 const jsonLd = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Product',
 		name: entry.data.title,
-		description,
+		description: stripTags(body),
 		image: gallery.map((img) => new URL(img.src, site).href),
-		...(price != null ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: productUrl } } : {})
+		...(entry.data.brand ? { brand: { '@type': 'Brand', name: entry.data.brand } } : {}),
+		...(price != null ? { offers: { '@type': 'Offer', price, priceCurrency: 'EUR', url: productUrl } } : {})
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
-		itemListElement: [
-			{ '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', site).href },
-			...(category ? [{ '@type': 'ListItem', position: 2, name: category.data.name, item: new URL(backUrl, site).href }] : []),
-			{ '@type': 'ListItem', position: category ? 3 : 2, name: entry.data.title, item: productUrl }
-		]
+		itemListElement: crumbs.map((c, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: c.text,
+			item: c.href ? new URL(c.href, site).href : productUrl
+		}))
 	}
 ]
 ---
@@ -58,27 +84,81 @@ const jsonLd = [
 	title={`${entry.data.title} : prix et conseils | Trouve ta pièce`}
 	description={description}
 	image={gallery[0]}
+	imageAlt={entry.data.imageAlt}
+	og={{ type: 'product' }}
 	jsonLd={jsonLd}
 	class="overflow-x-hidden"
 >
 	<main id="main" class="pt-32">
-		<article class="mx-4 my-12 flex flex-col items-center gap-8 rounded-3xl bg-white p-6 md:mx-auto md:w-10/12 lg:flex-row lg:p-10">
-			<div class="flex aspect-square w-full max-w-md shrink-0 items-center justify-center rounded-full cards">
+		<article class="mx-4 mb-12 mt-20 flex flex-col items-center gap-8 rounded-3xl bg-white p-6 md:mx-auto md:mt-12 md:w-10/12 lg:flex-row lg:p-10">
+			<div class="relative aspect-square w-11/12 max-w-md shrink-0 rounded-full cards">
 				<Picture
 					src={gallery[0]!}
 					alt={entry.data.imageAlt}
 					width={640}
 					height={640}
 					loading="eager"
-					class="max-h-[80%] max-w-[80%] object-contain"
+					class="absolute left-1/2 top-1/2 aspect-square w-[115%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
 				/>
 			</div>
 			<div class="w-full lg:w-1/2">
+				{entry.data.brand && <p class="text-sm font-semibold uppercase tracking-wide text-amber-700">{entry.data.brand}</p>}
 				<h1 class="text-3xl font-bold lg:text-4xl">{entry.data.title}</h1>
-				{price != null && <p class="mt-2 text-3xl font-bold">{price}€</p>}
-				<div class="mt-4 leading-relaxed text-gray-700" set:html={entry.data.body} />
+				{entry.data.tagline && <p class="mt-1 text-lg text-gray-500">{entry.data.tagline}</p>}
+
+				{price != null && (
+					<p class="mt-4 text-3xl font-bold">
+						{price}€
+						{merchant && <span class="ml-2 text-sm font-normal text-gray-500">prix indicatif sur {merchant}</span>}
+					</p>
+				)}
+
+				{affiliateUrl && (
+					<div class="mt-5">
+						<a
+							href={affiliateUrl}
+							target="_blank"
+							rel="sponsored nofollow noopener noreferrer"
+							class="inline-flex items-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-lg font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+						>
+							Voir sur {merchant}
+							<ExternalLink class="h-5 w-5" aria-hidden="true" />
+						</a>
+						<p class="mt-2 text-xs text-gray-500">
+							Lien affilié : TTP peut percevoir une commission, sans surcoût pour vous. Le prix et la disponibilité sont ceux du vendeur au moment de l'achat.
+						</p>
+					</div>
+				)}
+
+				<div class="product-body mt-6 leading-relaxed text-gray-700" set:html={intro} />
+
+				{sections.length > 0 && (
+					<div class="mt-4 divide-y divide-gray-200 border-y border-gray-200">
+						{sections.map((s) => (
+							<details class="group">
+								<summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-3 text-lg font-semibold text-gray-900 [&::-webkit-details-marker]:hidden">
+									{s.title}
+									<ChevronDown class="h-5 w-5 shrink-0 text-amber-600 transition-transform duration-300 group-[[open]]:rotate-180" aria-hidden="true" />
+								</summary>
+								<div class="product-body pb-3 leading-relaxed text-gray-700" set:html={s.html} />
+							</details>
+						))}
+					</div>
+				)}
 			</div>
 		</article>
+
+		{related.length > 0 && (
+			<section class="mx-auto mb-12 w-11/12 lg:w-10/12" aria-labelledby="related-title">
+				<h2 id="related-title" class="mb-6 text-2xl font-bold">
+					Dans la même catégorie
+				</h2>
+				<div class="flex flex-wrap justify-center gap-6 lg:justify-start">
+					{related.map((card) => <ProductCard {...card} />)}
+				</div>
+			</section>
+		)}
+
 		<div class="mx-auto mb-16 w-10/12">
 			<a
 				href={backUrl}
@@ -89,3 +169,22 @@ const jsonLd = [
 		</div>
 	</main>
 </MainLayout>
+
+<style>
+	/* contenu HTML injecté par set:html (p, h2, ul, li, strong) : pas de classes dans les fiches */
+	.product-body :global(h2) {
+		@apply mb-2 mt-6 text-xl font-bold text-gray-900;
+	}
+	.product-body :global(p) {
+		@apply mb-2;
+	}
+	.product-body :global(ul) {
+		@apply mb-2 ml-5 list-disc;
+	}
+	.product-body :global(li) {
+		@apply mb-1.5;
+	}
+	.product-body :global(strong) {
+		@apply font-semibold text-gray-900;
+	}
+</style>
